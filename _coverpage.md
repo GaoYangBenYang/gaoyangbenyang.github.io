@@ -1,14 +1,14 @@
 <!-- 封面配置 -->
 
 <!-- 图标 -->
-![logo](_media/icon.svg)
+<!-- <img width="180px" style="border-radius: 50%" bor src="./doc/icon/favicon2.ico"> -->
 
-# GaoYang
+# GaoYang的个人博客
 
-> 一个神奇的个人博客。
+您觉得有帮助的话，欢迎star支持，谢谢~
 
-- 简单、轻便 (压缩后 ~21kB)
-- 无需生成 html 文件
-- 众多主题
+👣: 本站访问数：<span id="busuanzi_value_site_pv"></span>次
 
-[开始](#GaoYang)
+[博客](/docs/blog/)
+[笔记](/docs/notes/)
+[Github](https://github.com/GaoYangBenYang)

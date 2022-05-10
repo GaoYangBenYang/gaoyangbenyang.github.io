@@ -4,104 +4,108 @@
   <meta charset="UTF-8">
   <title>GaoYang</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="学习学习再学习！">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
 
-  <!-- 导航栏 -->
-  <nav>
-    <a href="#/">主页</a>
-    <a href="#/docs/blog/">博客</a>
-    <a href="#/docs/notes/">笔记</a>
-    <a href="#/docs/tools/">开源工具</a>
-  </nav>
-
   <!-- Loading 提示 -->
   <div id="app">加载中...</div>
   
-  <!-- 基础配置 -->
-  <script>
-    window.$docsify = {
-      name: 'GaoYang',      //文档标题，会显示在侧边栏顶部。
-      repo: 'GaoYangBenYang',   //跳转的GitHub仓库
-      loadSidebar: true,    //侧边栏
-      loadNavbar: true,     //导航栏
-      coverpage: true,      //封面
-      onlyCover: false,     //封面作为首页
-
-      // 全文搜索完整配置参数
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: 'auto', // or 'auto'
-        placeholder: '搜索',
-
-        // 支持本地化
-        placeholder: {
-          '/': '搜索'
-        },
-
-        noData: '找不到结果!',
-
-        // 支持本地化
-        noData: {
-          '/': '找不到结果!',
-        },
-
-        // 搜索标题的最大层级, 1 - 6
-        depth: 3,
-
-        hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
-
-        // 避免搜索索引冲突
-        // 同一域下的多个网站之间
-        namespace: 'website-1',
-
-        // 使用不同的索引作为路径前缀（namespaces）
-        // 注意：仅适用于 paths: 'auto' 模式
-        //
-        // 初始化索引时，我们从侧边栏查找第一个路径
-        // 如果它与列表中的前缀匹配，我们将切换到相应的索引
-        pathNamespaces: ['/zh-cn'],
-
-        // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
-        // 匹配到的字符串将被用来识别索引
-        pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/
-      },
-
-    }
-
-  </script>
-
-  <!-- Docsify v4 -->
+  <!-- Docsify v4 --> 
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  
-  <!-- 侧边栏 -->
+
+   <!-- 侧边栏 -->  <!-- 导航栏 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   
   <!-- emoji 插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   
-  <!-- 全文搜索 - Search -->
+  <!-- 引入搜索模块 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 
   <!-- 复制到剪贴板  -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 
   <!-- Gitalk issue评论插件-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
   <script>
-    const gitalk = new Gitalk({
-    clientID: '71b1bd270656c16a5578', // GitHub Application Client ID
-    clientSecret: 'c4770782ee0c95948d4734cefc13f5abb97415e8', // GitHub Application Client Secret
-    repo: 'gaoyangbenyang.github.io',      // 存放评论的仓库
-    owner: 'GaoYangBenYang',          // 仓库的创建者，
-    admin: ['GaoYangBenYang'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
-    id: location.pathname,      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
-    })
-  </script> 
+      const gitalk = new Gitalk({
+          clientID: '71b1bd270656c16a5578', // GitHub Application Client ID
+          clientSecret: 'c4770782ee0c95948d4734cefc13f5abb97415e8', // GitHub Application Client Secret
+          repo: 'gaoyangbenyang.github.io',      // 存放评论的仓库
+          owner: 'GaoYangBenYang',          // 仓库的创建者，
+          admin: ['GaoYangBenYang'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+          id: location.pathname,      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+      })
+  </script> -->
+
+  <!--添加不蒜子访问统计-->
+  <script async src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/js/busuanzi.pure.mini.js"></script>
+
+  <!-- 添加页脚 -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/docsify-footer-enh.min.js"></script> -->
+
+  <!-- 回到顶部功能 -->
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.goup.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $.goup({
+    trigger: 700,
+    bottomOffset: 20,
+    locationOffset: 8,
+    title: '',
+    titleAsText: true
+    });
+  });
+  </script>
+
+  <!-- 基础配置项 -->
+  <script>
+    window.$docsify = {
+      el:'#app',//docsify 初始化的挂载元素，可以是一个 CSS 选择器，默认为 #app 如果不存在就直接绑定在 body 上。
+      maxLevel: 6,//默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。1--6
+      // repo: 'GaoYangBenYang',//配置仓库地址或者 username/repo 的字符串，会在页面右上角渲染一个 GitHub Corner 挂件。
+      loadSidebar: true,//加载自定义侧边栏，参考多页文档。设置为 true 后会加载 _sidebar.md 文件，也可以自定义加载的文件名。loadSidebar: 'nav.md',
+      autoHeader: true,//同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题。#78
+      loadNavbar: false,//加载自定义导航栏，参考定制导航栏 了解用法。设置为 true 后会加载 _navbar.md 文件，也可以自定义加载的文件名。loadNavbar: 'nav.md',
+      hideSidebar: false,// 这个选项用来完全隐藏侧边栏，侧边栏的任何内容都不会被渲染。
+      subMaxLevel: 6,//自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
+      auto2top: true,//切换页面后是否自动跳转到页面顶部。
+      coverpage: true,//启用封面页。开启后是加载 _coverpage.md 文件，也可以自定义文件名。
+      onlyCover: true,//只在访问主页时加载封面。
+      // logo: '/_media/icon.svg',//在侧边栏中出现的网站图标，你可以使用CSS来更改大小
+      name: '<span>博客</span>',//文档标题，会显示在侧边栏顶部。name 项也可以包含自定义 HTML 代码来方便地定制。
+      // nameLink: '/',//点击文档标题后跳转的链接地址。
+      mergeNavbar: true,//小屏设备下合并导航栏到侧边栏。
+      // notFoundPage: '404.md',//在找不到指定页面时加载_404.md:或者加载自定义404页面:
+  
+      // 搜索配置参数
+      search: {
+        placeholder: '搜索', // 搜索提示框文字， 支持本地化，例子在下面
+        noData: '找不到结果!',
+        depth: 3,                       // 搜索标题的最大程级, 1 - 6
+      },
+      // footer: {
+      //   copy: '<span id="sitetime" style="font-size:14px"></span><br/><span style="font-size:14px">  Copyright <a href="https://t.1yb.co/sBOZ" target="_blank" style="font-size:14px"> 🏷️ <strong>陌溪</strong> </a>  &nbsp;  &copy; 2021.06.11 - 至今 &nbsp; <a href="https://beian.miit.gov.cn/" target="_blank" style="font-size:14px"> <strong>赣ICP备18014504号</strong></a></span>',
+      //   auth: '<br/><span style="font-size:14px"> 种一颗树最好的时间是十年前，其次是现在🌲️</span>',
+      //   pre: '<hr/>',
+      //   style: 'text-align: left;',
+      // }//添加页脚
+
+    }
+  </script>
+
+  <!-- 解决没有滚动条问题 -->
+  <style type="text/css">
+    body {
+      overflow: auto !important;
+    }
+  </style>  
+
 </body>
 </html>

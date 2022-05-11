@@ -9,45 +9,52 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-
-  <!-- Loading 提示 -->
   <div id="app">加载中...</div>
-  
-  <!-- Docsify v4 --> 
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-
-   <!-- 侧边栏 -->  <!-- 导航栏 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  
-  <!-- emoji 插件 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  
-  <!-- 引入搜索模块 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
-  <!-- 复制到剪贴板  -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-
-  <!-- Gitalk issue评论插件-->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
   <script>
-      const gitalk = new Gitalk({
-          clientID: '71b1bd270656c16a5578', // GitHub Application Client ID
-          clientSecret: 'c4770782ee0c95948d4734cefc13f5abb97415e8', // GitHub Application Client Secret
-          repo: 'gaoyangbenyang.github.io',      // 存放评论的仓库
-          owner: 'GaoYangBenYang',          // 仓库的创建者，
-          admin: ['GaoYangBenYang'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
-          id: location.pathname,      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
-      })
-  </script> -->
+    window.$docsify = {
+      name: '笔记',	 
+      coverpage: true, // 设置封面
+      onlyCover: true, // 只显示封面
+      loadSidebar: true, // 设置侧边栏
+      subMaxLevel: 2, //侧边栏显示当前页面的目录(标题)
+      loadNavbar: false, // 设置导航栏
+      // 完整配置参数
+      search: {
+        placeholder: '搜索', // 搜索提示框文字， 支持本地化，例子在下面
+        noData: '找不到结果!',
+        depth: 3,                       // 搜索标题的最大程级, 1 - 6
+      },
+    footer: {
+        copy: '<span id="sitetime" style="font-size:14px"></span>',
+        auth: '<br/><span style="font-size:14px"> </span>',
+        pre: '<hr/>',
+        style: 'text-align: left;',
+      }//添加页脚
+    }
+  </script>
+    
+  <script src="https://cdn.bootcdn.net/ajax/libs/docsify/4.11.2/docsify.js"></script>
+
+  <!-- 引入搜索模块 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/docsify/4.11.2/plugins/search.min.js"></script>
+
+  <!-- 添加一键拷贝代码-->
+  <script src="//unpkg.com/docsify-copy-code"></script></script>
 
   <!--添加不蒜子访问统计-->
   <script async src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/js/busuanzi.pure.mini.js"></script>
 
+  <!-- 鼠标点击特效 -->
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/click_heart.js"></script>
+
   <!-- 添加页脚 -->
-  <!-- <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/docsify-footer-enh.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/docsify-footer-enh.min.js"></script>
+
+  <!-- 字数统计功能 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+  <!-- 图片缩小方法-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 
   <!-- 回到顶部功能 -->
   <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.js"></script>
@@ -64,48 +71,44 @@
   });
   </script>
 
-  <!-- 基础配置项 -->
-  <script>
-    window.$docsify = {
-      el:'#app',//docsify 初始化的挂载元素，可以是一个 CSS 选择器，默认为 #app 如果不存在就直接绑定在 body 上。
-      maxLevel: 6,//默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。1--6
-      // repo: 'GaoYangBenYang',//配置仓库地址或者 username/repo 的字符串，会在页面右上角渲染一个 GitHub Corner 挂件。
-      loadSidebar: true,//加载自定义侧边栏，参考多页文档。设置为 true 后会加载 _sidebar.md 文件，也可以自定义加载的文件名。loadSidebar: 'nav.md',
-      autoHeader: true,//同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题。#78
-      loadNavbar: false,//加载自定义导航栏，参考定制导航栏 了解用法。设置为 true 后会加载 _navbar.md 文件，也可以自定义加载的文件名。loadNavbar: 'nav.md',
-      hideSidebar: false,// 这个选项用来完全隐藏侧边栏，侧边栏的任何内容都不会被渲染。
-      subMaxLevel: 6,//自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
-      auto2top: true,//切换页面后是否自动跳转到页面顶部。
-      coverpage: true,//启用封面页。开启后是加载 _coverpage.md 文件，也可以自定义文件名。
-      onlyCover: true,//只在访问主页时加载封面。
-      // logo: '/_media/icon.svg',//在侧边栏中出现的网站图标，你可以使用CSS来更改大小
-      name: '<span>博客</span>',//文档标题，会显示在侧边栏顶部。name 项也可以包含自定义 HTML 代码来方便地定制。
-      // nameLink: '/',//点击文档标题后跳转的链接地址。
-      mergeNavbar: true,//小屏设备下合并导航栏到侧边栏。
-      // notFoundPage: '404.md',//在找不到指定页面时加载_404.md:或者加载自定义404页面:
-  
-      // 搜索配置参数
-      search: {
-        placeholder: '搜索', // 搜索提示框文字， 支持本地化，例子在下面
-        noData: '找不到结果!',
-        depth: 3,                       // 搜索标题的最大程级, 1 - 6
-      },
-      // footer: {
-      //   copy: '<span id="sitetime" style="font-size:14px"></span><br/><span style="font-size:14px">  Copyright <a href="https://t.1yb.co/sBOZ" target="_blank" style="font-size:14px"> 🏷️ <strong>陌溪</strong> </a>  &nbsp;  &copy; 2021.06.11 - 至今 &nbsp; <a href="https://beian.miit.gov.cn/" target="_blank" style="font-size:14px"> <strong>赣ICP备18014504号</strong></a></span>',
-      //   auth: '<br/><span style="font-size:14px"> 种一颗树最好的时间是十年前，其次是现在🌲️</span>',
-      //   pre: '<hr/>',
-      //   style: 'text-align: left;',
-      // }//添加页脚
+  <!-- 添加代码高亮 -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>  
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>  
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
 
+
+  <!-- 添加网站运行时间统计 -->
+  <script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      var t1 = Date.UTC(2021, 06, 11, 00, 00, 00); //北京时间2021-06-11
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      if(document.getElementById("sitetime")) {
+        document.getElementById("sitetime").innerHTML = " 博客已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒 ";
+      }
     }
+    siteTime();
   </script>
-
-  <!-- 解决没有滚动条问题 -->
-  <style type="text/css">
-    body {
-      overflow: auto !important;
-    }
-  </style>  
 
 </body>
 </html>

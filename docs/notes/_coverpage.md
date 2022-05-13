@@ -2,4 +2,6 @@
 
 # 笔记分类
 
-[Golang](/docs/blog/Golang)
+[Golang](/docs/notes/Golang/)
+[Java](/docs/notes/Golang/)
+[Redis](/docs/notes/Golang/)

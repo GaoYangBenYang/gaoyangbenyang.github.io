@@ -10,6 +10,12 @@
 
     5.挂载点"/home" 逻辑分区 空间起始位置 文件系统类型 ext4日志文件系统 容量 剩余全部
 
+
+## ubuntu20隐藏桌面图表
+
+    gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+    gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+
 ## rm
 
 ### 基本语法

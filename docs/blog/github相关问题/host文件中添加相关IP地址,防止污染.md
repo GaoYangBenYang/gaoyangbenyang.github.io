@@ -1,5 +1,3 @@
-host文件中添加相关IP地址,防止污染
-
 #GitHub:
 140.82.114.3 github.com
 140.82.113.4 github.com

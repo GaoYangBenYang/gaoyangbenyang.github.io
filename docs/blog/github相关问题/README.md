@@ -1,24 +1,24 @@
-#GitHub:
-140.82.114.3 github.com
-140.82.113.4 github.com
-140.82.112.4 github.com
+    #GitHub:
+    140.82.114.3 github.com
+    140.82.113.4 github.com
+    140.82.112.4 github.com
 
-140.82.114.25 alive.github.com
-140.82.113.6 api.github.com
-140.82.112.21 collector.github.com
-140.82.114.3 gist.github.com
+    140.82.114.25 alive.github.com
+    140.82.113.6 api.github.com
+    140.82.112.21 collector.github.com
+    140.82.114.3 gist.github.com
 
-185.199.108.133 raw.githubusercontent.com
-185.199.109.133 raw.githubusercontent.com
-185.199.110.133 raw.githubusercontent.com
-185.199.111.133 raw.githubusercontent.com
+    185.199.108.133 raw.githubusercontent.com
+    185.199.109.133 raw.githubusercontent.com
+    185.199.110.133 raw.githubusercontent.com
+    185.199.111.133 raw.githubusercontent.com
 
-185.199.108.154 github.githubassets.com
-185.199.109.154 github.githubassets.com
-185.199.110.154 github.githubassets.com
-185.199.111.154 github.githubassets.com
+    185.199.108.154 github.githubassets.com
+    185.199.109.154 github.githubassets.com
+    185.199.110.154 github.githubassets.com
+    185.199.111.154 github.githubassets.com
 
-185.199.108.133 avatars.githubusercontent.com
-185.199.109.133 avatars.githubusercontent.com
-185.199.110.133 avatars.githubusercontent.com
-185.199.111.133 avatars.githubusercontent.com
+    185.199.108.133 avatars.githubusercontent.com
+    185.199.109.133 avatars.githubusercontent.com
+    185.199.110.133 avatars.githubusercontent.com
+    185.199.111.133 avatars.githubusercontent.com

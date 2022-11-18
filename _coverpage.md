@@ -3,7 +3,7 @@
 <!-- 图标 -->
 <!-- <img width="180px" style="border-radius: 50%" bor src="./doc/icon/favicon2.ico"> -->
 
-# GaoYang的个人博客
+# GaoYang的云笔记
 
 您觉得有帮助的话，欢迎star支持，谢谢~
 

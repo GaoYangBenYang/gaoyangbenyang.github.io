@@ -2,7 +2,8 @@
 title: Golang基础
 date: 2023-03-22 23:39:16
 author: GaoYang
-img:
+# img: /source/images/golang.png
+top: false
 summary: Golang基础知识
 categories: 后端
 tags:

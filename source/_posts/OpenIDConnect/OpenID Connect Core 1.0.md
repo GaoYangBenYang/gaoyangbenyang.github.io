@@ -40,205 +40,148 @@ OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端
 
 本规范还定义了以下术语:
 
-Authentication (身份验证)
+* Authentication (身份验证): 
+  
+  - 用于在实体和所呈现的身份之间实现足够信任的绑定的过程。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用于在实体和所呈现的身份之间实现足够信任的绑定的过程。
+* Authentication Request (身份验证请求):
+  
+  - OAuth 2.0授权请求，使用OpenID连接定义的扩展参数和作用域，请求授权服务器(OpenID连接提供者[OpenID Connect Provider])对客户端(OpenID连接依赖方[OpenID Connect Relying Party])进行身份验证。
 
+* Authentication Context (身份验证上下文): 
+  
+  - 依赖方(Relying Party)在对身份验证响应(authentication response)作出授权决定之前可能需要的信息。该上下文可以包括但不限于实际使用的认证方法或保证级别，例如ISO/IEC 29115 [ISO29115]实体认证保证级别。
 
-Authentication Request (身份验证请求)
+* Authentication Context Class (认证上下文类): 
+  
+  - 在特定上下文中被认为彼此等效的一组身份验证方法或过程。
 
-&emsp;&emsp;OAuth 2.0授权请求，使用OpenID连接定义的扩展参数和作用域，请求授权服务器(OpenID连接提供者[OpenID Connect Provider])对客户端(OpenID连接依赖方[OpenID Connect Relying Party])进行身份验证。
+* Authentication Context Class Reference (认证上下文类引用):
+  
+  - 身份验证上下文类的标识符。
 
+* Authorization Code Flow (授权码流): 
+  
+  -  OAuth 2.0流程，其中授权码从授权端点返回，所有令牌从令牌端点返回。
 
-Authentication Context (身份验证上下文)
+* Authorization Request (授权请求): 
+  
+  - OAuth 2.0授权请求[RFC6749]定义。
 
-&emsp;&emsp;依赖方(Relying Party)在对身份验证响应(authentication response)作出授权决定之前可能需要的信息。该上下文可以包括但不限于实际使用的认证方法或保证级别，例如ISO/IEC 29115 [ISO29115]实体认证保证级别。
+* Claim (索赔): 
 
+  - 关于一个实体的断言信息。
 
-Authentication Context Class (认证上下文类)
+* Claim Type (索赔类型): 
 
-&emsp;&emsp;在特定上下文中被认为彼此等效的一组身份验证方法或过程。
+  - 用于表示索赔值的语法。该规范定义了正常、聚合和分布式索赔类型。
 
+* Claims Provider (要求供应商): 
 
-Authentication Context Class Reference (认证上下文类引用)
+  - 可以返回关于实体的声明的服务器。
 
-&emsp;&emsp;身份验证上下文类的标识符。
+* Credential (凭证): 
 
+  - 作为使用身份或其他资源的权利的证据的数据。
 
-Authorization Code Flow (授权码流)
+* End-User (终端用户): 
 
-&emsp;&emsp;OAuth 2.0流程，其中授权码从授权端点返回，所有令牌从令牌端点返回。
+  - 人类的参与者。
 
+* Entity (实体)：
 
-Authorization Request (授权请求)
+  - 事物:具有独立的、独特的存在并能在某一语境中被识别的事物.终端用户是实体的一个例子。
 
-&emsp;&emsp;OAuth 2.0授权请求[RFC6749]定义。
+* Essential Claim (基本要求)：
 
+  - 客户端指定为确保最终用户请求的特定任务的顺利授权体验所必需的声明。
 
-Claim (索赔)
+* Hybrid Flow (混合流)：
 
-&emsp;&emsp;关于一个实体的断言信息。
+  - OAuth 2.0流程，其中从授权端点返回授权代码，从授权端点返回一些令牌，从令牌端点返回其他令牌。
 
+* ID Token (标识牌)：
 
-Claim Type (索赔类型)
+  - JSON Web令牌(JWT) [JWT]，包含关于身份验证事件的声明。它可能包含其他权利要求。
 
-&emsp;&emsp;用于表示索赔值的语法。该规范定义了正常、聚合和分布式索赔类型。
+* Identifier (标识符)：
 
+  - 该值在特定上下文中唯一地表征一个实体。
 
-Claims Provider (要求供应商)
+* Identity (身份)：
 
-&emsp;&emsp;可以返回关于实体的声明的服务器。
+  - 与实体相关的属性集。
 
+* Implicit Flow (隐式流)：
 
-Credential (凭证)
+  - OAuth 2.0流，其中所有令牌都从授权端点返回，既不使用令牌端点也不使用授权代码。
 
-&emsp;&emsp;作为使用身份或其他资源的权利的证据的数据。
+* Issuer (发行人)：
 
+  - 发布一组Claims的实体。
 
-End-User (终端用户)
+* Issuer Identifier (发行者标识符)：
 
-&emsp;&emsp;人类的参与者。
+  - 颁发者的可验证标识符。发布者标识符是一个大小写敏感的URL，使用https方案，包含方案、主机和可选的端口号和路径组件，没有查询或片段组件。
 
+* Message (消息)
 
-Entity (实体)
+  - OpenID依赖方和OpenID提供者之间的请求或响应。
 
-&emsp;&emsp;事物:具有独立的、独特的存在并能在某一语境中被识别的事物.终端用户是实体的一个例子。
+* OpenID Provider (OP) (OpenID提供者(OP))
 
+  - OAuth 2.0授权服务器，能够对最终用户进行身份验证，并向依赖方提供关于身份验证事件和最终用户的声明。
 
-Essential Claim (基本要求)
+* Request Object (请求对象)
 
-&emsp;&emsp;客户端指定为确保最终用户请求的特定任务的顺利授权体验所必需的声明。
+  - 包含一组请求参数作为声明的JWT。
 
+* Request URI (请求URI)
 
+  - 引用包含请求对象的资源的URL。请求URI内容必须能被授权服务器检索到。
 
-Hybrid Flow (混合流)
+* Pairwise Pseudonymous Identifier (PPID) (成对假名标识符(PPID))
 
-&emsp;&emsp;OAuth 2.0流程，其中从授权端点返回授权代码，从授权端点返回一些令牌，从令牌端点返回其他令牌。
+  - 向依赖方标识实体的标识符，该标识符不能与实体在另一个依赖方的PPID相关联。
 
+* Personally Identifiable Information (PII) (个人身份资料(PII))
 
-ID Token (标识牌)
+  - 可用于识别与该等信息相关的自然人的信息，或(b)与该等信息相关的自然人直接或间接相关的信息。
 
-&emsp;&emsp;JSON Web令牌(JWT) [JWT]，包含关于身份验证事件的声明。它可能包含其他权利要求。
+* Relying Party (RP) (依赖方(RP))
 
+  - OAuth 2.0客户端应用程序需要终端用户身份验证和来自OpenID提供者的声明。
 
-Identifier (标识符)
+* Sector Identifier (企业标识符)
 
-&emsp;&emsp;该值在特定上下文中唯一地表征一个实体。
+  - 依赖方的组织使用的URL的主机组件，作为依赖方的成对主题标识符计算的输入。
 
+* Self-Issued OpenID Provider (自发OpenID提供者)
 
-Identity (身份)
+  - 发布自签名ID令牌的个人的、自托管的OpenID提供者。
 
-&emsp;&emsp;与实体相关的属性集。
+* Subject Identifier (对象标识符)
 
+  - 在颁发者中为最终用户在本地唯一且从未重新分配的标识符，该标识符将被客户端使用。
 
-Implicit Flow (隐式流)
+* UserInfo Endpoint (用户信息端点)
 
-&emsp;&emsp;OAuth 2.0流，其中所有令牌都从授权端点返回，既不使用令牌端点也不使用授权代码。
+  - 受保护的资源，当客户端向其提供访问令牌时，返回有关由相应授权授予表示的最终用户的授权信息。UserInfo端点URL必须使用https方案，并且可以包含端口、路径和查询参数组件。
 
-发行人
-Issuer
 
-&emsp;&emsp;发布一组Claims的实体。
-Entity that issues a set of Claims.
+* Validation (验证)
 
-发行者标识符
-Issuer Identifier
+  - 旨在建立一个结构的健全性或正确性的过程。
 
-&emsp;&emsp;颁发者的可验证标识符。
-Verifiable Identifier for an Issuer.
 
-&emsp;&emsp;发布者标识符是一个大小写敏感的URL，使用https方案，包含方案、主机和可选的端口号和路径组件，没有查询或片段组件。
-An Issuer Identifier is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.
+* Verification (验证)
 
-消息
-Message
+  - 旨在检验或证明事实或价值的真实性或准确性的过程
 
-&emsp;&emsp;OpenID依赖方和OpenID提供者之间的请求或响应。
-Request or a response between an OpenID Relying Party and an OpenID Provider.
 
-OpenID提供者(OP)
-OpenID Provider (OP)
+* Voluntary Claim (自愿要求)
 
-&emsp;&emsp;OAuth 2.0授权服务器，能够对最终用户进行身份验证，并向依赖方提供关于身份验证事件和最终用户的声明。
-OAuth 2.0 Authorization Server that is capable of Authenticating the End-User and providing Claims to a Relying Party about the Authentication event and the End-User.
-
-请求对象
-Request Object
-
-包含一组请求参数作为声明的JWT。
-&emsp;&emsp;JWT that contains a set of request parameters as its Claims.
-
-请求URI
-Request URI
-
-引用包含请求对象的资源的URL。
-&emsp;&emsp;URL that references a resource containing a Request Object.
-
-请求URI内容必须能被授权服务器检索到。
-The Request URI contents MUST be retrievable by the Authorization Server.
-
-成对假名标识符(PPID)
-Pairwise Pseudonymous Identifier (PPID)
-
-&emsp;&emsp;向依赖方标识实体的标识符，该标识符不能与实体在另一个依赖方的PPID相关联。
-Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party.
-
-个人身份资料(PII)
-Personally Identifiable Information (PII)
-
-&emsp;&emsp;(a)可用于识别与该等信息相关的自然人的信息，或(b)与该等信息相关的自然人直接或间接相关的信息。
-Information that (a) can be used to identify the natural person to whom such information relates, or (b) is or might be directly or indirectly linked to a natural person to whom such information relates.
-
-依赖方(RP)
-Relying Party (RP)
-
-&emsp;&emsp;OAuth 2.0客户端应用程序需要终端用户身份验证和来自OpenID提供者的声明。
-OAuth 2.0 Client application requiring End-User Authentication and Claims from an OpenID Provider.
-
-企业标识符
-Sector Identifier
-
-&emsp;&emsp;依赖方的组织使用的URL的主机组件，作为依赖方的成对主题标识符计算的输入。
-Host component of a URL used by the Relying Party's organization that is an input to the computation of pairwise Subject Identifiers for that Relying Party.
-
-自发OpenID提供者
-Self-Issued OpenID Provider
-
-&emsp;&emsp;发布自签名ID令牌的个人的、自托管的OpenID提供者。
-Personal, self-hosted OpenID Provider that issues self-signed ID Tokens.
-
-对象标识符
-Subject Identifier
-
-&emsp;&emsp;在颁发者中为最终用户在本地唯一且从未重新分配的标识符，该标识符将被客户端使用。
-Locally unique and never reassigned identifier within the Issuer for the End-User, which is intended to be consumed by the Client.
-
-用户信息端点
-UserInfo Endpoint
-
-&emsp;&emsp;受保护的资源，当客户端向其提供访问令牌时，返回有关由相应授权授予表示的最终用户的授权信息。
-Protected Resource that, when presented with an Access Token by the Client, returns authorized information about the End-User represented by the corresponding Authorization Grant.
-
-&emsp;&emsp;UserInfo端点URL必须使用https方案，并且可以包含端口、路径和查询参数组件。
-The UserInfo Endpoint URL MUST use the https scheme and MAY contain port, path, and query parameter components.
-
-验证
-Validation
-
-&emsp;&emsp;旨在建立一个结构的健全性或正确性的过程。
-Process intended to establish the soundness or correctness of a construct.
-
-验证
-Verification
-
-&emsp;&emsp;检验:旨在检验或证明事实或价值的真实性或准确性的过程
-Process intended to test or prove the truth or accuracy of a fact or value.
-
-自愿要求
-Voluntary Claim
-
-&emsp;&emsp;客户指定的声明对于最终用户要求的特定任务是有用的，但不是必要的。
-Claim specified by the Client as being useful but not Essential for the specific task requested by the End-User.
+  - 客户指定的声明对于最终用户要求的特定任务是有用的，但不是必要的。
 
 
 ## 1.3.  概述

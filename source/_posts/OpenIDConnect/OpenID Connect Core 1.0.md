@@ -42,7 +42,7 @@ OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端
 
 Authentication (身份验证)
 
-&emsp;&emsp;用于在实体和所呈现的身份之间实现足够信任的绑定的过程。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用于在实体和所呈现的身份之间实现足够信任的绑定的过程。
 
 
 Authentication Request (身份验证请求)

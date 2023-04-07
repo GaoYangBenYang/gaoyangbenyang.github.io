@@ -10,79 +10,94 @@ tags:
 - OpenID Connect Core 1.0
 ---
 # 摘要
-OpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。它使客户端能够根据授权服务器执行的身份验证来验证最终用户的身份，并以可互操作和类似rest的方式获得关于最终用户的基本概要信息。
+OpenID Connect 1.0是OAuth 2.0协议之上的一个简单身份层。它使客户能够根据授权服务器执行的认证来验证最终用户的身份，并以可互操作的、类似REST的方式获得最终用户的基本资料信息。
 
-该规范定义了核心OpenID Connect功能:建立在OAuth 2.0之上的身份验证，并使用声明来传递有关最终用户的信息。它还描述了使用OpenID Connect的安全和隐私注意事项。
+本规范定义了OpenID Connect的核心功能:建立在OAuth 2.0之上的认证，并使用Claims来交流关于终端用户的信息。它还描述了使用OpenID Connect的安全和隐私注意事项。
 
 
 # 1.  简介
-OpenID Connect 1.0是OAuth 2.0 [RFC6749]协议之上的一个简单的身份层。它使客户端能够根据授权服务器执行的身份验证来验证最终用户的身份，并以可互操作和类似rest的方式获得关于最终用户的基本概要信息。
+OpenID Connect 1.0是OAuth 2.0 [RFC6749]协议之上的一个简单的身份层。它使客户能够根据授权服务器执行的认证来验证最终用户的身份，并以可互操作的、类似REST的方式获得最终用户的基本资料信息。
 
-OpenID Connect核心1.0规范定义了核心OpenID Connect功能:建立在OAuth 2.0之上的身份验证和使用声明来传递关于最终用户的信息。它还描述了使用OpenID Connect的安全和隐私注意事项。
+OpenID Connect Core 1.0规范定义了OpenID Connect的核心功能：建立在OAuth 2.0之上的认证，以及使用Claims来交流关于终端用户的信息。它还描述了使用OpenID Connect的安全和隐私考虑。
 
-作为背景，OAuth 2.0授权框架[RFC6749]和OAuth 2.0无记名令牌使用[RFC6750]规范为第三方应用程序提供了一个通用框架，以获取和使用对HTTP资源的有限访问。它们定义了获取和使用访问令牌访问资源的机制，但没有定义提供标识信息的标准方法。值得注意的是，如果不分析OAuth 2.0，它就无法提供关于最终用户身份验证的信息。读者应该熟悉这些规范。
+作为背景，OAuth 2.0授权框架[RFC6749]和OAuth 2.0承载令牌使用[RFC6750]规范为第三方应用程序提供了一个通用框架，以获得和使用对HTTP资源的有限访问。它们定义了获得和使用访问令牌访问资源的机制，但没有定义提供身份信息的标准方法。值得注意的是，如果不对OAuth 2.0进行剖析，它就无法提供关于终端用户的认证信息。希望读者能熟悉这些规范。
 
-OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端通过在授权请求中包含openid范围值来请求使用此扩展。关于执行身份验证的信息以JSON Web令牌(JWT) [JWT]形式返回，称为ID令牌(参见第2节)。实现OpenID连接的OAuth 2.0身份验证服务器也被称为OpenID提供者(OPs)。使用OpenID连接的OAuth 2.0客户端也被称为依赖方(RPs)。
+OpenID Connect将认证作为OAuth 2.0授权过程的一个扩展来实现。客户端通过在授权请求中包含openid范围值来请求使用该扩展。有关所执行的认证的信息将以JSON Web Token（JWT）[JWT]的形式返回，称为ID Token（见第2节）。实施OpenID Connect的OAuth 2.0认证服务器也被称为OpenID提供商（OP,OpenID Provider）。使用OpenID Connect的OAuth 2.0客户端也被称为信赖方（RPs,Relying Parties）。
 
-本规范假设依赖方已经获得了关于OpenID提供者的配置信息，包括其授权端点和令牌端点位置。此信息通常通过发现获得，如OpenID Connect Discovery 1.0 [OpenID. net]中所述。或可通过其他机制获得。
+本规范假定信赖方已经获得了有关 OpenID 提供商的配置信息，包括其授权端点和令牌端点的位置。这些信息通常是通过 OpenID Connect Discovery 1.0 [OpenID.Discovery] 中描述的 "发现 "获得的，也可以通过其他机制获得。
 
-同样，本规范假设依赖方已经获得了足够的凭据，并提供了使用OpenID提供者所需的信息。这通常是通过动态注册完成的，如OpenID连接动态客户端注册1.0 [OpenID.Discovery]，或可通过其他机制获得。
+同样，本规范假定信赖方已经获得了足够的凭证并提供了使用 OpenID 提供者所需的信息。这通常是通过动态注册完成的，如 OpenID Connect 动态客户端注册 1.0 [OpenID.Registration] 中所述，也可以通过其他机制获得。
+
 ## 1.1.  需求、符号和约定
+
 本文中关键字“必须”、“必须不”、“要求”、“应当”、“不应当”、“应该”、“不应该”、“建议”、“不建议”、“可能”和“可选”("MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL")的解释请参见RFC2119 [RFC2119]。
 
-在本文档的.txt版本中，值被引用，以表明它们将被字面理解。在协议消息中使用这些值时，引号绝对不能用作值的一部分。在本文档的HTML版本中，使用这种固定宽度的字体来指示字面上的值。
+在本文档的.txt版本中，值被加了引号，以表明它们将被视为字面意思。在协议信息中使用这些值时，引号不能作为值的一部分使用。在本文档的HTML版本中，要按字面意思理解的值是通过使用这种固定宽度的字体来表示的。
 
-在本规范中，JSON Web签名(JWS) [JWS]和JSON Web加密(JWE) [JWE]数据结构的所有使用都利用了JWS紧凑序列化或JWE紧凑序列化;没有使用JWS JSON Serialization和JWE JSON Serialization。
+本规范中所有对JSON网络签名（JWS）[JWS]和JSON网络加密（JWE）[JWE]数据结构的使用都是利用JWS紧凑序列化或JWE紧凑序列化;JWS JSON序列化和JWE JSON序列化不被使用。
 
 ## 1.2.  术语
 
-本规范使用OAuth 2.0 [RFC6749]定义的术语“访问令牌”、“授权代码”、“授权端点”、“授权授权”、“授权服务器”、“客户端”、“客户端认证”、“客户端标识符”、“授权类型”、“受保护资源”、“重定向URI”、“刷新令牌”、“资源所有者”、“资源服务器”、“响应类型”和“令牌端点”，术语“声明名称”、“声明值”、“JSON Web令牌(JWT)”、“JWT声明集”。和由JSON Web令牌(JWT) [JWT]定义的“嵌套JWT”，由JSON Web签名(JWS) [JWS]定义的术语“报头参数”和“JOSE报头”，由RFC2616 [RFC2616]定义的术语“用户代理”，以及由OAuth 2.0多响应类型编码实践[OAuth. responses]定义的术语“响应模式”。
+本规范使用 OAuth 2.0 [RFC6749] 定义的术语:
+* "Access Token 访问令牌"、"Authorization Code授权代码"、"Authorization Endpoint授权端点"、"Authorization Grant授权授予"、"Authorization Server授权服务器"、"Client客户端"、"Client Authentication客户端认证"、"Client Identifier客户端标识符"、"Client Secret客户端秘密"、"Grant Type授权类型"、"Protected Resource受保护资源"、"Redirection URI重定向 URI"、"Refresh Token刷新令牌"、"Resource Owner资源所有者"、"Resource Server资源服务器"、"Response Type响应类型 "以及 "Token Endpoint令牌端点" 
+
+由JSON Web Token (JWT) [JWT]所定义的术语:
+* "Claim Name (要求名称)"、"Claim Value(要求值)"、"JSON Web Token（JWT）"、"JWT Claims Set (JWT要求集)"、"Nested JWT (JWT嵌套)"
+
+由JSON Web Signature (JWS) [JWS]所定义的术语:
+* "Header Parameter(标头参数) "和 "JOSE Header (JOSE头) "。
+
+由RFC2616[RFC2616]定义的术语:
+* "User Agent(用户代理)"
+
+由OAuth 2.0多重响应类型编码实践[OAuth.Responses]所定义的术语：
+* "Response Mode(响应模式)"
 
 本规范还定义了以下术语:
 
 * Authentication (身份验证): 
   
-  - 用于在实体和所呈现的身份之间实现足够信任的绑定的过程。
+  - 用于对实体和所提交的身份之间的约束力达到足够的信心的过程。
 
 * Authentication Request (身份验证请求):
   
-  - OAuth 2.0授权请求，使用OpenID连接定义的扩展参数和作用域，请求授权服务器(OpenID连接提供者[OpenID Connect Provider])对客户端(OpenID连接依赖方[OpenID Connect Relying Party])进行身份验证。
+  - OAuth 2.0授权请求使用OpenID Connect定义的扩展参数和作用域，请求授权服务器（即OpenID Connect提供商）对客户（即OpenID Connect信赖方）进行认证。
 
 * Authentication Context (身份验证上下文): 
   
-  - 依赖方(Relying Party)在对身份验证响应(authentication response)作出授权决定之前可能需要的信息。该上下文可以包括但不限于实际使用的认证方法或保证级别，例如ISO/IEC 29115 [ISO29115]实体认证保证级别。
+  - 信赖方在对认证响应做出权利决定之前可以要求的信息。这种背景可以包括但不限于实际使用的认证方法或保证级别，如ISO/IEC 29115[ISO29115]实体认证保证级别。
 
-* Authentication Context Class (认证上下文类): 
+* Authentication Context Class (身份验证上下文类): 
   
-  - 在特定上下文中被认为彼此等效的一组身份验证方法或过程。
+  - 在特定情况下被认为是相互对等的一套认证方法或程序。
 
-* Authentication Context Class Reference (认证上下文类引用):
+* Authentication Context Class Reference (身份验证上下文类参考):
   
-  - 身份验证上下文类的标识符。
+  - 认证上下文类的标识符。
 
-* Authorization Code Flow (授权码流): 
+* Authorization Code Flow (授权代码流程): 
   
-  -  OAuth 2.0流程，其中授权码从授权端点返回，所有令牌从令牌端点返回。
+  -  OAuth 2.0流程中，授权码从授权端点返回，所有令牌从令牌端点返回。
 
 * Authorization Request (授权请求): 
   
-  - OAuth 2.0授权请求[RFC6749]定义。
+  - 如[RFC6749]所定义的OAuth 2.0授权请求。
 
-* Claim (索赔): 
+* Claim (断言): 
 
-  - 关于一个实体的断言信息。
+  - 关于一个实体的断言的信息片段。
 
 * Claim Type (索赔类型): 
 
-  - 用于表示索赔值的语法。该规范定义了正常、聚合和分布式索赔类型。
+  - 用于表示索赔值的语法。本规范定义了正常的、聚集的和分布的索赔类型。
 
 * Claims Provider (要求供应商): 
 
-  - 可以返回关于实体的声明的服务器。
+  - 能够返回关于实体的索赔的服务器。
 
 * Credential (凭证): 
 
-  - 作为使用身份或其他资源的权利的证据的数据。
+  - 作为有权使用某一身份或其他资源的证据而提出的数据。
 
 * End-User (终端用户): 
 
@@ -90,19 +105,19 @@ OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端
 
 * Entity (实体)：
 
-  - 事物:具有独立的、独特的存在并能在某一语境中被识别的事物.终端用户是实体的一个例子。
+  - 具有独立的和不同的存在，并且可以在一个环境中被识别的东西。终端用户是实体的一个例子。
 
 * Essential Claim (基本要求)：
 
-  - 客户端指定为确保最终用户请求的特定任务的顺利授权体验所必需的声明。
+  - 由客户指定的索赔，以确保最终用户要求的具体任务的顺利授权体验。
 
 * Hybrid Flow (混合流)：
 
-  - OAuth 2.0流程，其中从授权端点返回授权代码，从授权端点返回一些令牌，从令牌端点返回其他令牌。
+  - OAuth 2.0流程中，授权码从授权端点返回，一些令牌从授权端点返回，其他则从令牌端点返回。
 
 * ID Token (标识牌)：
 
-  - JSON Web令牌(JWT) [JWT]，包含关于身份验证事件的声明。它可能包含其他权利要求。
+  - JSON网络令牌（JWT）[JWT]，包含关于认证事件的声明。它可能包含其他的要求。
 
 * Identifier (标识符)：
 
@@ -114,7 +129,7 @@ OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端
 
 * Implicit Flow (隐式流)：
 
-  - OAuth 2.0流，其中所有令牌都从授权端点返回，既不使用令牌端点也不使用授权代码。
+  - OAuth 2.0流程中，所有的令牌都从授权端点返回，既不使用令牌端点也不使用授权码。
 
 * Issuer (发行人)：
 
@@ -168,24 +183,20 @@ OpenID Connect将身份验证实现为OAuth 2.0授权过程的扩展。客户端
 
   - 受保护的资源，当客户端向其提供访问令牌时，返回有关由相应授权授予表示的最终用户的授权信息。UserInfo端点URL必须使用https方案，并且可以包含端口、路径和查询参数组件。
 
-
 * Validation (验证)
 
   - 旨在建立一个结构的健全性或正确性的过程。
-
 
 * Verification (验证)
 
   - 旨在检验或证明事实或价值的真实性或准确性的过程
 
-
 * Voluntary Claim (自愿要求)
 
   - 客户指定的声明对于最终用户要求的特定任务是有用的，但不是必要的。
 
-
 ## 1.3.  概述
-OpenID连接协议抽象地遵循以下步骤。
+OpenID连接协议，抽象地说，遵循以下步骤。
 
 1. RP(客户端)向OpenID提供者(OP)发送一个请求。
 2. OP对终端用户进行认证并获得授权。
@@ -215,10 +226,10 @@ OpenID连接协议抽象地遵循以下步骤。
 |        |                                   |        |
 +--------+                                   +--------+
 ```
-# 2.  标识牌(ID Token)
-OpenID Connect对OAuth 2.0进行的主要扩展是ID Token数据结构，以允许对最终用户进行身份验证。ID Token是一种安全令牌，它包含在使用客户端时授权服务器对最终用户进行身份验证的声明，以及其他可能被请求的声明。ID Token表示为JSON Web Token(JWT)。
+# 2.  ID令牌 (ID Token)
+OpenID Connect对OAuth 2.0的主要扩展是ID Token数据结构，以使最终用户能够得到认证。ID Token是一个安全令牌，它包含关于授权服务器在使用客户端时对终端用户进行认证的要求，以及可能的其他要求。ID Token表示为JSON Web Token(JWT)。
 
-以下声明用于OpenID Connect使用的所有OAuth 2.0流的ID Token中:
+在OpenID Connect使用的所有OAuth 2.0流程中，ID Token中使用了以下要求:
 
 * iss
   - 必需的。Issuer响应的颁发者标识符。iss值是一个大小写敏感的URL，使用https方案，包含方案、主机和可选的端口号和路径组件，没有查询或片段组件。
@@ -458,22 +469,232 @@ HTTP/1.1 302 Found
 
 在与最终用户交互时，授权服务器必须采取适当的措施防止跨站请求伪造和点击劫持，如OAuth 2.0 [RFC6749]第10.12和10.13节所述。
 #### 3.1.2.4.  授权服务器获得最终用户同意/授权
+
+一旦最终用户通过身份验证，授权服务器必须在向依赖方发布信息之前获得授权决定。在使用的请求参数允许的情况下，可以通过与最终用户进行互动对话，明确同意的内容，或通过处理请求的条件或其他方式(例如，通过先前的行政同意)确定同意。第2节和5.3节描述了信息发布机制。
+
 #### 3.1.2.5.  认证响应成功
+
+身份验证响应是OP的授权端点返回的OAuth 2.0授权响应消息，用于响应RP发送的授权请求消息。
+
+当使用授权码流时，授权响应必须返回OAuth 2.0 [RFC6749] 4.1.2节中定义的参数，通过使用application/x-www-form-urlencoded格式将它们作为查询参数添加到授权请求中指定的redirect_uri中，除非指定了不同的响应模式。
+
+下面是使用此流的一个非规范示例成功响应(仅为显示目的在值中使用换行):
+```
+  HTTP/1.1 302 Found
+  Location: https://client.example.org/cb?
+    code=SplxlOBeZQQYbYS6WxSbIA
+    &state=af0ifjsldkj
+```
+有关授权码内容的实施说明，请参见章节15.5.1。
+
 #### 3.1.2.6.  认证错误响应
+
+身份验证错误响应是从OP的授权端点返回的OAuth 2.0授权错误响应消息，以响应由RP发送的授权请求消息。
+
+如果最终用户拒绝请求或最终用户认证失败，OP(授权服务器)将使用OAuth 2.0 [RFC6749] 4.1.2.1节中定义的错误响应参数通知RP(客户端)。(与RFC 6749无关的HTTP错误将使用适当的HTTP状态码返回给用户代理。)
+
+除非重定向URI无效，否则授权服务器将使用适当的错误和状态参数将客户端返回到授权请求中指定的重定向URI。其他参数不应返回。
+
+除OAuth 2.0 4.1.2.1中定义的错误码外，本规范还定义了以下错误码:
+
+* interaction_required
+  - 授权服务器需要某种形式的最终用户交互才能继续。当认证请求中的提示参数值为none时，此错误可能返回，但如果不显示终端用户交互的用户界面，则无法完成认证请求。
+* login_required
+  - 授权服务器需要终端用户身份验证。当认证请求中的提示参数值为none时，此错误可能返回，但如果不显示终端用户认证的用户界面，则无法完成认证请求。
+* account_selection_required
+  - 终端用户必须在授权服务器上选择一个会话。最终用户可以在授权服务器上使用不同的关联帐户进行身份验证，但最终用户没有选择会话。当身份验证请求中的提示参数值为none时，可能会返回此错误，但如果不显示用户界面提示会话使用，身份验证请求就无法完成。
+* consent_required
+  - 授权服务器需要最终用户的同意。当认证请求中的提示参数值为none时，可能会返回此错误，但如果没有显示最终用户同意的用户界面，则无法完成认证请求。
+* invalid_request_uri
+  - 授权请求中的request_uri返回错误或包含无效数据。
+* invalid_request_object
+  - 请求参数包含无效的请求对象。
+* request_not_supported
+  - OP不支持使用第6节中定义的请求参数。
+* request_uri_not_supported
+  - OP不支持使用第6节中定义的request_uri参数。
+* registration_not_supported
+  - OP不支持使用章节7.2.1中定义的注册参数。
+
+错误响应参数如下:
+* error
+  - 必需的。错误代码。
+* error_description
+  - 可选的。人类可读的ASCII编码错误的文本描述。
+* error_uri
+  - 可选的。包含有关错误的附加信息的网页的URI。
+* state
+  - OAuth 2.0状态值。如果授权请求包含状态参数，则为REQUIRED。设置为从客户端接收的值。
+
+使用授权代码流时，错误响应参数被添加到重定向URI的查询组件中，除非指定了不同的响应模式。
+
+下面是使用此流的一个非规范的错误响应示例(仅为显示目的在值中使用换行):
+```
+  HTTP/1.1 302 Found
+  Location: https://client.example.org/cb?
+    error=invalid_request
+    &error_description=
+      Unsupported%20response_type%20value
+    &state=af0ifjsldkj
+```
+
+
 #### 3.1.2.7.  验证响应验证
-### 3.1.3.  令牌端点
-#### 3.1.3.1.  令牌的请求
+
+当使用授权码流时，客户端必须根据RFC 6749验证响应，特别是章节4.1.2和10.12。
+
+### 3.1.3.  Token Endpoint (令牌端点)
+
+为了获得访问令牌、ID令牌和可选的刷新令牌，RP(客户端)在使用授权码流时向令牌端点发送令牌请求以获得令牌响应，如OAuth 2.0 [RFC6749]第3.2节所述。
+
+与令牌端点的通信必须使用TLS。有关使用TLS的更多信息，请参阅第16.17节。
+
+#### 3.1.3.1.  Token Request (令牌请求)
+
+客户端通过使用grant_type值authorization_code向令牌端点提供授权授权(以授权代码的形式)来发出令牌请求，如OAuth 2.0 [RFC6749]的4.1.3节所述。如果客户端是机密客户端，那么它必须使用为其client_id注册的身份验证方法向令牌端点进行身份验证，如第9节所述。
+
+客户端使用HTTP POST方法和表单序列化将参数发送到令牌端点，根据章节13.2，如OAuth 2.0 [RFC6749]章节4.1.3所述。
+
+下面是一个令牌请求的非规范示例(仅为显示目的在值中使用换行):
+```
+  POST /token HTTP/1.1
+  Host: server.example.com
+  Content-Type: application/x-www-form-urlencoded
+  Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+
+  grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
+    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+
+```
 #### 3.1.3.2.  令牌请求验证
+授权服务器必须按如下方式验证令牌请求:
+
+* 如果客户端被颁发客户端凭据，或者如果客户端使用另一种客户端身份验证方法，请根据第9节进行身份验证。
+* 确保授权代码已颁发给已验证的客户端。
+* 验证授权码是否有效。
+* 如果可能，验证授权码以前没有使用过。
+* 确保redirect_uri参数值与初始授权请求中包含的redirect_uri参数值相同。如果只有一个已注册的redirect_uri值而没有出现redirect_uri参数值，授权服务器可能会返回一个错误(因为客户端应该包含了该参数)，也可能不会出现错误(因为OAuth 2.0允许在这种情况下省略该参数)。
+* 验证所使用的授权码是在响应OpenID连接身份验证请求时发出的(以便从令牌端点返回ID令牌)。
 #### 3.1.3.3.  Token成功响应
+
+在从客户端接收并验证有效的授权令牌请求后，授权服务器将返回一个成功的响应，其中包括一个ID令牌和一个访问令牌。成功响应中的参数定义在OAuth 2.0 [RFC6749]的4.1.4节中。响应使用application/json媒体类型。
+
+OAuth 2.0 Token _type响应参数值必须是承载型，如OAuth 2.0承载令牌使用[RFC6750]中所述，除非已经与客户端协商了另一种令牌类型。服务器应该支持持名令牌类型;其他令牌类型的使用超出了本规范的范围。
+
+除了OAuth 2.0指定的响应参数外，响应中必须包含以下参数:
+* id_token
+  - ID与已认证会话关联的令牌值。
+
+
+所有包含令牌、秘密或其他敏感信息的令牌响应必须包括以下HTTP响应报头字段和值:
+
+| Header Name | Header Value |
+| :----:| :----: | 
+| Cache-Control | no-store |
+| Pragma | no-cache |
+
+下面是一个成功的令牌响应的非规范示例。本例中的ID令牌签名可以使用附录A.7中的密钥进行验证。
+```
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+
+  {
+   "access_token": "SlAV32hkKG",
+   "token_type": "Bearer",
+   "refresh_token": "8xLOxBtZp8",
+   "expires_in": 3600,
+   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
+     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
+     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
+     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
+     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q
+     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ
+     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
+     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
+     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
+     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
+  }
+```
+根据OAuth 2.0 [RFC6749]的规定，客户端应该忽略不可识别的响应参数。
 #### 3.1.3.4.  令牌错误响应
+如果令牌请求无效或未经授权，授权服务器将构造错误响应。令牌错误响应的参数定义在OAuth 2.0 [RFC6749]的5.2节中。HTTP响应体使用application/json媒体类型，HTTP响应代码为400。
+
+下面是一个非规范的Token Error Response示例:
+```
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+
+  {
+   "error": "invalid_request"
+  }
+```
 #### 3.1.3.5.  令牌响应验证
-#### 3.1.3.6.  标识牌
-#### 3.1.3.7.  ID令牌验证
+客户端必须按如下方式验证令牌响应:
+
+* 请遵循RFC 6749中的验证规则，特别是章节5.1和章节10.12中的验证规则。
+* 遵循章节3.1.3.7中的ID Token验证规则。
+* 遵循章节3.1.3.8中的访问令牌验证规则。
+
+#### 3.1.3.6.  ID Token (标识牌)
+
+ID Token的内容如第2节所述。当使用授权码流时，以下ID令牌声明的这些附加要求适用:
+
+* at_hash
+  - 可选的。访问令牌哈希值。它的值是access_token值的ASCII表示的八字节哈希的最左半部分的base64url编码，其中使用的哈希算法是ID令牌的JOSE报头的alg头参数中使用的哈希算法。例如，如果alg是RS256，则使用SHA-256哈希access_token值，然后取最左边的128位并用base64url对其进行编码。at_hash值是区分大小写的字符串。
+  - 
+#### 3.1.3.7.  ID Token 验证
+客户端必须在令牌响应中以以下方式验证ID令牌:
+1. 如果ID令牌是加密的，则使用客户端在OP用于加密ID令牌的注册期间指定的密钥和算法对其解密。如果在注册时与OP协商加密，并且ID令牌没有加密，RP应该拒绝它。
+2. OpenID提供者的发行者标识符(通常在发现期间获得)必须与iss(发行者)声明的值完全匹配。
+3. 客户端必须验证aud (audience) Claim是否包含其在由iss (Issuer) Claim标识为受众的颁发者处注册的client_id值。aud (audience)声明可以包含一个包含多个元素的数组。如果ID令牌没有将客户端列为有效受众，或者它包含了客户端不信任的其他受众，ID令牌必须被拒绝。
+4. 如果ID令牌包含多个受众，客户端应该验证azp声明是否存在。
+5. 如果出现azp(被授权方)索赔，客户端应验证其client_id是否为索赔值。
+6. 如果ID令牌是通过客户端和令牌端点(在此流程中)之间的直接通信接收到的，则可以使用TLS服务器验证来验证颁发者，而不是检查令牌签名。客户端必须使用JWT alg头参数中指定的算法，根据JWS [JWS]验证所有其他ID令牌的签名。客户端必须使用颁发者提供的密钥。
+7. alg值应该是RS256的默认值，或者是注册过程中客户端在id_token_signed_response_alg参数中发送的算法。
+8. 如果JWT alg头参数使用基于MAC的算法，如HS256、HS384或HS512，则使用aud (audience) Claim中包含的client_id对应的client_secret的UTF-8表示形式的字节作为验证签名的密钥。对于基于MAC的算法，如果aud是多值，或者azp值与aud值不同，则行为未指定。
+9. 当前时间必须在exp Claim所表示的时间之前。
+10. iat Claim可用于拒绝发出距离当前时间太远的令牌，从而限制为防止攻击而需要存储nonce的时间。可接受的范围是客户特定的。
+11. 如果在身份验证请求中发送了一个nonce值，则必须出现一个nonce Claim，并检查其值以验证它与在身份验证请求中发送的值相同。客户端应该检查nonce值是否有重放攻击。检测重放攻击的精确方法是特定于客户端的。
+12. 如果要求acr索赔，客户应检查所断言的索赔价值是否适当。acr声明值的含义和处理超出了本规范的范围。
+13. 如果请求了auth_time Claim，无论是通过对该Claim的特定请求还是使用max_age参数，客户端都应该检查auth_time Claim值，并在确定距离最后一次最终用户身份验证已经经过了太长时间时请求重新身份验证。
+
+
 #### 3.1.3.8.  访问令牌验证
+在使用授权码流时，如果ID令牌包含at_hash声明，客户端可以使用它来验证访问令牌，方法与隐式流相同，如3.2.2.9节所定义，但使用从令牌端点返回的ID令牌和访问令牌。
+
 ## 3.2.  使用隐式流进行身份验证
+介绍如何使用隐式流进行身份验证。当使用隐式流时，所有令牌都从授权端点返回;没有使用令牌端点。
+
+隐式流主要用于使用脚本语言在浏览器中实现的客户端。访问令牌和ID令牌直接返回给客户端，这可能会将它们暴露给最终用户和有权访问最终用户的用户代理的应用程序。授权服务器不执行客户端身份验证。
+
 ### 3.2.1.  隐式流程步骤
+隐式流遵循以下步骤:
+
+1. 客户端准备一个包含所需请求参数的身份验证请求。
+2. 客户端将请求发送到授权服务器。
+3. 授权服务器对终端用户进行认证。
+4. 授权服务器获得最终用户同意/授权。
+5. 授权服务器将终端用户发送回客户端，并使用ID令牌(如果请求的话)和访问令牌。
+6. 客户端验证ID令牌并检索最终用户的主题标识符。
+   
+
 ### 3.2.2.  授权端点
+在使用隐式流时，授权端点的使用方式与第3.1.2节中定义的授权代码流相同，除了本节中指定的不同之处。
+
 #### 3.2.2.1.  身份验证请求
+认证请求的定义见章节3.1.2.1，除了这些认证请求参数使用如下:
+* response_type
+  - 必需的。OAuth 2.0响应类型值，它确定要使用的授权处理流，包括从使用的端点返回哪些参数。使用隐式流时，此值为id_token token或id_token。这两个值的含义都在OAuth 2.0多响应类型编码实践[OAuth. responses]中定义。当取值为id_token时，返回No Access Token。
+  注意:虽然OAuth 2.0还为隐式流定义了令牌响应类型值，但OpenID连接不使用此响应类型，因为不会返回ID令牌。
+* redirect_uri
+  - 必需的。将响应发送到的重定向URI。这个URI必须精确匹配预先在OpenID提供者中注册的客户端的重定向URI值之一，并按照[RFC3986](简单字符串比较)第6.2.1节的描述进行匹配。当使用此流时，重定向URI绝对不能使用http方案，除非客户端是本地应用程序，在这种情况下，它可以使用带有localhost作为主机名的http:方案。
+* nonce
+  - 必需的。用于将客户端会话与ID令牌相关联并减轻重放攻击的字符串值。该值未经修改地从身份验证请求传递到ID令牌。在nonce值中必须存在足够的熵，以防止攻击者猜测值。有关实现注意事项，请参见15.5.2节。
+
 #### 3.2.2.2.  验证请求验证
 #### 3.2.2.3.  授权服务器对最终用户进行认证
 #### 3.2.2.4.  授权服务器获得最终用户同意/授权
@@ -483,7 +704,12 @@ HTTP/1.1 302 Found
 #### 3.2.2.8.  验证响应验证
 #### 3.2.2.9.  访问令牌验证
 #### 3.2.2.10.  标识牌
+
 #### 3.2.2.11.  ID令牌验证
+
+
+
+
 ## 3.3.  使用混合流进行身份验证
 ### 3.3.1.  混合流程步骤
 ### 3.3.2.  授权端点
@@ -509,7 +735,13 @@ HTTP/1.1 302 Found
 #### 3.3.3.7.  ID令牌验证
 #### 3.3.3.8.  访问令牌
 #### 3.3.3.9.  访问令牌验证
+
+
+
+
 # 4.  从第三方发起登录
+
+
 # 5.  索赔
 ## 5.1.  标准要求
 ### 5.1.1.  解决索赔

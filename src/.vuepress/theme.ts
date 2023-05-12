@@ -1,6 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { Navbar } from "./navbar/navbar.js";
-import { Sidebar } from "./sidebar/sidebar.js";
+import { Navbar } from "./navbar.js";
 
 export default hopeTheme({
   // 导航栏
@@ -10,7 +9,7 @@ export default hopeTheme({
   //是否在导航栏显示图标
   navbarIcon:true,
   // 侧边栏
-  sidebar: Sidebar,
+  sidebar: false,
   //主题在深色和浅色之间切换
   darkmode:"toggle",
   //页脚

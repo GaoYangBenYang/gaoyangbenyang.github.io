@@ -37,14 +37,14 @@ export const Navbar = navbar([
         icon: "language",
         prefix: "Rust/",
         children: [
-          { text: "Rust基础", icon: "/assets/icon/rust-lang-icon.svg", link: "Rust基础.md" },
+          { text: "Rust基础", icon: "rust", link: "Rust基础.md" },
         ],
       },
     ],
   },
   { 
     text: "数据库",
-    icon: ``,
+    icon: "database",
     prefix: "/Database/",
     children: [
       {
@@ -59,7 +59,7 @@ export const Navbar = navbar([
         text: "非关系型数据库",
         prefix: "apple/",
         children: [
-          { text: "Redis基础", icon: "Redis", link: "1" },
+          { text: "Redis基础", icon: "redis", link: "1" },
           { text: "Elasticsearsh基础", icon: "elastic", link: "2" },
         ],
       },
@@ -67,14 +67,14 @@ export const Navbar = navbar([
   },
   { 
     text: "消息队列",
-    icon: "discover",
+    icon: "xiaoxiduilie",
     prefix: "/MessageQueue/",
     children: [
       {
         text: "RabbitMQ",
         prefix: "RabbitMQ/",
         children: [
-          { text: "RabbitMQ基础", icon: "vue", link: "1" },
+          { text: "RabbitMQ基础", icon: "rabbitmq", link: "1" },
         ],
       },
       {
@@ -88,7 +88,7 @@ export const Navbar = navbar([
   },
   { 
     text: "运维",
-    icon: "discover",
+    icon: "yunweiguanli",
     prefix: "/OperationAndMaintenance/",
     children: [
       {
@@ -102,50 +102,57 @@ export const Navbar = navbar([
         text: "Docker",
         prefix: "Docker/",
         children: [
-          { text: "Dcoker基础", icon: "vue", link: "1" },
+          { text: "Dcoker基础", icon: "docker", link: "1" },
         ],
       },
       {
         text: "Kubernetes",
         prefix: "Kubernetes/",
         children: [
-          { text: "Kubernetes基础", icon: "vue", link: "1" },
+          { text: "Kubernetes基础", icon: "kubernetes", link: "1" },
         ],
       },
     ],
   },
   { 
     text: "数据结构与算法",
-    icon: "discover",
+    icon: "jiegou",
     prefix: "/DataStructuresAndAlgorithms/",
     children: [
       {
         text: "队列",
+        icon: "shujujiegou",
         link: "Queue.md",
-      }
+      },
+      {
+        text: "二分查找",
+        icon: "suanfa",
+        link: "Queue.md",
+      },
     ],
   },
   { 
     text: "设计模式",
-    icon: "discover",
+    icon: "kaifasheji",
     prefix: "/DesignPattern/",
     children: [
       {
         text: "单例模式",
+        icon: "kaifasheji",
         link: "1",
       }
     ],
   },
   { 
     text: "面试题",
-    icon: "discover",
+    icon: "mianshitiku",
     prefix: "/InterviewQuestion/",
     children: [
       {
         text: "编程语言",
         prefix: "Language/",
         children: [
-          { text:"Golang面试题" ,icon: "vue", link:"Golang/Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"Golang/Golang面试题.md"}
         ],
       },
       {
@@ -170,39 +177,41 @@ export const Navbar = navbar([
         prefix: "apple/",
         children: [
           { text: "Redis面试题", icon: "redis", link: "1" },
-          { text: "TDengine面试题", icon: "edit", link: "2" },
-          { text: "Elasticsearsh面试题", icon: "edit", link: "2" },
+          { text: "TDengine面试题", icon: "connectdevelop", link: "2" },
+          { text: "Elasticsearsh面试题", icon: "elastic", link: "2" },
         ],
       },
       {
         text: "计算机基础",
         prefix: "apple/",
         children: [
-          { text: "苹果1", icon: "vue", link: "1" },
-          { text: "苹果2", icon: "edit", link: "2" },
-
+ 
         ],
       },
     ],
   },
   { 
-    text: "索引",
-    icon: "discover",
+    text: "更多",
+    icon: "gengduo",
     children: [
       {
         text: "收藏",
+        icon: "shoucang",
         link:"/star/",
       },
       {
         text: "分类",
+        icon: "fenlei",
         link:"/category/",
       },
       {
         text: "标签",
+        icon: "biaoqian",
         link:"/tag/",
       },
       {
         text: "归档",
+        icon: "guidang",
         link:"/timeline/",
       },
       { 

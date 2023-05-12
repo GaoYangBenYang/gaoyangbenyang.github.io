@@ -28,7 +28,8 @@ export default hopeTheme({
     email: "GaoYangBenYang@outlook.com",
   },
 
-  iconAssets: "iconfont",
+  iconAssets: "//at.alicdn.com/t/c/font_4065355_i4bvsgrwgf.css",
+  iconPrefix: "iconfont icon-",
 
   logo: "/logo.svg",
 

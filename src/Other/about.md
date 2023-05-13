@@ -1,5 +1,7 @@
 ---
 icon: info
+article: false
+timeline: false
 ---
 
 # 介绍页

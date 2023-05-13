@@ -1,2 +1,58 @@
 // you can change colors here
 $theme-color: #19CAAD;
+
+$bg-color: (
+  light: #f5f5d5,
+  dark: #0d1117,
+);
+
+$bg-color-secondary: (
+  light: #ececcc,
+  dark: #161b22,
+);
+
+$bg-color-tertiary: (
+  light: #ececcc,
+  dark: #21262c,
+);
+
+$border-color: (
+  light: #eaecef,
+  dark: #30363d,
+) !default;
+
+// shadow
+$box-shadow: (
+  light: #f0f1f2,
+  dark: #282a32,
+) !default;
+$card-shadow: (
+  light: rgb(0 0 0 / 15%),
+  dark: rgb(0 0 0 / 30%),
+) !default;
+
+// constants
+$black: (
+  light: #000,
+  dark: #fff,
+);
+$dark-grey: (
+  light: #666,
+  dark: #999,
+);
+$light-grey: (
+  light: #999,
+  dark: #666,
+);
+$white: (
+  light: #fff,
+  dark: #000,
+);
+$grey3: (
+  light: #333,
+  dark: #bbb,
+);
+$grey12: (
+  light: #bbb,
+  dark: #333,
+);

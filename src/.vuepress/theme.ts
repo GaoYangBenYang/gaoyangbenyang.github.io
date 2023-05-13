@@ -5,21 +5,22 @@ export default hopeTheme({
   // 导航栏
   navbar: Navbar,
   //自定义导航栏布局
-  navbarLayout:{ start: ["Brand"], center: [], end: ["Search","Links","Language", "Repo", "Outlook"] },
+  navbarLayout: { start: ["Brand"], center: [], end: ["Search","Links","Language", "Repo", "Outlook"] },
   //是否在导航栏显示图标
-  navbarIcon:true,
+  navbarIcon: true,
   // 侧边栏
   sidebar: false,
   //主题在深色和浅色之间切换
-  darkmode:"toggle",
+  darkmode: "toggle",
   //页脚
   // footer: `<span id="siteTime"></span>`,
   copyright:"Copyright © 2022-至今 GaoYang",
   displayFooter: true,
   //是否显示编辑链接
-  editLink:false,
+  editLink: false,
   // 是否显示最后更新时间
-  lastUpdated:true,
+  lastUpdated: true,
+  contributors: true,
   // 当前网站部署到的域名。
   hostname: "https://gaoyangbenyang.github.io/",
   // 文章显示的默认作者
@@ -28,7 +29,7 @@ export default hopeTheme({
     url: "https://github.com/GaoYangBenYang",
     email: "GaoYangBenYang@outlook.com",
   },
-
+  
   iconAssets: "//at.alicdn.com/t/c/font_4065355_5md89msolqb.css",
   iconPrefix: "iconfont icon-",
   logo: "/logo.svg",
@@ -48,8 +49,9 @@ export default hopeTheme({
       // Zhihu: "https://example.com",
     },
     //是否剪裁头像为圆形形状
-    roundAvatar:true,
-
+    roundAvatar: true,
+    //每页显示博客数量
+    articlePerPage: 6,
   },
 
   encrypt: {

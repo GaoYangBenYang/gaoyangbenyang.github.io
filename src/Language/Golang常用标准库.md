@@ -88,7 +88,7 @@ fmt.Println(timeObj5.Unix())
 
     time包中定义的时间间隔类型的常量如下：
 
-![image-20200721081402315](images/image-20200721081402315.png)
+![image-20200721081402315](/assets/images/Golang/image-20200721081402315.png)
 
 ### 时间操作函数
 

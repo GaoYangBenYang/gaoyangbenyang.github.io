@@ -18,6 +18,8 @@ export default hopeTheme({
   displayFooter: true,
   //是否显示编辑链接
   editLink:false,
+  // 是否显示最后更新时间
+  lastUpdated:true,
   // 当前网站部署到的域名。
   hostname: "https://gaoyangbenyang.github.io/",
   // 文章显示的默认作者
@@ -27,9 +29,8 @@ export default hopeTheme({
     email: "GaoYangBenYang@outlook.com",
   },
 
-  iconAssets: "//at.alicdn.com/t/c/font_4065355_i4bvsgrwgf.css",
+  iconAssets: "//at.alicdn.com/t/c/font_4065355_5md89msolqb.css",
   iconPrefix: "iconfont icon-",
-
   logo: "/logo.svg",
 
   repo: "https://github.com/GaoYangBenYang",

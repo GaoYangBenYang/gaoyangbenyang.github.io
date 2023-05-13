@@ -1,30 +1,15 @@
 ---
-# 这是文章的标题
 title: Vue基础
-# You can customize cover image
-# cover: /assets/images/cover1.jpg
-# 这是页面的图标
 icon: vue
-# 这是侧边栏的顺序
-# order: 1
-# 设置作者
-# author: Ms.Hope
-# 设置写作时间
 date: 2022-01-01
-# 一个页面可以有多个分类
 category:
   - Vue
-# 一个页面可以有多个标签
 tag:
   - 基础
-# 此页面会在文章列表置顶
-sticky: false
-# 此页面会出现在文章收藏中
-star: true
-# 你可以自定义页脚
-# footer: 这是测试显示的页脚
-# 你可以自定义版权信息
-# copyright: 无版权
+pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
+headerDepth: 3
+prev: AutoLinkOptions
+next: AutoLinkOptions
 ---
 
 # 基础文档

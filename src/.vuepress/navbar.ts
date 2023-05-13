@@ -17,25 +17,20 @@ export const Navbar = navbar([
     children: [
       {
         text: "Vue",
-        icon: "language",
-        prefix: "Vue/",
         children: [
           { text: "Vue基础", icon: "vue", link: "vue基础.md" },
         ],
       },
       {
         text: "Golang",
-        icon: "language",
-        prefix: "Golang/",
         children: [
           { text: "Golang基础", icon: "golang", link: "Golang基础.md" },
           { text: "Golang进阶", icon: "golang", link: "Golang进阶.md" },
+          { text: "Golang常用标准库", icon: "golang", link: "Golang常用标准库.md" },
         ],
       },
       {
         text: "Rust",
-        icon: "language",
-        prefix: "Rust/",
         children: [
           { text: "Rust基础", icon: "rust", link: "Rust基础.md" },
         ],
@@ -50,14 +45,12 @@ export const Navbar = navbar([
       {
         text: "关系型数据库",
         icon: "mysql",
-        prefix: "apple/",
         children: [
           { text: "MySQL基础", icon: "mysql", link: "1" },
         ],
       },
       {
         text: "非关系型数据库",
-        prefix: "apple/",
         children: [
           { text: "Redis基础", icon: "redis", link: "1" },
           { text: "Elasticsearsh基础", icon: "elastic", link: "2" },
@@ -72,14 +65,12 @@ export const Navbar = navbar([
     children: [
       {
         text: "RabbitMQ",
-        prefix: "RabbitMQ/",
         children: [
           { text: "RabbitMQ基础", icon: "rabbitmq", link: "1" },
         ],
       },
       {
         text: "Kafka",
-        prefix: "Kafka/",
         children: [
           { text: "Kafka基础", icon: "Kafka", link: "1" },
         ],
@@ -93,21 +84,19 @@ export const Navbar = navbar([
     children: [
       {
         text: "Linux",
-        prefix: "Linux/",
         children: [
           { text: "Ubuntu基础", icon: "ubuntu", link: "1" },
+          { text: "WSL2的使用与BUG", icon: "linux", link: "WSL2的使用与BUG.md" },
         ],
       },
       {
         text: "Docker",
-        prefix: "Docker/",
         children: [
           { text: "Dcoker基础", icon: "docker", link: "1" },
         ],
       },
       {
         text: "Kubernetes",
-        prefix: "Kubernetes/",
         children: [
           { text: "Kubernetes基础", icon: "kubernetes", link: "1" },
         ],
@@ -150,9 +139,8 @@ export const Navbar = navbar([
     children: [
       {
         text: "编程语言",
-        prefix: "Language/",
         children: [
-          { text:"Golang面试题" ,icon: "golang", link:"Golang/Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
         ],
       },
       {
@@ -217,7 +205,7 @@ export const Navbar = navbar([
       { 
         text: "关于",
         icon: "info",
-        link:"/Other/About/",
+        link:"/Other/about.md",
       },
     ],
   },

@@ -108,15 +108,17 @@ export const Navbar = navbar([
     icon: "jiegou",
     prefix: "/DataStructuresAndAlgorithms/",
     children: [
-      {
-        text: "队列",
-        icon: "shujujiegou",
-        link: "Queue.md",
+      { 
+        text: "数据结构",
+        children:[
+          { text: "队列", icon: "shujujiegou", link: "Queue.md", },
+        ],
       },
-      {
-        text: "二分查找",
-        icon: "suanfa",
-        link: "Queue.md",
+      { 
+        text: "算法",
+        children:[
+          { text: "二分查找", icon: "suanfa", link: "Queue.md", },
+        ],
       },
     ],
   },
@@ -130,6 +132,43 @@ export const Navbar = navbar([
         icon: "kaifasheji",
         link: "1",
       }
+    ],
+  },
+  { 
+    text: "进阶之路",
+    icon: "kaifasheji",
+    prefix: "/TheWayForward/",
+    children: [
+      { 
+        text: "CI\/CD",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+      { 
+        text: "分布式",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+      { 
+        text: "高并发",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+      { 
+        text: "海量数据",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+      { 
+        text: "系统设计",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
     ],
   },
   { 

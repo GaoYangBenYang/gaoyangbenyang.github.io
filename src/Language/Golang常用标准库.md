@@ -6,7 +6,6 @@ category:
   - Golang
 tag:
   - 标准库
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 prev: AutoLinkOptions
 next: AutoLinkOptions
 ---

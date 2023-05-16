@@ -7,7 +7,7 @@ category:
 tag:
   - 进阶
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-prev: AutoLinkOptions
+prev: Golang基础.md
 next: AutoLinkOptions
 ---
 

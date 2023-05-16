@@ -1,7 +1,12 @@
 ---
 title: Golang常⻅面试题解析
-data: 2023-05-15
+date: 2023-05-15
 icon: golang
+category:
+  - Golang
+tag:
+  - 面试题
+pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 ---
 
 ## 交替打印数字和字母
@@ -23,7 +28,7 @@ icon: golang
 ```
 12AB34CD56EF78GH910IJ1112KL1314MN1516OP1718QR1920ST2122UV2324WX2526YZ
 ```
-```Go
+```go
 letter, number := make(chan bool), make(chan bool)
 wait := sync.WaitGroup{}
 go func() {

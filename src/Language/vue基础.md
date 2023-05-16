@@ -6,7 +6,7 @@ category:
   - Vue
 tag:
   - 基础
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
+# pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 headerDepth: 3
 prev: AutoLinkOptions
 next: AutoLinkOptions

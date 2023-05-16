@@ -8,7 +8,7 @@ tag:
   - 基础
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 prev: AutoLinkOptions
-next: AutoLinkOptions
+next: Golang进阶.md
 ---
 
 # 1.安装

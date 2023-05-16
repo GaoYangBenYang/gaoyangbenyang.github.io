@@ -1,10 +1,10 @@
 ---
 # 这是文章的标题
-title: Vue基础
+title: Rust基础
 # You can customize cover image
 # cover: /assets/images/cover1.jpg
 # 这是页面的图标
-icon: vue
+icon: rust
 # 这是侧边栏的顺序
 # order: 1
 # 设置作者
@@ -13,7 +13,7 @@ icon: vue
 date: 2022-01-01
 # 一个页面可以有多个分类
 category:
-  - Vue
+  - Rust
 # 一个页面可以有多个标签
 tag:
   - 基础

@@ -86,7 +86,6 @@ export const Navbar = navbar([
         text: "Linux",
         children: [
           { text: "Ubuntu基础", icon: "ubuntu", link: "1" },
-          { text: "WSL2的使用与BUG", icon: "linux", link: "WSL2的使用与BUG.md" },
         ],
       },
       {
@@ -172,6 +171,25 @@ export const Navbar = navbar([
     ],
   },
   { 
+    text: "飞升之路",
+    icon: "kaifasheji",
+    prefix: "/TheWayForward/",
+    children: [
+      { 
+        text: "CI\/CD",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+      { 
+        text: "分布式",
+        children:[
+          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+        ],
+      },
+    ],
+  },
+  { 
     text: "面试题",
     icon: "mianshitiku",
     prefix: "/InterviewQuestion/",
@@ -218,34 +236,8 @@ export const Navbar = navbar([
     ],
   },
   { 
-    text: "更多",
-    icon: "gengduo",
-    children: [
-      {
-        text: "收藏",
-        icon: "shoucang",
-        link:"/star/",
-      },
-      {
-        text: "分类",
-        icon: "fenlei",
-        link:"/category/",
-      },
-      {
-        text: "标签",
-        icon: "biaoqian",
-        link:"/tag/",
-      },
-      {
-        text: "归档",
-        icon: "guidang",
-        link:"/timeline/",
-      },
-      { 
-        text: "关于",
-        icon: "info",
-        link:"/Other/about.md",
-      },
-    ],
+    text: "关于",
+    icon: "info",
+    link:"/Other/about.md",
   },
 ]);

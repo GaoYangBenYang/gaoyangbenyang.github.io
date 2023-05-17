@@ -6,13 +6,19 @@ category:
   - Linux
 tag:
   - WSL2
+# 此页面会在文章列表置顶
+sticky: true
+# 此页面会出现在文章收藏中
+star: true
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 prev: AutoLinkOptions
 next: AutoLinkOptions
 ---
 
-## WSL如何重新启动（restart）,sudo systemctl restart命令无效
-    * 打开任务管理器，找到服务选项卡，找到LxssManager右键重新启动即可。
+## WSL如何重新启动（restart）
+sudo systemctl restart命令无效
+
+* 打开任务管理器，找到服务选项卡，找到LxssManager右键重新启动即可。
 
 
 ## WSL2中安装Docker

@@ -11,7 +11,6 @@ OpenID Connect 1.0是OAuth 2.0协议之上的一个简单身份层。它使客�
 
 本规范定义了OpenID Connect的核心功能:建立在OAuth 2.0之上的认证，并使用Claims来交流关于终端用户的信息。它还描述了使用OpenID Connect的安全和隐私注意事项。
 
-
 # 1.  简介
 OpenID Connect 1.0是OAuth 2.0 [RFC6749]协议之上的一个简单的身份层。它使客户能够根据授权服务器执行的认证来验证最终用户的身份，并以可互操作的、类似REST的方式获得最终用户的基本资料信息。
 

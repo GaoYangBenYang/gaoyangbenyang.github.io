@@ -4,8 +4,8 @@ import { Navbar } from "./navbar.js";
 export default hopeTheme({
   // 导航栏
   navbar: Navbar,
-  //自定义导航栏布局
-  navbarLayout: { start: ["Brand"], center: [], end: ["Search","Links","Language", "Repo", "Outlook"] },
+  //自定义导航栏布局 "Repo"去掉仓库
+  navbarLayout: { start: ["Brand"], center: [], end: ["Search","Links","Language", "Outlook"] },
   //是否在导航栏显示图标
   navbarIcon: true,
   // 侧边栏

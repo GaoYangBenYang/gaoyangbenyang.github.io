@@ -56,3 +56,37 @@ $grey12: (
   light: #bbb,
   dark: #333,
 );
+
+/* layout */
+// navbar
+$navbar-height: 3.75rem !default;
+$navbar-horizontal-padding: 1.5rem !default;
+$navbar-vertical-padding: 0.7rem !default;
+$navbar-mobile-height: 3.25rem !default;
+$navbar-mobile-horizontal-padding: 1rem !default;
+$navbar-mobile-vertical-padding: 0.5rem !default;
+
+// sidebar
+$sidebar-width: 18rem !default;
+$sidebar-mobile-width: 16rem !default;
+
+// content
+$content-width: 1160px ;
+$home-page-width: 1160px !default;
+
+//此页内容最大宽度
+#toc {
+  max-width: 34rem;
+}
+
+// font
+$font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", STHeiti, "Microsoft YaHei", SimSun, sans-serif' !default;
+$font-family-heading: 'Georgia Pro, Crimson, Georgia, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", STHeiti, "Microsoft YaHei", SimSun, sans-serif' !default;
+
+// code
+$font-family-mono: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace' !default;
+$line-numbers-width: 2.5rem !default;
+
+// transition
+$color-transition: "0.3s ease" !default;
+$transform-transition: "0.3s ease" !default;

@@ -24,15 +24,8 @@ export const Navbar = navbar([
       {
         text: "Golang",
         children: [
-          { text: "Golang基础", icon: "golang", link: "Golang基础.md" },
-          { text: "Golang进阶", icon: "golang", link: "Golang进阶.md" },
-          { text: "Golang常用标准库", icon: "golang", link: "Golang常用标准库.md" },
-        ],
-      },
-      {
-        text: "Rust",
-        children: [
-          { text: "Rust基础", icon: "rust", link: "Rust基础.md" },
+          { text: "Go入门指南", icon: "golang", link: "Go入门指南.md" },
+          { text: "Go常用标准库", icon: "golang", link: "Go常用标准库.md" },
         ],
       },
     ],

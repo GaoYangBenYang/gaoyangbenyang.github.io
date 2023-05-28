@@ -15,13 +15,13 @@ prev: AutoLinkOptions
 next: AutoLinkOptions
 ---
 
-## WSL如何重新启动（restart）
+### WSL如何重新启动（restart）
 sudo systemctl restart命令无效
 
 * 打开任务管理器，找到服务选项卡，找到LxssManager右键重新启动即可。
 
 
-## WSL2中安装Docker
+### WSL2中安装Docker
 1. 错误安装方式
 
 ```
@@ -87,7 +87,7 @@ sudo apt install docker.io
     此时再启动 Debian，就能顺利启动 docker了。
 
 
-## WSL2中安装MySQL
+### WSL2中安装MySQL
 1. 安装
 在 WSL2 上安装 MySQL (Ubuntu) ：
 

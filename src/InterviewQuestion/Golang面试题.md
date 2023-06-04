@@ -1440,7 +1440,7 @@ M 会从 P 的队列中取一个可执行状态的 G 来执行，如果 P 的本
 1. G 的个数理论上是无限制的，但是受内存限制，
 2. P 的数量一般建议是逻辑 CPU 数量的 2 倍，
 
-1. 1. 由启动时环境变量$GOMAXPROCS或者是由runtime的方法GOMAXPROCS()决定。这意味着在程序执行的任意时刻都只有$GOMAXPROCS个goroutine在同时运行。
+1. 1. 由启动时环境变量GOMAXPROCS或者是由runtime的方法GOMAXPROCS()决定。这意味着在程序执行的任意时刻都只有$GOMAXPROCS个goroutine在同时运行。
 
 1. M 的数量
 

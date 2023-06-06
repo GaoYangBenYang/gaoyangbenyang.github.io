@@ -5726,7 +5726,7 @@ func Sum(a *[3]float64) (sum float64) {
 - `y[0] = 3` 且 `y[1] = 5`。
 - 切片 `y[0:4]` 由 元素 `3`，`5`，`7` 和 `11` 组成。
 
-![](/assets/images/go入门指南/7.2_fig7.2.png)
+<!-- ![](/assets/images/go入门指南/7.2_fig7.2.png) -->
 
 示例 7.7 [array_slices.go](examples/chapter_7/array_slices.go)
 

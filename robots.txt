@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://gaoyangbenyang.github.io/sitemap.xml

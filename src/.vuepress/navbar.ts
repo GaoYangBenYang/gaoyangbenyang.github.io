@@ -22,9 +22,27 @@ export const Navbar = navbar([
         ],
       },
       {
+        text: "Typescript",
+        children: [
+          { text: "Typescript基础", icon: "golang", link: "Go入门指南.md" },
+        ],
+      },
+      {
+        text: "Deno",
+        children: [
+          { text: "Deno基础", icon: "golang", link: "Go入门指南.md" },
+        ],
+      },
+      {
         text: "Golang",
         children: [
           { text: "Go入门指南", icon: "golang", link: "Go入门指南.md" },
+        ],
+      },
+      {
+        text: "Rust",
+        children: [
+          { text: "Rust基础", icon: "golang", link: "Go入门指南.md" },
         ],
       },
     ],

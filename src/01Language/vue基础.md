@@ -1,9 +1,9 @@
 ---
-title: Vue基础
+title: React基础
 icon: vue
 date: 2022-01-01
 category:
-  - Vue
+  - React
 tag:
   - 基础
 # pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
@@ -12,7 +12,7 @@ prev: AutoLinkOptions
 next: AutoLinkOptions
 ---
 
-# 基础文档
+
 
 你可以通过设置页面的 Frontmatter，在页面禁用功能与布局。
 

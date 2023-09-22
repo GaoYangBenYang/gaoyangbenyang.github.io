@@ -13,12 +13,12 @@ export const Navbar = navbar([
     icon: "language",
     // 可选的, 分组标题对应的链接
     // link: "Language/",
-    prefix: "/Language/",
+    prefix: "/01Language/",
     children: [
       {
-        text: "Vue",
+        text: "React",
         children: [
-          { text: "Vue基础", icon: "vue", link: "vue基础.md" },
+          { text: "React基础", icon: "react", link: "vue基础.md" },
         ],
       },
       {
@@ -32,11 +32,10 @@ export const Navbar = navbar([
   { 
     text: "数据库",
     icon: "database",
-    prefix: "/Database/",
+    prefix: "/02Database/",
     children: [
       {
         text: "关系型数据库",
-        icon: "mysql",
         children: [
           { text: "MySQL基础", icon: "mysql", link: "1" },
         ],
@@ -45,6 +44,11 @@ export const Navbar = navbar([
         text: "非关系型数据库",
         children: [
           { text: "Redis基础", icon: "redis", link: "1" },
+        ],
+      },
+      {
+        text: "搜索引擎数据库",
+        children: [
           { text: "Elasticsearsh基础", icon: "elastic", link: "2" },
         ],
       },
@@ -53,7 +57,7 @@ export const Navbar = navbar([
   { 
     text: "消息队列",
     icon: "xiaoxiduilie",
-    prefix: "/MessageQueue/",
+    prefix: "/03MessageQueue/",
     children: [
       {
         text: "RabbitMQ",
@@ -70,9 +74,9 @@ export const Navbar = navbar([
     ],
   },
   { 
-    text: "运维",
+    text: "云原生",
     icon: "yunweiguanli",
-    prefix: "/OperationAndMaintenance/",
+    prefix: "/04CloudNative/",
     children: [
       {
         text: "Linux",
@@ -97,7 +101,7 @@ export const Navbar = navbar([
   { 
     text: "数据结构与算法",
     icon: "jiegou",
-    prefix: "/DataStructuresAndAlgorithms/",
+    prefix: "/05DataStructuresAndAlgorithms/",
     children: [
       { 
         text: "数据结构",
@@ -116,7 +120,7 @@ export const Navbar = navbar([
   { 
     text: "设计模式",
     icon: "kaifasheji",
-    prefix: "/DesignPattern/",
+    prefix: "/06DesignPattern/",
     children: [
       {
         text: "单例模式",
@@ -128,55 +132,42 @@ export const Navbar = navbar([
   { 
     text: "进阶之路",
     icon: "kaifasheji",
-    prefix: "/TheWayForward/",
+    prefix: "/07TheWayToProgress/",
     children: [
       { 
         text: "CI\/CD",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"1"}
         ],
       },
       { 
         text: "分布式",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"1"}
         ],
       },
       { 
         text: "高并发",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"1"}
         ],
       },
       { 
         text: "海量数据",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"1"}
         ],
       },
       { 
         text: "系统设计",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
-        ],
-      },
-    ],
-  },
-  { 
-    text: "飞升之路",
-    icon: "kaifasheji",
-    prefix: "/TheWayForward/",
-    children: [
-      { 
-        text: "CI\/CD",
-        children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"Golang面试题" ,icon: "golang", link:"1"}
         ],
       },
       { 
-        text: "分布式",
+        text: "OIDC",
         children:[
-          { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
+          { text:"OpenID Connect Core 1.0" ,icon: "golang", link:"1"}
         ],
       },
     ],
@@ -184,17 +175,17 @@ export const Navbar = navbar([
   { 
     text: "面试题",
     icon: "mianshitiku",
-    prefix: "/InterviewQuestion/",
+    prefix: "/08InterviewQuestion/",
     children: [
       {
         text: "编程语言",
+        prefix: "01Language/",
         children: [
           { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
         ],
       },
       {
         text: "框架",
-        icon: "frame",
         prefix: "Frame/",
         children: [
           { text: "Beego面试题", icon: "vue", link: "1" },

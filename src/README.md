@@ -15,10 +15,10 @@ hero: false
 heroFullScreen: false
 
 # 设置页面标题，会用于路径导航、页面增强等。
-title: 主页
+# title: 
 
 # 主页标题
-heroText: GaoYang's blog
+# heroText: 
 
 # 附加文字描述
 # tagline: 你可以在这里放置你的口号与标语

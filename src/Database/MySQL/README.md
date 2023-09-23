@@ -1,6 +1,6 @@
 ---
-title: 数据库
-icon: database
+title: MySQL
+icon: mysql
 article: false
 timeline: false
 ---

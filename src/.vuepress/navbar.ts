@@ -13,12 +13,13 @@ export const Navbar = navbar([
     icon: "language",
     // 可选的, 分组标题对应的链接
     // link: "Language/",
-    prefix: "/01Language/",
+    prefix: "/Language/",
     children: [
       {
         text: "React",
+        prefix:"React/",
         children: [
-          { text: "React基础", icon: "react", link: "vue基础.md" },
+          { text: "React基础语法", icon: "react", link: "React基础.md" },
         ],
       },
       {
@@ -35,6 +36,7 @@ export const Navbar = navbar([
       },
       {
         text: "Golang",
+        prefix:"Golang/",
         children: [
           { text: "Go入门指南", icon: "golang", link: "Go入门指南.md" },
         ],
@@ -50,22 +52,23 @@ export const Navbar = navbar([
   { 
     text: "数据库",
     icon: "database",
-    prefix: "/02Database/",
+    prefix: "/Database/",
     children: [
       {
-        text: "关系型数据库",
+        text: "MySQL",
+        prefix:"MySQL/",
         children: [
-          { text: "MySQL基础", icon: "mysql", link: "1" },
+          { text: "MySQL语法特性", icon: "mysql", link: "MySQL语法特性.md" },
         ],
       },
       {
-        text: "非关系型数据库",
+        text: "Redis",
         children: [
           { text: "Redis基础", icon: "redis", link: "1" },
         ],
       },
       {
-        text: "搜索引擎数据库",
+        text: "Elasticsearsh",
         children: [
           { text: "Elasticsearsh基础", icon: "elastic", link: "2" },
         ],
@@ -193,11 +196,11 @@ export const Navbar = navbar([
   { 
     text: "面试题",
     icon: "mianshitiku",
-    prefix: "/08InterviewQuestion/",
+    prefix: "/InterviewQuestion/",
     children: [
       {
         text: "编程语言",
-        prefix: "01Language/",
+        prefix: "Golang/",
         children: [
           { text:"Golang面试题" ,icon: "golang", link:"Golang面试题.md"}
         ],
@@ -212,19 +215,17 @@ export const Navbar = navbar([
         ],
       },
       {
-        text: "关系型数据库",
-        prefix: "apple/",
+        text: "数据库",
+        prefix: "Database/",
         children: [
-          { text: "MySQL面试题", icon: "mysql", link: "1" },
+          { text: "MySQL面试题", icon: "mysql", link: "MySQL面试题.md" },
         ],
       },
       {
-        text: "非关系型数据库",
+        text: "数据结构与算法",
         prefix: "apple/",
         children: [
-          { text: "Redis面试题", icon: "redis", link: "1" },
-          { text: "TDengine面试题", icon: "connectdevelop", link: "2" },
-          { text: "Elasticsearsh面试题", icon: "elastic", link: "2" },
+
         ],
       },
       {

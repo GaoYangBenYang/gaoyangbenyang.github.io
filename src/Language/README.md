@@ -1,6 +1,6 @@
 ---
 # 当前页面内容标题，默认为 Markdown 文件中的第一个 h1 标签内容
-title:
+title: 编程语言
 
 # 当前页面的短标题，会在导航栏、侧边栏和路径导航中作为首选
 # shortTitle:
@@ -52,7 +52,7 @@ timeline: false
 # "Word"  字数    N/A(自动生成)
 # "PageView"  访问量  pageview (仅 Waline 可用)
 # 文章信息展示项目。
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
+# pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 
 # 是否开启路径导航图标
 # breadcrumbIcon: 

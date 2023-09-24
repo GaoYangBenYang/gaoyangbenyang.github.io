@@ -9,9 +9,9 @@ pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 article: false
 # 是否将该文章添加至时间线中
 timeline: false
-categories:
+categorie:
   - MySQL
-tags:
+tag:
   - 语法
 ---
 

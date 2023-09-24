@@ -2,9 +2,9 @@
 title: MySQL面试题
 icon: mysql
 date: 2020-01-15 23:21:02
-categories:
+categorie:
   - MySQL面试题
-tags:
+# tag:
 # 是否将该文章添加至文章列表中
 article: false
 

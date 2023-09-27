@@ -11,7 +11,7 @@ sticky: true
 star: true
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 prev: Golang读取配置文件处理方式.md
-next: AutoLinkOptions
+next: JSON Web Token(JWT)基本概念.md
 ---
 
 ## 在gorm配置文件中添加单数表名配置项

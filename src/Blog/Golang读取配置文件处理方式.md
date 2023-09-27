@@ -11,7 +11,7 @@ sticky: true
 star: true
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
 prev: Golang中http.ListenAndServe阻塞导致if-else不执行问题分析.md
-next: AutoLinkOptions
+next: gorm中表名自动加s使用复数问题处理.md
 ---
 
 ## 使用yaml.v2进行配置文件读取(只能读取yml)

@@ -6,7 +6,7 @@ category:
   - Golang
 tag:
   - 基础
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
+pageInfo: ["Author", "Date", "ReadingTime", "Word", "Category", "Tag"]
 prev: Go入门指南.md
 next: Go常用标准库.md
 # 是否将该文章添加至文章列表中
@@ -16,7 +16,8 @@ timeline: false
 ---
 
 ## 前言
-用更少的代码，更短的编译时间，创建运行更快的程序，享受更多的乐趣	
+
+用更少的代码，更短的编译时间，创建运行更快的程序，享受更多的乐趣
 
 对于学习 Go 编程语言的爱好者来说，这本书无疑是最适合你的一本书籍，这里包含了当前最全面的学习资源。本书通过对官方的在线文档、名人博客、书籍、相关文章以及演讲的资料收集和整理，并结合我自身在软件工程、编程语言和数据库开发的授课经验，将这些零碎的知识点组织成系统化的概念和技术分类来进行讲解。
 
@@ -97,12 +98,12 @@ Russ Cox 加入开发团队后着手语言和类库方面的开发，也就是 G
 
 作为一个开源项目，Go 语言借助开源社区的有生力量达到快速地发展，并吸引更多的开发者来使用并改善它。自该开源项目发布以来，超过 200 名非谷歌员工的贡献者对 Go 语言核心部分提交了超过 1000 个修改建议。在过去的 18 个月里，又有 150 开发者贡献了新的核心代码。这俨然形成了世界上最大的开源团队，并使该项目跻身 [Ohloh](http://www.ohloh.net) 前 2% 的行列。大约在 2011 年 4 月 10 日，谷歌开始抽调员工进入全职开发 Go 语言项目。开源化的语言显然能够让更多的开发者参与其中并加速它的发展速度。Andrew Gerrand 在 2010 年加入到开发团队中成为共同开发者与支持者。
 
-在 Go 语言在 2010 年 1 月 8 日被 [Tiobe](http://www.tiobe.com)（闻名于它的编程语言流行程度排名）宣布为 “2009 年年度语言” 后，引起各界很大的反响。目前 Go 语言在这项排名中的最高记录是在 2017 年 1 月创下的第13名，流行程度 2.325%。
+在 Go 语言在 2010 年 1 月 8 日被 [Tiobe](http://www.tiobe.com)（闻名于它的编程语言流行程度排名）宣布为 “2009 年年度语言” 后，引起各界很大的反响。目前 Go 语言在这项排名中的最高记录是在 2017 年 1 月创下的第 13 名，流行程度 2.325%。
 
 时间轴：
 
 - 2007 年 9 月 21 日：雏形设计
-- 2009 年 11 月 10日：首次公开发布
+- 2009 年 11 月 10 日：首次公开发布
 - 2010 年 1 月 8 日：当选 2009 年年度语言
 - 2010 年 5 月：谷歌投入使用
 - 2011 年 5 月 5 日：Google App Engine 支持 Go 语言
@@ -127,7 +128,7 @@ Go 通过以下的 Logo 来展示它的速度，并以囊地鼠 (Gopher) 作为�
 
 这里还有一个在 Linked-in 的小组：[www.linkedin.com/groups?gid=2524765&trk=myg_ugrp_ovr](http://www.linkedin.com/groups?gid=2524765&trk=myg_ugrp_ovr)。
 
-Go 编程语言的维基百科：[en.wikipedia.org/wiki/Go_(programming_language)](http://en.wikipedia.org/wiki/Go_\(programming_language\))
+Go 编程语言的维基百科：[en.wikipedia.org/wiki/Go\_(programming_language)](<http://en.wikipedia.org/wiki/Go_(programming_language)>)
 
 Go 语言相关资源的搜索引擎页面：[gowalker.org](https://gowalker.org)
 
@@ -139,7 +140,7 @@ Go 语言还有一个运行在 Google App Engine 上的 [Go Tour](http://tour.go
 
 正如 “21 世纪的 C 语言” 这句话所说，Go 语言并不是凭空而造的，而是和 C++、Java 和 C# 一样属于 C 系。不仅如此，设计者们还汲取了其它编程语言的精粹部分融入到 Go 语言当中。
 
-在声明和包的设计方面，Go 语言受到 Pascal、Modula 和 Oberon 系语言的影响；在并发原理的设计上，Go 语言从同样受到 Tony Hoare 的 CSP（通信序列进程 *Communicating Sequential Processes*）理论影响的 Limbo 和 Newsqueak 的实践中借鉴了一些经验，并使用了和 Erlang 类似的机制。
+在声明和包的设计方面，Go 语言受到 Pascal、Modula 和 Oberon 系语言的影响；在并发原理的设计上，Go 语言从同样受到 Tony Hoare 的 CSP（通信序列进程 _Communicating Sequential Processes_）理论影响的 Limbo 和 Newsqueak 的实践中借鉴了一些经验，并使用了和 Erlang 类似的机制。
 
 这是一门完全开源的编程语言，因为它使用 BSD 授权许可，所以任何人都可以进行商业软件的开发而不需要支付任何费用。
 
@@ -187,7 +188,7 @@ Go 语言还能够在运行时进行反射相关的操作。
 
 #### 1.2.4 指导设计原则
 
-Go语言通过减少关键字的数量（25 个）来简化编码过程中的混乱和复杂度。干净、整齐和简洁的语法也能够提高程序的编译速度，因为这些关键字在编译过程中少到甚至不需要符号表来协助解析。
+Go 语言通过减少关键字的数量（25 个）来简化编码过程中的混乱和复杂度。干净、整齐和简洁的语法也能够提高程序的编译速度，因为这些关键字在编译过程中少到甚至不需要符号表来协助解析。
 
 这些方面的工作都是为了减少编码的工作量，甚至可以与 Java 的简化程度相比较。
 
@@ -211,7 +212,6 @@ Go 语言从本质上（程序和结构方面）来实现并发编程。
 
 函数是 Go 语言中的基本构件，它们的使用方法非常灵活。在[第六章]()，我们会看到 Go 语言在函数式编程方面的基本概念。
 
-
 Go 语言使用静态类型，所以它是类型安全的一门语言，加上通过构建到本地代码，程序的执行速度也非常快。
 
 作为强类型语言，隐式的类型转换是不被允许的，记住一条原则：让所有的东西都是显式的。
@@ -232,8 +232,7 @@ Go 语言一个非常好的目标就是实现所谓的复杂事件处理（[CEP]
 
 越来越多的谷歌内部的大型分布式应用程序都开始使用 Go 语言来开发，例如谷歌地球的一部分代码就是由 Go 语言完成的。
 
-如果你想知道一些其它组织使用Go语言开发的实际应用项目，你可以到 [使用 Go 的组织](http://go-lang.cat-v.org/organizations-using-go) 页面进行查看。出于隐私保护的考虑，许多公司的项目都没有展示在这个页面。我们将会在[第 21 章]() 讨论到一个使用 Go 语言开发的大型存储区域网络 (SAN) 案例。
-
+如果你想知道一些其它组织使用 Go 语言开发的实际应用项目，你可以到 [使用 Go 的组织](http://go-lang.cat-v.org/organizations-using-go) 页面进行查看。出于隐私保护的考虑，许多公司的项目都没有展示在这个页面。我们将会在[第 21 章]() 讨论到一个使用 Go 语言开发的大型存储区域网络 (SAN) 案例。
 
 在 Chrome 浏览器中内置了一款 Go 语言的编译器用于本地客户端 (NaCl)，这很可能会被用于在 Chrome OS 中执行 Go 语言开发的应用程序。
 
@@ -259,7 +258,7 @@ Go 语言可以在 Intel 或 ARM 处理器上运行，因此它也可以在安�
 
 #### 1.2.8 使用 Go 语言编程
 
-如果你有其它语言的编程经历（面向对象编程语言，如：Java、C#、Object-C、Python、Ruby），在你进入到 Go 语言的世界之后，你将会像迷恋你的 X 语言一样无法自拔。Go 语言使用了与其它语言不同的设计模式，所以当你尝试将你的X语言的代码迁移到 Go 语言时，你将会非常失望，所以你需要从头开始，用 Go 的理念来思考。
+如果你有其它语言的编程经历（面向对象编程语言，如：Java、C#、Object-C、Python、Ruby），在你进入到 Go 语言的世界之后，你将会像迷恋你的 X 语言一样无法自拔。Go 语言使用了与其它语言不同的设计模式，所以当你尝试将你的 X 语言的代码迁移到 Go 语言时，你将会非常失望，所以你需要从头开始，用 Go 的理念来思考。
 
 如果你在至高点使用 Go 的理念来重新审视和分析一个问题，你通常会找到一个适用于 Go 语言的优雅的解决方案。
 
@@ -288,7 +287,7 @@ Go 语言开发团队开发了适用于以下操作系统的编译器：
 - FreeBSD
 - Mac OS X（也称为 Darwin）
 
-目前有2个版本的编译器：Go 原生编译器 gc 和非原生编译器 gccgo，这两款编译器都是在类 Unix 系统下工作 。其中，gc 版本的编译器已经被移植到 Windows 平台上，并集成在主要发行版中，你也可以通过安装 MinGW 从而在 Windows 平台下使用 gcc 编译器。这两个编译器都是以单通道的形式工作。
+目前有 2 个版本的编译器：Go 原生编译器 gc 和非原生编译器 gccgo，这两款编译器都是在类 Unix 系统下工作 。其中，gc 版本的编译器已经被移植到 Windows 平台上，并集成在主要发行版中，你也可以通过安装 MinGW 从而在 Windows 平台下使用 gcc 编译器。这两个编译器都是以单通道的形式工作。
 
 你可以获取以下平台上的 Go 1.4 源码和二进制文件：
 
@@ -298,66 +297,65 @@ Go 语言开发团队开发了适用于以下操作系统的编译器：
 
 对于非常底层的纯 Go 语言代码或者包而言，在各个操作系统平台上的可移植性是非常强的，只需要将源码拷贝到相应平台上进行编译即可，或者可以使用交叉编译来构建目标平台的应用程序（[第 2.2 节]()）。但如果你打算使用 cgo 或者类似文件监控系统的软件，就需要根据实际情况进行相应地修改了。
 
-1. Go 原生编译器 gc：
+1.  Go 原生编译器 gc：
 
-	主要基于 Ken Thompson 先前在 Plan 9 操作系统上使用的 C 工具链。
+    主要基于 Ken Thompson 先前在 Plan 9 操作系统上使用的 C 工具链。
 
-    Go 语言的编译器和链接器都是使用 C 语言编写并产生本地代码，Go 不存在自我引导之类的功能。因此如果使用一个有不同指令集的编译器来构建 Go 程序，就需要针对操作系统和处理器架构（32 位操作系统或 64 位操作系统）进行区别对待。（ **译者注：Go从1.5版本开始已经实现自举。Go语言的编译器和链接器都是Go语言编写的**）
+    Go 语言的编译器和链接器都是使用 C 语言编写并产生本地代码，Go 不存在自我引导之类的功能。因此如果使用一个有不同指令集的编译器来构建 Go 程序，就需要针对操作系统和处理器架构（32 位操作系统或 64 位操作系统）进行区别对待。（ **译者注：Go 从 1.5 版本开始已经实现自举。Go 语言的编译器和链接器都是 Go 语言编写的**）
 
-	这款编译器使用非分代、无压缩和并行的方式进行编译，它的编译速度要比 gccgo 更快，产生更好的本地代码，但编译后的程序不能够使用 gcc 进行链接。
+    这款编译器使用非分代、无压缩和并行的方式进行编译，它的编译速度要比 gccgo 更快，产生更好的本地代码，但编译后的程序不能够使用 gcc 进行链接。
 
-	编译器目前支持以下基于 Intel 或 AMD 处理器架构的程序构建。
+    编译器目前支持以下基于 Intel 或 AMD 处理器架构的程序构建。
 
-	![](/assets/images/Go入门指南/2.1.gc.jpg?raw=true)
+    ![](/assets/images/Go入门指南/2.1.gc.jpg?raw=true)
 
-	<center>图2.1 gc 编译器支持的处理器架构</center>
+    <center>图2.1 gc 编译器支持的处理器架构</center>
 
-	当你第一次看到这套命名系统的时候你会觉得很奇葩，不过这些命名都是来自于 Plan 9 项目。
+    当你第一次看到这套命名系统的时候你会觉得很奇葩，不过这些命名都是来自于 Plan 9 项目。
 
-		g = 编译器：将源代码编译为项目代码（程序文本）
-		l = 链接器：将项目代码链接到可执行的二进制文件（机器代码）
+        g = 编译器：将源代码编译为项目代码（程序文本）
+        l = 链接器：将项目代码链接到可执行的二进制文件（机器代码）
 
-	（相关的 C 编译器名称为 6c、8c 和 5c，相关的汇编器名称为 6a、8a 和 5a）
+    （相关的 C 编译器名称为 6c、8c 和 5c，相关的汇编器名称为 6a、8a 和 5a）
 
-	**标记 (Flags)** 是指可以通过命令行设置可选参数来影响编译器或链接器的构建过程或得到一个特殊的目标结果。
+    **标记 (Flags)** 是指可以通过命令行设置可选参数来影响编译器或链接器的构建过程或得到一个特殊的目标结果。
 
-	可用的编译器标记如下：
+    可用的编译器标记如下：
 
-		flags:
-		-I 针对包的目录搜索
-		-d 打印声明信息
-		-e 不限制错误打印的个数
-		-f 打印栈结构
-		-h 发生错误时进入恐慌（panic）状态
-		-o 指定输出文件名 // 详见第3.4节
-		-S 打印产生的汇编代码
-		-V 打印编译器版本 // 详见第2.3节
-		-u 禁止使用 unsafe 包中的代码
-		-w 打印归类后的语法解析树
-		-x 打印 lex tokens
+        flags:
+        -I 针对包的目录搜索
+        -d 打印声明信息
+        -e 不限制错误打印的个数
+        -f 打印栈结构
+        -h 发生错误时进入恐慌（panic）状态
+        -o 指定输出文件名 // 详见第3.4节
+        -S 打印产生的汇编代码
+        -V 打印编译器版本 // 详见第2.3节
+        -u 禁止使用 unsafe 包中的代码
+        -w 打印归类后的语法解析树
+        -x 打印 lex tokens
 
-	从 Go 1.0.3 版本开始，不再使用 `8g`，`8l` 之类的指令进行程序的构建，取而代之的是统一的 `go build` 和 `go install` 等命令，而这些指令会自动调用相关的编译器或链接器。
+    从 Go 1.0.3 版本开始，不再使用 `8g`，`8l` 之类的指令进行程序的构建，取而代之的是统一的 `go build` 和 `go install` 等命令，而这些指令会自动调用相关的编译器或链接器。
 
+    如果你想获得更深层次的信息，你可以在目录 [`$GOROOT/src/cmd`](https://github.com/golang/go/tree/master/src/cmd) 下找到编译器和链接器的源代码。Go 语言本身是由 C 语言开发的，而不是 Go 语言（Go 1.5 开始自举）。词法分析程序是 GNU bison，语法分析程序是名为 [`$GOROOT/src/cmd/gc/go.y`](https://github.com/golang/go/blob/master/src%2Fcmd%2Finternal%2Fgc%2Fgo.y) 的 yacc 文件，它会在同一目录输出 `y.tab.{c,h}` 文件。如果你想知道更多有关构建过程的信息，你可以在 [`$GOROOT/src/make.bash`](https://github.com/golang/go/blob/master/src/make.bash) 中找到。
 
-	如果你想获得更深层次的信息，你可以在目录 [`$GOROOT/src/cmd`](https://github.com/golang/go/tree/master/src/cmd) 下找到编译器和链接器的源代码。Go 语言本身是由 C 语言开发的，而不是 Go 语言（Go 1.5 开始自举）。词法分析程序是 GNU bison，语法分析程序是名为 [`$GOROOT/src/cmd/gc/go.y`](https://github.com/golang/go/blob/master/src%2Fcmd%2Finternal%2Fgc%2Fgo.y) 的 yacc 文件，它会在同一目录输出 `y.tab.{c,h}` 文件。如果你想知道更多有关构建过程的信息，你可以在 [`$GOROOT/src/make.bash`](https://github.com/golang/go/blob/master/src/make.bash) 中找到。
+    大部分的目录都包含了名为 `doc.go` 的文件，这个文件提供了更多详细的信息。
 
-	大部分的目录都包含了名为 `doc.go` 的文件，这个文件提供了更多详细的信息。
+2.  gccgo 编译器：
 
-2. gccgo 编译器：
+    一款相对于 gc 而言更加传统的编译器，使用 GCC 作为后端。GCC 是一款非常流行的 GNU 编译器，它能够构建基于众多处理器架构的应用程序。编译速度相对 gc 较慢，但产生的本地代码运行要稍微快一点。它同时也提供一些与 C 语言之间的互操作性。
 
-	一款相对于 gc 而言更加传统的编译器，使用 GCC 作为后端。GCC 是一款非常流行的 GNU 编译器，它能够构建基于众多处理器架构的应用程序。编译速度相对 gc 较慢，但产生的本地代码运行要稍微快一点。它同时也提供一些与 C 语言之间的互操作性。
+    从 Go 1 版本开始，gc 和 gccgo 在编译方面都有等价的功能。
 
-	从 Go 1 版本开始，gc 和 gccgo 在编译方面都有等价的功能。
+3.  文件扩展名与包 (package)：
 
-3. 文件扩展名与包 (package)：
+    Go 语言源文件的扩展名很显然就是 `.go`。
 
-	Go 语言源文件的扩展名很显然就是 `.go`。
+    C 文件使用后缀名 `.c`，汇编文件使用后缀名 `.s`。所有的源代码文件都是通过包 (packages) 来组织。包含可执行代码的包文件在被压缩后使用扩展名 `.a`（AR 文档）。
 
-	C 文件使用后缀名 `.c`，汇编文件使用后缀名 `.s`。所有的源代码文件都是通过包 (packages) 来组织。包含可执行代码的包文件在被压缩后使用扩展名 `.a`（AR 文档）。
+    Go 语言的标准库（[第 9.1 节]()）包文件在被安装后就是使用这种格式的文件。
 
-	Go 语言的标准库（[第 9.1 节]()）包文件在被安装后就是使用这种格式的文件。
-
-	**注意** 当你在创建目录时，文件夹名称永远不应该包含空格，而应该使用下划线 "_" 或者其它一般符号代替。
+    **注意** 当你在创建目录时，文件夹名称永远不应该包含空格，而应该使用下划线 "\_" 或者其它一般符号代替。
 
 ### 2.2 Go 环境变量
 
@@ -386,148 +384,148 @@ Go 编译器支持交叉编译，也就是说你可以在一台机器上构建�
 
 我们接下来也会带你一步步地完成安装过程。
 
-1. 设置 Go 环境变量
+1.  设置 Go 环境变量
 
-	我们在 Linux 系统下一般通过文件 `$HOME/.bashrc` 配置自定义环境变量，根据不同的发行版也可能是文件 `$HOME/.profile`，然后使用 gedit 或 vi 来编辑文件内容。
+    我们在 Linux 系统下一般通过文件 `$HOME/.bashrc` 配置自定义环境变量，根据不同的发行版也可能是文件 `$HOME/.profile`，然后使用 gedit 或 vi 来编辑文件内容。
 
-		export GOROOT=$HOME/go
+        export GOROOT=$HOME/go
 
-	为了确保相关文件在文件系统的任何地方都能被调用，你还需要添加以下内容：
+    为了确保相关文件在文件系统的任何地方都能被调用，你还需要添加以下内容：
 
-		export PATH=$PATH:$GOROOT/bin
+        export PATH=$PATH:$GOROOT/bin
 
-	在开发 Go 项目时，你还需要一个环境变量来保存你的工作目录。
+    在开发 Go 项目时，你还需要一个环境变量来保存你的工作目录。
 
-		export GOPATH=$HOME/Applications/Go
+        export GOPATH=$HOME/Applications/Go
 
-	`$GOPATH` 可以包含多个工作目录，取决于你的个人情况。如果你设置了多个工作目录，那么当你在之后使用 `go get`（远程包安装命令）时远程包将会被安装在第一个目录下。
+    `$GOPATH` 可以包含多个工作目录，取决于你的个人情况。如果你设置了多个工作目录，那么当你在之后使用 `go get`（远程包安装命令）时远程包将会被安装在第一个目录下。
 
-	在完成这些设置后，你需要在终端输入指令 `source .bashrc` 以使这些环境变量生效。然后重启终端，输入 `go env` 和 `env` 来检查环境变量是否设置正确。
+    在完成这些设置后，你需要在终端输入指令 `source .bashrc` 以使这些环境变量生效。然后重启终端，输入 `go env` 和 `env` 来检查环境变量是否设置正确。
 
-2. 安装 C 工具
+2.  安装 C 工具
 
-	Go 的工具链是用 C 语言编写的，因此在安装 Go 之前你需要先安装相关的 C 工具。如果你使用的是 Ubuntu 的话，你可以在终端输入以下指令（ **译者注：由于网络环境的特殊性，你可能需要将每个工具分开安装** ）。
+    Go 的工具链是用 C 语言编写的，因此在安装 Go 之前你需要先安装相关的 C 工具。如果你使用的是 Ubuntu 的话，你可以在终端输入以下指令（ **译者注：由于网络环境的特殊性，你可能需要将每个工具分开安装** ）。
 
-		sudo apt-get install bison ed gawk gcc libc6-dev make
+        sudo apt-get install bison ed gawk gcc libc6-dev make
 
-	你可以在其它发行版上使用 RPM 之类的工具。
+    你可以在其它发行版上使用 RPM 之类的工具。
 
-3. 获取 Go 源代码
+3.  获取 Go 源代码
 
-	从 [官方页面](https://golang.org/dl/) 或 [国内镜像](http://www.golangtc.com/download) 下载 Go 的源码包到你的计算机上，然后将解压后的目录 `go` 通过命令移动到 `$GOROOT` 所指向的位置。
+    从 [官方页面](https://golang.org/dl/) 或 [国内镜像](http://www.golangtc.com/download) 下载 Go 的源码包到你的计算机上，然后将解压后的目录 `go` 通过命令移动到 `$GOROOT` 所指向的位置。
 
-		wget https://storage.googleapis.com/golang/go<VERSION>.src.tar.gz
-		tar -zxvf go<VERSION>.src.tar.gz
-		sudo mv go $GOROOT
+        wget https://storage.googleapis.com/golang/go<VERSION>.src.tar.gz
+        tar -zxvf go<VERSION>.src.tar.gz
+        sudo mv go $GOROOT
 
-4. 构建 Go
+4.  构建 Go
 
-	在终端使用以下指令来进行编译工作。
+    在终端使用以下指令来进行编译工作。
 
-		cd $GOROOT/src
-		./all.bash
-	
-	**编译注意事项**
-	
-	编译时如果出现如下报错：
-	
-	![](/assets/images/Go入门指南/2.3.allbasherror.jpg?raw=true)
-	
-	可能是因为 `$GOROOT_BOOTSTRAP` 变量没有设置。这个目录在安装 Go 1.5 版本及之后的版本时需要设置。
-	
-	由于在 1.4 版本后，Go 编译器实现了自举，即通过 1.4 版本来编译安装之后版本的编译器。如果不设置该环境变量的话，会产生这样一个错误 `Set $GOROOT_BOOTSTRAP to a working Go tree >= Go 1.4.` 。
-	
-	设置 `$GOROOT_BOOTSTRAP` 变量：
-	    
-	    export GOROOT_BOOTSTRAP=$HOME/go1.4
-	
-	设置完成后，下载 1.4 版本的源码到该目录：
-	
-	    git clone https://github.com/golang/go.git $HOME/go1.4
-	    git checkout -b release-branch.go1.4 origin/release-branch.go1.4
-	
-	进入 1.4 的文件夹后，进行编译：
-	
-	    cd $HOME/go1.4/src
-	    ./make.bash
-	
-	1.4 编译安装好之后，进入 `$GOROOT` 文件夹，真正开始编译安装 Go：
-	
-	    cd $HOME/go/src
-	    ./all.bash
-	
-	在完成编译之后（通常在 1 分钟以内，如果你在 B 型树莓派上编译，一般需要 1 个小时），你会在终端看到如下信息被打印：
+        cd $GOROOT/src
+        ./all.bash
 
-	![](/assets/images/Go入门指南/2.3.allbash.jpg?raw=true)
+    **编译注意事项**
 
-	<center>图 2.3 完成编译后在终端打印的信息</center>
+    编译时如果出现如下报错：
 
-	**注意事项** 
+    ![](/assets/images/Go入门指南/2.3.allbasherror.jpg?raw=true)
 
-	在测试 `net/http` 包时有一个测试会尝试连接 `google.com`，你可能会看到如下所示的一个无厘头的错误报告：
+    可能是因为 `$GOROOT_BOOTSTRAP` 变量没有设置。这个目录在安装 Go 1.5 版本及之后的版本时需要设置。
 
-		‘make[2]: Leaving directory `/localusr/go/src/pkg/net’
+    由于在 1.4 版本后，Go 编译器实现了自举，即通过 1.4 版本来编译安装之后版本的编译器。如果不设置该环境变量的话，会产生这样一个错误 `Set $GOROOT_BOOTSTRAP to a working Go tree >= Go 1.4.` 。
 
-	如果你正在使用一个带有防火墙的机器，我建议你可以在编译过程中暂时关闭防火墙，以避免不必要的错误。
+    设置 `$GOROOT_BOOTSTRAP` 变量：
 
-	解决这个问题的另一个办法是通过设置环境变量 `$DISABLE_NET_TESTS` 来告诉构建工具忽略 `net/http` 包的相关测试：
+        export GOROOT_BOOTSTRAP=$HOME/go1.4
 
-		export DISABLE_NET_TESTS=1
+    设置完成后，下载 1.4 版本的源码到该目录：
 
-	如果你完全不想运行包的测试，你可以直接运行 `./make.bash` 来进行单纯的构建过程。
+        git clone https://github.com/golang/go.git $HOME/go1.4
+        git checkout -b release-branch.go1.4 origin/release-branch.go1.4
 
-5. 测试安装
+    进入 1.4 的文件夹后，进行编译：
 
-	使用你最喜爱的编辑器来输入以下内容，并保存为文件名 `hello_world1.go`。
+        cd $HOME/go1.4/src
+        ./make.bash
 
-	示例 2.1 [hello_world1.go](examples/chapter_2/hello_world1.go)
+    1.4 编译安装好之后，进入 `$GOROOT` 文件夹，真正开始编译安装 Go：
 
-	```go
-	package main
-	
-	func main() {
-		println("Hello", "world")
-	}
-	```
+        cd $HOME/go/src
+        ./all.bash
 
-	切换相关目录到下，然后执行指令 `go run hello_world1.go`，将会打印信息：`Hello, world`。
+    在完成编译之后（通常在 1 分钟以内，如果你在 B 型树莓派上编译，一般需要 1 个小时），你会在终端看到如下信息被打印：
 
-6. 验证安装版本
+    ![](/assets/images/Go入门指南/2.3.allbash.jpg?raw=true)
 
-	你可以通过在终端输入指令 `go version` 来打印 Go 的版本信息。
+    <center>图 2.3 完成编译后在终端打印的信息</center>
 
-	如果你想要通过 Go 代码在运行时检测版本，可以通过以下例子实现。
+    **注意事项**
 
-	示例 2.2 [version.go](examples/chapter_2/version.go)
+    在测试 `net/http` 包时有一个测试会尝试连接 `google.com`，你可能会看到如下所示的一个无厘头的错误报告：
 
-	```go
-	package main
+        ‘make[2]: Leaving directory `/localusr/go/src/pkg/net’
 
-	import (
-		"fmt"
-		"runtime"
-	)
+    如果你正在使用一个带有防火墙的机器，我建议你可以在编译过程中暂时关闭防火墙，以避免不必要的错误。
 
-	func main() {
-		fmt.Printf("%s", runtime.Version())
-	}
-	```
+    解决这个问题的另一个办法是通过设置环境变量 `$DISABLE_NET_TESTS` 来告诉构建工具忽略 `net/http` 包的相关测试：
 
-	这段代码将会输出 `go1.4.2` 或类似字符串。
+        export DISABLE_NET_TESTS=1
 
-7. 更新版本
+    如果你完全不想运行包的测试，你可以直接运行 `./make.bash` 来进行单纯的构建过程。
 
-	你可以在 [发布历史](http://golang.org/doc/devel/release.html) 页面查看到最新的稳定版。
+5.  测试安装
 
-	当前最新的稳定版 Go 1 系列于 2012 年 3 月 28 日发布。
+    使用你最喜爱的编辑器来输入以下内容，并保存为文件名 `hello_world1.go`。
 
-	Go 的源代码有以下三个分支：
+    示例 2.1 [hello_world1.go](examples/chapter_2/hello_world1.go)
 
-		- Go release：最新稳定版，实际开发最佳选择
-		- Go weekly：包含最近更新的版本，一般每周更新一次
-		- Go tip：永远保持最新的版本，相当于内测版
+    ```go
+    package main
 
-	当你在使用不同的版本时，注意官方博客发布的信息，因为你所查阅的文档可能和你正在使用的版本不相符。
+    func main() {
+    	println("Hello", "world")
+    }
+    ```
+
+    切换相关目录到下，然后执行指令 `go run hello_world1.go`，将会打印信息：`Hello, world`。
+
+6.  验证安装版本
+
+    你可以通过在终端输入指令 `go version` 来打印 Go 的版本信息。
+
+    如果你想要通过 Go 代码在运行时检测版本，可以通过以下例子实现。
+
+    示例 2.2 [version.go](examples/chapter_2/version.go)
+
+    ```go
+    package main
+
+    import (
+    	"fmt"
+    	"runtime"
+    )
+
+    func main() {
+    	fmt.Printf("%s", runtime.Version())
+    }
+    ```
+
+    这段代码将会输出 `go1.4.2` 或类似字符串。
+
+7.  更新版本
+
+    你可以在 [发布历史](http://golang.org/doc/devel/release.html) 页面查看到最新的稳定版。
+
+    当前最新的稳定版 Go 1 系列于 2012 年 3 月 28 日发布。
+
+    Go 的源代码有以下三个分支：
+
+        - Go release：最新稳定版，实际开发最佳选择
+        - Go weekly：包含最近更新的版本，一般每周更新一次
+        - Go tip：永远保持最新的版本，相当于内测版
+
+    当你在使用不同的版本时，注意官方博客发布的信息，因为你所查阅的文档可能和你正在使用的版本不相符。
 
 ### 2.4 在 Mac OS X 上安装 Go
 
@@ -680,9 +678,9 @@ LiteIDE 是一款非常好用的轻量级 Go 集成开发环境（基于 QT、Ka
 1. 在合适的位置使用打印语句输出相关变量的值（`print`/`println` 和 `fmt.Print`/`fmt.Println`/`fmt.Printf`）。
 2. 在 `fmt.Printf` 中使用下面的说明符来打印有关变量的相关信息：
 
-	- `%+v` 打印包括字段在内的实例的完整信息
-	- `%#v` 打印包括字段和限定类型名称在内的实例的完整信息
-	- `%T` 打印某个类型的完整说明
+   - `%+v` 打印包括字段在内的实例的完整信息
+   - `%#v` 打印包括字段和限定类型名称在内的实例的完整信息
+   - `%T` 打印某个类型的完整说明
 
 3. 使用 `panic()` 语句（[第 13.2 节]()）来获取栈跟踪信息（直到 `panic()` 时所有被调用函数的列表）。
 4. 使用关键字 `defer` 来跟踪代码执行过程（[第 6.4 节]()）。
@@ -712,15 +710,15 @@ Go 对于代码的缩进层级方面使用 tab 还是空格并没有强制规定
 
 实例：
 
-	gofmt -r '(a) -> a' –w *.go
+    gofmt -r '(a) -> a' –w *.go
 
 上面的代码会将源文件中没有意义的括号去掉。
 
-	gofmt -r 'a[n:len(a)] -> a[n:]' –w *.go
+    gofmt -r 'a[n:len(a)] -> a[n:]' –w *.go
 
 上面的代码会将源文件中多余的 `len(a)` 去掉。（ **译者注：了解切片 (slice) 之后就明白这为什么是多余的了** ）
 
-	gofmt –r 'A.Func1(a,b) -> A.Func2(b,a)' –w *.go
+    gofmt –r 'A.Func1(a,b) -> A.Func2(b,a)' –w *.go
 
 上面的代码会将源文件中符合条件的函数的参数调换位置。
 
@@ -767,17 +765,17 @@ Go 自带的工具集主要使用脚本和 Go 语言自身编写的，目前版�
 这里有一些评测结果：
 
 - 比较 Go 和 Python 在简单的 web 服务器方面的性能，单位为传输量每秒：
-	
-	原生的 Go http 包要比 web.py 快 7 至 8 倍，如果使用 web.go 框架则稍微差点，比 web.py 快 6 至 7 倍。在 Python 中被广泛使用的 tornado 异步服务器和框架在 web 环境下要比 web.py 快很多，Go 大概只比它快 1.2 至 1.5 倍（详见引用 26）。
+
+  原生的 Go http 包要比 web.py 快 7 至 8 倍，如果使用 web.go 框架则稍微差点，比 web.py 快 6 至 7 倍。在 Python 中被广泛使用的 tornado 异步服务器和框架在 web 环境下要比 web.py 快很多，Go 大概只比它快 1.2 至 1.5 倍（详见引用 26）。
 
 - Go 和 Python 在一般开发的平均水平测试中，Go 要比 Python 3 快 25 倍左右，少占用三分之二的内存，但比 Python 大概多写一倍的代码（详见引用 27）。
 - 根据 Robert Hundt（2011 年 6 月，详见引用 28）的文章对 C++、Java、Go 和 Scala，以及 Go 开发团队的反应（详见引用 29），可以得出以下结论：
-	
-	- Go 和 Scala 之间具有更多的可比性（都使用更少的代码），而 C++ 和 Java 都使用非常冗长的代码。
-	- Go 的编译速度要比绝大多数语言都要快，比 Java 和 C++ 快 5 至 6 倍，比 Scala 快 10 倍。	
-	- Go 的二进制文件体积是最大的（每个可执行文件都包含 runtime）。	
-	- 在最理想的情况下，Go 能够和 C++ 一样快，比 Scala 快 2 至 3 倍，比 Java 快 5 至 10 倍。	
-	- Go 在内存管理方面也可以和 C++ 相媲美，几乎只需要 Scala 所使用的一半，是Java的五分之一左右。
+
+  - Go 和 Scala 之间具有更多的可比性（都使用更少的代码），而 C++ 和 Java 都使用非常冗长的代码。
+  - Go 的编译速度要比绝大多数语言都要快，比 Java 和 C++ 快 5 至 6 倍，比 Scala 快 10 倍。
+  - Go 的二进制文件体积是最大的（每个可执行文件都包含 runtime）。
+  - 在最理想的情况下，Go 能够和 C++ 一样快，比 Scala 快 2 至 3 倍，比 Java 快 5 至 10 倍。
+  - Go 在内存管理方面也可以和 C++ 相媲美，几乎只需要 Scala 所使用的一半，是 Java 的五分之一左右。
 
 ### 3.9 与其它语言进行交互
 
@@ -789,9 +787,9 @@ Go 自带的工具集主要使用脚本和 Go 语言自身编写的，目前版�
 
 然后，你可以在 `import "C"` 之前使用注释（单行或多行注释均可）的形式导入 C 语言库（甚至有效的 C 语言代码），它们之间没有空行，例如：
 
-	// #include <stdio.h>
-	// #include <stdlib.h>
-	import "C"
+    // #include <stdio.h>
+    // #include <stdlib.h>
+    import "C"
 
 名称 "C" 并不属于标准库的一部分，这只是 cgo 集成的一个特殊名称用于引用 C 的命名空间。在这个命名空间里所包含的 C 类型都可以被使用，例如 `C.uint`、`C.long` 等等，还有 libc 中的函数 `C.random()` 等也可以被调用。
 
@@ -855,11 +853,11 @@ func Print(s string) {
 
 你可以在使用将会在第 9.5 节讲到的 Makefile 文件（因为我们使用了一个独立的包），除了使用变量 `GOFILES` 之外，还需要使用变量 `CGOFILES` 来列出需要使用 cgo 编译的文件列表。例如，示例 3.2 中的代码就可以使用包含以下内容的 `Makefile` 文件来编译，你可以使用 `gomake` 或 `make`：
 
-	include $(GOROOT)/src/Make.inc
-	TARG=rand
-	CGOFILES=\
-	c1.go\
-	include $(GOROOT)/src/Make.pkg
+    include $(GOROOT)/src/Make.inc
+    TARG=rand
+    CGOFILES=\
+    c1.go\
+    include $(GOROOT)/src/Make.pkg
 
 #### 3.9.2 与 C++ 进行交互
 
@@ -882,9 +880,9 @@ Go 的源文件以 `.go` 为后缀名存储在计算机中，这些文件名均�
 
 一个源文件可以包含任意多行的代码，Go 本身没有对源文件的大小进行限制。
 
-你会发现在 Go 代码中的几乎所有东西都有一个名称或标识符。另外，Go 语言也是区分大小写的，这与 C 家族中的其它语言相同。有效的标识符必须以字母（可以使用任何 UTF-8 编码的字符或 `_`）开头，然后紧跟着 0 个或多个字符或 Unicode 数字，如：X56、group1、_x23、i、өԑ12。
+你会发现在 Go 代码中的几乎所有东西都有一个名称或标识符。另外，Go 语言也是区分大小写的，这与 C 家族中的其它语言相同。有效的标识符必须以字母（可以使用任何 UTF-8 编码的字符或 `_`）开头，然后紧跟着 0 个或多个字符或 Unicode 数字，如：X56、group1、\_x23、i、өԑ12。
 
-以下是无效的标识符： 
+以下是无效的标识符：
 
 - 1ab（以数字开头）
 - case（Go 语言的关键字）
@@ -1078,13 +1076,13 @@ import ("fmt"; "os")
 
 如果包名不是以 `.` 或 `/` 开头，如 `"fmt"` 或者 `"container/list"`，则 Go 会在全局文件进行查找；如果包名以 `./` 开头，则 Go 会在相对目录中查找；如果包名以 `/` 开头（在 Windows 下也可以这样使用），则会在系统的绝对路径中查找。
 
-*译者注：以相对路径在GOPATH下导入包会产生报错信息*
+_译者注：以相对路径在 GOPATH 下导入包会产生报错信息_
 
-*报错信息：local import "./XXX" in non-local package*
+_报错信息：local import "./XXX" in non-local package_
 
-*引用：[Go programs cannot use relative import paths within a work space.](https://golang.org/cmd/go/#hdr-Relative_import_paths )*
+_引用：[Go programs cannot use relative import paths within a work space.](https://golang.org/cmd/go/#hdr-Relative_import_paths)_
 
-*注解：在GOPATH外可以以相对路径的形式执行go build（go install 不可以）*
+_注解：在 GOPATH 外可以以相对路径的形式执行 go build（go install 不可以）_
 
 导入包即等同于包含了这个包的所有的代码对象。
 
@@ -1118,7 +1116,7 @@ func main() {
 }
 ```
 
-**注意事项** 
+**注意事项**
 
 如果你导入了一个包却没有使用它，则会在构建程序时引发错误，如 `imported and not used: os`，这正是遵循了 Go 的格言：“没有不必要的代码！”。
 
@@ -1136,9 +1134,9 @@ func functionName()
 
 你可以在括号 `()` 中写入 0 个或多个函数的参数（使用逗号 `,` 分隔），每个参数的名称后面必须紧跟着该参数的类型。
 
-`main()` 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 `init()` 函数则会先执行该函数）。如果你的 `main` 包的源代码没有包含 `main()` 函数，则会引发构建错误 `undefined: main.main`。`main()` 函数既没有参数，也没有返回类型（与 C 家族中的其它语言恰好相反）。如果你不小心为 `main()` 函数添加了参数或者返回类型，将会引发构建错误： 
+`main()` 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 `init()` 函数则会先执行该函数）。如果你的 `main` 包的源代码没有包含 `main()` 函数，则会引发构建错误 `undefined: main.main`。`main()` 函数既没有参数，也没有返回类型（与 C 家族中的其它语言恰好相反）。如果你不小心为 `main()` 函数添加了参数或者返回类型，将会引发构建错误：
 
-	func main must have no arguments and no return values results.
+    func main must have no arguments and no return values results.
 
 在程序开始执行并完成初始化后，第一个调用（程序的入口点）的函数是 `main.main()`（如：C 语言），该函数一旦返回就表示程序已成功执行并立即退出。
 
@@ -1146,7 +1144,7 @@ func functionName()
 
 左大括号 `{` 必须与方法的声明放在同一行，这是编译器的强制规定，否则你在使用 gofmt 时就会出现错误提示：
 
-	`build-error: syntax error: unexpected semicolon or newline before {`
+    `build-error: syntax error: unexpected semicolon or newline before {`
 
 （这是因为编译器会产生 `func main() ;` 这样的结果，很明显这是错误的）
 
@@ -1365,7 +1363,7 @@ valueOfTypeB = typeB(valueOfTypeA)
 
 **类型 B 的值 = 类型 B(类型 A 的值)**
 
-示例： 
+示例：
 
 ```go
 a := 5.0
@@ -1392,7 +1390,7 @@ d := IZ(c)
 
 存储在常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。
 
-常量的定义格式：`const identifier [type] = value`，例如： 
+常量的定义格式：`const identifier [type] = value`，例如：
 
 ```go
 const Pi = 3.14159
@@ -1412,7 +1410,7 @@ f(n + 5) // 无类型的数字型常量 “5” 它的类型在这里变成了 i
 
 常量的值必须是能够在编译时就能够确定的；你可以在其赋值表达式中涉及计算过程，但是所有用于计算的值必须在编译期间就能获得。
 
-- 正确的做法：`const c1 = 2/3`  
+- 正确的做法：`const c1 = 2/3`
 - 错误的做法：`const c2 = getNumber()` // 引发构建错误: `getNumber() used as value`
 
 **因为在编译期间自定义函数均属于未知，因此无法用于常量的赋值，但内置函数可以使用，如：`len()`。**
@@ -1472,7 +1470,7 @@ const (
 	a = iota  // a = 0
 	b         // b = 1
 	c         // c = 2
-	d = 5     // d = 5   
+	d = 5     // d = 5
 	e         // e = 5
 )
 
@@ -1569,7 +1567,7 @@ a = 15
 b = false
 ```
 
-一般情况下，当变量a和变量b之间类型相同时，才能进行如 `a = b` 的赋值。
+一般情况下，当变量 a 和变量 b 之间类型相同时，才能进行如 `a = b` 的赋值。
 
 声明与赋值（初始化）语句也可以组合起来。
 
@@ -1990,7 +1988,7 @@ Go 也有基于架构的类型，例如：`int`、`uint` 和 `uintptr`。
 - `int` 和 `uint` 在 32 位操作系统上，它们均使用 32 位（4 个字节），在 64 位操作系统上，它们均使用 64 位（8 个字节）。
 - `uintptr` 的长度被设定为足够存放一个指针即可。
 
-Go 语言中没有 float 类型。（Go语言中只有 `float32` 和 `float64`）没有 double 类型。
+Go 语言中没有 float 类型。（Go 语言中只有 `float32` 和 `float64`）没有 double 类型。
 
 与操作系统架构无关的类型都有固定的大小，并在类型的名称中就可以看出来：
 
@@ -2010,8 +2008,8 @@ Go 语言中没有 float 类型。（Go语言中只有 `float32` 和 `float64`�
 
 浮点型（IEEE-754 标准）：
 
-- `float32`（+- 1e-45 -> +- 3.4 * 1e38）
-- `float64`（+- 5 * 1e-324 -> 107 * 1e308）
+- `float32`（+- 1e-45 -> +- 3.4 \* 1e38）
+- `float64`（+- 5 _ 1e-324 -> 107 _ 1e308）
 
 `int` 型是计算最快的一种类型。
 
@@ -2043,7 +2041,7 @@ func main() {
 
 如果你尝试编译该程序，则将得到编译错误 `cannot use a + a (type int) as type int32 in assignment`。
 
-同样地，`int16`  也不能够被隐式转换为 `int32`。
+同样地，`int16` 也不能够被隐式转换为 `int32`。
 
 下面这个程序展示了通过显式转换来避免这个问题（[第 4.2 节]()）。
 
@@ -2115,8 +2113,8 @@ func IntFromFloat64(x float64) int {
 
 Go 拥有以下复数类型：
 
-	complex64 (32 位实数和虚数)
-	complex128 (64 位实数和虚数)
+    complex64 (32 位实数和虚数)
+    complex128 (64 位实数和虚数)
 
 复数使用 `re+imI` 来表示，其中 `re` 代表实数部分，`im` 代表虚数部分，`I` 代表根号负 1。
 
@@ -2150,64 +2148,64 @@ c = complex(re, im)
 
 - 按位与 `&`：
 
-	对应位置上的值经过和运算结果，具体参见和运算符（第 4.5.1 节），并将 T (true) 替换为 `1`，将 F (false) 替换为 `0`
+  对应位置上的值经过和运算结果，具体参见和运算符（第 4.5.1 节），并将 T (true) 替换为 `1`，将 F (false) 替换为 `0`
 
-		1 & 1 -> 1
-		1 & 0 -> 0
-		0 & 1 -> 0
-		0 & 0 -> 0
+      1 & 1 -> 1
+      1 & 0 -> 0
+      0 & 1 -> 0
+      0 & 0 -> 0
 
 - 按位或 `|`：
 
-	对应位置上的值经过或运算结果，具体参见或运算符（第 4.5.1 节），并将 T (true) 替换为 `1`，将 F (false) 替换为 `0`
+  对应位置上的值经过或运算结果，具体参见或运算符（第 4.5.1 节），并将 T (true) 替换为 `1`，将 F (false) 替换为 `0`
 
-		1 | 1 -> 1
-		1 | 0 -> 1
-		0 | 1 -> 1
-		0 | 0 -> 0
+      1 | 1 -> 1
+      1 | 0 -> 1
+      0 | 1 -> 1
+      0 | 0 -> 0
 
 - 按位异或 `^`：
 
-	对应位置上的值根据以下规则组合：
+  对应位置上的值根据以下规则组合：
 
-		1 ^ 1 -> 0
-		1 ^ 0 -> 1
-		0 ^ 1 -> 1
-		0 ^ 0 -> 0
+      1 ^ 1 -> 0
+      1 ^ 0 -> 1
+      0 ^ 1 -> 1
+      0 ^ 0 -> 0
 
 - 位清除 `&^`：将指定位置上的值设置为 `0`。
 
-	```go
-	package main
-	import "fmt"
-	func main() {
-		var x uint8 = 15
-		var y uint8 = 4
-		fmt.Printf("%08b\n", x &^ y);  // 00001011
-	}
-	```
+  ```go
+  package main
+  import "fmt"
+  func main() {
+  	var x uint8 = 15
+  	var y uint8 = 4
+  	fmt.Printf("%08b\n", x &^ y);  // 00001011
+  }
+  ```
 
 **一元运算符**
 
 - 按位补足 `^`：
 
-	该运算符与异或运算符一同使用，即 `m^x`，对于无符号 `x` 使用 “全部位设置为 1” 的规则，对于有符号 `x` 时使用 `m=-1`。例如：
+  该运算符与异或运算符一同使用，即 `m^x`，对于无符号 `x` 使用 “全部位设置为 1” 的规则，对于有符号 `x` 时使用 `m=-1`。例如：
 
-		^10 = -01 ^ 10 = -11
+      ^10 = -01 ^ 10 = -11
 
 - 位左移 `<<`：
 
-	- 用法：`bitP << n`。
-	- `bitP` 的位向左移动 `n` 位，右侧空白部分使用 0 填充；如果 `n` 等于 2，则结果是 2 的相应倍数，即 2 的 `n` 次方。例如：
+  - 用法：`bitP << n`。
+  - `bitP` 的位向左移动 `n` 位，右侧空白部分使用 0 填充；如果 `n` 等于 2，则结果是 2 的相应倍数，即 2 的 `n` 次方。例如：
 
-			1 << 10 // 等于 1 KB
-			1 << 20 // 等于 1 MB
-			1 << 30 // 等于 1 GB
+        1 << 10 // 等于 1 KB
+        1 << 20 // 等于 1 MB
+        1 << 30 // 等于 1 GB
 
 - 位右移 `>>`：
 
-	- 用法：`bitP >> n`。
-	- `bitP` 的位向右移动 `n` 位，左侧空白部分使用 0 填充；如果 `n` 等于 2，则结果是当前值除以 2 的 n 次方。
+  - 用法：`bitP >> n`。
+  - `bitP` 的位向右移动 `n` 位，左侧空白部分使用 0 填充；如果 `n` 等于 2，则结果是当前值除以 2 的 n 次方。
 
 当希望把结果赋值给第一个操作数时，可以简写为 `a <<= 2` 或者 `b ^= a & 0xffffffff`。
 
@@ -2273,8 +2271,8 @@ b3 := 10 > 5 // b3 is true
 
 对于整数和浮点数，你可以使用一元运算符 `++`（递增）和 `--`（递减），但只能用于后缀：
 
-	i++ -> i += 1 -> i = i + 1
-	i-- -> i -= 1 -> i = i - 1
+    i++ -> i += 1 -> i = i + 1
+    i-- -> i -= 1 -> i = i - 1
 
 同时，带有 `++` 和 `--` 的只能作为语句，而非表达式，因此 `n = i++` 这种写法是无效的，其它像 `f(i++)` 或者 `a[i]=b[i++]` 这些可以用于 C、C++ 和 Java 中的写法在 Go 中也是不允许的。
 
@@ -2314,9 +2312,9 @@ func main() {
 
 可能的输出：
 
-	816681689 / 1325201247 / 623951027 / 478285186 / 1654146165 /
-	1951252986 / 2029250107 / 762911244 / 1372544545 / 591415086 / / 3 / 0 / 6 / 4 / 2 /22.10
-	/ 65.77 / 65.89 / 16.85 / 75.56 / 46.90 / 55.24 / 55.95 / 25.58 / 70.61 /
+    816681689 / 1325201247 / 623951027 / 478285186 / 1654146165 /
+    1951252986 / 2029250107 / 762911244 / 1372544545 / 591415086 / / 3 / 0 / 6 / 4 / 2 /22.10
+    / 65.77 / 65.89 / 16.85 / 75.56 / 46.90 / 55.24 / 55.95 / 25.58 / 70.61 /
 
 函数 `rand.Float32` 和 `rand.Float64` 返回介于 $[0.0, 1.0)$ 之间的伪随机数，其中包括 `0.0` 但不包括 `1.0`。函数 `rand.Intn` 返回介于 $[0, n)$ 之间的伪随机数。
 
@@ -2326,14 +2324,14 @@ func main() {
 
 有些运算符拥有较高的优先级，二元运算符的运算方向均是从左至右。下表列出了所有运算符以及它们的优先级，由上至下代表优先级由高到低：
 
-	优先级 	运算符
-	 7 		^ !
-	 6 		* / % << >> & &^
-	 5 		+ - | ^
-	 4 		== != < <= >= >
-	 3 		<-
-	 2 		&&
-	 1 		||
+    优先级 	运算符
+     7 		^ !
+     6 		* / % << >> & &^
+     5 		+ - | ^
+     4 		== != < <= >= >
+     3 		<-
+     2 		&&
+     1 		||
 
 当然，你可以通过使用括号来临时提升某个表达式的整体运算优先级。
 
@@ -2396,10 +2394,10 @@ fmt.Printf("%U - %U - %U", ch, ch2, ch3) // UTF-8 code point
 
 输出：
 
-	65 - 946 - 1053236
-	A - β - r
-	41 - 3B2 - 101234
-	U+0041 - U+03B2 - U+101234
+    65 - 946 - 1053236
+    A - β - r
+    41 - 3B2 - 101234
+    U+0041 - U+03B2 - U+101234
 
 格式化说明符 `%c` 用于表示字符；当和字符配合使用时，`%v` 或 `%d` 会输出用于表示该字符的整数；`%U` 输出格式为 `U+hhhh` 的字符串（另一个示例见[第 5.4.4 节]()）。
 
@@ -2421,19 +2419,19 @@ Go 支持以下 2 种形式的字面值：
 
 - 解释字符串：
 
-	该类字符串使用双引号括起来，其中的相关的转义字符将被替换，这些转义字符包括：
+  该类字符串使用双引号括起来，其中的相关的转义字符将被替换，这些转义字符包括：
 
-	- `\n`：换行符
-	- `\r`：回车符
-	- `\t`：tab 键
-	- `\u` 或 `\U`：Unicode 字符
-	- `\\`：反斜杠自身
+  - `\n`：换行符
+  - `\r`：回车符
+  - `\t`：tab 键
+  - `\u` 或 `\U`：Unicode 字符
+  - `\\`：反斜杠自身
 
 - 非解释字符串：
 
-	该类字符串使用反引号括起来，支持换行，例如：
+  该类字符串使用反引号括起来，支持换行，例如：
 
-		`This is a raw string \n` 中的 `\n\` 会被原样输出。
+      `This is a raw string \n` 中的 `\n\` 会被原样输出。
 
 和 C/C++不一样，Go 中的字符串是根据长度限定，而非特殊字符 `\0`。
 
@@ -2519,7 +2517,7 @@ func main() {
 
 输出：
 
-	T/F? Does the string "This is an example of a string" have prefix Th? true
+    T/F? Does the string "This is an example of a string" have prefix Th? true
 
 这个例子同样演示了转义字符 `\` 和格式化字符串的使用。
 
@@ -2550,9 +2548,10 @@ strings.LastIndex(s, str string) int
 ```go
 strings.IndexRune(s string, r rune) int
 ```
-	注: 原文为 "If ch is a non-ASCII character use strings.IndexRune(s string, ch int) int."
-	该方法在最新版本的 Go 中定义为 func IndexRune(s string, r rune) int
-	实际使用中的第二个参数 rune 可以是 rune 或 int, 例如 strings.IndexRune("chicken", 99) 或 strings.IndexRune("chicken", rune('k'))
+
+    注: 原文为 "If ch is a non-ASCII character use strings.IndexRune(s string, ch int) int."
+    该方法在最新版本的 Go 中定义为 func IndexRune(s string, r rune) int
+    实际使用中的第二个参数 rune 可以是 rune 或 int, 例如 strings.IndexRune("chicken", 99) 或 strings.IndexRune("chicken", rune('k'))
 
 示例 4.14 [index_in_string.go](examples/chapter_4/index_in_string.go)
 
@@ -2582,10 +2581,10 @@ func main() {
 
 输出：
 
-	The position of "Marc" is: 8
-	The position of the first instance of "Hi" is: 0
-	The position of the last instance of "Hi" is: 14
-	The position of "Burger" is: -1
+    The position of "Marc" is: 8
+    The position of the first instance of "Hi" is: 0
+    The position of the last instance of "Hi" is: 14
+    The position of "Burger" is: -1
 
 #### 4.7.4 字符串替换
 
@@ -2627,8 +2626,8 @@ func main() {
 
 输出：
 
-	Number of H's in Hello, how is it going, Hugo? is: 2
-	Number of double g’s in gggggggggg is: 5
+    Number of H's in Hello, how is it going, Hugo? is: 2
+    Number of double g’s in gggggggggg is: 5
 
 #### 4.7.6 重复字符串
 
@@ -2659,10 +2658,9 @@ func main() {
 
 输出：
 
-	The new repeated string is: Hi there! Hi there! Hi there!
+    The new repeated string is: Hi there! Hi there! Hi there!
 
 #### 4.7.7 修改字符串大小写
-
 
 `ToLower()` 将字符串中的 Unicode 字符全部转换为相应的小写字符：
 
@@ -2701,9 +2699,9 @@ func main() {
 
 输出：
 
-	The original string is: Hey, how are you George?
-	The lowercase string is: hey, how are you george?
-	The uppercase string is: HEY, HOW ARE YOU GEORGE?
+    The original string is: Hey, how are you George?
+    The lowercase string is: hey, how are you george?
+    The uppercase string is: HEY, HOW ARE YOU GEORGE?
 
 #### 4.7.8 修剪字符串
 
@@ -2757,11 +2755,11 @@ func main() {
 
 输出：
 
-	Splitted in slice: [The quick brown fox jumps over the lazy dog]
-	The - quick - brown - fox - jumps - over - the - lazy - dog -
-	Splitted in slice: [GO1 The ABC of Go 25]
-	GO1 - The ABC of Go - 25 -
-	sl2 joined by ;: GO1;The ABC of Go;25
+    Splitted in slice: [The quick brown fox jumps over the lazy dog]
+    The - quick - brown - fox - jumps - over - the - lazy - dog -
+    Splitted in slice: [GO1 The ABC of Go 25]
+    GO1 - The ABC of Go - 25 -
+    sl2 joined by ;: GO1;The ABC of Go;25
 
 其它有关字符串操作的文档请参阅 [官方文档](http://golang.org/pkg/strings/)（ **译者注：国内用户可访问 [该页面](http://docs.studygolang.com/pkg/strings/)** ）。
 
@@ -2794,7 +2792,7 @@ func main() {
 
 利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误，因此，我们一般使用以下形式来进行从字符串到其它类型的转换：
 
-	val, err = strconv.Atoi(s)
+    val, err = strconv.Atoi(s)
 
 在下面这个示例中，我们忽略可能出现的转换错误：
 
@@ -2813,10 +2811,10 @@ func main() {
 	var an int
 	var newS string
 
-	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)	  
+	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)
 
 	an, _ = strconv.Atoi(orig)
-	fmt.Printf("The integer is: %d\n", an) 
+	fmt.Printf("The integer is: %d\n", an)
 	an = an + 5
 	newS = strconv.Itoa(an)
 	fmt.Printf("The new string is: %s\n", newS)
@@ -2824,13 +2822,12 @@ func main() {
 ```
 
 输出：
-	
-	64 位系统：
-	The size of ints is: 64
-	32 位系统：
-	The size of ints is: 32
-	The integer is: 666
-	The new string is: 671
+64 位系统：
+The size of ints is: 64
+32 位系统：
+The size of ints is: 32
+The integer is: 666
+The new string is: 671
 
 在第 5.1 节，我们将会利用 `if` 语句来对可能出现的错误进行分类处理。
 
@@ -2844,18 +2841,17 @@ func main() {
 
 `Duration` 类型表示两个连续时刻所相差的纳秒数，类型为 `int64`。`Location` 类型映射某个时区的时间，UTC 表示通用协调世界时间。
 
-包中的一个预定义函数 `func (t Time) Format(layout string) string` 可以根据一个格式化字符串来将一个时间 `t` 转换为相应格式的字符串，你可以使用一些预定义的格式，如：`time.ANSIC` 或 `time.RFC822`。 
+包中的一个预定义函数 `func (t Time) Format(layout string) string` 可以根据一个格式化字符串来将一个时间 `t` 转换为相应格式的字符串，你可以使用一些预定义的格式，如：`time.ANSIC` 或 `time.RFC822`。
 
 一般的格式化设计是通过对于一个标准时间的格式化描述来展现的，这听起来很奇怪（`02 Jan 2006 15:04` 是 Go 语言的诞生时间且自定义格式化时必须以此时间为基准），但看下面这个例子你就会一目了然：
 
-
 ```go
-fmt.Println(t.Format("02 Jan 2006 15:04")) 
+fmt.Println(t.Format("02 Jan 2006 15:04"))
 ```
 
 输出：
 
-	21 Jul 2011 10:31
+    21 Jul 2011 10:31
 
 其它有关时间操作的文档请参阅 [官方文档](http://golang.org/pkg/time/)（ **译者注：国内用户可访问 [该页面](http://docs.studygolang.com/pkg/time/)** ）。
 
@@ -2957,13 +2953,12 @@ func main() {
 
 输出：
 
-	An integer: 5, its location in memory: 0x24f0820
-	The value at memory location 0x24f0820 is 5
+    An integer: 5, its location in memory: 0x24f0820
+    The value at memory location 0x24f0820 is 5
 
 我们可以用下图来表示内存使用的情况：
 
 ![](/assets/images/Go入门指南/4.9_fig4.4.jpg?raw=true)
-
 
 程序 string_pointer.go 为我们展示了指针对 `string` 的例子。
 
@@ -2986,9 +2981,9 @@ func main() {
 
 输出：
 
-	Here is the pointer p: 0x2540820
-	Here is the string *p: ciao
-	Here is the string s: ciao
+    Here is the pointer p: 0x2540820
+    Here is the string *p: ciao
+    Here is the string s: ciao
 
 通过对 `*p` 赋另一个值来更改“对象”，这样 `s` 也会随之更改。
 
@@ -2996,7 +2991,7 @@ func main() {
 
 ![](/assets/images/Go入门指南/4.9_fig4.5.jpg?raw=true)
 
-**注意事项** 
+**注意事项**
 
 你不能获取字面量或常量的地址，例如：
 
@@ -3058,7 +3053,7 @@ if 是用于测试某个条件（布尔型或逻辑型）的语句，如果该�
 
 ```go
 if condition {
-	// do something	
+	// do something
 }
 ```
 
@@ -3066,9 +3061,9 @@ if condition {
 
 ```go
 if condition {
-	// do something	
+	// do something
 } else {
-	// do something	
+	// do something
 }
 ```
 
@@ -3076,9 +3071,9 @@ if condition {
 
 ```go
 if condition1 {
-	// do something	
+	// do something
 } else if condition2 {
-	// do something else	
+	// do something else
 } else {
 	// catch-all or default
 }
@@ -3121,8 +3116,7 @@ func main() {
 ```
 
 输出：
-	
-	The value is true
+The value is true
 
 **注意事项** 这里不需要使用 `if bool1 == true` 来判断，因为 `bool1` 本身已经是一个布尔类型的值。
 
@@ -3142,53 +3136,53 @@ return y
 这里举一些有用的例子：
 
 1. 判断一个字符串是否为空：
-	- `if str == "" { ... }`
-	- `if len(str) == 0 {...}`	
+   - `if str == "" { ... }`
+   - `if len(str) == 0 {...}`
 2. 判断运行 Go 程序的操作系统类型，这可以通过常量 `runtime.GOOS` 来判断（[第 2.2 节]()）。
-	
-	```go
-	if runtime.GOOS == "windows"	 {
-		.	..
-	} else { // Unix-like
-		.	..
-	}
-	```
 
-	这段代码一般被放在 `init()` 函数中执行。这儿还有一段示例来演示如何根据操作系统来决定输入结束的提示：
-	
-	```go
-	var prompt = "Enter a digit, e.g. 3 "+ "or %s to quit."
-	
-	func init() {
-		if runtime.GOOS == "windows" {
-			prompt = fmt.Sprintf(prompt, "Ctrl+Z, Enter")		
-		} else { //Unix-like
-			prompt = fmt.Sprintf(prompt, "Ctrl+D")
-		}
-	}
-	```
-	
+   ```go
+   if runtime.GOOS == "windows"	 {
+   	.	..
+   } else { // Unix-like
+   	.	..
+   }
+   ```
+
+   这段代码一般被放在 `init()` 函数中执行。这儿还有一段示例来演示如何根据操作系统来决定输入结束的提示：
+
+   ```go
+   var prompt = "Enter a digit, e.g. 3 "+ "or %s to quit."
+
+   func init() {
+   	if runtime.GOOS == "windows" {
+   		prompt = fmt.Sprintf(prompt, "Ctrl+Z, Enter")
+   	} else { //Unix-like
+   		prompt = fmt.Sprintf(prompt, "Ctrl+D")
+   	}
+   }
+   ```
+
 3. 函数 `Abs()` 用于返回一个整型数字的绝对值:
 
-	```go
-	func Abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x	
-	}
-	```
+   ```go
+   func Abs(x int) int {
+   if x < 0 {
+   	return -x
+   }
+   return x
+   }
+   ```
 
 4. `isGreater` 用于比较两个整型数字的大小:
 
-	```go
-	func isGreater(x, y int) bool {
-		if x > y {
-			return true	
-		}
-		return false
-	}
-	```
+   ```go
+   func isGreater(x, y int) bool {
+   	if x > y {
+   		return true
+   	}
+   	return false
+   }
+   ```
 
 在第四种情况中，`if` 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）：
 
@@ -3245,8 +3239,8 @@ func main() {
 
 输出：
 
-	first is 5 or greater
-	cond is not greater than 10
+    first is 5 or greater
+    cond is not greater than 10
 
 下面的代码片段展示了如何通过在初始化语句中获取函数 `process()` 的返回值，并在条件语句中作为判定条件来决定是否执行 `if` 结构中的代码：
 
@@ -3272,7 +3266,6 @@ anInt, _ = strconv.Atoi(origStr)
 
 我们在第二个版本中对代码进行了改进：
 
-
 示例 1：
 
 示例 5.3 [string_conversion2.go](examples/chapter_5/string_conversion2.go)
@@ -3291,13 +3284,13 @@ func main() {
 	var newS string
 	// var err error
 
-	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)	  
+	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)
 	// anInt, err = strconv.Atoi(origStr)
 	an, err := strconv.Atoi(orig)
 	if err != nil {
 		fmt.Printf("orig %s is not an integer - exiting with error\n", orig)
 		return
-	} 
+	}
 	fmt.Printf("The integer is %d\n", an)
 	an = an + 5
 	newS = strconv.Itoa(an)
@@ -3374,6 +3367,7 @@ if value, ok := readData(); ok {
 **注意事项**
 
 如果您像下面一样，没有为多返回值的函数准备足够的变量来存放结果：
+
 ```go
 func mySqrt(f float64) (v float64, ok bool) {
 	if f < 0 { return } // error case
@@ -3478,7 +3472,7 @@ func main() {
 	switch num1 {
 	case 98, 99:
 		fmt.Println("It's equal to 98")
-	case 100: 
+	case 100:
 		fmt.Println("It's equal to 100")
 	default:
 		fmt.Println("It's not equal to 98 or 100")
@@ -3489,7 +3483,7 @@ func main() {
 
 输出：
 
-	It's equal to 100
+    It's equal to 100
 
 在第 12.1 节，我们会使用 `switch` 语句判断从键盘输入的字符（详见[第 12.2 节]() 的 [switch.go](./examples/chapter_12/switch.go)）。`switch` 语句的第二种形式是不提供任何被判断的值（实际上默认为判断是否为 `true`），然后在每个 `case` 分支中进行测试不同的条件。当任一分支的测试结果为 `true` 时，该分支的代码会被执行。这看起来非常像链式的 if-else 语句，但是在测试条件非常多的情况下，提供了可读性更好的书写方式。
 
@@ -3542,7 +3536,7 @@ func main() {
 
 输出：
 
-	Number is between 0 and 10
+    Number is between 0 and 10
 
 switch 语句的第三种形式是包含一个初始化语句：
 
@@ -3623,7 +3617,7 @@ switch a, b := x[i], y[j]; {
 
 文件 for1.go 中演示了最简单的基于计数器的迭代，基本形式为：
 
-	for 初始化语句; 条件语句; 修饰语句 {}
+    for 初始化语句; 条件语句; 修饰语句 {}
 
 示例 5.6 [for1.go](examples/chapter_5/for1.go)：
 
@@ -3641,11 +3635,11 @@ func main() {
 
 输出：
 
-	This is the 0 iteration
-	This is the 1 iteration
-	This is the 2 iteration
-	This is the 3 iteration
-	This is the 4 iteration
+    This is the 0 iteration
+    This is the 1 iteration
+    This is the 2 iteration
+    This is the 3 iteration
+    This is the 4 iteration
 
 由花括号括起来的代码块会被重复执行已知次数，该次数是根据计数器（此例为 `i`）决定的。循环开始前，会执行且仅会执行一次初始化语句 `i := 0;`；这比在循环之前声明更为简短。紧接着的是条件语句 `i < 5;`，在每次循环开始前都会进行判断，一旦判断结果为 `false`，则退出循环体。最后一部分为修饰语句 `i++`，一般用于增加或减少计数器。
 
@@ -3698,44 +3692,44 @@ func main() {
 
 输出：
 
-	The length of str is: 27
-	Character on position 0 is: G 
-	Character on position 1 is: o 
-	Character on position 2 is:   
-	Character on position 3 is: i 
-	Character on position 4 is: s 
-	Character on position 5 is:   
-	Character on position 6 is: a 
-	Character on position 7 is:   
-	Character on position 8 is: b 
-	Character on position 9 is: e 
-	Character on position 10 is: a 
-	Character on position 11 is: u 
-	Character on position 12 is: t 
-	Character on position 13 is: i 
-	Character on position 14 is: f 
-	Character on position 15 is: u 
-	Character on position 16 is: l 
-	Character on position 17 is:   
-	Character on position 18 is: l 
-	Character on position 19 is: a 
-	Character on position 20 is: n 
-	Character on position 21 is: g 
-	Character on position 22 is: u 
-	Character on position 23 is: a 
-	Character on position 24 is: g 
-	Character on position 25 is: e 
-	Character on position 26 is: ! 
-	The length of str2 is: 9
-	Character on position 0 is: æ 
-	Character on position 1 is:  
-	Character on position 2 is: ¥ 
-	Character on position 3 is: æ 
-	Character on position 4 is:  
-	Character on position 5 is: ¬ 
-	Character on position 6 is: è 
-	Character on position 7 is: ª 
-	Character on position 8 is:  
+    The length of str is: 27
+    Character on position 0 is: G
+    Character on position 1 is: o
+    Character on position 2 is:
+    Character on position 3 is: i
+    Character on position 4 is: s
+    Character on position 5 is:
+    Character on position 6 is: a
+    Character on position 7 is:
+    Character on position 8 is: b
+    Character on position 9 is: e
+    Character on position 10 is: a
+    Character on position 11 is: u
+    Character on position 12 is: t
+    Character on position 13 is: i
+    Character on position 14 is: f
+    Character on position 15 is: u
+    Character on position 16 is: l
+    Character on position 17 is:
+    Character on position 18 is: l
+    Character on position 19 is: a
+    Character on position 20 is: n
+    Character on position 21 is: g
+    Character on position 22 is: u
+    Character on position 23 is: a
+    Character on position 24 is: g
+    Character on position 25 is: e
+    Character on position 26 is: !
+    The length of str2 is: 9
+    Character on position 0 is: æ
+    Character on position 1 is: 
+    Character on position 2 is: ¥
+    Character on position 3 is: æ
+    Character on position 4 is: 
+    Character on position 5 is: ¬
+    Character on position 6 is: è
+    Character on position 7 is: ª
+    Character on position 8 is: 
 
 如果我们打印 `str` 和 `str2` 的长度，会分别得到 `27` 和 `9`。
 
@@ -3752,12 +3746,12 @@ func main() {
 
 创建一个程序，要求能够打印类似下面的结果（尾行达 25 个字符为止）：
 
-	G
-	GG
-	GGG
-	GGGG
-	GGGGG
-	GGGGGG
+    G
+    GG
+    GGG
+    GGGG
+    GGGGG
+    GGGGGG
 
 1. 使用 2 层嵌套 for 循环。
 2. 仅用 1 层 for 循环以及字符串连接。
@@ -3799,12 +3793,12 @@ func main() {
 
 输出：
 
-	The variable i is now: 4
-	The variable i is now: 3
-	The variable i is now: 2
-	The variable i is now: 1
-	The variable i is now: 0
-	The variable i is now: -1
+    The variable i is now: 4
+    The variable i is now: 3
+    The variable i is now: 2
+    The variable i is now: 1
+    The variable i is now: 0
+    The variable i is now: -1
 
 #### 5.4.3 无限循环
 
@@ -3869,33 +3863,33 @@ func main() {
 
 ```
 The length of str is: 27
-Character on position 0 is: G 
-Character on position 1 is: o 
-Character on position 2 is:   
-Character on position 3 is: i 
-Character on position 4 is: s 
-Character on position 5 is:   
-Character on position 6 is: a 
-Character on position 7 is:   
-Character on position 8 is: b 
-Character on position 9 is: e 
-Character on position 10 is: a 
-Character on position 11 is: u 
-Character on position 12 is: t 
-Character on position 13 is: i 
-Character on position 14 is: f 
-Character on position 15 is: u 
-Character on position 16 is: l 
-Character on position 17 is:   
-Character on position 18 is: l 
-Character on position 19 is: a 
-Character on position 20 is: n 
-Character on position 21 is: g 
-Character on position 22 is: u 
-Character on position 23 is: a 
-Character on position 24 is: g 
-Character on position 25 is: e 
-Character on position 26 is: ! 
+Character on position 0 is: G
+Character on position 1 is: o
+Character on position 2 is:
+Character on position 3 is: i
+Character on position 4 is: s
+Character on position 5 is:
+Character on position 6 is: a
+Character on position 7 is:
+Character on position 8 is: b
+Character on position 9 is: e
+Character on position 10 is: a
+Character on position 11 is: u
+Character on position 12 is: t
+Character on position 13 is: i
+Character on position 14 is: f
+Character on position 15 is: u
+Character on position 16 is: l
+Character on position 17 is:
+Character on position 18 is: l
+Character on position 19 is: a
+Character on position 20 is: n
+Character on position 21 is: g
+Character on position 22 is: u
+Character on position 23 is: a
+Character on position 24 is: g
+Character on position 25 is: e
+Character on position 26 is: !
 
 The length of str2 is: 18
 character C starts at byte position 0
@@ -4008,7 +4002,7 @@ func main() {
 	for i:=0; i<3; i++ {
 		for j:=0; j<10; j++ {
 			if j>5 {
-			    break   
+			    break
 			}
 			print(j)
 		}
@@ -4019,7 +4013,7 @@ func main() {
 
 输出：
 
-	012345 012345 012345
+    012345 012345 012345
 
 关键字 `continue` 忽略剩余的循环体而直接进入下一次循环的过程，但不是无条件执行下一次循环，执行之前依旧需要满足循环的判断条件。
 
@@ -4122,7 +4116,7 @@ func main() {
 		a := 1
 		goto TARGET // compile error
 		b := 9
-	TARGET:  
+	TARGET:
 		b += a
 		fmt.Printf("a is %v *** b is %v", a, b)
 }
@@ -4160,7 +4154,7 @@ for i := 0; i<7 ; i++ {
 
 每一个程序都包含很多的函数：函数是基本的代码块。
 
-Go是编译型语言，所以函数编写的顺序是无关紧要的；鉴于可读性的需求，最好把 `main()` 函数写在文件的前面，其他函数按照一定逻辑顺序进行编写（例如函数被调用的顺序）。
+Go 是编译型语言，所以函数编写的顺序是无关紧要的；鉴于可读性的需求，最好把 `main()` 函数写在文件的前面，其他函数按照一定逻辑顺序进行编写（例如函数被调用的顺序）。
 
 编写多个函数的主要目的是将一个需要很多行代码的复杂问题分解为一系列简单的任务（那就是函数）来解决。而且，同一个任务（函数）可以被调用多次，有助于代码重用。
 
@@ -4168,10 +4162,10 @@ Go是编译型语言，所以函数编写的顺序是无关紧要的；鉴于可
 
 当函数执行到代码块最后一行（`}` 之前）或者 `return` 语句的时候会退出，其中 `return` 语句可以带有零个或多个参数；这些参数将作为返回值（参考 [第 6.2 节]()）供调用者使用。简单的 `return` 语句也可以用来结束 `for` 死循环，或者结束一个协程 (goroutine)。
 
-Go 里面有三种类型的函数：  
+Go 里面有三种类型的函数：
 
 - 普通的带有名字的函数
-- 匿名函数或者lambda函数（参考 [第 6.8 节]()）
+- 匿名函数或者 lambda 函数（参考 [第 6.8 节]()）
 - 方法（Methods，参考 [第 10.6 节]()）
 
 除了 `main()`、`init()` 函数外，其它所有类型的函数都可以有参数与返回值。函数参数、返回值以及它们的类型被统称为函数签名。
@@ -4276,7 +4270,7 @@ func (st *Stack) Pop() int {
             return v
         }
     }
-}    
+}
 ```
 
 函数定义时，它的形参一般是有名字的，不过我们也可以定义没有形参名的函数，只有相应的形参类型，就像这样：`func f(int, int, float64)`。
@@ -4289,7 +4283,7 @@ Go 默认使用按值传递来传递参数，也就是传递参数的副本。�
 
 如果你希望函数可以直接修改参数的值，而不是对参数的副本进行操作，你需要将参数的地址（变量名前面添加 `&` 符号，比如 `&variable`）传递给函数，这就是按引用传递，比如 `Function(&arg1)`，此时传递给函数的是一个指针。如果传递给函数的是一个指针，指针的值（一个地址）会被复制，但指针的值所指向的地址上的值不会被复制；我们可以通过这个指针的值来修改这个值所指向的地址上的值。（**译者注：指针也是变量类型，有自己的地址和值，通常指针的值指向一个变量的地址。所以，按引用传递也是按值传递。**）
 
-几乎在任何情况下，传递指针（一个32位或者64位的值）的消耗都比传递副本来得少。
+几乎在任何情况下，传递指针（一个 32 位或者 64 位的值）的消耗都比传递副本来得少。
 
 在函数调用时，像切片 (slice)、字典 (map)、接口 (interface)、通道 (channel) 这样的引用类型都是默认使用引用传递（即使没有显式的指出指针）。
 
@@ -4332,7 +4326,7 @@ func MultiPly3Nums(a int, b int, c int) int {
     (A) func DoSomething(a *A) {
             b = a
         }
-    
+
     (B) func DoSomething(a A) {
             b = &a
         }
@@ -4379,9 +4373,9 @@ func getX2AndX3_2(input int) (x2 int, x3 int) {
 ```
 
 输出结果：
-    
-    num = 10, 2x num = 20, 3x num = 30    
-    num = 10, 2x num = 20, 3x num = 30 
+
+    num = 10, 2x num = 20, 3x num = 30
+    num = 10, 2x num = 20, 3x num = 30
 
 提示：
 
@@ -4389,8 +4383,8 @@ func getX2AndX3_2(input int) (x2 int, x3 int) {
 
 `syntax error: unexpected =, expecting semicolon or newline or }`。
 
-即使函数使用了命名返回值，你依旧可以无视它而返回明确的值。        
-            
+即使函数使用了命名返回值，你依旧可以无视它而返回明确的值。
+
 任何一个非命名返回值（使用非命名返回值是很糟的编程习惯）在 `return` 语句里面都要明确指出包含返回值的变量或是一个可计算的值（就像上面警告所指出的那样）。
 
 **尽量使用命名返回值：会使代码更清晰、更简短，同时更加容易读懂。**
@@ -4490,7 +4484,7 @@ func main() {
 ```
 
 这仅仅是个指导性的例子，当需要在函数内改变一个占用内存比较大的变量时，性能优势就更加明显了。然而，如果不小心使用的话，传递一个指针很容易引发一些不确定的事，所以，我们要十分小心那些可以改变外部变量的函数，在必要时，需要添加注释以便其他人能够更加清楚的知道函数里面到底发生了什么。
-            
+
 ### 6.3 传递变长参数
 
 如果函数的最后一个参数是采用 `...type` 的形式，那么这个函数就可以处理一个变长的参数，这个长度可以为 0，这样的函数称为变参函数。
@@ -4543,8 +4537,8 @@ func min(s ...int) int {
 
 输出：
 
-	The minimum is: 0
-	The minimum in the slice is: 1
+    The minimum is: 0
+    The minimum in the slice is: 1
 
 **练习 6.3** [varargs.go](exercises/chapter_6/varargs.go)
 
@@ -4568,35 +4562,35 @@ func F3(s []string) { }
 
 1. 使用结构（详见[第 10 章]()）：
 
-	定义一个结构类型，假设它叫 `Options`，用以存储所有可能的参数：
+   定义一个结构类型，假设它叫 `Options`，用以存储所有可能的参数：
 
-	```go
-	type Options struct {
-		par1 type1,
-		par2 type2,
-		...
-	}
-	```
+   ```go
+   type Options struct {
+   	par1 type1,
+   	par2 type2,
+   	...
+   }
+   ```
 
-	函数 `F1()` 可以使用正常的参数 `a` 和 `b`，以及一个没有任何初始化的 `Options` 结构： `F1(a, b, Options {})`。如果需要对选项进行初始化，则可以使用 `F1(a, b, Options {par1:val1, par2:val2})`。
+   函数 `F1()` 可以使用正常的参数 `a` 和 `b`，以及一个没有任何初始化的 `Options` 结构： `F1(a, b, Options {})`。如果需要对选项进行初始化，则可以使用 `F1(a, b, Options {par1:val1, par2:val2})`。
 
 2. 使用空接口：
 
-	如果一个变长参数的类型没有被指定，则可以使用默认的空接口 `interface{}`，这样就可以接受任何类型的参数（详见[第 11.9 节]() ）。该方案不仅可以用于长度未知的参数，还可以用于任何不确定类型的参数。一般而言我们会使用一个 for-range 循环以及 `switch` 结构对每个参数的类型进行判断：
+   如果一个变长参数的类型没有被指定，则可以使用默认的空接口 `interface{}`，这样就可以接受任何类型的参数（详见[第 11.9 节]() ）。该方案不仅可以用于长度未知的参数，还可以用于任何不确定类型的参数。一般而言我们会使用一个 for-range 循环以及 `switch` 结构对每个参数的类型进行判断：
 
-	```go
-	func typecheck(..,..,values … interface{}) {
-		for _, value := range values {
-			switch v := value.(type) {
-				case int: …
-				case float: …
-				case string: …
-				case bool: …
-				default: …
-			}
-		}
-	}
-	```
+   ```go
+   func typecheck(..,..,values … interface{}) {
+   	for _, value := range values {
+   		switch v := value.(type) {
+   			case int: …
+   			case float: …
+   			case string: …
+   			case bool: …
+   			default: …
+   		}
+   	}
+   }
+   ```
 
 ### 6.4 defer 和追踪
 
@@ -4663,28 +4657,28 @@ func f() {
 1. 关闭文件流 （详见 [第 12.2 节]()）
 
 ```go
-// open a file  
+// open a file
 defer file.Close()
 ```
 
 2. 解锁一个加锁的资源 （详见 [第 9.3 节]()）
 
 ```go
-mu.Lock()  
-defer mu.Unlock() 
+mu.Lock()
+defer mu.Unlock()
 ```
 
 3. 打印最终报告
 
 ```go
-printHeader()  
+printHeader()
 defer printFooter()
 ```
 
 4. 关闭数据库链接
 
 ```go
-// open a database connection  
+// open a database connection
 defer disconnectFromDB()
 ```
 
@@ -4842,7 +4836,7 @@ func main() {
 
 输出：
 
-	Output: 2011/10/04 10:46:11 func1("Go") = 7, EOF
+    Output: 2011/10/04 10:46:11 func1("Go") = 7, EOF
 
 ### 6.5 内置函数
 
@@ -4850,15 +4844,15 @@ Go 语言拥有一些不需要进行导入操作就可以使用的内置函数�
 
 以下是一个简单的列表，我们会在后面的章节中对它们进行逐个深入的讲解。
 
-|名称|说明|
-|---|---|
-|`close()`|用于管道通信|
-|`len()`、`cap()`|`len()` 用于返回某个类型的长度或数量（字符串、数组、切片、`map` 和管道）；`cap()` 是容量的意思，用于返回某个类型的最大容量（只能用于数组、切片和管道，不能用于 `map`）|
-|`new()`、`make()`|`new()` 和 `make()` 均是用于分配内存：`new()` 用于值类型和用户定义的类型，如自定义结构，`make` 用于内置引用类型（切片、`map` 和管道）。它们的用法就像是函数，但是将类型作为参数：`new(type)`、`make(type)`。`new(T)` 分配类型 `T` 的零值并返回其地址，也就是指向类型 `T` 的指针（详见[第 10.1 节]()）。它也可以被用于基本类型：`v := new(int)`。`make(T)` 返回类型 `T` 的初始化之后的值，因此它比 `new()` 进行更多的工作（详见[第 7.2.3/4 节]()、[第 8.1.1 节]()和[第 14.2.1 节]()）。**`new()` 是一个函数，不要忘记它的括号**。|
-|`copy()`、`append()`|用于复制和连接切片|
-|`panic()`、`recover()`|两者均用于错误处理机制|
-|`print()`、`println()`|底层打印函数（详见[第 4.2 节]()），在部署环境中建议使用 `fmt` 包|
-|`complex()`、`real ()`、`imag()`|用于创建和操作复数（详见[第 4.5.2.2 节]()）|
+| 名称                             | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `close()`                        | 用于管道通信                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `len()`、`cap()`                 | `len()` 用于返回某个类型的长度或数量（字符串、数组、切片、`map` 和管道）；`cap()` 是容量的意思，用于返回某个类型的最大容量（只能用于数组、切片和管道，不能用于 `map`）                                                                                                                                                                                                                                                                                                                                                           |
+| `new()`、`make()`                | `new()` 和 `make()` 均是用于分配内存：`new()` 用于值类型和用户定义的类型，如自定义结构，`make` 用于内置引用类型（切片、`map` 和管道）。它们的用法就像是函数，但是将类型作为参数：`new(type)`、`make(type)`。`new(T)` 分配类型 `T` 的零值并返回其地址，也就是指向类型 `T` 的指针（详见[第 10.1 节]()）。它也可以被用于基本类型：`v := new(int)`。`make(T)` 返回类型 `T` 的初始化之后的值，因此它比 `new()` 进行更多的工作（详见[第 7.2.3/4 节]()、[第 8.1.1 节]()和[第 14.2.1 节]()）。**`new()` 是一个函数，不要忘记它的括号**。 |
+| `copy()`、`append()`             | 用于复制和连接切片                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `panic()`、`recover()`           | 两者均用于错误处理机制                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `print()`、`println()`           | 底层打印函数（详见[第 4.2 节]()），在部署环境中建议使用 `fmt` 包                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `complex()`、`real ()`、`imag()` | 用于创建和操作复数（详见[第 4.5.2.2 节]()）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ### 6.6 递归函数
 
@@ -4866,7 +4860,7 @@ Go 语言拥有一些不需要进行导入操作就可以使用的内置函数�
 
 数列如下所示：
 
-	1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, …
+    1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, …
 
 下面的程序可用于生成该数列（示例 6.13 [fibonacci.go](examples/chapter_6/fibonacci.go)）：
 
@@ -5197,7 +5191,7 @@ func Adder() func(int) int {
 
 输出：
 
-	1 - 21 - 321
+    1 - 21 - 321
 
 三次调用函数 `f` 的过程中函数 `Adder()` 中变量 `delta` 的值分别为：1、20 和 300。
 
@@ -5224,7 +5218,7 @@ go func(i int) {
 
 不使用递归但使用闭包改写第 6.6 节中的斐波那契数列程序。
 
-**练习 6.10** 
+**练习 6.10**
 
 学习并理解以下程序的工作原理：
 
@@ -5374,19 +5368,20 @@ func fibonacci(n int) (res uint64) {
 ### 7.1 声明和初始化
 
 #### 7.1.1 概念
+
 数组是具有相同 **唯一类型** 的一组已编号且长度固定的数据项序列（这是一种同构的数据结构）；这种类型可以是任意的原始类型例如整型、字符串或者自定义类型。数组长度必须是一个常量表达式，并且必须是一个非负整数。数组长度也是数组类型的一部分，所以 `[5]int` 和 `[10]int` 是属于不同类型的。数组的编译时值初始化是按照数组顺序完成的（如下）。
 
 **注意事项** 如果我们想让数组元素类型为任意类型的话可以使用空接口作为类型（参考 [第 11 章]()）。当使用值时我们必须先做一个类型判断（参考 [第 11 章]()）。
 
 数组元素可以通过 **索引**（位置）来读取（或者修改），索引从 `0` 开始，第一个元素索引为 `0`，第二个索引为 `1`，以此类推（数组以 0 开始在所有类 C 语言中是相似的）。元素的数目（也称为长度或者数组大小）必须是固定的并且在声明该数组时就给出（编译时需要知道数组长度以便分配内存）；数组长度最大为 2GB。
 
-声明的格式是： 
+声明的格式是：
 
 ```go
 var identifier [len]type
 ```
 
-例如： 
+例如：
 
 ```go
 var arr1 [5]int
@@ -5405,7 +5400,7 @@ var arr1 [5]int
 
 只有有效的索引可以被使用，当使用等于或者大于 `len(arr1)` 的索引时：如果编译器可以检测到，会给出索引超限的提示信息；如果检测不到的话编译会通过而运行时会 `panic()`:（参考[第 13 章]()）
 
-	runtime error: index out of range
+    runtime error: index out of range
 
 由于索引的存在，遍历数组的方法自然就是使用 `for` 结构：
 
@@ -5434,11 +5429,11 @@ func main() {
 
 输出结果：
 
-	Array at index 0 is 0
-	Array at index 1 is 2
-	Array at index 2 is 4
-	Array at index 3 is 6
-	Array at index 4 is 8
+    Array at index 0 is 0
+    Array at index 1 is 2
+    Array at index 2 is 4
+    Array at index 3 is 6
+    Array at index 4 is 8
 
 `for` 循环中的条件非常重要：`i < len(arr1)`，如果写成 `i <= len(arr1)` 的话会产生越界错误。
 
@@ -5505,22 +5500,22 @@ func main() {
 
 输出结果：
 
-	[0 0 0]
-	&[0 0 0]
+    [0 0 0]
+    &[0 0 0]
 
 另一种方法就是生成数组切片并将其传递给函数（详见[第 7.1.4 节]()）。
 
 **练习**
 
-练习7.1：[array_value.go](examples/chapter_7/array_value.go):
+练习 7.1：[array_value.go](examples/chapter_7/array_value.go):
 
 证明当数组赋值时，发生了数组内存拷贝。
 
-练习7.2：[for_array.go](examples/chapter_7/for_array.go): 
+练习 7.2：[for_array.go](examples/chapter_7/for_array.go):
 
 写一个循环并用下标给数组赋值（从 0 到 15）并且将数组打印在屏幕上。
 
-练习7.3：[fibonacci_array.go](examples/chapter_7/fibonacci_array.go): 
+练习 7.3：[fibonacci_array.go](examples/chapter_7/fibonacci_array.go):
 
 在[第 6.6 节]() 我们看到了一个递归计算 Fibonacci 数值的方法。但是通过数组我们可以更快的计算出 Fibonacci 数。完成该方法并打印出前 50 个 Fibonacci 数字。
 
@@ -5571,11 +5566,11 @@ var arrKeyValue = [5]string{3: "Chris", 4: "Ron"}
 
 只有索引 3 和 4 被赋予实际的值，其他元素都被设置为空的字符串，所以输出结果为：
 
-	Person at 0 is
-	Person at 1 is
-	Person at 2 is
-	Person at 3 is Chris
-	Person at 4 is Ron
+    Person at 0 is
+    Person at 1 is
+    Person at 2 is
+    Person at 3 is Chris
+    Person at 4 is Ron
 
 在这里数组长度同样可以写成 `...`。
 
@@ -5618,7 +5613,7 @@ var vec Vector3D
 内部数组总是长度相同的。Go 语言的多维数组是矩形式的（唯一的例外是切片的数组，参见[第 7.2.5 节]()。
 
 示例 7.5 [multidim_array.go](examples/chapter_7/multidim_array.go)
-    
+
 ```go
 package main
 const (
@@ -5648,7 +5643,7 @@ func main() {
 接下来的例子阐明了第一种方法：
 
 示例 7.6 [array_sum.go](examples/chapter_7/array_sum.go)
-    
+
 ```go
 package main
 import "fmt"
@@ -5670,7 +5665,7 @@ func Sum(a *[3]float64) (sum float64) {
 
 输出结果：
 
-	The sum of the array is: 24.600000
+    The sum of the array is: 24.600000
 
 但这在 Go 中并不常用，通常使用切片（参考 [第 7.2 节]()）。
 
@@ -5714,8 +5709,8 @@ func Sum(a *[3]float64) (sum float64) {
 
 对于每一个切片（包括 `string`），以下状态总是成立的：
 
-	s == s[:i] + s[i:] // i是一个整数且: 0 <= i <= len(s)
-	len(s) <= cap(s)
+    s == s[:i] + s[i:] // i是一个整数且: 0 <= i <= len(s)
+    len(s) <= cap(s)
 
 切片也可以用类似数组的方式初始化：`var x = []int{2, 3, 5, 7, 11}`。这样就创建了一个长度为 5 的数组并且创建了一个相关切片。
 
@@ -5763,20 +5758,20 @@ func main() {
 }
 ```
 
-输出：  
+输出：
 
-	Slice at 0 is 2  
-	Slice at 1 is 3  
-	Slice at 2 is 4  
-	The length of arr1 is 6  
-	The length of slice1 is 3  
-	The capacity of slice1 is 4  
-	Slice at 0 is 2  
-	Slice at 1 is 3  
-	Slice at 2 is 4  
-	Slice at 3 is 5  
-	The length of slice1 is 4  
-	The capacity of slice1 is 4  
+    Slice at 0 is 2
+    Slice at 1 is 3
+    Slice at 2 is 4
+    The length of arr1 is 6
+    The length of slice1 is 3
+    The capacity of slice1 is 4
+    Slice at 0 is 2
+    Slice at 1 is 3
+    Slice at 2 is 4
+    Slice at 3 is 5
+    The length of slice1 is 4
+    The capacity of slice1 is 4
 
 如果 `s2` 是一个切片，你可以将 `s2` 向后移动一位 `s2 = s2[1:]`，但是末尾没有移动。切片只能向后移动，`s2 = s2[-1:]` 会导致编译错误。切片不能被重新分片以获取数组的前一个元素。
 
@@ -5850,21 +5845,21 @@ func main() {
 }
 ```
 
-输出：  
+输出：
 
-	Slice at 0 is 0  
-	Slice at 1 is 5  
-	Slice at 2 is 10  
-	Slice at 3 is 15  
-	Slice at 4 is 20  
-	Slice at 5 is 25  
-	Slice at 6 is 30  
-	Slice at 7 is 35  
-	Slice at 8 is 40  
-	Slice at 9 is 45  
-	
-	The length of slice1 is 10  
-	The capacity of slice1 is 10  
+    Slice at 0 is 0
+    Slice at 1 is 5
+    Slice at 2 is 10
+    Slice at 3 is 15
+    Slice at 4 is 20
+    Slice at 5 is 25
+    Slice at 6 is 30
+    Slice at 7 is 35
+    Slice at 8 is 40
+    Slice at 9 is 45
+
+    The length of slice1 is 10
+    The capacity of slice1 is 10
 
 因为字符串是纯粹不可变的字节数组，它们也可以被切分成切片。
 
@@ -5897,7 +5892,7 @@ var v []int = make([]int, 10, 50)
 ```
 
 或者
-	
+
 ```go
 v := make([]int, 10, 50)
 ```
@@ -5908,13 +5903,13 @@ v := make([]int, 10, 50)
 
 **问题 7.4** 假设 `s1 := []byte{'p', 'o', 'e', 'm'}` 且 `s2 := s1[2:]`，`s2` 的值是多少？如果我们执行 `s2[1] = 't'`，`s1` 和 `s2` 现在的值又分别是多少？
 
-*译者注：如何理解 new、make、slice、map、channel 的关系*
+_译者注：如何理解 new、make、slice、map、channel 的关系_
 
-*1.slice、map 以及 channel 都是 golang 内建的一种引用类型，三者在内存中存在多个组成部分，
-需要对内存组成部分初始化后才能使用，而 make 就是对三者进行初始化的一种操作方式*
+_1.slice、map 以及 channel 都是 golang 内建的一种引用类型，三者在内存中存在多个组成部分，
+需要对内存组成部分初始化后才能使用，而 make 就是对三者进行初始化的一种操作方式_
 
-*2. new 获取的是存储指定变量内存地址的一个变量，对于变量内部结构并不会执行相应的初始化操作，
-所以 slice、map、channel 需要 make 进行初始化并获取对应的内存地址，而非 new 简单的获取内存地址*
+_2. new 获取的是存储指定变量内存地址的一个变量，对于变量内部结构并不会执行相应的初始化操作，
+所以 slice、map、channel 需要 make 进行初始化并获取对应的内存地址，而非 new 简单的获取内存地址_
 
 #### 7.2.5 多维切片
 
@@ -5962,11 +5957,11 @@ fmt.Print(buffer.String(), "\n")
 
 这种实现方式比使用 `+=` 要更节省内存和 CPU，尤其是要串联的字符串数目特别多的时候。
 
-**练习 7.5** 
+**练习 7.5**
 
 给定切片 `sl`，将一个 `[]byte` 数组追加到 `sl` 后面。写一个函数 `Append(slice, data []byte) []byte`，该函数在 `sl` 不能存储更多数据的时候自动扩容。
 
-**练习 7.6** 
+**练习 7.6**
 
 把一个缓存 `buf` 分片成两个切片：第一个是前 `n` 个 bytes，后一个是剩余的，用一行代码实现。
 
@@ -6022,7 +6017,7 @@ func main() {
 }
 ```
 
-slices_forrange2.go 给出了一个关于字符串的例子， `_` 可以用于忽略索引。
+slices*forrange2.go 给出了一个关于字符串的例子， `*` 可以用于忽略索引。
 
 如果你只需要索引，你可以忽略第二个变量，例如：
 
@@ -6117,26 +6112,26 @@ func main() {
 
 输出结果：
 
-	The length of slice is 1
-	The length of slice is 2
-	The length of slice is 3
-	The length of slice is 4
-	The length of slice is 5
-	The length of slice is 6
-	The length of slice is 7
-	The length of slice is 8
-	The length of slice is 9
-	The length of slice is 10
-	Slice at 0 is 0
-	Slice at 1 is 1
-	Slice at 2 is 2
-	Slice at 3 is 3
-	Slice at 4 is 4
-	Slice at 5 is 5
-	Slice at 6 is 6
-	Slice at 7 is 7
-	Slice at 8 is 8
-	Slice at 9 is 9
+    The length of slice is 1
+    The length of slice is 2
+    The length of slice is 3
+    The length of slice is 4
+    The length of slice is 5
+    The length of slice is 6
+    The length of slice is 7
+    The length of slice is 8
+    The length of slice is 9
+    The length of slice is 10
+    Slice at 0 is 0
+    Slice at 1 is 1
+    Slice at 2 is 2
+    Slice at 3 is 3
+    Slice at 4 is 4
+    Slice at 5 is 5
+    Slice at 6 is 6
+    Slice at 7 is 7
+    Slice at 8 is 8
+    Slice at 9 is 9
 
 另一个例子：
 
@@ -6153,9 +6148,9 @@ a = a[0:4] // ref of subarray {5,6,7,8} - len(a) is now 4 but cap(a) is still 5
 
 **问题 7.7**
 
-1) 如果 `a` 是一个切片，那么 `a[n:n]` 的长度是多少？
+1. 如果 `a` 是一个切片，那么 `a[n:n]` 的长度是多少？
 
-2) `a[n:n+1]` 的长度又是多少？          
+2. `a[n:n+1]` 的长度又是多少？
 
 ### 7.5 切片的复制与追加
 
@@ -6213,7 +6208,7 @@ func AppendByte(slice []byte, data ...byte) []byte {
 
 用顺序函数过滤容器：`s` 是前 10 个整型的切片。构造一个函数 `Filter`，第一个参数是 `s`，第二个参数是一个 `fn func(int) bool`，返回满足函数 `fn` 的元素切片。通过 `fn` 测试方法测试当整型值是偶数时的情况。
 
-**练习 7.11**  [insert_slice.go](exercises/chapter_7/insert_slice.go)
+**练习 7.11** [insert_slice.go](exercises/chapter_7/insert_slice.go)
 
 写一个函数 `InsertStringSlice()` 将切片插入到另一个切片的指定位置。
 
@@ -6338,10 +6333,10 @@ func SearchStrings(a []string, x string) int
 1. 将切片 `b` 的元素追加到切片 `a` 之后：`a = append(a, b...)`
 2. 复制切片 `a` 的元素到新的切片 `b` 上：
 
-    ```go
-    b = make([]T, len(a))
-    copy(b, a)
-    ```
+   ```go
+   b = make([]T, len(a))
+   copy(b, a)
+   ```
 
 3. 删除位于索引 `i` 的元素：`a = append(a[:i], a[i+1:]...)`
 4. 切除切片 `a` 中从索引 `i` 至 `j` 位置的元素：`a = append(a[:i], a[j:]...)`
@@ -6386,7 +6381,9 @@ func FindDigits(filename string) []byte {
    return c
 }
 ```
+
 事实上，上面这段代码只能找到第一个匹配正则表达式的数字串。要想找到所有的数字，可以尝试下面这段代码：
+
 ```go
 func FindFileDigits(filename string) []byte {
    fileBytes, _ := ioutil.ReadFile(filename)
@@ -6501,10 +6498,10 @@ func main() {
 
 输出结果：
 
-	Map literal at "one" is: 1
-	Map created at "key2" is: 3.141590
-	Map assigned at "two" is: 3
-	Mpa literal at "ten" is: 0
+    Map literal at "one" is: 1
+    Map created at "key2" is: 3.141590
+    Map assigned at "two" is: 3
+    Mpa literal at "ten" is: 0
 
 `mapLit` 说明了 `map literals` 的使用方法： `map` 可以用 `{key1: val1, key2: val2}` 的描述方法来初始化，就像数组和结构体一样。
 
@@ -6530,7 +6527,7 @@ mapCreated := new(map[string]float32)
 
 接下来当我们调用：`mapCreated["key1"] = 4.5` 的时候，编译器会报错：
 
-	invalid operation: mapCreated["key1"] (index of type *map[string]float32).
+    invalid operation: mapCreated["key1"] (index of type *map[string]float32).
 
 为了说明值可以是任意类型的，这里给出了一个使用 `func() int` 作为值的 `map`：
 
@@ -6702,10 +6699,10 @@ func main() {
 
 输出结果：
 
-	key is: 3 - value is: 3.000000
-	key is: 1 - value is: 1.000000
-	key is: 4 - value is: 4.000000
-	key is: 2 - value is: 2.000000
+    key is: 3 - value is: 3.000000
+    key is: 1 - value is: 1.000000
+    key is: 4 - value is: 4.000000
+    key is: 2 - value is: 2.000000
 
 注意 `map` 不是按照 key 的顺序排列的，也不是按照 value 的序排列的。
 
@@ -6755,8 +6752,8 @@ func main() {
 
 输出结果：
 
-	Version A: Value of items: [map[1:2] map[1:2] map[1:2] map[1:2] map[1:2]]
-	Version B: Value of items: [map[] map[] map[] map[] map[]]
+    Version A: Value of items: [map[1:2] map[1:2] map[1:2] map[1:2] map[1:2]]
+    Version B: Value of items: [map[] map[] map[] map[] map[]]
 
 需要注意的是，应当像 A 版本那样通过索引使用切片的 `map` 元素。在 B 版本中获得的项只是 `map` 值的一个拷贝而已，所以真正的 `map` 元素没有得到初始化。
 
@@ -6807,10 +6804,10 @@ func main() {
 
 输出结果：
 
-	unsorted:
-	Key: bravo, Value: 56 / Key: echo, Value: 56 / Key: indio, Value: 87 / Key: juliet, Value: 65 / Key: alpha, Value: 34 / Key: charlie, Value: 23 / Key: delta, Value: 87 / Key: foxtrot, Value: 12 / Key: golf, Value: 34 / Key: hotel, Value: 16 / Key: kili, Value: 43 / Key: lima, Value: 98 /
-	sorted:
-	Key: alpha, Value: 34 / Key: bravo, Value: 56 / Key: charlie, Value: 23 / Key: delta, Value: 87 / Key: echo, Value: 56 / Key: foxtrot, Value: 12 / Key: golf, Value: 34 / Key: hotel, Value: 16 / Key: indio, Value: 87 / Key: juliet, Value: 65 / Key: kili, Value: 43 / Key: lima, Value: 98 /
+    unsorted:
+    Key: bravo, Value: 56 / Key: echo, Value: 56 / Key: indio, Value: 87 / Key: juliet, Value: 65 / Key: alpha, Value: 34 / Key: charlie, Value: 23 / Key: delta, Value: 87 / Key: foxtrot, Value: 12 / Key: golf, Value: 34 / Key: hotel, Value: 16 / Key: kili, Value: 43 / Key: lima, Value: 98 /
+    sorted:
+    Key: alpha, Value: 34 / Key: bravo, Value: 56 / Key: charlie, Value: 23 / Key: delta, Value: 87 / Key: echo, Value: 56 / Key: foxtrot, Value: 12 / Key: golf, Value: 34 / Key: hotel, Value: 16 / Key: indio, Value: 87 / Key: juliet, Value: 65 / Key: kili, Value: 43 / Key: lima, Value: 98 /
 
 但是如果你想要一个排序的列表，那么最好使用结构体切片，这样会更有效：
 
@@ -6854,8 +6851,8 @@ func main() {
 
 输出结果：
 
-	inverted:
-	Key: 34, Value: golf / Key: 23, Value: charlie / Key: 16, Value: hotel / Key: 87, Value: delta / Key: 98, Value: lima / Key: 12, Value: foxtrot / Key: 43, Value: kili / Key: 56, Value: bravo / Key: 65, Value: juliet /
+    inverted:
+    Key: 34, Value: golf / Key: 23, Value: charlie / Key: 16, Value: hotel / Key: 87, Value: delta / Key: 98, Value: lima / Key: 12, Value: foxtrot / Key: 43, Value: kili / Key: 56, Value: bravo / Key: 65, Value: juliet /
 
 如果原始 value 值不唯一那这么做肯定会出问题；这种情况下不会报错，但是当遇到不唯一的 key 时应当直接停止对调，且此时对调后的 `map` 很可能没有包含原 `map` 的所有键值对！一种解决方法就是仔细检查唯一性并且使用多值 `map`，比如使用 `map[int][]string` 类型。
 
@@ -6874,173 +6871,175 @@ func main() {
 在贯穿本书的例子和练习中，我们都是用标准库的包。可以通过查阅第 350 页包中的内容快速找到相关的包的实例。这里我们只是按功能进行分组来介绍这些包的简单用途，我们不会深入讨论他们的内部结构。
 
 - `unsafe`: 包含了一些打破 Go 语言“类型安全”的命令，一般的程序中不会被使用，可用在 C/C++ 程序的调用中。
-- `syscall`-`os`-`os/exec`:  
-	- `os`: 提供给我们一个平台无关性的操作系统功能接口，采用类 Unix 设计，隐藏了不同操作系统间的差异，让不同的文件系统和操作系统对象表现一致。  
-	- `os/exec`: 提供我们运行外部操作系统命令和程序的方式。  
-	- `syscall`: 底层的外部包，提供了操作系统底层调用的基本接口。
+- `syscall`-`os`-`os/exec`:
 
-		通过一个 Go 程序让Linux重启来体现它的能力。
+  - `os`: 提供给我们一个平台无关性的操作系统功能接口，采用类 Unix 设计，隐藏了不同操作系统间的差异，让不同的文件系统和操作系统对象表现一致。
+  - `os/exec`: 提供我们运行外部操作系统命令和程序的方式。
+  - `syscall`: 底层的外部包，提供了操作系统底层调用的基本接口。
 
-		示例 9.1 [reboot.go](examples/chapter_9/reboot.go)：
+    通过一个 Go 程序让 Linux 重启来体现它的能力。
 
-		```go
-		package main
-		import (
-			"syscall"
-		)
+    示例 9.1 [reboot.go](examples/chapter_9/reboot.go)：
 
-		const LINUX_REBOOT_MAGIC1 uintptr = 0xfee1dead
-		const LINUX_REBOOT_MAGIC2 uintptr = 672274793
-		const LINUX_REBOOT_CMD_RESTART uintptr = 0x1234567
+    ```go
+    package main
+    import (
+    	"syscall"
+    )
 
-		func main() {
-			syscall.Syscall(syscall.SYS_REBOOT,
-				LINUX_REBOOT_MAGIC1,
-				LINUX_REBOOT_MAGIC2,
-				LINUX_REBOOT_CMD_RESTART)
-		}
-		```
+    const LINUX_REBOOT_MAGIC1 uintptr = 0xfee1dead
+    const LINUX_REBOOT_MAGIC2 uintptr = 672274793
+    const LINUX_REBOOT_CMD_RESTART uintptr = 0x1234567
+
+    func main() {
+    	syscall.Syscall(syscall.SYS_REBOOT,
+    		LINUX_REBOOT_MAGIC1,
+    		LINUX_REBOOT_MAGIC2,
+    		LINUX_REBOOT_CMD_RESTART)
+    }
+    ```
 
 - `archive/tar` 和 `/zip-compress`：压缩（解压缩）文件功能。
-- `fmt`-`io`-`bufio`-`path/filepath`-`flag`:  
-	- `fmt`: 提供了格式化输入输出功能。  
-	- `io`: 提供了基本输入输出功能，大多数是围绕系统功能的封装。  
-	- `bufio`: 缓冲输入输出功能的封装。  
-	- `path/filepath`: 用来操作在当前系统中的目标文件名路径。  
-	- `flag`: 对命令行参数的操作。　　
-- `strings`-`strconv`-`unicode`-`regexp`-`bytes`:  
-	- `strings`: 提供对字符串的操作。  
-	- `strconv`: 提供将字符串转换为基础类型的功能。
-	- `unicode`: 为 unicode 型的字符串提供特殊的功能。
-	- `regexp`: 正则表达式功能。  
-	- `bytes`: 提供对字符型分片的操作。  
-	- `index/suffixarray`: 子字符串快速查询。
-- `math`-`math/cmath`-`math/big`-`math/rand`-`sort`:  
-	- `math`: 基本的数学函数。  
-	- `math/cmath`: 对复数的操作。  
-	- `math/rand`: 伪随机数生成。  
-	- `sort`: 为数组排序和自定义集合。  
-	- `math/big`: 大数的实现和计算。  　　
-- `container`-`/list-ring-heap`: 实现对集合的操作。  
-	- `list`: 双链表。
-	- `ring`: 环形链表。
+- `fmt`-`io`-`bufio`-`path/filepath`-`flag`:
+  - `fmt`: 提供了格式化输入输出功能。
+  - `io`: 提供了基本输入输出功能，大多数是围绕系统功能的封装。
+  - `bufio`: 缓冲输入输出功能的封装。
+  - `path/filepath`: 用来操作在当前系统中的目标文件名路径。
+  - `flag`: 对命令行参数的操作。
+- `strings`-`strconv`-`unicode`-`regexp`-`bytes`:
+  - `strings`: 提供对字符串的操作。
+  - `strconv`: 提供将字符串转换为基础类型的功能。
+  - `unicode`: 为 unicode 型的字符串提供特殊的功能。
+  - `regexp`: 正则表达式功能。
+  - `bytes`: 提供对字符型分片的操作。
+  - `index/suffixarray`: 子字符串快速查询。
+- `math`-`math/cmath`-`math/big`-`math/rand`-`sort`:
+  - `math`: 基本的数学函数。
+  - `math/cmath`: 对复数的操作。
+  - `math/rand`: 伪随机数生成。
+  - `sort`: 为数组排序和自定义集合。
+  - `math/big`: 大数的实现和计算。
+- `container`-`/list-ring-heap`: 实现对集合的操作。
 
-		下面代码演示了如何遍历一个链表(当 l 是 `*List`)：
+  - `list`: 双链表。
+  - `ring`: 环形链表。
 
-		```go
-		for e := l.Front(); e != nil; e = e.Next() {
-			//do something with e.Value
-		}
-		```
+    下面代码演示了如何遍历一个链表(当 l 是 `*List`)：
 
-- `time`-`log`:  
-	- `time`: 日期和时间的基本操作。  
-		## 日期函数(Time)
-			时间和日期是我们编程中经常会用到的，在golang中time包提供了时间的显示和测量用的函数。
-		### time.Now获取当前时间
-		```go
-		timeObj := time.Now()
-		year := timeObj.Year()
-		month := timeObj.Month()
-		day := timeObj.Day()
-		fmt.Printf("%d-%02d-%02d \n", year, month, day)
-		```
-		### 格式化日期
-			时间类型有一个自带的方法 Format进行格式化
-			需要注意的是Go语言中格式化时间模板不是长久的 Y-m-d H:M:S
-			而是使用Go的诞生时间 2006年1月2日 15点04分 （记忆口诀：2006 1 2 3 4 5）
-		```go
-		/**
-				时间类型有一个自带的方法 Format进行格式化
-				需要注意的是Go语言中格式化时间模板不是长久的 Y-m-d H:M:S
-				而是使用Go的诞生时间 2006年1月2日 15点04分 （记忆口诀：2006 1 2 3 4 5）
-			*/
-		timeObj2 := time.Now()
-		// 24小时值  （15表示二十四小时）
-		fmt.Println(timeObj2.Format("2006-01-02 15:04:05"))
-		// 12小时制
-		fmt.Println(timeObj2.Format("2006-01-02 03:04:05"))
-		```
-		### 获取当前时间戳
-			时间戳是自1070年1月1日（08:00:00GMT）至当前时间的总毫秒数。它也被称为Unix时间戳
-		```go
-		/**
-			获取当前时间戳
-			*/
-		timeObj3 := time.Now()
-		// 获取毫秒时间戳
-		unixTime := timeObj3.Unix()
-		// 获取纳秒时间戳
-		unixNaTime := timeObj3.UnixNano()
-		```
-		### 时间戳转日期字符串
-			通过将时间戳我们可以转换成日期字符串
-		```go
-		// 时间戳转换年月日时分秒（一个参数是秒，另一个参数是毫秒）
-		var timeObj4 = time.Unix(1595289901, 0)
-		var timeStr = timeObj4.Format("2006-01-02 15:04:05")
-		fmt.Println(timeStr)
-		```
-		### 日期字符串转换成时间戳
-		```go
-		// 日期字符串转换成时间戳
-		var timeStr2 = "2020-07-21 08:10:05";
-		var tmp = "2006-01-02 15:04:05"
-		timeObj5, _ := time.ParseInLocation(tmp, timeStr2, time.Local)
-		fmt.Println(timeObj5.Unix())
-		```
-		### 时间间隔
-			time.Duration是time包定义的一个类型，它代表两个时间点之间经过的时间，以纳秒为单位。time.Duration表示一段时间间隔，可表示的最大长度段大约290年。
-			time包中定义的时间间隔类型的常量如下：
-		![image-20200721081402315](/assets/images/Go入门指南/image-20200721081402315.jpg)
-		### 时间操作函数
-			我们在日常的编码过程中可能会遇到要求时间+时间间隔的需求，Go语言的时间对象有提供Add方法如下
-		```go
-		func (t Time) Add(d Duration)Time
-		```
-		例如
-		```go
-		// 时间相加
-		now := time.Now()
-		// 当前时间加1个小时后
-		later := now.Add(time.Hour)
-		fmt.Println(later)
-		```
-			同理的方法还有：时间差、判断相等
-		### 定时器
-			方式1：使用time.NewTicker（时间间隔）来设置定时器
-		```go
-		// 定时器, 定义一个1秒间隔的定时器
-		ticker := time.NewTicker(time.Second)
-		n := 0
-		for i := range ticker.C {
-			fmt.Println(i)
-			n++
-			if n>5 {
-				// 终止定时器
-				ticker.Stop()
-				return
-			}
-		}
-		```
-			方式2：time.Sleep(time.Second)来实现定时器
-		```go
-		for  {
-			time.Sleep(time.Second)
-			fmt.Println("一秒后")
-		}
-		```
-	- `log`: 记录程序运行时产生的日志，我们将在后面的章节使用它。
+    ```go
+    for e := l.Front(); e != nil; e = e.Next() {
+    	//do something with e.Value
+    }
+    ```
+
+- `time`-`log`:
+  - `time`: 日期和时间的基本操作。
+    ## 日期函数(Time)
+        时间和日期是我们编程中经常会用到的，在golang中time包提供了时间的显示和测量用的函数。
+    ### time.Now 获取当前时间
+    ```go
+    timeObj := time.Now()
+    year := timeObj.Year()
+    month := timeObj.Month()
+    day := timeObj.Day()
+    fmt.Printf("%d-%02d-%02d \n", year, month, day)
+    ```
+    ### 格式化日期
+        时间类型有一个自带的方法 Format进行格式化
+        需要注意的是Go语言中格式化时间模板不是长久的 Y-m-d H:M:S
+        而是使用Go的诞生时间 2006年1月2日 15点04分 （记忆口诀：2006 1 2 3 4 5）
+    ```go
+    /**
+    		时间类型有一个自带的方法 Format进行格式化
+    		需要注意的是Go语言中格式化时间模板不是长久的 Y-m-d H:M:S
+    		而是使用Go的诞生时间 2006年1月2日 15点04分 （记忆口诀：2006 1 2 3 4 5）
+    	*/
+    timeObj2 := time.Now()
+    // 24小时值  （15表示二十四小时）
+    fmt.Println(timeObj2.Format("2006-01-02 15:04:05"))
+    // 12小时制
+    fmt.Println(timeObj2.Format("2006-01-02 03:04:05"))
+    ```
+    ### 获取当前时间戳
+        时间戳是自1070年1月1日（08:00:00GMT）至当前时间的总毫秒数。它也被称为Unix时间戳
+    ```go
+    /**
+    	获取当前时间戳
+    	*/
+    timeObj3 := time.Now()
+    // 获取毫秒时间戳
+    unixTime := timeObj3.Unix()
+    // 获取纳秒时间戳
+    unixNaTime := timeObj3.UnixNano()
+    ```
+    ### 时间戳转日期字符串
+        通过将时间戳我们可以转换成日期字符串
+    ```go
+    // 时间戳转换年月日时分秒（一个参数是秒，另一个参数是毫秒）
+    var timeObj4 = time.Unix(1595289901, 0)
+    var timeStr = timeObj4.Format("2006-01-02 15:04:05")
+    fmt.Println(timeStr)
+    ```
+    ### 日期字符串转换成时间戳
+    ```go
+    // 日期字符串转换成时间戳
+    var timeStr2 = "2020-07-21 08:10:05";
+    var tmp = "2006-01-02 15:04:05"
+    timeObj5, _ := time.ParseInLocation(tmp, timeStr2, time.Local)
+    fmt.Println(timeObj5.Unix())
+    ```
+    ### 时间间隔
+        time.Duration是time包定义的一个类型，它代表两个时间点之间经过的时间，以纳秒为单位。time.Duration表示一段时间间隔，可表示的最大长度段大约290年。
+        time包中定义的时间间隔类型的常量如下：
+    ![image-20200721081402315](/assets/images/Go入门指南/image-20200721081402315.jpg)
+    ### 时间操作函数
+        我们在日常的编码过程中可能会遇到要求时间+时间间隔的需求，Go语言的时间对象有提供Add方法如下
+    ```go
+    func (t Time) Add(d Duration)Time
+    ```
+    例如
+    ```go
+    // 时间相加
+    now := time.Now()
+    // 当前时间加1个小时后
+    later := now.Add(time.Hour)
+    fmt.Println(later)
+    ```
+        同理的方法还有：时间差、判断相等
+    ### 定时器
+        方式1：使用time.NewTicker（时间间隔）来设置定时器
+    ```go
+    // 定时器, 定义一个1秒间隔的定时器
+    ticker := time.NewTicker(time.Second)
+    n := 0
+    for i := range ticker.C {
+    	fmt.Println(i)
+    	n++
+    	if n>5 {
+    		// 终止定时器
+    		ticker.Stop()
+    		return
+    	}
+    }
+    ```
+        方式2：time.Sleep(time.Second)来实现定时器
+    ```go
+    for  {
+    	time.Sleep(time.Second)
+    	fmt.Println("一秒后")
+    }
+    ```
+  - `log`: 记录程序运行时产生的日志，我们将在后面的章节使用它。
 - `encoding/json`-`encoding/xml`-`text/template`:
-	- `encoding/json`: 读取并解码和写入并编码 JSON 数据。  
-	- `encoding/xml`: 简单的 XML1.0 解析器，有关 JSON 和 XML 的实例请查阅第 [12.9]()/[10]() 章节。  
-	- `text/template`:生成像 HTML 一样的数据与文本混合的数据驱动模板（参见[第 15.7 节]()）。  
+  - `encoding/json`: 读取并解码和写入并编码 JSON 数据。
+  - `encoding/xml`: 简单的 XML1.0 解析器，有关 JSON 和 XML 的实例请查阅第 [12.9]()/[10]() 章节。
+  - `text/template`:生成像 HTML 一样的数据与文本混合的数据驱动模板（参见[第 15.7 节]()）。
 - `net`-`net/http`-`html`:（参见[第 15 章]()）
-	- `net`: 网络数据的基本操作。  
-	- `http`: 提供了一个可扩展的 HTTP 服务器和基础客户端，解析 HTTP 请求和回复。  
-	- `html`: HTML5 解析器。  
-- `runtime`: Go 程序运行时的交互操作，例如垃圾回收和协程创建。  
-- `reflect`: 实现通过程序运行时反射，让程序操作任意类型的变量。  
+  - `net`: 网络数据的基本操作。
+  - `http`: 提供了一个可扩展的 HTTP 服务器和基础客户端，解析 HTTP 请求和回复。
+  - `html`: HTML5 解析器。
+- `runtime`: Go 程序运行时的交互操作，例如垃圾回收和协程创建。
+- `reflect`: 实现通过程序运行时反射，让程序操作任意类型的变量。
 
 `exp` 包中有许多将被编译为新包的实验性的包。在下次稳定版本发布的时候，它们将成为独立的包。如果前一个版本已经存在了，它们将被作为过时的包被回收。然而 Go1.0 发布的时候并没有包含过时或者实验性的包。
 
@@ -7109,9 +7108,9 @@ func main() {
 
 输出结果：
 
-	Match Found!
-	John: ##.# William: ##.# Steve: ##.#
-	John: 5156.68 William: 9134.46 Steve: 11264.36
+    Match Found!
+    John: ##.# William: ##.# Steve: ##.#
+    John: 5156.68 William: 9134.46 Steve: 11264.36
 
 `Compile()` 函数也可能返回一个错误，我们在使用时忽略对错误的判断是因为我们确信自己正则表达式是有效的。当用户输入或从数据中获取正则表达式的时候，我们有必要去检验它的正确性。另外我们也可以使用 `MustCompile()` 方法，它可以像 `Compile()` 方法一样检验正则的有效性，但是当正则不合法时程序将 `panic()`（详情查看[第 13.2 节]()）。
 
@@ -7173,7 +7172,7 @@ type SyncedBuffer struct {
 
 示例 9.2 [big.go](examples/chapter_9/big.go)：
 
-``` go
+```go
 // big.go
 package main
 
@@ -7209,8 +7208,8 @@ Big Rat: -37/112
 
 输出结果：
 
-	Big Int: 43492122561469640008497075573153004
-	Big Rat: -37/112
+    Big Int: 43492122561469640008497075573153004
+    Big Rat: -37/112
 
 ### 9.5 自定义包和可见性
 
@@ -7242,11 +7241,11 @@ import "./pack1"
 
 import 的一般格式如下:
 
-	import "包的路径或 URL 地址" 
+    import "包的路径或 URL 地址"
 
 例如：
 
-	import "github.com/org1/pack1”
+    import "github.com/org1/pack1”
 
 路径是指当前目录的相对路径。
 
@@ -7271,8 +7270,8 @@ func main() {
 
 输出结果：
 
-	ReturnStr from package1: Hello main!
-	Integer from package1: 42
+    ReturnStr from package1: Hello main!
+    Integer from package1: 42
 
 如果包 pack1 和我们的程序在同一路径下，我们可以通过 `"import ./pack1"` 这样的方式来引入，但这不被视为一个好的方法。
 
@@ -7283,24 +7282,23 @@ fmt.Printf("Float from package1: %f\n", pack1.pack1Float)
 ```
 
 错误：
-	
-	cannot refer to unexported name pack1.pack1Float
+cannot refer to unexported name pack1.pack1Float
 
 主程序利用的包必须在主程序编写之前被编译。主程序中每个 pack1 项目都要通过包名来使用：`pack1.Item`。具体使用方法请参见示例 4.6 和 4.7。
 
 因此，按照惯例，子目录和包之间有着密切的联系：为了区分，不同包存放在不同的目录下，每个包（所有属于这个包中的 go 文件）都存放在和包名相同的子目录下：
 
 Import with `.` :  
-	
-	import . "./pack1"
+
+import . "./pack1"
 
 当使用 `.` 作为包的别名时，你可以不通过包名来使用其中的项目。例如：`test := ReturnStr()`。
 
 在当前的命名空间导入 pack1 包，一般是为了具有更好的测试效果。
 
-Import with `_` : 
+Import with `_` :
 
-	import _ "./pack1/pack1"
+    import _ "./pack1/pack1"
 
 `pack1` 包只导入其副作用，也就是说，只执行它的 `init()` 函数并初始化其中的全局变量。
 
@@ -7308,18 +7306,17 @@ Import with `_` :
 
 如果你要在你的应用中使用一个或多个外部包，首先你必须使用 `go install`（参见[第 9.7 节]()）在你的本地机器上安装它们。
 
-
 假设你想使用 `http://codesite.ext/author/goExample/goex` 这种托管在 Google Code、GitHub 和 Launchpad 等代码网站上的包。
 
 你可以通过如下命令安装：
 
-	go install codesite.ext/author/goExample/goex
+    go install codesite.ext/author/goExample/goex
 
 将一个名为 `codesite.ext/author/goExample/goex` 的 map 安装在 `$GOROOT/src/` 目录下。
 
 通过以下方式，一次性安装，并导入到你的代码中：
 
-	import goex "codesite.ext/author/goExample/goex"
+    import goex "codesite.ext/author/goExample/goex"
 
 因此该包的 URL 将用作导入路径。
 
@@ -7337,16 +7334,14 @@ Import with `_` :
 
 **编译并安装一个包（参见[第 9.7 节]()）：**
 
-
 在 Linux/OS X 下可以用类似[第 3.9 节]()的 Makefile 脚本做到这一点：
 
-
-	include $(GOROOT)/src/Make.inc
-	TARG=pack1
-	GOFILES=\
-	 	pack1.go\
-	 	pack1b.go\
-	include $(GOROOT)/src/Make.pkg
+    include $(GOROOT)/src/Make.inc
+    TARG=pack1
+    GOFILES=\
+     	pack1.go\
+     	pack1b.go\
+    include $(GOROOT)/src/Make.pkg
 
 通过 `chmod 777 ./Makefile` 确保它的可执行性。
 
@@ -7356,9 +7351,7 @@ Import with `_` :
 
 go install（参见[第 9.7 节]()，从 Go1 的首选方式）同样复制 `pack1.a` 到本地的 `$GOROOT/pkg` 的目录中一个以操作系统为名的子目录下。像 `import "pack1"` 代替 `import "path to pack1"`，这样只通过名字就可以将包在程序中导入。
 
-
 当[第 13 章]() 我们遇到使用测试工具进行测试的时候我们将重新回到自己的包的制作和编译这个话题。
-
 
 **问题 9.1**
 
@@ -7378,7 +7371,6 @@ b）一个源文件是否能包含多个包？
 
 **练习 9.5** 使用[第 6.6 节]()的斐波那契程序：
 
-
 1）将斐波那契功能放入自己的 `fibo` 包中并通过主程序调用它，存储最后输入的值在函数的全局变量。
 
 2）扩展 `fibo` 包将通过调用斐波那契的时候，操作也作为一个参数。实验 `"+"` 和 `"*"`
@@ -7394,7 +7386,7 @@ godoc 工具（[第 3.6 节]()）在显示自定义包中的注释也有很好�
 - 在 [doc_examples](examples/chapter_9/doc_example) 目录下我们有[第 11.7 节]()中的用来排序的 go 文件，文件中有一些注释（文件需要未编译）
 - 命令行下进入目录下并输入命令：
 
-	`godoc -http=:6060 -goroot="."`
+  `godoc -http=:6060 -goroot="."`
 
 （`.` 是指当前目录，`-goroot` 参数可以是 `/path/to/my/package1` 这样的形式指出 `package1` 在你源码中的位置或接受用冒号形式分隔的路径，无根目录的路径为相对于当前目录的相对路径）
 
@@ -7446,10 +7438,11 @@ func (StringArray) Swap
 func (Float64Array) Swap
 
 // Other packages
-import "doc_example" 
+import "doc_example"
 ```
 
 使用通用的接口排序:
+
 ```
 func Float64sAreSorted[Top]
 func Float64sAreSorted(a []float64) bool
@@ -7469,7 +7462,7 @@ func SortInts[Top]
 func SortInts(a []int)
 
 Convenience wrappers for common cases: type IntArray[Top]
-Convenience types for common cases: IntArray type IntArray []int  
+Convenience types for common cases: IntArray type IntArray []int
 ```
 
 如果你在一个团队中工作，并且源代码树被存储在网络硬盘上，就可以使用 godoc 给所有团队成员连续文档的支持。通过设置 `sync_minutes=n`，你甚至可以让它每 `n` 分钟自动更新您的文档！
@@ -7520,23 +7513,23 @@ go install 同样可以使用 go install 编译链接并安装本地自己的包
 
 下面的结构给了你一个好的示范（`uc` 代表通用包名, 名字为粗体的代表目录，斜体代表可执行文件）:
 
-	/home/user/goprograms
-		ucmain.go	(uc 包主程序)
-		Makefile (ucmain 的 makefile)
-		ucmain
-		src/uc	 (包含 uc 包的 go 源码)
-			uc.go
-		 	uc_test.go
-		 	Makefile (包的 makefile)
-		 	uc.a
-		 	_obj
-				uc.a
-			_test
-				uc.a
-		bin		(包含最终的执行文件)
-			ucmain
-		pkg/linux_amd64
-			uc.a	(包的目标文件)
+    /home/user/goprograms
+    	ucmain.go	(uc 包主程序)
+    	Makefile (ucmain 的 makefile)
+    	ucmain
+    	src/uc	 (包含 uc 包的 go 源码)
+    		uc.go
+    	 	uc_test.go
+    	 	Makefile (包的 makefile)
+    	 	uc.a
+    	 	_obj
+    			uc.a
+    		_test
+    			uc.a
+    	bin		(包含最终的执行文件)
+    		ucmain
+    	pkg/linux_amd64
+    		uc.a	(包的目标文件)
 
 将你的项目放在 goprograms 目录下(你可以创建一个环境变量 `GOPATH`，详见第 [2.2]()/[3]() 章节：在 `.profile` 和 `.bashrc` 文件中添加 `export GOPATH=/home/user/goprograms`)，而你的项目将作为 `src` 的子目录。`uc` 包中的功能在 uc.go 中实现。
 
@@ -7596,7 +7589,7 @@ include $(GOROOT)/src/Make.pkg
 
 在该目录下的命令行调用: gomake
 
-这将创建一个 _obj 目录并将包编译生成的存档 uc.a 放在该目录下。
+这将创建一个 \_obj 目录并将包编译生成的存档 uc.a 放在该目录下。
 
 这个包可以通过 go test 测试。
 
@@ -7644,11 +7637,11 @@ include $(GOROOT)/src/Make.cmd
 
 本地包在用户目录下，使用给出的目录结构，以下命令用来从源码安装本地包：
 
-	go install /home/user/goprograms/src/uc # 编译安装 uc
-	cd /home/user/goprograms/uc
-	go install ./uc 	# 编译安装 uc（和之前的指令一样）
-	cd ..
-	go install .	# 编译安装 ucmain
+    go install /home/user/goprograms/src/uc # 编译安装 uc
+    cd /home/user/goprograms/uc
+    go install ./uc 	# 编译安装 uc（和之前的指令一样）
+    cd ..
+    go install .	# 编译安装 ucmain
 
 安装到 `$GOPATH` 下：
 
@@ -7665,14 +7658,14 @@ include $(GOROOT)/src/Make.cmd
 
 你有一个很好的理由去写平台特定的代码，例如汇编语言。这种情况下，按照下面的约定是合理的：
 
-	prog1.go
-	prog1_linux.go
-	prog1_darwin.go
-	prog1_windows.go
+    prog1.go
+    prog1_linux.go
+    prog1_darwin.go
+    prog1_windows.go
 
-prog1.go 定义了不同操作系统通用的接口，并将系统特定的代码写到 prog1_os.go 中。
-对于 Go 工具你可以指定 `prog1_$GOOS.go` 或 `prog1_$GOARCH.go`
-或在平台 Makefile 中：`prog1_$(GOOS).go\` 或 `prog1_$(GOARCH).go\`。
+prog1.go 定义了不同操作系统通用的接口，并将系统特定的代码写到 prog1*os.go 中。
+对于 Go 工具你可以指定 `prog1*$GOOS.go` 或 `prog1_$GOARCH.go`
+或在平台 Makefile 中：`prog1*$(GOOS).go\` 或 `prog1*$(GOARCH).go\`。
 
 ### 9.9 通过 Git 打包和安装
 
@@ -7693,14 +7686,14 @@ prog1.go 定义了不同操作系统通用的接口，并将系统特定的代�
 - 添加所有文件到仓库：`git add README.md uc.go uc_test.go Makefile`。
 - 标记为第一个版本：`git commit -m "initial rivision"`。
 
-现在必须登录 [GitHub 网站](https://github.com)。 
+现在必须登录 [GitHub 网站](https://github.com)。
 
 如果您还没有账号，可以去注册一个开源项目的免费帐号。输入正确的帐号密码和有效的邮箱地址并进一步创建用户。然后你将获得一个 Git 命令的列表。本地仓库的操作命令已经完成。一个优秀的系统在你遇到任何问题的时候将 [引导你](http://help.github.com/)。
 
 在云端创建一个新的 uc 仓库;发布的指令为（`NNNN` 替代用户名）:
 
 ```
-git remote add origin git@github.com:NNNN/uc.git  
+git remote add origin git@github.com:NNNN/uc.git
 git push -u origin master
 ```
 
@@ -7725,7 +7718,7 @@ Gomake（和 go install）将通过 `$GOPATH` 下的本地版本进行工作。
 - Google Code(hg/Git/svn)
 - Launchpad(bzr)
 
-版本控制系统可以选择你熟悉的或者本地使用的代码版本控制。Go 核心代码的仓库是使用 Mercurial(hg) 来控制的，所以它是一个最可能保证你可以得到开发者项目中最好的软件。Git 也很出名，同样也适用。如果你从未使用过版本控制，这些网站有一些很好的帮助并且你可以通过在谷歌搜索 "{name} tutorial"（name为你想要使用的版本控制系统）得到许多很好的教程。
+版本控制系统可以选择你熟悉的或者本地使用的代码版本控制。Go 核心代码的仓库是使用 Mercurial(hg) 来控制的，所以它是一个最可能保证你可以得到开发者项目中最好的软件。Git 也很出名，同样也适用。如果你从未使用过版本控制，这些网站有一些很好的帮助并且你可以通过在谷歌搜索 "{name} tutorial"（name 为你想要使用的版本控制系统）得到许多很好的教程。
 
 ### 9.10 Go 的外部包和项目
 
@@ -7741,7 +7734,7 @@ Gomake（和 go install）将通过 `$GOPATH` 下的本地版本进行工作。
 - XML-RPC(go-xmlrpc)
 - Twitter(twitterstream)
 - OAuth libraries(GoAuth)
-	
+
 ### 9.11 在 Go 程序中使用外部库
 
 （本节我们将创建一个 Web 应用和它的 Google App Engine 版本，在第 19 和 21 章分别说明，当你阅读到这些章节时可以再回到这个例子。)
@@ -7750,7 +7743,7 @@ Gomake（和 go install）将通过 `$GOPATH` 下的本地版本进行工作。
 
 作为一个例子，我们将使用谷歌的 API 的 urlshortener 编写一个小程序：你可以尝试一下在 http://goo.gl/ 输入一个像 "http://www.destandaard.be" 这样的 URL，你会看到一个像 "http://goo.gl/O9SUO" 这样更短的 URL 返回，也就是说，在 Twitter 之类的服务中这是非常容易嵌入的。谷歌 urlshortener 服务的文档可以在 "http://code.google.com/apis/urlshortener/" 找到。([第 19 章]()，我们将开发自己版本的 urlshortener)。
 
-谷歌将这项技术提供给其他开发者，我们可以在我们自己的应用程序中调用  API （释放到指定的限制）。他们也生成了一个 Go 语言客户端库使调用变得更容易。
+谷歌将这项技术提供给其他开发者，我们可以在我们自己的应用程序中调用 API （释放到指定的限制）。他们也生成了一个 Go 语言客户端库使调用变得更容易。
 
 备注：谷歌让通过使用 Google API Go 客户端服务的开发者生活变得更简单，Go 客户端程序自动生成于 Google 库的 JSON 描述。更多详情在 [项目页面](http://code.google.com/p/google-api-go-client/) 查看。
 
@@ -7759,18 +7752,19 @@ Gomake（和 go install）将通过 `$GOPATH` 下的本地版本进行工作。
 
 我们将通过在终端调用以下命令来安装 API:
 
-	go install google.golang.org/api/urlshortener/v1
+    go install google.golang.org/api/urlshortener/v1
 
 go install 将下载源码，编译并安装包
 
 使用 urlshortener 服务的 web 程序:
 现在我们可以通过导入并赋予别名来使用已安装的包：
 
-	import  "google.golang.org/api/urlshortener/v1"
+    import  "google.golang.org/api/urlshortener/v1"
 
 现在我们写一个 Web 应用（参见[第 15 章 4-8 节]()）通过表单实现短地址和长地址的相互转换。我们将使用 `template` 包并写三个处理函数：`root()` 函数通过执行表单模板来展示表单，`short()` 函数将长地址转换为短地址，`long()` 函数逆向转换。
 
-要调用 `urlshortener` 接口必须先通过 `http` 包中的默认客户端创建一个服务实例 `urlshortenerSvc`：  
+要调用 `urlshortener` 接口必须先通过 `http` 包中的默认客户端创建一个服务实例 `urlshortenerSvc`：
+
 ```go
 urlshortenerSvc, _ := urlshortener.New(http.DefaultClient)
 ```
@@ -7791,7 +7785,7 @@ url, error := urlshortenerSvc.Url.Get(shwortUrl).Do()
 
 返回的长地址便是转换前的原始地址。
 
-示例 9.9	[urlshortener.go](examples/chapter_9/use_urlshortener.go)
+示例 9.9 [urlshortener.go](examples/chapter_9/use_urlshortener.go)
 
 ```go
 package main
@@ -7854,7 +7848,7 @@ func long(w http.ResponseWriter, r *http.Request) {
 
 执行这段代码：
 
-	go run urlshortener.go
+    go run urlshortener.go
 
 通过浏览 `http://localhost:8080/` 的页面来测试。
 
@@ -7862,13 +7856,13 @@ func long(w http.ResponseWriter, r *http.Request) {
 
 将应用放入 Google App Engine，我们只需要在之前的代码中作出如下改变：
 
-	package main -> package urlshort
-	func main() -> func init()
+    package main -> package urlshort
+    func main() -> func init()
 
 创建一个和包同名的目录 `urlshort`，并将以下两个安装目录复制到这个目录：
 
-	google.golang.org/api/urlshortener
-	google.golang.org/api/googleapi
+    google.golang.org/api/urlshortener
+    google.golang.org/api/googleapi
 
 此外还要配置下配置文件 `app.yaml`，内容如下：
 
@@ -7878,13 +7872,13 @@ version: 0-1-test
 runtime: go
 api_version: 3
 handlers:
-- url: /.*
+  - url: /.*
 script: _go_app
 ```
 
 现在你可以到你的项目目录并在终端运行：`dev_appserver.py urlshort`
 
-在浏览器打开你的 Web应用：http://localhost:8080。
+在浏览器打开你的 Web 应用：http://localhost:8080。
 
 ## 第 10 章：结构体 (struct) 与方法 (method)
 
@@ -8132,7 +8126,7 @@ type Node struct {
 
 ![](/assets/images/Go入门指南/10.1_fig10.4.jpg?raw=true)
 
-二叉树中每个节点最多能链接至两个节点：左节点 (`le`) 和右节点  (`ri`)，这两个节点本身又可以有左右节点，依次类推。树的顶层节点叫根节点 (**root**)，底层没有子节点的节点叫叶子节点 (**leaves**)，叶子节点的 `le` 和 `ri` 指针为 `nil` 值。在 Go 中可以如下定义二叉树：
+二叉树中每个节点最多能链接至两个节点：左节点 (`le`) 和右节点 (`ri`)，这两个节点本身又可以有左右节点，依次类推。树的顶层节点叫根节点 (**root**)，底层没有子节点的节点叫叶子节点 (**leaves**)，叶子节点的 `le` 和 `ri` 指针为 `nil` 值。在 Go 中可以如下定义二叉树：
 
 ```go
 type Tree struct {
@@ -8238,7 +8232,7 @@ f := NewFile(10, "./test.txt")
 
 **如何强制使用工厂方法**
 
-通过应用可见性规则参考 [4.2.1节]()、[9.5 节]() 就可以禁止使用 `new()` 函数，强制用户使用工厂方法，从而使类型变成私有的，就像在面向对象语言中那样。
+通过应用可见性规则参考 [4.2.1 节]()、[9.5 节]() 就可以禁止使用 `new()` 函数，强制用户使用工厂方法，从而使类型变成私有的，就像在面向对象语言中那样。
 
 ```go
 type matrix struct {
@@ -8349,7 +8343,6 @@ func main() {
 ### 10.4 带标签的结构体
 
 结构体中的字段除了有名字和类型外，还可以有一个可选的标签 (tag)：它是一个附属于字段的字符串，可以是文档或其他的重要标记。标签的内容不可以在一般的编程中使用，只有包 `reflect` 能获取它。我们将在下一章（[第 11.10 节]()中深入的探讨 `reflect` 包，它可以在运行时自省类型、属性和方法，比如：在一个变量上调用 `reflect.TypeOf()` 可以获取变量的正确类型，如果变量是一个结构体类型，就可以通过 Field 来索引结构体的字段，然后就可以使用 Tag 属性。
-
 
 示例 10.7 [struct_tag.go](examples/chapter_10/struct_tag.go)：
 
@@ -8509,7 +8502,7 @@ type D struct {B; b float32}
 var d D
 ```
 
-规则1：使用 `d.b` 是没问题的：它是 `float32`，而不是 `B` 的 `b`。如果想要内层的 `b` 可以通过 `d.B.b` 得到。
+规则 1：使用 `d.b` 是没问题的：它是 `float32`，而不是 `B` 的 `b`。如果想要内层的 `b` 可以通过 `d.B.b` 得到。
 
 ### 10.6 方法
 
@@ -8546,7 +8539,7 @@ func (recv receiver_type) methodName(parameter_list) (return_value_list) { ... }
 
 如果 `recv` 是一个指针，Go 会自动解引用。
 
-如果方法不需要使用 `recv` 的值，可以用 **_** 替换它，比如：
+如果方法不需要使用 `recv` 的值，可以用 **\_** 替换它，比如：
 
 ```go
 func (_ receiver_type) methodName(parameter_list) (return_value_list) { ... }
@@ -9188,7 +9181,7 @@ func (i *Integer) String() string {
 
 a）假设定义： `type Integer int`，完成 `get()` 方法的方法体: `func (p Integer) get() int { ... }`。
 
-b）定义： `func f(i int) {}; var v Integer` ，如何就 `v` 作为参数调用f？
+b）定义： `func f(i int) {}; var v Integer` ，如何就 `v` 作为参数调用 f？
 
 c）假设 `Integer` 定义为 `type Integer struct {n int}`，完成 `get()` 方法的方法体：`func (p Integer) get() int { ... }`。
 
@@ -9199,7 +9192,6 @@ d）对于新定义的 `Integer`，和 b）中同样的问题。
 当定义了一个有很多方法的类型时，十之八九你会使用 `String()` 方法来定制类型的字符串形式的输出，换句话说：一种可阅读性和打印性的输出。如果类型定义了 `String()` 方法，它会被用在 `fmt.Printf()` 中生成默认的输出：等同于使用格式化描述符 `%v` 产生的输出。还有 `fmt.Print()` 和 `fmt.Println()` 也会自动使用 `String()` 方法。
 
 我们使用[第 10.4 节]()中程序的类型来进行测试：
-
 
 示例 10.22 [method_string.go](examples/chapter_10/method_string.go)：
 
@@ -9243,7 +9235,6 @@ func (tn *TwoInts) String() string {
 **备注**
 
 不要在 `String()` 方法里面调用涉及 `String()` 方法的方法，它会导致意料之外的错误，比如下面的例子，它导致了一个无限递归调用（`TT.String()` 调用 `fmt.Sprintf`，而 `fmt.Sprintf` 又会反过来调用 `TT.String()`），很快就会导致内存溢出：
-
 
 ```go
 type TT float64
@@ -9335,14 +9326,13 @@ runtime.SetFinalizer(obj, func(obj *typeObj))
 
 从练习 10.16 开始（它基于结构体实现了一个栈结构），为栈的实现 ([stack_struct.go](exercises/chapter_10/stack_struct.go)) 创建一个单独的包 `stack`，并从 `main` 包 `main.stack.go` 中调用它。
 
-
 ## 第 11 章：接口 (interface) 与反射 (reflection)
 
 本章介绍 Go 语言中接口和反射的相关内容。
 
 # 11.1 接口是什么
 
-Go 语言不是一种 *“传统”* 的面向对象编程语言：它里面没有类和继承的概念。
+Go 语言不是一种 _“传统”_ 的面向对象编程语言：它里面没有类和继承的概念。
 
 但是 Go 语言里有非常灵活的 **接口** 概念，通过它可以实现很多面向对象的特性。接口提供了一种方式来 **说明** 对象的行为：如果谁能搞定这件事，它就可以用在这儿。
 
@@ -9735,12 +9725,9 @@ default:
 ```go
 switch areaIntf.(type) {
 case *Square:
-	// TODO
 case *Circle:
-	// TODO
 ...
 default:
-	// TODO
 }
 ```
 
@@ -10068,7 +10055,7 @@ func main() {
 
     The sorted array is: [-5467984 -784 0 0 42 59 74 238 905 959 7586 7586 9845]
     The sorted array is: [ friday monday saturday sunday thursday tuesday wednesday]
-    Sunday Monday Tuesday Wednesday Thursday Friday Saturday 
+    Sunday Monday Tuesday Wednesday Thursday Friday Saturday
 
 **备注**：
 
@@ -10088,7 +10075,7 @@ type Interface interface {
 
 **练习 11.5** [interfaces_ext.go](exercises/chapter_11/interfaces_ext.go)：
 
-a). 继续扩展程序，定义类型 `Triangle`，让它实现 `AreaInterface` 接口。通过计算一个特定三角形的面积来进行测试（三角形面积=0.5 * (底 * 高)）
+a). 继续扩展程序，定义类型 `Triangle`，让它实现 `AreaInterface` 接口。通过计算一个特定三角形的面积来进行测试（三角形面积=0.5 _ (底 _ 高)）
 
 b). 定义一个新接口 `PeriInterface`，它有一个 `Perimeter` 方法。让 `Square` 实现这个接口，并通过一个 `Square` 示例来测试它。
 
@@ -10134,7 +10121,7 @@ type Writer interface {
 
 在实际编程中尽可能的使用这些接口，会使程序变得更通用，可以在任何实现了这些接口的类型上使用读写方法。
 
-例如一个 `JPEG` 图形解码器，通过一个 `Reader` 参数，它可以解码来自磁盘、网络连接或以 `gzip` 压缩的 `HTTP` 流中的 `JPEG` 图形数据，或者其他任何实现了 `Reader` 接口的对象。 
+例如一个 `JPEG` 图形解码器，通过一个 `Reader` 参数，它可以解码来自磁盘、网络连接或以 `gzip` 压缩的 `HTTP` 流中的 `JPEG` 图形数据，或者其他任何实现了 `Reader` 接口的对象。
 
 # 11.9 空接口
 
@@ -10455,7 +10442,6 @@ v := reflect.ValueOf(m)
 
 变量 `v` 的 `Interface()` 方法可以得到还原（接口）值，所以可以这样打印 `v` 的值：`fmt.Println(v.Interface())`
 
-
 尝试运行下面的代码：
 
 示例 11.11 [reflect1.go](examples/chapter_11/reflect1.go)：
@@ -10516,7 +10502,6 @@ value is 3.40e+00
 要想让其可设置我们需要使用 `Elem()` 函数，这间接地使用指针：`v = v.Elem()`
 
 现在 `v.CanSet()` 返回 `true` 并且 `v.SetFloat(3.1415)` 设置成功了！
-
 
 示例 11.12 [reflect2.go](examples/chapter_11/reflect2.go)：
 
@@ -10742,7 +10727,7 @@ Go 中的接口跟 Java/C# 类似：都是必须提供一个指定方法集的�
 
 和其它语言相比，Go 是唯一结合了接口值，静态类型检查（是否该类型实现了某个接口），运行时动态转换的语言，并且不需要显式地声明类型是否满足某个接口。该特性允许我们在不改变已有的代码的情况下定义和使用新接口。
 
-接收一个（或多个）接口类型作为参数的函数，其**实参**可以是任何实现了该接口的类型的变量。 *实现了某个接口的类型可以被传给任何以此接口为参数的函数*。
+接收一个（或多个）接口类型作为参数的函数，其**实参**可以是任何实现了该接口的类型的变量。 _实现了某个接口的类型可以被传给任何以此接口为参数的函数_。
 
 类似于 Python 和 Ruby 这类动态语言中的动态类型 (duck typing)；这意味着对象可以根据提供的方法被处理（例如，作为参数传递给函数），而忽略它们的实际类型：它们能做什么比它们是什么更重要。
 
@@ -10927,7 +10912,7 @@ Shape details:  &{5}
 Topological Genus of this shape is:  1
 ```
 
-所以你不用提前设计出所有的接口；*整个设计可以持续演进，而不用废弃之前的决定*。类型要实现某个接口，它本身不用改变，你只需要在这个类型上实现新的方法。
+所以你不用提前设计出所有的接口；_整个设计可以持续演进，而不用废弃之前的决定_。类型要实现某个接口，它本身不用改变，你只需要在这个类型上实现新的方法。
 
 ## 11.12.4 显式地指明类型实现了某个接口
 
@@ -11041,15 +11026,14 @@ OO 语言最重要的三个方面分别是：封装、继承和多态，在 Go �
 
 - 封装（数据隐藏）：和别的 OO 语言有 4 个或更多的访问层次相比，Go 把它简化为了 2 层（参见 [4.2 节]()的可见性规则）:
 
-	1）包范围内的：通过标识符首字母小写，*对象*只在它所在的包内可见
+  1）包范围内的：通过标识符首字母小写，*对象*只在它所在的包内可见
 
-	2）可导出的：通过标识符首字母大写，*对象*对所在包以外也可见
+  2）可导出的：通过标识符首字母大写，*对象*对所在包以外也可见
 
 类型只拥有自己所在包中定义的方法。
 
 - 继承：用组合实现：内嵌一个（或多个）包含想要的行为（字段和方法）的类型；多重继承可以通过内嵌多个类型实现
 - 多态：用接口实现：某个类型的实例可以赋给它所实现的任意接口类型的变量。类型和接口是松耦合的，并且多重继承可以通过实现多个接口实现。Go 接口不是 Java 和 C# 接口的变体，而且接口间是不相关的，并且是大规模编程和可适应的演进型设计的关键。
-
 
 # 11.14 结构体、集合和高阶函数
 
@@ -11370,7 +11354,7 @@ func main() {
     default: fmt.Printf("You are not welcome here! Goodbye!")
     }
 
-    // version 2:   
+    // version 2:
     switch input {
     case "Philip\r\n":  fallthrough
     case "Ivo\r\n":     fallthrough
@@ -11437,14 +11421,14 @@ func main() {
         fmt.Printf("The input was: %s", inputString)
         if readerError == io.EOF {
             return
-        }      
+        }
     }
 }
 ```
 
 变量 `inputFile` 是 `*os.File` 类型的。该类型是一个结构，表示一个打开文件的描述符（文件句柄）。然后，使用 `os` 包里的 `Open()` 函数来打开一个文件。该函数的参数是文件名，类型为 `string`。在上面的程序中，我们以只读模式打开 `input.dat` 文件。
 
-如果文件不存在或者程序没有足够的权限打开这个文件，Open函数会返回一个错误：`inputFile, inputError = os.Open("input.dat")`。如果文件打开正常，我们就使用 `defer inputFile.Close()` 语句确保在程序退出前关闭该文件。然后，我们使用 `bufio.NewReader()` 来获得一个读取器变量。
+如果文件不存在或者程序没有足够的权限打开这个文件，Open 函数会返回一个错误：`inputFile, inputError = os.Open("input.dat")`。如果文件打开正常，我们就使用 `defer inputFile.Close()` 语句确保在程序退出前关闭该文件。然后，我们使用 `bufio.NewReader()` 来获得一个读取器变量。
 
 通过使用 `bufio` 包提供的读取器（写入器也类似），如上面程序所示，我们可以很方便的操作相对高层的 `string` 对象，而避免了去操作比较底层的字节。
 
@@ -11563,6 +11547,7 @@ filename := filepath.Base(path)
 "Go for It";45.9;356
 "The Go Way";55;500
 ```
+
 每行的第一个字段为标题，第二个字段为价格，第三个字段为数量。内容的格式基本与 示例 12.3c 的相同，除了分隔符改成了分号。请读取出文件的内容，创建一个结构用于存取一行的数据，然后使用结构的切片，并把数据打印出来。
 
 关于解析 CSV 文件，`encoding/csv` 包提供了相应的功能。具体请参考 [http://golang.org/pkg/encoding/csv/](http://golang.org/pkg/encoding/csv/) 。
@@ -11636,7 +11621,7 @@ func main () {
 	outputFile, outputError := os.OpenFile("output.dat", os.O_WRONLY|os.O_CREATE, 0666)
 	if outputError != nil {
 		fmt.Printf("An error occurred with file opening or creation\n")
-		return  
+		return
 	}
 	defer outputFile.Close()
 
@@ -11660,9 +11645,9 @@ outputFile, outputError := os.OpenFile("output.dat", os.O_WRONLY|os.O_CREATE, 06
 
 我们通常会用到以下标志：
 
-- `os.O_RDONLY`：只读  
-- `os.O_WRONLY`：只写  
-- `os.O_CREATE`：创建：如果指定文件不存在，就创建该文件。  
+- `os.O_RDONLY`：只读
+- `os.O_WRONLY`：只写
+- `os.O_CREATE`：创建：如果指定文件不存在，就创建该文件。
 - `os.O_TRUNC`：截断：如果指定文件已存在，就将该文件的长度截为 0 。
 
 在读文件的时候，文件的权限是被忽略的，所以在使用 `OpenFile()` 时传入的第三个参数可以用 0 。而在写文件时，不管是 Unix 还是 Windows，都需要使用 `0666`。
@@ -12470,9 +12455,7 @@ var u U
 
 在接收者中，`X` 的值是 `7`，`Y` 的值是 `0`（`Y` 的值并没有从 `t` 中传递过来，因为它是零值）
 
-
 和 JSON 的使用方式一样，Gob 使用通用的 `io.Writer` 接口，通过 `NewEncoder()` 函数创建 `Encoder` 对象并调用 `Encode()`；相反的过程使用通用的 `io.Reader` 接口，通过 `NewDecoder()` 函数创建 `Decoder` 对象并调用 `Decode()`。
-
 
 我们把示例 12.12 的信息写进名为 vcard.gob 的文件作为例子。这会产生一个文本可读数据和二进制数据的混合，当你试着在文本编辑中打开的时候会看到。
 
@@ -12502,18 +12485,18 @@ type Q struct {
 }
 
 func main() {
-	// Initialize the encoder and decoder.  Normally enc and dec would be      
-	// bound to network connections and the encoder and decoder would      
-	// run in different processes.      
-	var network bytes.Buffer   // Stand-in for a network connection      
-	enc := gob.NewEncoder(&network) // Will write to network.      
-	dec := gob.NewDecoder(&network)	// Will read from network.      
-	// Encode (send) the value.      
+	// Initialize the encoder and decoder.  Normally enc and dec would be
+	// bound to network connections and the encoder and decoder would
+	// run in different processes.
+	var network bytes.Buffer   // Stand-in for a network connection
+	enc := gob.NewEncoder(&network) // Will write to network.
+	dec := gob.NewDecoder(&network)	// Will read from network.
+	// Encode (send) the value.
 	err := enc.Encode(P{3, 4, 5, "Pythagoras"})
 	if err != nil {
 		log.Fatal("encode error:", err)
 	}
-	// Decode (receive) the value.      
+	// Decode (receive) the value.
 	var q Q
 	err = dec.Decode(&q)
 	if err != nil {
@@ -12683,7 +12666,7 @@ if value, err := pack1.Func1(param1); err != nil {
 }
 ```
 
-*为了更清晰的代码，应该总是使用包含错误值变量的 if 复合语句*
+_为了更清晰的代码，应该总是使用包含错误值变量的 if 复合语句_
 
 上例除了 `fmt.Printf()` 还可以使用 `log` 中对应的方法（参见 [13.3]() 节和 [15.2]() 节），如果程序中止也没关系的话甚至可以使用 `panic()`（参见后面的章节）。
 
@@ -12927,7 +12910,7 @@ if err != nil {
 
 <u>Go panicking</u>：
 
-在多层嵌套的函数调用中调用 `panic()`，可以马上中止当前函数的执行，所有的 `defer` 语句都会保证执行并把控制权交还给接收到 panic 的函数调用者。这样向上冒泡直到最顶层，并执行（每层的） `defer`，在栈顶处程序崩溃，并在命令行中用传给 `panic()` 的值报告错误情况：这个终止过程就是 *panicking*。
+在多层嵌套的函数调用中调用 `panic()`，可以马上中止当前函数的执行，所有的 `defer` 语句都会保证执行并把控制权交还给接收到 panic 的函数调用者。这样向上冒泡直到最顶层，并执行（每层的） `defer`，在栈顶处程序崩溃，并在命令行中用传给 `panic()` 的值报告错误情况：这个终止过程就是 _panicking_。
 
 标准库中有许多包含 `Must` 前缀的函数，像 `regexp.MustComplie()` 和 `template.Must()`；当正则表达式或模板中转入的转换字符串导致错误时，这些函数会 `panic()`。
 
@@ -13012,9 +12995,9 @@ Go 标准库中许多地方都用了这个机制，例如，`json` 包中的解�
 
 这是所有自定义包实现者应该遵守的最佳实践：
 
-1）*在包内部，总是应该从 panic 中 recover*：不允许显式的超出包范围的 `panic()`
+1）_在包内部，总是应该从 panic 中 recover_：不允许显式的超出包范围的 `panic()`
 
-2）*向包的调用者返回错误值（而不是 panic）。*
+2）_向包的调用者返回错误值（而不是 panic）。_
 
 在包内部，特别是在非导出函数中有很深层次的嵌套调用时，将 panic 转换成 `error` 来告诉调用方为何出错，是很实用的（且提高了代码可读性）。
 
@@ -13284,7 +13267,7 @@ procAttr := &os.ProcAttr{
 			},
 		}
 // 1st example: list files
-pid, err := os.StartProcess("/bin/ls", []string{"ls", "-l"}, procAttr)  
+pid, err := os.StartProcess("/bin/ls", []string{"ls", "-l"}, procAttr)
 if err != nil {
 		fmt.Printf("Error %v starting process!", err)  //
 		os.Exit(1)
@@ -13294,7 +13277,7 @@ fmt.Printf("The process id is %v", pid)
 
 输出：
 
-``` go
+```go
 The process id is &{2054 0}total 2056
 -rwxr-xr-x 1 ivo ivo 1157555 2011-07-04 16:48 Mieken_exec
 -rw-r--r-- 1 ivo ivo    2124 2011-07-04 16:48 Mieken_exec.go
@@ -13305,7 +13288,7 @@ The process id is &{2054 0}total 2056
 
 ```go
 // 2nd example: show all processes
-pid, err = os.StartProcess("/bin/ps", []string{"ps", "-e", "-opid,ppid,comm"}, procAttr)  
+pid, err = os.StartProcess("/bin/ps", []string{"ps", "-e", "-opid,ppid,comm"}, procAttr)
 
 if err != nil {
 		fmt.Printf("Error %v starting process!", err)  //
@@ -13359,21 +13342,21 @@ func TestAbcde(t *testing.T)
 
 用下面这些函数来通知测试失败：
 
-1）```func (t *T) Fail()```
+1）`func (t *T) Fail()`
 
-		标记测试函数为失败，然后继续执行（剩下的测试）。
+    	标记测试函数为失败，然后继续执行（剩下的测试）。
 
-2）```func (t *T) FailNow()```
+2）`func (t *T) FailNow()`
 
-		标记测试函数为失败并中止执行；文件中别的测试也被略过，继续执行下一个文件。
+    	标记测试函数为失败并中止执行；文件中别的测试也被略过，继续执行下一个文件。
 
-3）```func (t *T) Log(args ...interface{})```
+3）`func (t *T) Log(args ...interface{})`
 
-		args 被用默认的格式格式化并打印到错误日志中。
+    	args 被用默认的格式格式化并打印到错误日志中。
 
-4）```func (t *T) Fatal(args ...interface{})```
+4）`func (t *T) Fatal(args ...interface{})`
 
-		结合 先执行 3），然后执行 2）的效果。
+    	结合 先执行 3），然后执行 2）的效果。
 
 运行 go test 来编译测试程序，并执行程序中所有的 `TestZZZ` 函数。如果所有的测试都通过会打印出 `PASS`。
 
@@ -13400,7 +13383,7 @@ func BenchmarkReverse(b *testing.B) {
 }
 ```
 
-命令 ```go test –test.bench=.*``` 会运行所有的基准测试函数；代码中的函数会被调用 `N` 次（`N` 是非常大的数，如 `N = 1000000`），并展示 `N` 的值和函数执行的平均时间，单位为 ns（纳秒，ns/op）。如果是用 `testing.Benchmark()` 调用这些函数，直接运行程序即可。
+命令 `go test –test.bench=.*` 会运行所有的基准测试函数；代码中的函数会被调用 `N` 次（`N` 是非常大的数，如 `N = 1000000`），并展示 `N` 的值和函数执行的平均时间，单位为 ns（纳秒，ns/op）。如果是用 `testing.Benchmark()` 调用这些函数，直接运行程序即可。
 
 具体可以参见 [14.16 节]() 中用 goroutines 运行基准测试的例子以及练习 13.4：[string_reverse_test.go](exercises/chapter_13/string_reverse_test.go)
 
@@ -13584,20 +13567,20 @@ func TestFunction(t *testing.T) {
 
 ## 13.10.1 时间和内存消耗
 
-可以用这个便捷脚本 *xtime* 来测量：
+可以用这个便捷脚本 _xtime_ 来测量：
 
 ```sh
 #!/bin/sh
 /usr/bin/time -f '%Uu %Ss %er %MkB %C' "$@"
 ```
 
-在 Unix 命令行中像这样使用 ```xtime goprogexec```，这里的 progexec 是一个 Go 可执行程序，这句命令行输出类似：56.63u 0.26s 56.92r 1642640kB progexec，分别对应用户时间，系统时间，实际时间和最大内存占用。
+在 Unix 命令行中像这样使用 `xtime goprogexec`，这里的 progexec 是一个 Go 可执行程序，这句命令行输出类似：56.63u 0.26s 56.92r 1642640kB progexec，分别对应用户时间，系统时间，实际时间和最大内存占用。
 
 ## 13.10.2 用 go test 调试
 
 如果代码使用了 Go 中 `testing` 包的基准测试功能，我们可以用 gotest 标准的 `-cpuprofile` 和 `-memprofile` 标志向指定文件写入 CPU 或 内存使用情况报告。
 
-使用方式：```go test -x -v -cpuprofile=prof.out -file x_test.go```
+使用方式：`go test -x -v -cpuprofile=prof.out -file x_test.go`
 
 编译执行 x_test.go 中的测试，并向 prof.out 文件中写入 cpu 性能分析信息。
 
@@ -13623,9 +13606,9 @@ func main() {
 
 代码定义了一个名为 cpuprofile 的 flag，调用 Go flag 库来解析命令行 flag，如果命令行设置了 cpuprofile flag，则开始 CPU 性能分析并把结果重定向到那个文件（`os.Create` 用拿到的名字创建了用来写入分析数据的文件）。这个分析程序最后需要在程序退出之前调用 `StopCPUProfile()` 来刷新挂起的写操作到文件中；我们用 `defer` 来保证这一切会在 `main()` 返回时触发。
 
-现在用这个 flag 运行程序：```progexec -cpuprofile=progexec.prof```
+现在用这个 flag 运行程序：`progexec -cpuprofile=progexec.prof`
 
-然后可以像这样用 gopprof 工具：```gopprof progexec progexec.prof```
+然后可以像这样用 gopprof 工具：`gopprof progexec progexec.prof`
 
 gopprof 程序是 Google pprofC++ 分析器的一个轻微变种；关于此工具更多的信息，参见[https://github.com/gperftools/gperftools](https://github.com/gperftools/gperftools) 。
 
@@ -13635,7 +13618,7 @@ gopprof 程序是 Google pprofC++ 分析器的一个轻微变种；关于此工�
 
 1）`topN`
 
-用来展示分析结果中最开头的 N 份样本，例如：```top5```
+用来展示分析结果中最开头的 N 份样本，例如：`top5`
 它会展示在程序运行期间调用最频繁的 5 个函数，输出如下：
 
 ```
@@ -13675,9 +13658,9 @@ if *memprofile != "" {
 }
 ```
 
-用 `-memprofile flag` 运行这个程序：```progexec -memprofile=progexec.mprof```
+用 `-memprofile flag` 运行这个程序：`progexec -memprofile=progexec.mprof`
 
-然后你可以像这样再次使用 gopprof 工具：```gopprof progexec progexec.mprof```
+然后你可以像这样再次使用 gopprof 工具：`gopprof progexec progexec.mprof`
 
 `top5`，`list 函数名` 等命令同样适用，只不过现在是以 Mb 为单位测量内存分配情况，这是 top 命令输出的例子：
 
@@ -13709,7 +13692,7 @@ gopprof http://localhost:6060/debug/pprof/profile # 30-second CPU profile
 gopprof http://localhost:6060/debug/pprof/heap # heap profile
 ```
 
-在 Go-blog（引用 15）中有一篇很好的文章用具体的例子进行了分析：分析 Go 程序（2011年6月）。
+在 Go-blog（引用 15）中有一篇很好的文章用具体的例子进行了分析：分析 Go 程序（2011 年 6 月）。
 
 ## 第 14 章：协程 (goroutine) 与通道 (channel)
 
@@ -13788,7 +13771,9 @@ Go 的并发原语提供了良好的并发设计基础：表达程序结构以�
 ```go
 var numCores = flag.Int("n", 2, "number of CPU cores to use")
 ```
+
 在 main() 中：
+
 ```go
 flag.Parse()
 runtime.GOMAXPROCS(*numCores)
@@ -13869,7 +13854,7 @@ At the end of main() // after 17 s
 
 ## 14.1.5 Go 协程 (goroutines) 和协程 (coroutines)
 
-（译者注：标题中的“Go协程 (goroutines)”即是 14 章讲的协程，指的是 Go 语言中的协程。而“协程(coroutines)”指的是其他语言中的协程概念，仅在本节出现。）
+（译者注：标题中的“Go 协程 (goroutines)”即是 14 章讲的协程，指的是 Go 语言中的协程。而“协程(coroutines)”指的是其他语言中的协程概念，仅在本节出现。）
 
 在其他语言中，比如 C#，Lua 或者 Python 都有协程的概念。这个名字表明它和 Go 协程有些相似，不过有两点不同：
 
@@ -13884,7 +13869,7 @@ Go 协程比协程更强大，也很容易从协程的逻辑复用到 Go 协程�
 
 在第一个例子中，协程是独立执行的，他们之间没有通信。他们必须通信才会变得更有用：彼此之间发送和接收信息并且协调/同步他们的工作。协程可以使用共享变量来通信，但是很不提倡这样做，因为这种方式给所有的共享内存的多线程都带来了困难。
 
-而 Go 有一种特殊的类型，*通道（channel）*，就像一个可以用于发送类型化数据的管道，由其负责协程之间的通信，从而避开所有由共享内存导致的陷阱；这种通过通道进行通信的方式保证了同步性。数据在通道中进行传递：*在任何给定时间，一个数据被设计为只有一个协程可以对其访问，所以不会发生数据竞争。* 数据的所有权（可以读写数据的能力）也因此被传递。
+而 Go 有一种特殊的类型，_通道（channel）_，就像一个可以用于发送类型化数据的管道，由其负责协程之间的通信，从而避开所有由共享内存导致的陷阱；这种通过通道进行通信的方式保证了同步性。数据在通道中进行传递：_在任何给定时间，一个数据被设计为只有一个协程可以对其访问，所以不会发生数据竞争。_ 数据的所有权（可以读写数据的能力）也因此被传递。
 
 工厂的传送带是个很有用的例子。一个机器（生产者协程）在传送带上放置物品，另外一个机器（消费者协程）拿到物品并打包。
 
@@ -14049,6 +14034,7 @@ func suck(ch chan int) {
 	}
 }
 ```
+
 在 `main()` 中使用协程开始它：
 
 ```go
@@ -14447,7 +14433,7 @@ func processChannel(in <-chan int, out chan<- string) {
 
 ![](/assets/images/Go入门指南/14.2_fig14.2.jpg?raw=true)
 
-版本1：示例 14.7-[sieve1.go](examples/chapter_14/sieve1.go)
+版本 1：示例 14.7-[sieve1.go](examples/chapter_14/sieve1.go)
 
 ```go
 // Copyright 2009 The Go Authors. All rights reserved.
@@ -14506,7 +14492,7 @@ func main() {
 
 第二个版本引入了上边的习惯用法：函数 `sieve()`、`generate()` 和 `filter()` 都是工厂；它们创建通道并返回，而且使用了协程的 lambda 函数。`main()` 函数现在短小清晰：它调用 `sieve()` 返回了包含素数的通道，然后通过 `fmt.Println(<-primes)` 打印出来。
 
-版本2：示例 14.8-[sieve2.go](examples/chapter_14/sieve2.go)
+版本 2：示例 14.8-[sieve2.go](examples/chapter_14/sieve2.go)
 
 ```go
 // Copyright 2009 The Go Authors. All rights reserved.
@@ -14704,9 +14690,15 @@ for input := range ch {
 由于容器中元素的数量通常是已知的，需要让通道有足够的容量放置所有的元素。这样，迭代器就不会阻塞（尽管消费者协程仍然可能阻塞）。然而，这实际上加倍了迭代容器所需要的内存使用量，所以通道的容量需要限制一下最大值。记录运行时间和性能测试可以帮助你找到最小的缓存容量带来最好的性能。
 
 ## 第 15 章：网络、模板与网页应用
+
 ## 第 16 章：常见的陷阱与错误
+
 ## 第 17 章：模式
+
 ## 第 18 章：出于性能考虑的实用代码片段
+
 ## 第 19 章：构建一个完整的应用程序
+
 ## 第 20 章：Go 语言在 Google App Engine 的使用
+
 ## 第 21 章：真实世界中 Go 的使用

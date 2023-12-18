@@ -130,8 +130,8 @@ docker run
 #-e MYSQL_SERVICE_USER=root 
 #-e MYSQL_SERVICE_PASSWORD=123456 
 #-e MYSQL_SERVICE_DB_NAME=nacos 
-#-e JVM_XMS=256m #jvm启动时分配的内存
-#-e JVM_XMX=256m #为jvm运行过程中分配的最大内存
+-e JVM_XMS=256m #jvm启动时分配的内存
+-e JVM_XMX=256m #为jvm运行过程中分配的最大内存
 -e MODE=standalone #单机模式
 #一下四个环境变量使用鉴权必须都配置
 -e NACOS_AUTH_CACHE_ENABLE=true #开启权限系统

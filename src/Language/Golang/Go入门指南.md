@@ -7,8 +7,6 @@ category:
 tag:
   - 基础
 pageInfo: ["Author", "Date", "ReadingTime", "Word", "Category", "Tag"]
-prev: Go入门指南.md
-next: Go常用标准库.md
 # 是否将该文章添加至文章列表中
 article: false
 # 是否将该文章添加至时间线中

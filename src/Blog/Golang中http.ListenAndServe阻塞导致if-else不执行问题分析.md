@@ -10,8 +10,7 @@ sticky: true
 # 此页面会出现在文章收藏中
 star: true
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-prev: 基于角色访问控制(Role-Based Access Control)模型.md
-next: Golang读取配置文件处理方式.md
+
 ---
 ## 问题代码
 >简单的代码，你可能很难发现其中的错误：

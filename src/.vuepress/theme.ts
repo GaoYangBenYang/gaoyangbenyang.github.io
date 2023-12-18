@@ -14,7 +14,7 @@ export default hopeTheme({
   darkmode: "toggle",
   //页脚
   // footer: `<span id="siteTime"></span>`,
-  copyright:"Copyright © 2022-至今 GaoYang",
+  copyright:"Copyright © 2022-至今 高洋",
   displayFooter: true,
   //是否显示编辑链接
   editLink: false,
@@ -25,7 +25,7 @@ export default hopeTheme({
   hostname: "https://gaoyangbenyang.github.io/",
   // 文章显示的默认作者
   author: {
-    name: "GaoYang",
+    name: "高洋",
     url: "https://github.com/GaoYangBenYang",
     email: "GaoYangBenYang@outlook.com",
   },

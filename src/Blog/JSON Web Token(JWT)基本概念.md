@@ -8,8 +8,7 @@ sticky: true
 # 此页面会出现在文章收藏中
 star: true
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-prev: gorm中表名自动加s使用复数问题处理.md
-next: AutoLinkOptions
+
 ---
 
 ## 1. 摘要

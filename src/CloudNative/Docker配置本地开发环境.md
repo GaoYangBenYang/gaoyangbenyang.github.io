@@ -155,7 +155,135 @@ nacos.core.auth.enabled=true
 ```shell
 docker ps
 ```
+## Elasticsearch
+
+1. Elasticsearch简介
+
+   Elasticsearch是位于Elastic Stack核心的分布式搜索和分析引擎。
+
+   Logstash和Beats有助于收集、聚合和丰富数据，并将其存储在Elasticsearch中。
+   
+   Kibana使您能够交互式地探索、可视化和共享对数据的见解，并管理和监视堆栈。
+   
+   Elasticsearch是索引、搜索和分析魔术发生的地方。
+
+   Elasticsearch为所有类型的数据提供近乎实时的搜索和分析。无论您是结构化还是非结构化文本、数字数据还是地理空间数据，Elasticsearch都可以以一种支持快速搜索的方式有效地存储和索引它。您可以远远超出简单的数据检索和汇总信息，从而发现数据中的趋势和模式。随着数据和查询量的增长，Elasticsearch的分布式特性使您的部署能够无缝地随之增长。
+   
+   虽然不是每个问题都是搜索问题，但Elasticsearch提供了在各种用例中处理数据的速度和灵活性:
+      * 在应用程序或网站中添加搜索框
+      * 存储和分析日志、度量和安全事件数据
+      * 使用机器学习实时自动模拟数据的行为
+      * 使用Elasticsearch作为矢量数据库来创建、存储和搜索矢量嵌入
+      * 使用Elasticsearch作为存储引擎自动化业务工作流
+      * 使用Elasticsearch作为地理信息系统(GIS)管理、整合和分析空间信息
+      * 使用Elasticsearch作为生物信息学研究工具存储和处理遗传数据
+
+   我们不断地被人们使用搜索的新奇方式所震撼。但是，无论您的用例与其中一个类似，还是您正在使用Elasticsearch来解决新问题，您在Elasticsearch中处理数据，文档和索引的方式都是相同的
 
 
+2. 单节点Elasticsearch集群安装
+    * 创建网络
+      ```shell
+      #保证Kibana容器和Elasticsearch容器在同一网络中实现互联
+      docker network create elastic
+      ```
+    * 下载官方镜像
+      ```shell
+      docker pull docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+      ```
+    * 创建挂载文件
+      ```shell
+      # 创建目录 -p 递归创建
+      mkdir -p /home/gaoyang/docker/elasticsearch/{data,plugins}
+      #修改权限
+      chmod 777 /home/gaoyang/docker/elasticsearch/data
+      chmod 777 /home/gaoyang/docker/elasticsearch/plugins
+      ```
+    * 启动容器，复制生成的密码和注册令牌，首次启动 Elasticsearch 时，生成的用户密码和 Kibana 注册令牌将输出到终端，记得保存。
+      ```shell
+      docker run 
+      --name elasticsearch 
+      --net elastic 
+      -p 9200:9200 
+      -p 9300:9300 
+      -e "discovery.type=single-node" 
+      -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      -v /home/gaoyang/docker/elasticsearch/data:/usr/share/elasticsearch/data
+      -v /home/gaoyang/docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      -d docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+      ```
+    * 查看容器是否正常运行
+      ```shell
+      docker ps
+      ```
+3. Kibana(Elastic的用户界面)安装
+   * 下载官方镜像
+     ```shell
+     docker pull docker.elastic.co/kibana/kibana:8.11.3
+     ```
+   * 创建挂载文件
+     ```shell
+     # 创建目录 -p 递归创建
+     mkdir -p /home/gaoyang/docker/kibana/{data,config}
+     #修改权限
+     chmod 777 /home/gaoyang/docker/kibana/data
+     chmod 777 /home/gaoyang/docker/kibana/config
+     ```
+   * 启动容器
+     ```shell
+     docker run
+     --name kibana 
+     --network elastic
+     -p 5601:5601 
+     -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+     -v /home/gaoyang/docker/kibana/data:/usr/share/kibana/data
+     -v /home/gaoyang/docker/kibana/plugins:/usr/share/kibana/plugins
+     -d kibana:8.6.0
+     ```
+   * 查看容器是否正常运行
+     ```shell
+     docker ps
+     ```
 
+4. 生成登录kibana的令牌(有问题  第一次能出现 之后就报错)
+```shell
+# 进入容器
+docker exec -it elasticsearch /bin/bash
+# 关闭安全验证
+echo 'xpack.security.enabled: false' >> config/elasticsearch.yml
+## 开启安全注册
+echo 'xpack.security.enrollment.enabled: true' >> config/elasticsearch.yml
+## 开启transport SSL验证
+#echo 'xpack.security.transport.ssl.enabled: true' >> config/elasticsearch.yml
+#echo 'xpack.security.transport.ssl.verification_mode: certificate' >> config/elasticsearch.yml
+#echo 'xpack.security.transport.ssl.keystore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
+#echo 'xpack.security.transport.ssl.truststore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
+## 开启HTTP SSL验证
+echo 'xpack.security.http.ssl.enabled: true' >> config/elasticsearch.yml
+#echo 'xpack.security.http.ssl.keystore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
+#echo 'xpack.security.http.ssl.truststore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
+#echo 'xpack.security.http.ssl.client_authentication: optional' >> config/elasticsearch.yml
+## 开启PKI 身份验证
+#echo 'xpack.security.authc.realms.pki.pki1.order: 1' >> config/elasticsearch.yml
 
+# 生成令牌 令牌有30分钟有效期
+bin/elasticsearch-create-enrollment-token --scope kibana
+```
+
+5.kibana验证
+```shell
+# 进入kibana容器中
+docker exec -it kibana /bin/bash
+# 执行生成验证码命令
+bin/kibana-verification-code 
+# 获得的验证码输入之前页面中
+Your verification code is: 788 373
+```
+
+6. 重置密码 登录elasticsearch
+```shell
+# 进入elastic容器中
+docker exec -it elasticsearch /bin/bash
+# 重置密码
+bin/elasticsearch-reset-password --username elastic -i
+```

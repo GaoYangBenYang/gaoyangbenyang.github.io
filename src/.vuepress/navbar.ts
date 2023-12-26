@@ -13,7 +13,7 @@ export const Navbar = navbar([
         icon: "language",
         // 可选的, 分组标题对应的链接
         // link: "Language/",
-        prefix: "/Language/",
+        prefix: "/Language/Java/",
         children: [
             {
                 text: 'Docs',
@@ -25,6 +25,30 @@ export const Navbar = navbar([
                 text: 'Spring',
                 children: [
                     {text: "Spring Docs", icon: "golang", link: "Go入门指南.md"},
+                ],
+            },
+            {
+                text: 'SpringBoot',
+                prefix: 'SpringBoot',
+                children: [
+                    {text: "SpringBoot整合第三方依赖", icon: "golang", link: "SpringBoot整合第三方依赖.md"},
+                ],
+            },
+        ],
+    },
+    {
+        // 必要的，分组的标题文字
+        text: "Golang",
+        // 可选的, 分组标题对应的图标
+        icon: "golang",
+        // 可选的, 分组标题对应的链接
+        // link: "Language/",
+        prefix: "/Language/Golang/",
+        children: [
+            {
+                text: 'Docs',
+                children: [
+                    {text: "Golang Docs", icon: "golang", link: "Go入门指南.md"},
                 ],
             },
         ],

@@ -117,13 +117,19 @@ mkdir -p /home/gaoyang/docker/nacos/{conf,logs}
 # 创建文件
 touch /home/gaoyang/docker/nacos/conf/application.properties
 ```
-3. 创建容器
+3. 创建容器,2.x版本后增加了 grpc 通信并且增加nacos的集群端口上下偏移1000，创建容器时除了 8848 还需要把 9848 也暴露出来
 ```shell
 docker run 
 --name nacos 
--p 7848:7848 
--p 8848:8848 
+#Jraft请求服务端端口，用于处理服务端间的Raft相关请求
+#-p 7848:7848
+#主端口，客户端、控制台及OpenAPI所使用的HTTP端口
+-p 8848:8848
+#客户端gRPC请求服务端端口，用于客户端向服务端发起连接和请求
 -p 9848:9848 
+#服务端gRPC请求服务端端口，用于服务间同步等
+#-p 9849:9849
+#9849 和 7848 端口为服务端之间的通信端口，请勿暴露到外部网络环境和客户端测
 #-e SPRING_DATASOURCE_PLATFORM=mysql 
 #-e MYSQL_SERVICE_HOST=localhost 
 #-e MYSQL_SERVICE_PORT=3306 

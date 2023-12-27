@@ -1,3 +1,19 @@
+---
+title: JSON Web Token
+icon: maven
+date: 2023-03-25
+category: 
+  - JSON Web Token
+tag:
+  - Docs
+pageInfo: ["Author", "Date", "ReadingTime", "Word", "Category", "Tag"]
+# 是否将该文章添加至文章列表中
+article: false
+# 是否将该文章添加至时间线中
+timeline: false
+# 标题渲染深度。
+headerDepth: 3
+---
 ## 1 介绍
 JSON Web Token，简称 JWT（"jot"），是在空间受限的环境中安全传递请求的标准。它已进入所有主要的网络框架。简洁、紧凑和可用性是其架构的主要特点。尽管更复杂的系统仍在使用，但 JWT 的应用范围非常广泛。在这本小手册中，我们将介绍 JWT 架构最重要的方面，包括其二进制表示法和用于构建 JWT 的算法，同时还将介绍 JWT 在行业中的常用方法。
 

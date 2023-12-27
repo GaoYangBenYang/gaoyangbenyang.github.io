@@ -2,7 +2,7 @@
 title: 基于角色访问控制(Role-Based Access Control)模型
 date: 2023-09-24
 category:
-  - 产品架构
+  - 架构
 tag:
   - 用户角色权限设计
 # 此页面会在文章列表置顶

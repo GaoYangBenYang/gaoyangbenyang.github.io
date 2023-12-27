@@ -4,8 +4,8 @@ import { Navbar } from "./navbar.js";
 export default hopeTheme({
   // 导航栏
   navbar: Navbar,
-  //自定义导航栏布局 "Repo"去掉仓库  "Outlook" ,"Language"
-  navbarLayout: { start: ["Brand"], center: [], end: ["Search","Links", "Outlook"] },
+  //自定义导航栏布局 "Repo"去掉仓库  "Outlook" ,"Language" Brand: 站点品牌 Outlook: 外观弹窗 Repo: 项目仓库 Links: 导航栏链接
+  navbarLayout: { start: [], center: [], end: ["Links","Search", "Outlook"] },
   //是否在导航栏显示图标
   navbarIcon: true,
   // 侧边栏
@@ -30,7 +30,7 @@ export default hopeTheme({
     email: "GaoYangBenYang@outlook.com",
   },
   
-  iconAssets: "//at.alicdn.com/t/c/font_4065355_5md89msolqb.css",
+  iconAssets: "//at.alicdn.com/t/c/font_4065355_eu99ucl8m5.css",
   iconPrefix: "iconfont icon-",
   logo: "/logo.svg",
 
@@ -39,26 +39,17 @@ export default hopeTheme({
   docsDir: "src",
   //博客功能
   blog: {
-    description: "时间是脑力劳动者的资本",
-    intro: "/Other/AboutMe/intro.html",
+    description: "渐行渐远渐无书，且听且吟且从容。",
+    intro: "/Other/about.html",
     medias: {
       GitHub: "https://github.com/GaoYangBenYang",
       BiliBili: "https://space.bilibili.com/365749822?spm_id_from=333.1007.0.0",
       Email: "GaoYangBenYang@outlook.com",
-      // Weibo: "https://example.com",
-      // Zhihu: "https://example.com",
     },
     //是否剪裁头像为圆形形状
     roundAvatar: true,
     //每页显示博客数量
-    articlePerPage: 6,
-  },
-
-  encrypt: {
-    config: {
-      "/demo/encrypt.html": ["1234"],
-      "/zh/demo/encrypt.html": ["1234"],
-    },
+    articlePerPage: 4,
   },
 
   plugins: {
@@ -80,7 +71,7 @@ export default hopeTheme({
       //是否启用严格匹配
       strict:true,
       //是否启用懒加载
-      lazyLoading:false,
+      lazyLoading:true,
       //输入框的位置
       inputPosition:"top",
       //日间模式下使用的主题
@@ -109,9 +100,9 @@ export default hopeTheme({
       playground: {
         presets: ["ts", "vue"],
       },
-      presentation: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
-      },
+      // presentation: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
       stylize: [
         {
           matcher: "Recommended",
@@ -131,62 +122,10 @@ export default hopeTheme({
       vPre: true,
       vuePlayground: true,
     },
-
-    // uncomment these if you want a PWA
-    // pwa: {
-    //   favicon: "/favicon.ico",
-    //   cacheHTML: true,
-    //   cachePic: true,
-    //   appendBase: true,
-    //   apple: {
-    //     icon: "/assets/icon/apple-icon-152.png",
-    //     statusBarColor: "black",
-    //   },
-    //   msTile: {
-    //     image: "/assets/icon/ms-icon-144.png",
-    //     color: "#ffffff",
-    //   },
-    //   manifest: {
-    //     icons: [
-    //       {
-    //         src: "/assets/icon/chrome-mask-512.png",
-    //         sizes: "512x512",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-mask-192.png",
-    //         sizes: "192x192",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-512.png",
-    //         sizes: "512x512",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-192.png",
-    //         sizes: "192x192",
-    //         type: "image/png",
-    //       },
-    //     ],
-    //     shortcuts: [
-    //       {
-    //         name: "Demo",
-    //         short_name: "Demo",
-    //         url: "/demo/",
-    //         icons: [
-    //           {
-    //             src: "/assets/icon/guide-maskable.png",
-    //             sizes: "192x192",
-    //             purpose: "maskable",
-    //             type: "image/png",
-    //           },
-    //         ],
-    //       },
-    //     ],
-    //   },
-    // },
+    copyright:{
+      author: "高洋",
+      license: "MIT",
+      global: true,
+    }
   },
 });

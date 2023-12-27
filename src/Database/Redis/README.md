@@ -1,6 +1,6 @@
 ---
-title: 其它
-icon: info
+title: Redis
+icon: redis
 article: false
 timeline: false
 ---

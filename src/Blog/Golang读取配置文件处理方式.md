@@ -2,7 +2,7 @@
 title: Golang读取配置文件处理方式
 date: 2023-09-26
 category:
-  - Goalng
+  - Golang
 tag:
   - 问题分析
 # 此页面会在文章列表置顶

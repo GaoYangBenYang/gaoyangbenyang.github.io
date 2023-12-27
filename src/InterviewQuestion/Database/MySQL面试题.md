@@ -2,14 +2,16 @@
 title: MySQL面试题
 icon: mysql
 date: 2020-01-15 23:21:02
-categorie:
-  - MySQL面试题
+category: 
+  - MySQL
 # tag:
 # 是否将该文章添加至文章列表中
 article: false
 
 # 是否将该文章添加至时间线中
 timeline: false
+# 标题渲染深度。
+headerDepth: 3
 ---
 
 # MySQL面试题

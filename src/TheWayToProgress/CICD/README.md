@@ -1,6 +1,6 @@
 ---
-title: 其它
-icon: info
+title: CICD
+icon: guidang
 article: false
 timeline: false
 ---

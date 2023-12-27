@@ -1,16 +1,16 @@
 ---
-title: 单例模式
+title: 设计模式
 icon: kaifasheji
 date: 2023-07-26 08:07:17
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-# prev: Go入门指南.md
-# next: Go常用标准库.md
 # 是否将该文章添加至文章列表中
 article: false
 # 是否将该文章添加至时间线中
 timeline: false
-categorie:
-  - MySQL
+category: 
+  - 设计模式
 tag:
-  - 基础语法
+  - 设计模式
+# 标题渲染深度。
+headerDepth: 3
 ---

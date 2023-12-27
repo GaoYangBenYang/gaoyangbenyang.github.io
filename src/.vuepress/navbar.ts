@@ -8,9 +8,32 @@ export const Navbar = navbar([
     },
     {
         // 必要的，分组的标题文字
+        text: "TypeScript",
+        // 可选的, 分组标题对应的图标
+        icon: "typescript",
+        // 可选的, 分组标题对应的链接
+        // link: "Language/",
+        prefix: "/Language/",
+        children: [
+            {
+                text: 'Docs',
+                children: [
+                    {text: "TypeScript Docs", icon: "typescript", link: "Go入门指南.md"},
+                ],
+            },
+            {
+                text: 'Vue',
+                children: [
+                    {text: "Vue Docs", icon: "vue", link: "Go入门指南.md"},
+                ],
+            },
+        ],
+    },
+    {
+        // 必要的，分组的标题文字
         text: "Java",
         // 可选的, 分组标题对应的图标
-        icon: "language",
+        icon: "java",
         // 可选的, 分组标题对应的链接
         // link: "Language/",
         prefix: "/Language/Java/",
@@ -18,20 +41,25 @@ export const Navbar = navbar([
             {
                 text: 'Docs',
                 children: [
-                    {text: "Java Docs", icon: "golang", link: "Go入门指南.md"},
+                    {text: "Java Docs", icon: "java", link: "JavaDocs.md"},
                 ],
             },
             {
-                text: 'Spring',
+                text: 'Spring Framework',
                 children: [
-                    {text: "Spring Docs", icon: "golang", link: "Go入门指南.md"},
+                    {text: "Spring Docs", icon: "spring", link: "SpringDocs.md"},
                 ],
             },
             {
                 text: 'SpringBoot',
-                prefix: 'SpringBoot',
                 children: [
-                    {text: "SpringBoot整合第三方依赖", icon: "golang", link: "SpringBoot整合第三方依赖.md"},
+                    {text: "SpringBoot Docs", icon: "spring", link: "SpringBootDocs.md"},
+                ],
+            },
+            {
+                text: 'SpringCloud',
+                children: [
+                    {text: "SpringCloud Docs", icon: "spring", link: "SpringCloudDocs.md"},
                 ],
             },
         ],
@@ -54,29 +82,6 @@ export const Navbar = navbar([
         ],
     },
     {
-        // 必要的，分组的标题文字
-        text: "TypeScript",
-        // 可选的, 分组标题对应的图标
-        icon: "language",
-        // 可选的, 分组标题对应的链接
-        // link: "Language/",
-        prefix: "/Language/",
-        children: [
-            {
-                text: 'Docs',
-                children: [
-                    {text: "TypeScript Docs", icon: "golang", link: "Go入门指南.md"},
-                ],
-            },
-            {
-                text: 'Vue',
-                children: [
-                    {text: "Vue Docs", icon: "golang", link: "Go入门指南.md"},
-                ],
-            },
-        ],
-    },
-    {
         text: "数据库",
         icon: "database",
         prefix: "/Database/",
@@ -85,140 +90,93 @@ export const Navbar = navbar([
                 text: "MySQL",
                 prefix: "MySQL/",
                 children: [
-                    {text: "MySQL语法特性", icon: "mysql", link: "MySQL语法特性.md"},
+                    {text: "MySQL Docs", icon: "mysql", link: "MySQLDocs.md"},
                 ],
             },
             {
                 text: "Redis",
+                prefix: "Redis/",
                 children: [
-                    {text: "Redis基础", icon: "redis", link: "1"},
+                    {text: "Redis Docs", icon: "redis", link: "1"},
                 ],
             },
             {
                 text: "Elasticsearsh",
+                prefix: "Elasticsearsh/",
                 children: [
-                    {text: "Elasticsearsh基础", icon: "elastic", link: "2"},
+                    {text: "Elasticsearsh Docs", icon: "elastic", link: "1"},
                 ],
             },
-        ],
-    },
-    {
-        text: "消息队列",
-        icon: "xiaoxiduilie",
-        prefix: "/03MessageQueue/",
-        children: [
-            {
-                text: "RabbitMQ",
-                children: [
-                    {text: "RabbitMQ基础", icon: "rabbitmq", link: "1"},
-                ],
-            },
-            {
-                text: "Kafka",
-                children: [
-                    {text: "Kafka基础", icon: "Kafka", link: "1"},
-                ],
-            },
-        ],
-    },
-    {
-        text: "云原生",
-        icon: "yunweiguanli",
-        prefix: "/CloudNative/",
-        children: [
-            {
-                text: "Linux",
-                children: [
-                    {text: "Ubuntu基础", icon: "ubuntu", link: "1"},
-                ],
-            },
-            {
-                text: "Docker",
-                children: [
-                    {text: "Docker Docs", icon: "docker", link: "DockerDocs.md"},
-                    {text: "Docker配置本地开发环境", icon: "docker", link: "Docker配置本地开发环境.md"},
-                ],
-            },
-            {
-                text: "Kubernetes",
-                children: [
-                    {text: "Kubernetes基础", icon: "kubernetes", link: "1"},
-                ],
-            },
-        ],
-    },
-    {
-        text: "数据结构与算法",
-        icon: "jiegou",
-        prefix: "/05DataStructuresAndAlgorithms/",
-        children: [
-            {
-                text: "数据结构",
-                children: [
-                    {text: "队列", icon: "shujujiegou", link: "Queue.md",},
-                ],
-            },
-            {
-                text: "算法",
-                children: [
-                    {text: "二分查找", icon: "suanfa", link: "Queue.md",},
-                ],
-            },
-        ],
-    },
-    {
-        text: "设计模式",
-        icon: "kaifasheji",
-        prefix: "/06DesignPattern/",
-        children: [
-            {
-                text: "单例模式",
-                icon: "kaifasheji",
-                link: "1",
-            }
         ],
     },
     {
         text: "进阶之路",
         icon: "kaifasheji",
-        prefix: "/07TheWayToProgress/",
+        prefix: "/TheWayToProgress/",
         children: [
             {
+                text: "消息队列",
+                prefix: "MessageQueue/",
+                children: [
+                    {text: "RabbitMQ Docs", icon: "rabbitmq", link: "RabbitMQDocs.md"},
+                    {text: "Kafka Docs", icon: "Kafka", link: "KafkaDocs.md"},
+
+                ],
+            },
+            {
+                text: "容器化技术",
+                prefix: "Container/",
+                children: [
+                    {text: "Docker Docs", icon: "docker", link: "DockerDocs.md"},
+                    {text: "Kubernetes Docs", icon: "kubernetes", link: "KubernetesDocs.md"},
+
+                ],
+            },
+            {
+                text: "依赖管理",
+                prefix: "Package/",
+                children: [
+                    {text: "Nodejs Docs", icon: "nodejs", link: "NodejsDocs.md"},
+                    {text: "Maven Docs", icon: "maven", link: "MavenDocs.md"},
+                ],
+            },
+            {
+                text: "版本控制",
+                prefix: "Git/",
+                children: [
+                    {text: "Git Docs", icon: "git", link: "GitDocs.md"},
+                ],
+            },
+            {
+                text: "数据结构与算法",
+                prefix: "DataStructuresAndAlgorithms/",
+                children: [
+                    {text: "数据结构", icon: "jiegou", link: "DataStructuresDocs.md"},
+                    {text: "算法", icon: "jiegou", link: "AlgorithmsDocs.md"},
+                ],
+            },
+            {
+                text: "设计模式",
+                prefix: "DesignPattern/",
+                children: [
+                    {text: "设计模式", icon: "kaifasheji", link: "DesignPatternDocs.md"},
+                ],
+            },
+            {
                 text: "CI\/CD",
+                prefix: "CICD/",
                 children: [
-                    {text: "Golang面试题", icon: "golang", link: "1"}
-                ],
-            },
-            {
-                text: "分布式",
-                children: [
-                    {text: "Golang面试题", icon: "golang", link: "1"}
-                ],
-            },
-            {
-                text: "高并发",
-                children: [
-                    {text: "Golang面试题", icon: "golang", link: "1"}
-                ],
-            },
-            {
-                text: "海量数据",
-                children: [
-                    {text: "Golang面试题", icon: "golang", link: "1"}
-                ],
-            },
-            {
-                text: "系统设计",
-                children: [
-                    {text: "Golang面试题", icon: "golang", link: "1"}
+                    {text: "Github Action", icon: "guidang", link: "GithubActionDocs.md"},
                 ],
             },
             {
                 text: "OIDC",
+                prefix: "OIDC/",
                 children: [
-                    {text: "OpenID Connect Core 1.0", icon: "golang", link: "1"}
+                    {text: "OpenID Connect Core 1.0", icon: "guidang", link: "OpenIDConnectCore1.0.md"},
                 ],
             },
+
         ],
     },
     {

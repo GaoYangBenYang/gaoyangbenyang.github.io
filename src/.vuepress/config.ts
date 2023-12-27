@@ -8,7 +8,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "GaoYang's blog",
+      title: "Blogs & Notes",
     },
   },
 
@@ -20,16 +20,16 @@ export default defineUserConfig({
       // 为分类和标签添加索引
       customFields: [
         {
+          // @ts-ignore
           getter: (page) => page.frontmatter.category,
           formatter: "分类：$content",
         },
         {
+          // @ts-ignore
           getter: (page) => page.frontmatter.tag,
           formatter: "标签：$content",
         },
       ],
     }),
   ],
-  // Enable it with pwa
-  // shouldPrefetch: false,
 });

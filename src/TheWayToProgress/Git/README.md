@@ -1,6 +1,6 @@
 ---
-title: 其它
-icon: info
+title: Git
+icon: git
 article: false
 timeline: false
 ---

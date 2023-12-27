@@ -2,11 +2,18 @@
 title: Golang常⻅面试题解析
 date: 2023-05-15
 icon: golang
-category:
+category: 
   - Golang
 tag:
   - 面试题
 pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
+# 标题渲染深度。
+
+headerDepth: 3
+# 是否将该文章添加至文章列表中
+article: false
+# 是否将该文章添加至时间线中
+timeline: false
 ---
 ## 0、go与其它语言
 

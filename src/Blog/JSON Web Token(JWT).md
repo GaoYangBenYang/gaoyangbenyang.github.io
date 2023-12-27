@@ -1,8 +1,8 @@
 ---
-title: JSON Web Token(JWT)基本概念
+title: JSON Web Token(JWT)
 date: 2023-09-27
 category:
-  - JWT
+  - JSON Web Token
 # 此页面会在文章列表置顶
 sticky: true
 # 此页面会出现在文章收藏中

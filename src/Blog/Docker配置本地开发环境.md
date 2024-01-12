@@ -77,7 +77,7 @@ docker ps
 ## RabbitMQ
 1. 拉取官方镜像(包含web控制界面的)
 ```shell
-docker pull rabbitmq:3.9.29-management
+docker pull rabbitmq:latest
 ```
 2. 创建主机挂载文件
 ```shell

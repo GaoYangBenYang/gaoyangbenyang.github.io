@@ -86,7 +86,7 @@ mkdir -p /home/gaoyang/docker/rabbitmq/{data,conf,log}
 ```
 3. 修改log目录权限
 ```shell
-sudo chmod 777 /home/gaoyang/docker/rabbitmq
+sudo chmod 777 /home/gaoyang/docker/rabbitmq/log
 ```
 4. 创建容器
 ```shell

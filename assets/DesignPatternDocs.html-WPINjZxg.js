@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as t,c}from"./app-NG5Ki2tu.js";const o={};function r(n,s){return t(),c("div")}const f=e(o,[["render",r],["__file","DesignPatternDocs.html.vue"]]);export{f as default};

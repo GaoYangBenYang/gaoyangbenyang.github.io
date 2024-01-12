@@ -30,9 +30,9 @@ jobs:
       - name: 构建文档
         env:
           NODE_OPTIONS: --max_old_space_size=8192
+          # 没有.nojekyll文件GitHub page 会报错
         run: |-
           npm run docs:build
-          #没有.nojekyll文件GitHub page 会报错
           > src/.vuepress/dist/.nojekyll
 
       - name: 部署文档

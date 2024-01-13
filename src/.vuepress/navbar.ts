@@ -13,12 +13,12 @@ export const Navbar = navbar([
         icon: "typescript",
         // 可选的, 分组标题对应的链接
         // link: "Language/",
-        prefix: "/Language/",
+        prefix: "/Language/TypeScript/",
         children: [
             {
                 text: 'Docs',
                 children: [
-                    {text: "TypeScript Docs", icon: "typescript", link: "Go入门指南.md"},
+                    {text: "TypeScript Docs", icon: "typescript", link: "TypeScriptDocs.md"},
                 ],
             },
             {

@@ -16,6 +16,19 @@ headerDepth: 3
 ---
 ## 1. Java简介
 
+
+## *. JDK21
+
+### *.1 虚拟线程
+
+## *. 常用的正则匹配规则
+
+```regexp
+\s  表示空白字符。包括，空格，制表符等
+\s+ 可匹配至少一个Space。
+\s* 匹配0到多个Space
+```
+
 ## *. Java Swing JFileChooser(文件选择器)
 ### *.1 常用API
 ```java
@@ -161,7 +174,3 @@ if(result == JFileChooser.APPROVE_OPTION) {
     System.out.println("path: " + fileChooser.getSelectedFile());
 }
 ```
-
-## *. JDK21
-
-### *.1 虚拟线程

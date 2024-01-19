@@ -15,6 +15,18 @@ timeline: false
 headerDepth: 3
 ---
 
+## 1. TypeScript编译和运行
+### 1.1. 编译(ts => js)
+```shell
+npm install -g tsc
+tsc main.ts
+```
+### 1.2. 运行
+```shell
+npm install -g tsx
+tsx main.ts
+```
+
 ## 变量声明
 ```ts
 // let
@@ -27,5 +39,4 @@ const STR: string = '声明常量，不再进行赋值';
 ```ts
 // 布尔值
 let flag: boolean = false;
-
 ```

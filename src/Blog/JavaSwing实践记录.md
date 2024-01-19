@@ -1,7 +1,7 @@
 ---
 title: JavaSwing实践记录
 icon: java
-date: 2024-1-16
+date: 2024-01-16
 # 此页面会在文章列表置顶
 sticky: true
 # 此页面会出现在文章收藏中

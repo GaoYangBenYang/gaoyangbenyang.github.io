@@ -53,7 +53,10 @@ export default hopeTheme({
   },
 
   plugins: {
-
+    prismjs: {
+      light: "gruvbox-light",
+      dark: "one-dark",
+    },
     blog: true,
     //评论
     comment: {

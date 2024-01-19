@@ -36,7 +36,10 @@ headerDepth: 3
 
 ### 2.5. 验证安装
 1. 重启，更新环境变量
-2. 全局安装vue模块,查看全局安装模块目录下是否有vue
+2. 全局安装typescript模块,查看全局安装模块目录下是否有vue
 ```shell
-npm install -g vue # -g 表示全局安装
+npm install -g typescript # -g 表示全局安装
 ```
+### 2.6. npm换国内源
+1. 查看源： `npm config get registry`
+2. 修改源： `npm config set registry http://registry.npmmirror.com`

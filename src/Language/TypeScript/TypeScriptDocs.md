@@ -31,12 +31,12 @@ tsx main.ts
 
 ## 2. 变量声明
 
-### 2.1. 声明变量`let`
+### 2.1. `let`声明
 ```ts
 let str: string = '声明变量';
 ```
 
-### 2.2 声明常量`const`
+### 2.2 `const`声明
 ```ts
 const STR: string = '声明常量，不再进行赋值';
 ```
@@ -164,5 +164,69 @@ let strLength1: number = (<string>someValue).length;
 //方式二：as语法
 let strLength2: number = (someValue as string).length;
 ```
+## 4. 接口 `interface`
+> * TypeScript的核心原则之一是对值所具有的结构进行类型检查。
+> * 接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。
 
+### 4.1. 声明
+```ts
+interface User {
+    name:string;
+    age:number;
+}
+function getUserAgeByName(user:User) {
+    console.log(user.name,user.age)
+}
+let people = {name:"gaoyang",age:18}
+getUserAgeByName(people)
+```
+### 4.2. 可选属性
+> * 接口里的属性不全都是必需的，有些是只在某些条件下存在，或者根本不存在。
+> * 即给函数传入的参数对象中只有部分属性赋值了
+```ts
+interface User {
+    name:string;
+    age:number;
+    //可选属性
+    sex?:string
+}
+```
+### 4.3. 只读属性
+> 一些对象属性只能在对象刚刚创建的时候修改其值。
+```ts
+interface Point {
+    readonly x: number;
+    readonly y: number;
+}
+//赋值后属性不能再改变
+let p1: Point = { x: 10, y: 20 };
+```
+> TypeScript具有ReadonlyArray<T>类型，它与Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
+```ts
+let a: number[] = [1, 2, 3, 4];
+let ro: ReadonlyArray<number> = a;
+ro[0] = 12; // error!
+ro.push(5); // error!
+ro.length = 100; // error!
+a = ro; // error!
+a = ro as number[]; // ok!
+```
 
+## 5. 类 `class`
+### 5.1. 类结构
+```ts
+class User {
+    name: string;
+
+    constructor(name:string) {
+        this.name = name;
+    }
+    getName():string{
+        return this.name;
+    }
+}
+
+let people:User = new User("gaoyang")
+console.log(perple.getName())
+```
+### 5.2. 继承

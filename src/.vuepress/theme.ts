@@ -49,7 +49,7 @@ export default hopeTheme({
     //是否剪裁头像为圆形形状
     roundAvatar: true,
     //每页显示博客数量
-    articlePerPage: 4,
+    articlePerPage: 6,
   },
 
   plugins: {

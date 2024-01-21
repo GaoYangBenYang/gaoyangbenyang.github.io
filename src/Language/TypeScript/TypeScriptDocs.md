@@ -201,7 +201,7 @@ interface Point {
 //赋值后属性不能再改变
 let p1: Point = { x: 10, y: 20 };
 ```
-> TypeScript具有ReadonlyArray<T>类型，它与Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
+> TypeScript具有ReadonlyArray< T >类型，它与Array< T >相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
 ```ts
 let a: number[] = [1, 2, 3, 4];
 let ro: ReadonlyArray<number> = a;

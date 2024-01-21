@@ -53,6 +53,23 @@ export default hopeTheme({
   },
 
   plugins: {
+    searchPro:{
+      // 索引全部内容
+      indexContent: true,
+      // 为分类和标签添加索引
+      customFields: [
+        {
+          // @ts-ignore
+          getter: (page) => page.frontmatter.category,
+          formatter: "分类：$content",
+        },
+        {
+          // @ts-ignore
+          getter: (page) => page.frontmatter.tag,
+          formatter: "标签：$content",
+        },
+      ],
+    },
     prismjs: {
       light: "gruvbox-light",
       dark: "one-dark",

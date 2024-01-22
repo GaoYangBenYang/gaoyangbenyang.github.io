@@ -1,5 +1,5 @@
 ---
-title: WSL2的使用与BUG
+title: WSL2的使用与Bug
 date: 2023-03-25
 category:
   - Linux

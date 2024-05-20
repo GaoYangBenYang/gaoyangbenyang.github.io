@@ -476,7 +476,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##       * Docker 开启远程TCP连接
+##              * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -502,7 +502,23 @@ sudo systemctl restart docker			  # 重启 docker 服务
 # 通过 wsl ip地址：2375进行tcp远程连接
 ```
 
-##       * Docker镜像上传Github
+### *.5 启用 TCP 连接
+
+```shell
+sudo vim /etc/docker/daemon.json
+```
+
+```json
+{
+  "hosts": [
+    "tcp://0.0.0.0:2375",
+    "unix:///var/run/docker.sock"
+  ]
+}
+
+```
+
+##              * Docker镜像上传Github
 
 1. 登录 :
 
@@ -548,7 +564,7 @@ sudo systemctl restart docker			  # 重启 docker 服务
     docker pull ghcr.io/OWNER/REPOSITORY(可不写)/IMAGE_NAME:TAG_NAME 
     ```
 
-##       * Docker 配置本地开发环境
+##              * Docker 配置本地开发环境
 
 ### *.1 MySQL
 

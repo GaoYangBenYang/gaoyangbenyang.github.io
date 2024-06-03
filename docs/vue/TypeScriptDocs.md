@@ -1,18 +1,6 @@
 ---
-title: TypeScript Docs
-icon: typescript
-date: 2022-12-25
-category: 
-  - TypeScript
-tag:
-  - Docs
-pageInfo: ["Author", "Date", "ReadingTime", "Word", "Category", "Tag"]
-# 是否将该文章添加至文章列表中
-article: false
-# 是否将该文章添加至时间线中
-timeline: false
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 ## 1. TypeScript编译和运行
@@ -91,8 +79,8 @@ let arr2: Array<number> = [123, 123, 123];
 
 ```ts
 //声明
-let tup :[string,number];
-tup = ["a",1];
+let tup: [string, number];
+tup = ["a", 1];
 //访问元素
 console.log(tup[0].substr(1));
 ```
@@ -132,7 +120,7 @@ notSure = false;
 ```ts
 declare function create(o: object | null): void;
 
-create({ prop: 0 }); // OK
+create({prop: 0}); // OK
 create(null); // OK
 
 create(42); // Error

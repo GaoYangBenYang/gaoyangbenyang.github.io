@@ -1,18 +1,6 @@
 ---
-title: JSON Web Token
-icon: maven
-date: 2023-03-25
-category: 
-  - JSON Web Token
-tag:
-  - Docs
-pageInfo: ["Author", "Date", "ReadingTime", "Word", "Category", "Tag"]
-# 是否将该文章添加至文章列表中
-article: false
-# 是否将该文章添加至时间线中
-timeline: false
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 ## 1 介绍
@@ -32,14 +20,14 @@ JSON Web Token的外观如下（为便于阅读插入了换行符）
 
 ```json
 {
-"alg": "HS256",
-"typ": "JWT"
+  "alg": "HS256",
+  "typ": "JWT"
 }
 
 {
-"sub": "1234567890",
-"name": "John Doe",
-"admin": true
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
 }
 
 ```
@@ -104,8 +92,8 @@ TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 
 ```json
 {
-"alg": "HS256",
-"typ": "JWT"
+  "alg": "HS256",
+  "typ": "JWT"
 }
 ```
 
@@ -113,9 +101,9 @@ TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 
 ```json
 {
-"sub": "1234567890",
-"name": "John Doe",
-"admin": true
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
 }
 ```
 
@@ -142,7 +130,7 @@ JWT 的其余部分。
 
 ```json
 {
-"alg": "none"
+  "alg": "none"
 }
 ```
 
@@ -154,9 +142,9 @@ JWT 的其余部分。
 
 ```json
 {
-"sub": "1234567890",
-"name": "John Doe",
-"admin": true
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
 }
 ```
 
@@ -200,7 +188,7 @@ JWT 的其余部分。
 
 ```json
 {
-"alg": "none"
+  "alg": "none"
 }
 ```
 
@@ -208,10 +196,10 @@ JWT 的其余部分。
 
 ```json
 {
-"sub": "user123",
-"session": "ch72gsb320000udocl363eofy",
-"name": "Pretty Name",
-"lastpage": "/views/settings"
+  "sub": "user123",
+  "session": "ch72gsb320000udocl363eofy",
+  "name": "Pretty Name",
+  "lastpage": "/views/settings"
 }
 ```
 
@@ -280,13 +268,13 @@ TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 
 ```json
 {
-"alg": "HS256",
-"typ": "JWT"
+  "alg": "HS256",
+  "typ": "JWT"
 }
 {
-"sub": "1234567890",
-"name": "John Doe",
-"admin": true
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
 }
 ```
 
@@ -329,7 +317,7 @@ TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 const encodedHeader = base64(utf8(JSON.stringify(header)));
 const encodedPayload = base64(utf8(JSON.stringify(payload)));
 const signature = base64(hmac(`${encodedHeader}.${encodedPayload}`,
-secret, sha256));
+    secret, sha256));
 const jwt = `${encodedHeader}.${encodedPayload}.${signature}`;
 ```
 
@@ -339,7 +327,7 @@ const jwt = `${encodedHeader}.${encodedPayload}.${signature}`;
 const encodedHeader = base64(utf8(JSON.stringify(header)));
 const encodedPayload = base64(utf8(JSON.stringify(payload)));
 const signature = base64(rsassa(`${encodedHeader}.${encodedPayload}`,
-privateKey, sha256));
+    privateKey, sha256));
 const jwt = `${encodedHeader}.${encodedPayload}.${signature}`;
 ```
 

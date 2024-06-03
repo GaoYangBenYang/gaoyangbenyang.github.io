@@ -1,18 +1,6 @@
 ---
-title: Docker Docs
-icon: docker
-date: 2023-03-25
-category:
-  - Docker
-tag:
-  - Docs
-pageInfo: [ "Author", "Date", "ReadingTime", "Word", "Category", "Tag" ]
-# 是否将该文章添加至文章列表中
-article: false
-# 是否将该文章添加至时间线中
-timeline: false
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 ## 1. Docker简介
@@ -476,7 +464,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                * Docker 开启远程TCP连接
+##                   * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -518,7 +506,7 @@ sudo vim /etc/docker/daemon.json
 
 ```
 
-##                * Docker镜像上传Github
+##                   * Docker镜像上传Github
 
 1. 登录 :
 
@@ -564,7 +552,7 @@ sudo vim /etc/docker/daemon.json
     docker pull ghcr.io/OWNER/REPOSITORY(可不写)/IMAGE_NAME:TAG_NAME 
     ```
 
-##                * Docker 配置本地开发环境
+##                   * Docker 配置本地开发环境
 
 ### *.1 MySQL
 

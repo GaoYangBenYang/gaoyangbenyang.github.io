@@ -1,12 +1,6 @@
 ---
-title: OpenID Connect Core 1.0
-date: 2023-04-05
-category: 
-  - OpenID Connect
-tag:
-  - OpenID Connect Core 1.0
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 ## 摘要

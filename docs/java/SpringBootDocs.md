@@ -1,3 +1,8 @@
+---
+layout: doc
+sidebar: false
+---
+
 ## 1.SpringBoot简介
 
 ## @ResponseBody和@RestController区别

@@ -4,7 +4,7 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
     lang: 'zh-CN',
     title: "Blogs & Notes",
-
+    lastUpdated: true,
     //启用深色模式
     appearance: 'dark',
     ignoreDeadLinks: true,

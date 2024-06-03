@@ -1,3 +1,8 @@
+---
+layout: doc
+sidebar: false
+---
+
 ## 1. 简介
 
 Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由詹姆斯·高斯林(James Gosling)和同事们共同研发，并在1995年正式推出。

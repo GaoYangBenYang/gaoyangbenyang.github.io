@@ -1,6 +1,4 @@
 ---
-title: Elasticsearsh
-icon: elastic
-article: false
-timeline: false
+layout: doc
+sidebar: false
 ---

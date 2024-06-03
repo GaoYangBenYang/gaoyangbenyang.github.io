@@ -1,18 +1,6 @@
 ---
-title: MySQL Docs
-icon: mysql
-date: 2023-07-25 08:07:17
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-# 是否将该文章添加至文章列表中
-article: false
-# 是否将该文章添加至时间线中
-timeline: false
-categorie:
-  - MySQL
-tag:
-  - Docs
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 ## 前言

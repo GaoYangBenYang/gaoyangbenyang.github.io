@@ -1,17 +1,6 @@
 ---
-title: MySQL面试题
-icon: mysql
-date: 2020-01-15 23:21:02
-category: 
-  - MySQL
-# tag:
-# 是否将该文章添加至文章列表中
-article: false
-
-# 是否将该文章添加至时间线中
-timeline: false
-# 标题渲染深度。
-headerDepth: 3
+layout: doc
+sidebar: false
 ---
 
 # MySQL面试题
@@ -703,7 +692,8 @@ MySQL 读写分离能提高性能的原因在于：
 一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。
 
 ```sql
-DELEFT FROM messages WHERE create < DATE_SUB(NOW(), INTERVAL 3 MONTH);
+DELEFT FROM messages WHERE create
+< DATE_SUB(NOW(), INTERVAL 3 MONTH);
 ```
 
 ```sql

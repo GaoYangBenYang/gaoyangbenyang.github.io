@@ -1,19 +1,6 @@
 ---
-title: Golang常⻅面试题解析
-date: 2023-05-15
-icon: golang
-category: 
-  - Golang
-tag:
-  - 面试题
-pageInfo: ["Author","Date","ReadingTime","Word","Category","Tag"]
-# 标题渲染深度。
-
-headerDepth: 3
-# 是否将该文章添加至文章列表中
-article: false
-# 是否将该文章添加至时间线中
-timeline: false
+layout: doc
+sidebar: false
 ---
 
 ## 0、go与其它语言
@@ -1930,6 +1917,7 @@ https://www.topgoer.cn/docs/golangxiuyang/golangxiuyang-1cmee076rjgk7
 *
 
 *
+
 细分常见的三个问题：1、GC机制随着golang版本变化如何变化的？2、三色标记法的流程？3、插入屏障、删除屏障，混合写屏障（具体的实现比较难描述，但你要知道屏障的作用：避免程序运行过程中，变量被误回收；减少STW的时间）4、虾皮还问了个开放性的题目：你觉得以后GC机制会怎么优化？
 **
 

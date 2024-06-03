@@ -1,3 +1,8 @@
+---
+layout: doc
+sidebar: false
+---
+
 ## 1.SpringCloud简介
 
 # Spring Cloud Alibaba

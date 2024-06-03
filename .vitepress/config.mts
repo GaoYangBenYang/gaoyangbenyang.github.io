@@ -7,7 +7,7 @@ export default defineConfig({
 
     //启用深色模式
     appearance: 'dark',
-
+    ignoreDeadLinks: true,
     // 主题配置
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {

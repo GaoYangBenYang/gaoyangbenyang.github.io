@@ -4,7 +4,7 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
     lang: 'zh-CN',
     title: "Blogs & Notes",
-    //logo: '/logo.png',
+
     //启用深色模式
     appearance: 'dark',
 
@@ -12,7 +12,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
         //左上角logo
-        //logo: '/logo.png',
+        logo: '../assets/logo.png',
         // 导航栏
         nav: [
             {
@@ -24,7 +24,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Java Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/JavaDocs'
                                 },
                             ]
                         },
@@ -33,19 +33,19 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Spring Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/SpringDocs'
                                 },
                                 {
                                     text: 'Spring Boot Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/SpringBootDocs'
                                 },
                                 {
                                     text: 'Spring Cloud Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/SpringCloudDocs'
                                 },
                                 {
                                     text: 'Spring AI Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/SpringAIDocs'
                                 },
                             ]
                         },
@@ -54,11 +54,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Mybatis Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/'
                                 },
                                 {
                                     text: 'Mybatis Plus Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/'
                                 },
                             ]
                         },
@@ -67,7 +67,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'GraalVM Docs',
-                                    link: '/preface'
+                                    link: '/docs/java/'
                                 },
                             ]
                         },
@@ -82,29 +82,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Vue Docs',
-                                    link: '/preface'
+                                    link: '/docs/vue/VueDocs'
                                 },
                                 {
                                     text: 'TypeScript Docs',
-                                    link: '/preface'
-                                },
-                            ]
-                        },
-                        {
-                            text: 'Vue',
-                            items: [
-                                {
-                                    text: 'Vue Router',
-                                    link: '/preface'
-                                },
-                            ]
-                        },
-                        {
-                            text: 'Vite',
-                            items: [
-                                {
-                                    text: 'Vite Docs',
-                                    link: '/preface'
+                                    link: '/docs/vue/TypeScriptDocs'
                                 },
                             ]
                         },
@@ -118,8 +100,8 @@ export default defineConfig({
                             text: 'Docs',
                             items: [
                                 {
-                                    text: 'Golang Docs',
-                                    link: '/preface'
+                                    text: 'Go入门指南',
+                                    link: '/docs/golang/Go入门指南'
                                 },
                             ]
                         },
@@ -134,7 +116,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Redis Docs',
-                                    link: '/preface'
+                                    link: '/docs/database/RedisDocs'
                                 },
                             ]
                         },
@@ -143,7 +125,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'MySQL Docs',
-                                    link: '/preface'
+                                    link: '/docs/database/MySQLDocs'
                                 },
                             ]
                         },
@@ -152,7 +134,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Elasticsearch Docs',
-                                    link: '/preface'
+                                    link: '/docs/database/ElasticsearchDocs'
                                 },
                             ]
                         },
@@ -167,7 +149,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Kafka Docs',
-                                    link: '/preface'
+                                    link: '/docs/messageQueue/KafkaDocs'
                                 },
                             ]
                         },
@@ -176,7 +158,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'RabbitMQ Docs',
-                                    link: '/preface'
+                                    link: '/docs/messageQueue/RabbitMQDocs'
                                 },
                             ]
                         },
@@ -191,11 +173,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Docker Docs',
-                                    link: '/preface'
+                                    link: '/docs/advanced/DockerDocs'
                                 },
                                 {
                                     text: 'Kubernetes Docs',
-                                    link: '/preface'
+                                    link: '/docs/advanced/KubernetesDocs'
                                 },
                             ]
                         },
@@ -204,11 +186,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Nodejs Docs',
-                                    link: '/preface'
+                                    link: '/docs/advanced/NodejsDocs'
                                 },
                                 {
                                     text: 'Maven Docs',
-                                    link: '/preface'
+                                    link: '/docs/advanced/MavenDocs'
                                 },
                             ]
                         },
@@ -217,7 +199,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Git Docs',
-                                    link: '/preface'
+                                    link: '/docs/advanced/GitDocs'
                                 },
                             ]
                         },
@@ -226,11 +208,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: '数据结构',
-                                    link: '/preface'
+                                    link: '/docs/advanced/DataStructuresDocs'
                                 },
                                 {
                                     text: '算法',
-                                    link: '/preface'
+                                    link: '/docs/advanced/AlgorithmsDocs'
                                 },
                             ]
                         },
@@ -239,7 +221,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: '设计模式',
-                                    link: '/preface'
+                                    link: '/docs/advanced/DesignPatternDocs'
                                 },
                             ]
                         },
@@ -247,17 +229,21 @@ export default defineConfig({
                             text: 'CI/CD',
                             items: [
                                 {
-                                    text: 'Github Actions',
-                                    link: '/preface'
+                                    text: 'Github Action',
+                                    link: '/docs/advanced/GithubActionDocs'
                                 },
                             ]
                         },
                         {
-                            text: 'CI/CD',
+                            text: 'OIDC',
                             items: [
                                 {
-                                    text: 'GraalVM Docs',
-                                    link: '/preface'
+                                    text: 'JSON Web Token v0.14.1',
+                                    link: '/docs/advanced/JWT手册v0.14.1'
+                                },
+                                {
+                                    text: 'OpenID Connect Core 1.0',
+                                    link: '/docs/advanced/OpenIDConnectCore1.0'
                                 },
                             ]
                         },
@@ -272,11 +258,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Java基础',
-                                    link: '/preface'
+                                    link: '/docs/java/'
                                 },
                                 {
                                     text: 'Java进阶',
-                                    link: '/preface'
+                                    link: '/docs/java/'
                                 },
                             ]
                         },
@@ -285,7 +271,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'MySQL基础',
-                                    link: '/preface'
+                                    link: '/docs/interviewQuestion/MySQL面试题'
                                 },
                             ]
                         },
@@ -293,15 +279,49 @@ export default defineConfig({
             },
         ],
         // 侧边栏
-        // sidebar: [
-        //     {
-        //         text: 'Examples',
-        //         items: [
-        //             {text: 'Markdown Examples', link: '/markdown-examples'},
-        //             {text: 'Runtime API Examples', link: '/api-examples'}
-        //         ]
-        //     }
-        // ],
+        sidebar: [
+            {
+                text: 'Blogs',
+                items: [
+                    {
+                        text: 'Golang中http.ListenAndServe阻塞问题分析',
+                        link: '/blogs/Golang中http.ListenAndServe阻塞问题分析'
+                    },
+                    {
+                        text: 'Golang读取配置文件处理方式',
+                        link: '/blogs/Golang读取配置文件处理方式'
+                    },
+                    {
+                        text: 'gorm中表名自动加s使用复数问题处理',
+                        link: '/blogs/gorm中表名自动加s使用复数问题处理'
+                    },
+                    {
+                        text: 'JavaSwing实践记录',
+                        link: '/blogs/JavaSwing实践记录'
+                    },
+                    {
+                        text: 'JSON Web Token(JWT)',
+                        link: '/blogs/JSON Web Token(JWT)'
+                    },
+                    {
+                        text: 'SpringBoot整合Swagger3(OpenAPI)',
+                        link: '/blogs/SpringBoot整合Swagger3(OpenAPI)'
+                    },
+                    {
+                        text: 'VSCode配置Bug记录',
+                        link: '/blogs/VSCode配置Bug记录'
+                    },
+                    {
+                        text: 'WSL2的使用与Bug',
+                        link: '/blogs/WSL2的使用与Bug'
+                    },
+                    {
+                        text: '基于角色访问控制(Role-BasedAccessControl)模型',
+                        link: '/blogs/基于角色访问控制(Role-BasedAccessControl)模型'
+                    },
+                ]
+            }
+        ],
         // 导航栏链接
         socialLinks: [
             {icon: 'github', link: 'https://github.com/GaoYangBenYang'}
@@ -325,26 +345,6 @@ export default defineConfig({
         //本地搜索
         search: {
             provider: 'local',
-            options: {
-                locales: {
-                    zh: {
-                        translations: {
-                            button: {
-                                buttonText: '搜索文档',
-                                buttonAriaLabel: '搜索文档'
-                            },
-                            modal: {
-                                noResultsText: '无法找到相关结果',
-                                resetButtonTitle: '清除查询条件',
-                                footer: {
-                                    selectText: '选择',
-                                    navigateText: '切换'
-                                },
-                            },
-                        },
-                    },
-                },
-            },
         },
         //页脚
         footer: {
@@ -358,7 +358,12 @@ export default defineConfig({
         //大纲显示2-3级标题
         outline: {
             level: [2, 3],
-            label: '当前页大纲'
+            label: '目录'
+        },
+        //自定义上下页名
+        docFooter: {
+            prev: '上一页',
+            next: '下一页',
         },
     }
 })

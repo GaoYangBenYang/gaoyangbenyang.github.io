@@ -348,8 +348,8 @@ export default defineConfig({
         },
         //页脚
         footer: {
-            message: 'Released under the MIT License.',
-            copyright: 'Copyright © 2024',
+            message: 'Released under the Apache-2.0 license.',
+            copyright: 'Copyright © 2022 — 2024',
         },
         //侧边栏文字更改(移动端)
         sidebarMenuLabel: '目录',

@@ -50,6 +50,15 @@ export default defineConfig({
                             ]
                         },
                         {
+                            text: 'Dependency',
+                            items: [
+                                {
+                                    text: 'Spring Docs',
+                                    link: '/docs/java/dependency/Log4j2Docs'
+                                },
+                            ]
+                        },
+                        {
                             text: 'Mybatis',
                             items: [
                                 {

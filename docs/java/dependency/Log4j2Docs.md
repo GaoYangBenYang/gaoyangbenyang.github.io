@@ -211,6 +211,7 @@ Apache Log4j 2是Log4j的升级版，相对于其前身Log4j提供了重大改�
 
         <!--*********************文件日志***********************-->
         <!--all级别日志-->
+        <!--name：用于指定Appender的名称； fileName：用于指定日志文件的全路径；filePattern：用于指定分割文件的日志全路径（命名规则）。-->
         <RollingFile name="allFileAppender"
                      fileName="${LOG_HOME}/all/all.log"
                      filePattern="${LOG_HOME}/all/$${date:yyyy-MM}/all-%d{yyyy-MM-dd}-%i.log.gz">
@@ -221,9 +222,9 @@ Apache Log4j 2是Log4j的升级版，相对于其前身Log4j提供了重大改�
             <Policies>
                 <!-- 设置日志文件切分参数 -->
                 <!--<OnStartupTriggeringPolicy/>-->
-                <!--设置日志基础文件大小，超过该大小就触发日志文件滚动更新-->
+                <!--设置基于日志文件大小触发的滚动策略，超过该大小就触发日志文件滚动更新，size属性用来指定每个分割的日志文件大小。-->
                 <SizeBasedTriggeringPolicy size="100 MB"/>
-                <!--设置日志文件滚动更新的时间，依赖于文件命名filePattern的设置-->
+                <!--用于设置基于时间间隔触发的滚动策略，interval属性用于指定滚动时间间隔，默认是1小时，modulate属性是用于对interval进行偏移调节，默认为false。若为true，则第一次触发时是第一个小时触发，后续以interval间隔触发，依赖于文件命名filePattern的设置。-->
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <!--设置日志的文件个数上限，不设置默认为7个，超过大小后会被覆盖；依赖于filePattern中的%i-->
@@ -337,6 +338,7 @@ Apache Log4j 2是Log4j的升级版，相对于其前身Log4j提供了重大改�
 
     <Loggers>
         <!-- 根日志设置 -->
+        <!--Root：用于指定项目的根日志，level属性表示日志输出级别，子节点AppenderRef用于指定输出到某个Appender，子节点的ref属性也就是前面的RollingFile中指定的name名称，子节点的level也是日志输出级别。-->
         <Root level="debug">
             <AppenderRef ref="consoleAppender" level="off"/>
             <AppenderRef ref="allFileAppender" level="all"/>
@@ -346,7 +348,7 @@ Apache Log4j 2是Log4j的升级版，相对于其前身Log4j提供了重大改�
             <AppenderRef ref="errorFileAppender" level="error"/>
             <AppenderRef ref="errorJsonAppender" level="error"/>
         </Root>
-
+        <!--Logger ：用于指定日志的形式，指定不同包的日志级别，level属性表示日志输出级别，name属性用来指定该Logger所适用的类或者类的全路径。子节点AppenderRef用于指定日志输出到哪个Appender，若没有指定，默认集成自Root。-->
         <!--spring日志-->
         <Logger name="org.springframework" level="debug"/>
         <!--druid数据源日志-->

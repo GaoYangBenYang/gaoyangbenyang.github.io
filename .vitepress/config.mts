@@ -53,7 +53,7 @@ export default defineConfig({
                             text: 'Dependency',
                             items: [
                                 {
-                                    text: 'Spring Docs',
+                                    text: 'Log4j2',
                                     link: '/docs/java/dependency/Log4j2Docs'
                                 },
                             ]

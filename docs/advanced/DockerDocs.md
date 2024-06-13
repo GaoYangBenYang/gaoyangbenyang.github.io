@@ -464,7 +464,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                   * Docker 开启远程TCP连接
+##                                                                  * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -506,7 +506,80 @@ sudo vim /etc/docker/daemon.json
 
 ```
 
-##                   * Docker镜像上传Github
+## *. WSL2环境中Docker代理配置
+
+### 1. WSL2.0开启本机代理
+
+1. 关闭WSL并且在用户目录下创建.wslconfig配置文件
+
+```shell
+wsl --shutdown
+```
+
+2. .wslconfig文件内容
+
+```shell
+[wsl2]
+memory=8GB
+processors=8
+[experimental]
+autoMemoryReclaim=gradual # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+sparseVhd=true
+```
+
+### 2. 配置Docker代理
+
+1. 使用 sudo 创建目录和文件：
+
+> 确保 Docker 服务的配置目录存在并具有正确的权限。
+
+```shell
+sudo mkdir -p /etc/systemd/system/docker.service.d
+```
+
+2. 使用 sudo 编辑配置文件：
+
+> 使用具有超级用户权限的编辑器来编辑文件。
+
+```shell
+sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+
+3. 在文件中添加以下内容：
+
+```shell
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:<代理端口>"
+Environment="HTTPS_PROXY=http://127.0.0.1:<代理端口>"
+Environment="NO_PROXY=localhost,127.0.0.1,::1"
+```
+
+4. 重新加载 systemd 配置并重启 Docker 服务：
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+5. 检查 Docker 服务状态：
+
+> 确保 Docker 服务正在运行并没有错误：
+
+```shell
+sudo systemctl status docker
+```
+
+6. 尝试拉取 Docker 镜像：
+
+```shell
+sudo docker pull hello-world
+```
+
+## *. Docker镜像上传Github
 
 1. 登录 :
 
@@ -552,7 +625,7 @@ sudo vim /etc/docker/daemon.json
     docker pull ghcr.io/OWNER/REPOSITORY(可不写)/IMAGE_NAME:TAG_NAME 
     ```
 
-##                   * Docker 配置本地开发环境
+## *. Docker 配置本地开发环境
 
 ### *.1 MySQL
 

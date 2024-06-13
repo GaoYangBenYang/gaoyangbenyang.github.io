@@ -16,7 +16,7 @@ tsc main.ts
 
 ```shell
 npm install -g tsx
-tsx main.ts
+tsx main.js
 ```
 
 ## 2. 变量声明
@@ -92,13 +92,14 @@ console.log(tup[0].substr(1));
 ```ts
 //声明
 enum x {
-    Red,Greed,Blue
+    Red, Greed, Blue
 }
+
 //由枚举名字找到枚举值
-let a:x= x.Blue;
+let a: x = x.Blue;
 console.log(a);
 //由枚举值找到枚举名字
-let name:string = x[0];
+let name: string = x[0];
 console.log(name);
 ```
 
@@ -191,13 +192,15 @@ let strLength2: number = (someValue as string).length;
 
 ```ts
 interface User {
-    name:string;
-    age:number;
+    name: string;
+    age: number;
 }
-function getUserAgeByName(user:User) {
-    console.log(user.name,user.age)
+
+function getUserAgeByName(user: User) {
+    console.log(user.name, user.age)
 }
-let people = {name:"gaoyang",age:18}
+
+let people = {name: "gaoyang", age: 18}
 getUserAgeByName(people)
 ```
 
@@ -208,10 +211,10 @@ getUserAgeByName(people)
 
 ```ts
 interface User {
-    name:string;
-    age:number;
+    name: string;
+    age: number;
     //可选属性
-    sex?:string
+    sex?: string
 }
 ```
 
@@ -224,8 +227,9 @@ interface Point {
     readonly x: number;
     readonly y: number;
 }
+
 //赋值后属性不能再改变
-let p1: Point = { x: 10, y: 20 };
+let p1: Point = {x: 10, y: 20};
 ```
 
 > TypeScript具有ReadonlyArray< T >类型，它与Array< T >相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
@@ -248,15 +252,16 @@ a = ro as number[]; // ok!
 class User {
     name: string;
 
-    constructor(name:string) {
+    constructor(name: string) {
         this.name = name;
     }
-    getName():string{
+
+    getName(): string {
         return this.name;
     }
 }
 
-let people:User = new User("gaoyang")
+let people: User = new User("gaoyang")
 console.log(perple.getName())
 ```
 

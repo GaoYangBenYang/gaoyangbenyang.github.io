@@ -16,6 +16,24 @@ export default defineConfig({
         // 导航栏
         nav: [
             {
+                text: '仓颉',
+                items:
+                    [
+                        {
+                            text: 'Docs',
+                            items: [
+                                {
+                                    text: '仓颉语法',
+                                    link: '/docs/java/'
+                                }, {
+                                    text: '仓颉API',
+                                    link: '/docs/java/'
+                                },
+                            ]
+                        },
+                    ]
+            },
+            {
                 text: 'Java',
                 items:
                     [

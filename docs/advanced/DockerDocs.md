@@ -65,6 +65,85 @@ This message shows that your installation appears to be working correctly.
 ...
 ```
 
+## Docker 卸载
+
+> 要彻底移除服务器上与 Docker 相关的所有内容，包括 Docker 相关的软件包、配置文件、容器、镜像和网络配置，你可以按照以下步骤操作。
+
+1. 停止 Docker 服务
+
+> 首先，确保 Docker 服务已停止：
+
+```shell
+sudo systemctl stop docker
+```
+
+2. 卸载 Docker
+
+> 卸载 Docker 及其相关的软件包：
+
+```shell
+sudo apt-get purge -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+3. 删除 Docker 的相关数据
+
+> 删除 Docker 的所有数据，包括容器、镜像、网络和卷：
+
+```shell
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+```
+
+4. 删除 Docker 的配置文件
+   > 删除 Docker 的配置文件目录：
+
+```shell
+sudo rm -rf /etc/docker
+sudo rm -rf /etc/systemd/system/docker.service
+sudo rm -rf /etc/systemd/system/docker.socket
+```
+
+5. 删除 Docker 组
+
+> 如果不再需要 Docker 用户组，可以将其删除：
+
+```shell
+sudo groupdel docker
+```
+
+6. 清理未使用的依赖
+   如果 Docker 安装过程中拉取了额外的依赖包，可以通过以下命令清理未使用的依赖包：
+
+```shell
+sudo apt-get autoremove -y
+sudo apt-get autoclean
+```
+
+7. 检查和清理残留文件
+
+> 为了确保所有与 Docker 相关的内容都已被移除，可以手动检查以下目录并删除与 Docker 相关的残留文件（如果有）：
+
+> 用户主目录下的 .docker 目录：
+
+```shell
+rm -rf ~/.docker
+```
+
+> 系统日志中可能残留的 Docker 日志：
+
+```shell
+sudo rm -rf /var/log/docker*
+```
+
+8. 重启服务器（可选）
+   为了确保所有更改生效，重启服务器是一个安全的选择：
+
+```shell
+sudo reboot
+```
+
+通过以上步骤，你可以彻底移除服务器上与 Docker 相关的所有内容。如果以后需要重新安装 Docker，确保你从头开始配置镜像源和 Docker 设置。
+
 ## Docker 的基本组成
 
 Docker 的基本组成包括三个部分：镜像（Image）、容器（Container）和仓库（Repository）。
@@ -464,7 +543,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                  * Docker 开启远程TCP连接
+##                                                                                        * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 

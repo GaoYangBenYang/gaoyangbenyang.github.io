@@ -196,6 +196,15 @@ export default defineConfig({
                 items:
                     [
                         {
+                            text: 'Linux',
+                            items: [
+                                {
+                                    text: 'Ubuntu Docs',
+                                    link: '/docs/advanced/UbuntuDocs'
+                                },
+                            ]
+                        },
+                        {
                             text: '容器化',
                             items: [
                                 {

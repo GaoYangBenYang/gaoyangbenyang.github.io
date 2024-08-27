@@ -3,11 +3,9 @@ layout: doc
 sidebar: false
 ---
 
-## 1.SpringCloud简介
+## 1.Spring Cloud Alibaba简介
 
-# Spring Cloud Alibaba
-
-## 1.服务注册和配置 Nacos
+## 2.服务注册和配置 Nacos
 
 ## 负载均衡 Spring Cloud Ribbon
 

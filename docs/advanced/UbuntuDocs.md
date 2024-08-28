@@ -427,6 +427,20 @@ dpkg -l | grep redis
 
 ## Nacos
 
+[Unit]
+Description=Nacos Server
+After=network.target
+
+[Service]
+Type=forking
+User=root
+ExecStart=/root/nacos/nacos/bin/startup.sh
+ExecStop=/root/nacos/nacos/bin/shutdown.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
 ### 1、安装
 
 ### 2、卸载

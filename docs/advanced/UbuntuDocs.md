@@ -369,6 +369,60 @@ dpkg -l | grep redis
 
 ### 1、安装
 
+1. 创建安装目录，并切换
+
+   > 统一存放至~主目录
+
+   ```shell
+   mkdir java
+   cd java/
+   ```
+
+2. 下载 Oracle JDK 21
+
+   > 前往 Oracle 官方的 JDK 下载页面。在下载页面上，找到适合你操作系统的版本。对于 Ubuntu，你需要下载 Linux x64 Compressed Archive（.tar.gz 文件）。
+
+   ```shell
+   wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+   ```
+
+3. 解压下载的 JDK 包：
+
+   > 使用 tar 命令解压下载的 JDK 压缩包：
+
+    ```shell
+    sudo tar -xvf jdk-21_linux-x64_bin.tar.gz -C ~/java
+    ```
+
+4. 更新环境变量：
+
+   > 为了让系统识别新安装的 JDK，需要更新环境变量。你可以编辑 /etc/profile 或者在用户级别编辑 ~/.bashrc 文件：
+
+   ```shell
+   sudo vim /etc/profile
+   ```
+
+   > 在文件末尾添加以下内容：
+
+   ```shell
+   export JAVA_HOME=~/java/jdk-21.0.4
+   export PATH=$PATH:$JAVA_HOME/bin
+   ```
+
+   > 保存并退出后，使更改生效：
+
+   ```shell
+   source /etc/profile
+   ```
+
+5. 验证安装
+
+   > 验证 Oracle JDK 21 是否正确安装：
+
+    ```shell
+    java -version
+    ```
+
 ### 2、卸载
 
 ## Nacos

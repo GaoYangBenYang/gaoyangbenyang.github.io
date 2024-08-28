@@ -3,10 +3,6 @@ layout: doc
 sidebar: false
 ---
 
-## JDK21
-
-### 1、安装
-
 ## MySQL
 
 ### 1、安装
@@ -119,7 +115,89 @@ dpkg -l | grep mysql
 
 > 该插件允许用户通过操作系统用户身份验证，而不使用传统的密码方式。
 
-### 4、修改root用户密码
+1. 确定 MySQL 版本
+
+```mysql
+SELECT VERSION();
+```
+
+2. 登录 MySQL
+
+```shell
+sudo mysql -u root
+```
+
+3. 检查当前身份验证方式
+
+```mysql
+SELECT user, host, plugin
+FROM mysql.user
+WHERE user = 'root';
+```
+
+> 输出中，plugin 列的值通常是 auth_socket，表示当前使用的是 auth_socket 插件。
+
+4. 修改为密码身份验证
+
+> 如果你想改为使用传统的密码身份验证，可以将 root 用户的身份验证插件更改为`mysql_native_password`
+> 或`caching_sha2_password（在较新版本中更推荐）`
+> 。
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+```
+
+或
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'your_new_password';
+```
+
+5. 刷新权限
+
+> 更改完成后，刷新权限使其立即生效：
+
+```mysql
+FLUSH PRIVILEGES;
+```
+
+### 4、修改密码策略
+
+1. 编辑 MySQL 配置文件：
+
+```shell
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+2. 添加或修改以下配置：
+
+```ini
+[mysqld]
+validate_password.policy=LOW
+validate_password.length=6
+```
+
+3. 保存并退出，然后重启 MySQL 服务：
+
+```shell
+sudo systemctl restart mysql
+```
+
+### 5、修改root用户密码
+
+1. 登录 MySQL
+
+```shell
+sudo mysql -u root
+```
+
+2. 修改密码
+
+> 修改密码策略后，可以尝试再次设置密码：
+
+```shell
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'your_new_password';
+```
 
 ## Redis
 
@@ -286,4 +364,21 @@ dpkg -l | grep redis
    > 限制 IP 地址：尽可能在 bind 选项中指定可以连接的特定 IP 地址，而不是使用 0.0.0.0，这可以减少潜在的攻击面。
 
    > 启用 TLS：如果 Redis 需要在不安全的网络环境中使用，可以考虑配置 Redis 以支持 TLS（加密传输）。
-   
+
+## JDK
+
+### 1、安装
+
+### 2、卸载
+
+## Nacos
+
+### 1、安装
+
+### 2、卸载
+
+## Sentinel
+
+### 1、安装
+
+### 2、卸载

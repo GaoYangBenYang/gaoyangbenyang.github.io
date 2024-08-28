@@ -3,7 +3,9 @@ layout: doc
 sidebar: false
 ---
 
-# 开发环境配置
+## JDK21
+
+### 1、安装
 
 ## MySQL
 
@@ -57,7 +59,67 @@ sudo mysql_secure_installation
 sudo mysql -u root -p
 ```
 
-### 2、配置
+### 2、卸载
+
+1. 停止 MySQL 服务
+
+```shell
+sudo systemctl stop mysql
+```
+
+2. 卸载 MySQL 软件包
+
+> 移除 MySQL 的所有相关包。
+
+```shell
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+```
+
+3. 删除 MySQL 数据目录
+
+> MySQL 的数据目录通常位于 /var/lib/mysql，需要手动删除：
+
+```shell
+sudo rm -rf /var/lib/mysql
+```
+
+4. 删除配置文件
+
+> MySQL 的配置文件通常位于 /etc/mysql，删除它们：
+
+```shell
+sudo rm -rf /etc/mysql
+```
+
+5. 删除 MySQL 用户和组
+
+> 如果你想彻底清理，还可以删除 MySQL 创建的用户和组：
+
+```shell
+sudo deluser mysql
+sudo delgroup mysql
+```
+
+6. 清理残留文件
+
+```shell
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+
+7. 验证卸载
+
+> 如果没有返回任何结果，说明它们已经被完全卸载。
+
+```shell
+dpkg -l | grep mysql
+```
+
+### 3、移除 auth_socket 身份验证插件
+
+> 该插件允许用户通过操作系统用户身份验证，而不使用传统的密码方式。
+
+### 4、修改root用户密码
 
 ## Redis
 
@@ -102,72 +164,126 @@ redis-cli
 PONG
 ```
 
-### 2、配置
+### 2、卸载
 
-1. 开启远程连接
+1. 停止 Redis 服务
 
-    1. 打开 Redis 配置文件：
+```shell
+sudo systemctl stop redis-server
+```
 
-       > 通常 Redis 配置文件位于 /etc/redis/redis.conf。
+2. 卸载 Redis 软件包
 
-       ```shell
-       sudo vim /etc/redis/redis.conf
-       ```
-    2. 绑定到所有网络接口：
+> 移除 Redis 的所有相关包。
 
-       > 找到 bind 127.0.0.1 ::1 这一行，并将其注释掉（在行前加上 #），或者直接修改为 bind 0.0.0.0 以允许 Redis 监听所有网络接口：
+```shell
+sudo apt-get purge redis-server redis-tools
+```
 
-        ```shell
-        # bind 127.0.0.1 ::1
-        bind 0.0.0.0
-        ```
+3. 删除 Redis 数据目录
 
-    3. 禁用保护模式（可选但推荐）：
+> Redis 的数据目录通常位于 /var/lib/redis，需要手动删除：
 
-       > 保护模式默认开启，只允许本地访问。找到 protected-mode yes 这一行，并将其修改为 no：
+```shell
+sudo rm -rf /var/lib/redis
+```
 
-       ```shell
-       protected-mode no
-       ```
-       > 注意：禁用保护模式后，请确保配置了密码保护，以免未授权访问。
+4. 删除 Redis 配置文件
 
-    4. 设置密码保护（强烈推荐）：
+> Redis 的配置文件通常位于 /etc/redis，删除它们：
 
-       > 为了安全起见，建议你为 Redis 设置访问密码。找到 # requirepass foobared 这一行，并取消注释并设置你的密码：
+```shell
+sudo rm -rf /etc/redis
+```
 
-        ```shell
-        requirepass your_password_here
-        ```
+5. 删除 Redis 用户和组
 
-    5. 重启 Redis 服务：
+> 如果你想彻底清理，还可以删除 Redis 创建的用户和组：
 
-       > 修改配置文件后，重启 Redis 服务以使更改生效：
+```shell
+sudo deluser redis
+sudo delgroup redis
+```
 
-        ```shell
-        sudo systemctl restart redis-server
-        ```
+6. 清理残留文件
 
-    6. 配置防火墙：
+```shell
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
 
-       > 如果你的服务器有防火墙（例如 ufw），你需要允许 Redis 的默认端口（6379）通过防火墙：
+7. 验证卸载
 
-        ```shell
-        sudo ufw allow 6379
-        ```
+> 如果没有返回任何结果，说明它们已经被完全卸载。
 
-    7. 测试远程连接：
+```shell
+dpkg -l | grep redis
+```
 
-       > 在你的远程客户端上，可以使用 redis-cli 或其他 Redis 客户端工具来连接到你的服务器：
+### 3、开启远程连接
 
-        ```shell
-        redis-cli -h your_server_ip -p 6379 -a your_password_here
-        ```
+1. 打开 Redis 配置文件：
 
-    8. 安全性注意事项：
+   > 通常 Redis 配置文件位于 /etc/redis/redis.conf。
 
-       > 使用强密码：确保 Redis 配置了强密码，并避免使用默认或简单的密码。
+   ```shell
+   sudo vim /etc/redis/redis.conf
+   ```
+2. 绑定到所有网络接口：
 
-       > 限制 IP 地址：尽可能在 bind 选项中指定可以连接的特定 IP 地址，而不是使用 0.0.0.0，这可以减少潜在的攻击面。
+   > 找到 bind 127.0.0.1 ::1 这一行，并将其注释掉（在行前加上 #），或者直接修改为 bind 0.0.0.0 以允许 Redis 监听所有网络接口：
 
-       > 启用 TLS：如果 Redis 需要在不安全的网络环境中使用，可以考虑配置 Redis 以支持 TLS（加密传输）。
-       
+    ```shell
+    # bind 127.0.0.1 ::1
+    bind 0.0.0.0
+    ```
+
+3. 禁用保护模式（可选但推荐）：
+
+   > 保护模式默认开启，只允许本地访问。找到 protected-mode yes 这一行，并将其修改为 no：
+
+   ```shell
+   protected-mode no
+   ```
+   > 注意：禁用保护模式后，请确保配置了密码保护，以免未授权访问。
+
+4. 设置密码保护（强烈推荐）：
+
+   > 为了安全起见，建议你为 Redis 设置访问密码。找到 # requirepass foobared 这一行，并取消注释并设置你的密码：
+
+    ```shell
+    requirepass your_password_here
+    ```
+
+5. 重启 Redis 服务：
+
+   > 修改配置文件后，重启 Redis 服务以使更改生效：
+
+    ```shell
+    sudo systemctl restart redis-server
+    ```
+
+6. 配置防火墙：
+
+   > 如果你的服务器有防火墙（例如 ufw），你需要允许 Redis 的默认端口（6379）通过防火墙：
+
+    ```shell
+    sudo ufw allow 6379
+    ```
+
+7. 测试远程连接：
+
+   > 在你的远程客户端上，可以使用 redis-cli 或其他 Redis 客户端工具来连接到你的服务器：
+
+    ```shell
+    redis-cli -h your_server_ip -p 6379 -a your_password_here
+    ```
+
+8. 安全性注意事项：
+
+   > 使用强密码：确保 Redis 配置了强密码，并避免使用默认或简单的密码。
+
+   > 限制 IP 地址：尽可能在 bind 选项中指定可以连接的特定 IP 地址，而不是使用 0.0.0.0，这可以减少潜在的攻击面。
+
+   > 启用 TLS：如果 Redis 需要在不安全的网络环境中使用，可以考虑配置 Redis 以支持 TLS（加密传输）。
+   

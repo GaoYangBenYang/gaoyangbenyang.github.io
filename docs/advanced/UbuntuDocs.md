@@ -540,4 +540,79 @@ JAVA_OPT="${JAVA_OPT} --add-opens java.base/java.lang=ALL-UNNAMED"
 
 ### 1、安装
 
+1. 下载 Sentinel 控制台
+
+```shell
+wget https://github.com/alibaba/Sentinel/releases/download/1.8.8/sentinel-dashboard-1.8.8.jar
+```
+
+2. 解压缩 Sentinel
+
+```shell
+tar -zxvf sentinel-dashboard-1.8.8.jar
+```
+
+3. 启动 Sentinel 控制台
+
+> -Dserver.port=8080：指定 Sentinel 控制台的端口为 8080，你可以根据需要修改为其他端口。
+
+> -Dcsp.sentinel.dashboard.server=localhost:8080：设置控制台地址，用于控制台和客户端的通信。
+
+> -Dproject.name=sentinel-dashboard：指定项目名称，便于日志管理等。
+
+```shell
+java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
+```
+
+4. 访问 Sentinel 控制台
+
+> 默认登录用户名和密码均为 sentinel。
+
+```shell
+http://<your-server-ip>:8080
+```
+
+5. 配置 systemd 服务（可选）
+
+> Sentinel 控制台以服务的形式运行，可以将其配置为 systemd 服务。
+
+- 创建一个新的 systemd 服务文件：
+
+```shell
+sudo vim /etc/systemd/system/sentinel.service
+```
+
+- 在文件中添加以下内容：
+
+> 文件路径需要完整的绝对路径
+
+> 替换 your-username 为实际的用户名。
+
+> 替换 /path/to/sentinel-dashboard.jar 为 sentinel-dashboard.jar 文件的实际路径。
+
+```shell
+[Unit]
+Description=Sentinel Dashboard
+After=network.target
+
+[Service]
+User=your-username
+ExecStart=/usr/bin/java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar /path/to/sentinel-dashboard.jar
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- 重新加载 systemd 并启动 Sentinel 服务：
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl start sentinel
+sudo systemctl enable sentinel
+```
+
 ### 2、卸载

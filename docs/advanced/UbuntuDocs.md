@@ -427,6 +427,66 @@ dpkg -l | grep redis
 
 ## Nacos
 
+### 1、安装
+
+1. 更新软件包列表
+
+```shell
+sudo apt update
+```
+
+2. 下载 Nacos
+
+```shell
+wget https://github.com/alibaba/nacos/releases/download/2.4.1/nacos-server-2.4.1.tar.gz
+```
+
+3. 解压缩 Nacos
+
+```shell
+tar -zxvf nacos-server-2.4.1.tar.gz
+```
+
+4. 配置 JAVA_HOME
+
+> 确保 JAVA_HOME 环境变量已正确设置
+
+```shell
+export JAVA_HOME=~/java/jdk-21.0.4
+export PATH=$PATH:$JAVA_HOME/bin
+```
+
+5. 启动 Nacos
+
+> 单机模式：
+
+```shell
+sh startup.sh -m standalone
+```
+
+6. 访问 Nacos 控制台
+
+> Nacos 启动成功后，你可以在浏览器中访问它的控制台。默认地址为：
+
+```shell
+http://localhost:8848/nacos
+```
+
+7. 配置 Nacos 为系统服务（可选）
+
+> 为了让 Nacos 在系统重启后自动启动，你可以将其配置为系统服务：
+
+- 创建一个新的 systemd 服务文件：
+
+```shell
+sudo vim /etc/systemd/system/nacos.service
+```
+
+- 在文件中添加以下内容：
+
+> 文件路径需要完整的绝对路径
+
+```shell
 [Unit]
 Description=Nacos Server
 After=network.target
@@ -440,10 +500,41 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+```
 
-### 1、安装
+- 重新加载 systemd 并启动 Nacos 服务：
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl start nacos
+sudo systemctl enable nacos
+```
 
 ### 2、卸载
+
+### 3、Nacos 启动文件修改 JDK 版本路径
+
+> 进入 Nacos 的 bin 目录并打开 startup.sh：在脚本的顶部添加或修改以下行，以确保 JAVA_HOME 使用你指定的 JDK 版本：
+
+```shell
+export JAVA_HOME=~/java/jdk-21.0.4
+export PATH=$PATH:$JAVA_HOME/bin
+```
+
+### *、异常解决
+
+1. ERROR: Please set the JAVA_HOME variable in your environment, We need java(x64)! jdk8 or later is better!
+
+> 修改启动文件JDK版本路径
+
+2. java.lang.reflect.InaccessibleObjectException: Unable to make field private java.lang.String java.lang.StackTraceElement.classLoaderName
+   accessible: module java.base does not "opens java.lang" to unnamed module @4c75cab9
+
+> 在 Nacos 的启动脚本 startup.sh 中找到或添加 JVM 参数的位置。
+
+```shell
+JAVA_OPT="${JAVA_OPT} --add-opens java.base/java.lang=ALL-UNNAMED"
+```
 
 ## Sentinel
 

@@ -588,6 +588,8 @@ sudo vim /etc/systemd/system/sentinel.service
 
 > 替换 your-username 为实际的用户名。
 
+> 替换 /your-path/java 为 java环境路径，可使用 which java 查看
+
 > 替换 /path/to/sentinel-dashboard.jar 为 sentinel-dashboard.jar 文件的实际路径。
 
 ```shell
@@ -597,7 +599,7 @@ After=network.target
 
 [Service]
 User=your-username
-ExecStart=/usr/bin/java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar /path/to/sentinel-dashboard.jar
+ExecStart=/your-path/java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar /your-path/sentinel-dashboard-1.8.8.jar
 SuccessExitStatus=143
 TimeoutStopSec=10
 Restart=always
@@ -613,6 +615,24 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 sudo systemctl start sentinel
 sudo systemctl enable sentinel
+```
+
+6. 配置 Sentinel 客户端
+
+> 在你的应用程序中，添加以下配置以连接到 Sentinel 控制台：
+
+```shell
+-Dcsp.sentinel.dashboard.server=<your-server-ip>:8080
+```
+
+> 这样，Sentinel 控制台将可以接收和管理你的应用程序的流量控制规则。
+
+7. 调整 JVM 参数（可选）
+
+> 遇到内存或性能问题，可以调整 JVM 参数
+
+```shell
+java -Xms256m -Xmx512m -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
 ```
 
 ### 2、卸载

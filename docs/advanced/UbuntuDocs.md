@@ -199,6 +199,16 @@ sudo mysql -u root
 ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'your_new_password';
 ```
 
+### 6、开启root用户远程连接权限
+
+```mysql
+CREATE USER 'root'@'%' IDENTIFIED BY 'your password';
+# 所有IP
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+# 指定IP
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'x.x.x.x' WITH GRANT OPTION;
+```
+
 ## Redis
 
 ### 1、安装

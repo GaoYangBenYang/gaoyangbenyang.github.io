@@ -3,6 +3,46 @@ layout: doc
 sidebar: false
 ---
 
+## WSL2全局配置文件
+
+```shell
+[wsl2]
+# 设置虚拟机的最大内存使用量为 8GB
+memory=8GB
+
+# 设置虚拟机的处理器核心数为 8
+processors=8
+
+# 设置虚拟机的交换空间大小为 2GB
+swap=2GB
+
+# 禁用虚拟机的页面交换功能
+swapFile=none
+
+# 设置localhost转发，让Linux应用可以通过localhost访问Windows应用
+localhostForwarding=true
+
+[experimental]
+# 自动内存回收模式，逐步回收内存
+autoMemoryReclaim=gradual  # gradual | dropcache | disabled
+
+# 网络模式，使用 mirrored 模式
+networkingMode=mirrored
+
+# 启用 DNS 隧道，优化 DNS 查询
+dnsTunneling=true
+
+# 启用防火墙功能
+firewall=true
+
+# 禁用自动代理配置
+autoProxy=false
+
+# 启用稀疏 VHD 文件，节省磁盘空间
+sparseVhd=true
+
+```
+
 ## MySQL
 
 ### 1、安装

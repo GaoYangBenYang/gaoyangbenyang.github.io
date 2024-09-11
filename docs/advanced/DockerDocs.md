@@ -543,7 +543,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                                  * Docker 开启远程TCP连接
+##                                                                                                          * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -718,9 +718,7 @@ docker pull mysql       # 拉取最新版mysql镜像
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p ~/mysql/{conf,logs,data}
-# 创建文件
-touch ~/mysql/conf/my.cnf
+mkdir -p ~/mysql/{conf.d,logs,data}
 ```
 
 3. 创建容器
@@ -734,7 +732,7 @@ docker run \
 #设置环境变量 root账户密码
 -e MYSQL_ROOT_PASSWORD=123456 \
 #将配置文件夹挂载到主机
--v /root/mysql/conf/my.cnf:/etc/mysql/my.cnf \
+-v /root/mysql/conf.d:/etc/mysql/conf.d \
 #将日志文件夹挂载到主机
 -v /root/mysql/logs:/var/log/mysql \
 #将mysql储存文件夹挂载到主机
@@ -762,8 +760,6 @@ docker pull redis       # 拉取最新版redis镜像
 ```shell
 # 创建目录 -p 递归创建
 mkdir -p ~/redis/{conf,data}
-# 创建文件
-touch ~/redis/conf/redis.cnf
 ```
 
 3. 创建容器
@@ -773,7 +769,7 @@ docker run \
 --name redis \
 -p 6379:6379 \
 -v /root/redis/data:/data \
--v /root/redis/conf/redis.conf:/etc/redis/redis.conf \
+-v /root/redis/conf:/etc/redis \
 -d redis:latest
 ```
 

@@ -16,9 +16,6 @@ processors=8
 # 设置虚拟机的交换空间大小为 2GB
 swap=2GB
 
-# 禁用虚拟机的页面交换功能
-swapFile=none
-
 # 设置localhost转发，让Linux应用可以通过localhost访问Windows应用
 # 使用镜像网络模式时，wsl2.localhostForwarding 设置无效
 localhostForwarding=true
@@ -28,9 +25,12 @@ localhostForwarding=true
 autoMemoryReclaim=gradual  # gradual | dropcache | disabled
 
 # 网络模式
-# default 模式 (默认模式)：使用的是 NAT (Network Address Translation) 机制。WSL 2 虚拟机运行在一个与主机 Windows 操作系统隔离的虚拟网络中，虚拟机有一个虚拟的 IP 地址，并通过 Windows 主机访问外部网络。
-# mirrored 模式：这种模式将 WSL 2 的网络接口与 Windows 系统的网络接口镜像在一起，使 WSL 2 与 Windows 使用相同的 IP 地址。这种模式下，WSL 2 中的网络行为与 Windows 系统更加紧密。
-networkingMode=default
+#bridged：桥接模式，WSL 2 虚拟机直接桥接到宿主网络，可以像普通网络设备一样使用宿主网络的 IP 地址。适合需要局域网访问的场景。
+#mirrored：镜像模式，WSL 2 使用与 Windows 系统相同的 IP 地址，并共享网络接口。
+#nat：使用 NAT (网络地址转换) 模式，这与默认模式相同，WSL 2 有自己的虚拟 IP 地址，适合隔离场景。
+#none：禁用网络，WSL 2 实例将没有网络连接。
+#virtioproxy：这是一个实验性的模式，使用 VirtIO 网络代理进行通信。
+networkingMode=bridged
 
 # 启用 DNS 隧道，优化 DNS 查询
 dnsTunneling=true

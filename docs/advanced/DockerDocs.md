@@ -543,7 +543,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                               * Docker 开启远程TCP连接
+##                                                                                                  * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -718,9 +718,9 @@ docker pull mysql       # 拉取最新版mysql镜像
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p /root/mysql/{conf,logs,data}
+mkdir -p ~/mysql/{conf,logs,data}
 # 创建文件
-touch /root/mysql/conf/my.cnf
+touch ~/mysql/conf/my.cnf
 ```
 
 3. 创建容器
@@ -761,9 +761,9 @@ docker pull redis       # 拉取最新版redis镜像
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p /root/redis/{conf,data}
+mkdir -p ~/redis/{conf,data}
 # 创建文件
-touch /root/redis/conf/redis.cnf
+touch ~/redis/conf/redis.cnf
 ```
 
 3. 创建容器
@@ -795,7 +795,7 @@ docker pull rabbitmq:latest
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p /root/rabbitmq/{data,conf,log}
+mkdir -p ~/rabbitmq/{data,conf,log}
 ```
 
 3. 修改log目录权限
@@ -844,9 +844,9 @@ docker pull nacos/nacos-server       #拉取最新版镜像
 
 ```shell
 #创建目录 -p 递归创建
-mkdir -p /root/nacos/{conf,logs}
+mkdir -p ~/nacos/{conf,logs}
 #创建文件
-touch /root/nacos/conf/application.properties
+touch ~/nacos/conf/application.properties
 ```
 
 3. 创建容器,2.x版本后增加了 grpc 通信并且增加nacos的集群端口上下偏移1000，创建容器时除了 8848 还需要把 9848 也暴露出来

@@ -20,14 +20,17 @@ swap=2GB
 swapFile=none
 
 # 设置localhost转发，让Linux应用可以通过localhost访问Windows应用
+# 使用镜像网络模式时，wsl2.localhostForwarding 设置无效
 localhostForwarding=true
 
 [experimental]
 # 自动内存回收模式，逐步回收内存
 autoMemoryReclaim=gradual  # gradual | dropcache | disabled
 
-# 网络模式，使用 mirrored 模式
-networkingMode=mirrored
+# 网络模式
+# default 模式 (默认模式)：使用的是 NAT (Network Address Translation) 机制。WSL 2 虚拟机运行在一个与主机 Windows 操作系统隔离的虚拟网络中，虚拟机有一个虚拟的 IP 地址，并通过 Windows 主机访问外部网络。
+# mirrored 模式：这种模式将 WSL 2 的网络接口与 Windows 系统的网络接口镜像在一起，使 WSL 2 与 Windows 使用相同的 IP 地址。这种模式下，WSL 2 中的网络行为与 Windows 系统更加紧密。
+networkingMode=default
 
 # 启用 DNS 隧道，优化 DNS 查询
 dnsTunneling=true
@@ -39,7 +42,8 @@ firewall=true
 autoProxy=false
 
 # 启用稀疏 VHD 文件，节省磁盘空间
-sparseVhd=true
+sparseVhd=false
+#wsl: 无法在“none.vhdx”中创建交换磁盘： 拒绝访问。
 
 ```
 

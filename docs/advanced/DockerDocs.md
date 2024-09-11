@@ -126,7 +126,7 @@ sudo apt-get autoclean
 > 用户主目录下的 .docker 目录：
 
 ```shell
-rm -rf ~/.docker
+rm -rf /root/.docker
 ```
 
 > 系统日志中可能残留的 Docker 日志：
@@ -543,7 +543,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                            * Docker 开启远程TCP连接
+##                                                                                               * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -718,9 +718,9 @@ docker pull mysql       # 拉取最新版mysql镜像
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p ~/mysql/{conf,logs,data}
+mkdir -p /root/mysql/{conf,logs,data}
 # 创建文件
-touch ~/mysql/conf/my.cnf
+touch /root/mysql/conf/my.cnf
 ```
 
 3. 创建容器
@@ -734,11 +734,11 @@ docker run \
 #设置环境变量 root账户密码
 -e MYSQL_ROOT_PASSWORD=123456 \
 #将配置文件夹挂载到主机
--v ~/mysql/conf/my.cnf:/etc/mysql/my.cnf \
+-v /root/mysql/conf/my.cnf:/etc/mysql/my.cnf \
 #将日志文件夹挂载到主机
--v ~/mysql/logs:/var/log/mysql \
+-v /root/mysql/logs:/var/log/mysql \
 #将mysql储存文件夹挂载到主机
--v ~/mysql/data:/var/lib/mysql \
+-v /root/mysql/data:/var/lib/mysql \
 #后台运行容器，并返回容器ID
 -d mysql:latest
 ```
@@ -761,9 +761,9 @@ docker pull redis       # 拉取最新版redis镜像
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p ~/redis/{conf,data}
+mkdir -p /root/redis/{conf,data}
 # 创建文件
-touch ~/redis/conf/redis.cnf
+touch /root/redis/conf/redis.cnf
 ```
 
 3. 创建容器
@@ -772,8 +772,8 @@ touch ~/redis/conf/redis.cnf
 docker run \
 --name redis \
 -p 6379:6379 \
--v ~/redis/data:/data \
--v ~/redis/conf/redis.conf:/etc/redis/redis.conf \
+-v /root/redis/data:/data \
+-v /root/redis/conf/redis.conf:/etc/redis/redis.conf \
 -d redis:latest
 ```
 
@@ -795,13 +795,13 @@ docker pull rabbitmq:latest
 
 ```shell
 # 创建目录 -p 递归创建
-mkdir -p ~/rabbitmq/{data,conf,log}
+mkdir -p /root/rabbitmq/{data,conf,log}
 ```
 
 3. 修改log目录权限
 
 ```shell
-sudo chmod 777 ~/rabbitmq/log
+sudo chmod 777 /root/rabbitmq/log
 ```
 
 4. 创建容器
@@ -813,9 +813,9 @@ docker run \
 -p 15672:15672 \
 -e RABBITMQ_DEFAULT_USER=admin \
 -e RABBITMQ_DEFAULT_PASS=admin \
--v ~/rabbitmq/data:/var/lib/rabbitmq \
--v ~/rabbitmq/conf:/etc/rabbitmq \
--v ~/rabbitmq/log:/var/log/rabbitmq \
+-v /root/rabbitmq/data:/var/lib/rabbitmq \
+-v /root/rabbitmq/conf:/etc/rabbitmq \
+-v /root/rabbitmq/log:/var/log/rabbitmq \
 -d rabbitmq:3.9.29-management
 ```
 
@@ -844,9 +844,9 @@ docker pull nacos/nacos-server       #拉取最新版镜像
 
 ```shell
 #创建目录 -p 递归创建
-mkdir -p ~/nacos/{conf,logs}
+mkdir -p /root/nacos/{conf,logs}
 #创建文件
-touch ~/nacos/conf/application.properties
+touch /root/nacos/conf/application.properties
 ```
 
 3. 创建容器,2.x版本后增加了 grpc 通信并且增加nacos的集群端口上下偏移1000，创建容器时除了 8848 还需要把 9848 也暴露出来
@@ -877,7 +877,7 @@ docker run \
 -e NACOS_AUTH_IDENTITY_KEY=admin \    #不配置nacos报错  配置了不生效 账号还是nacos(真离谱)
 -e NACOS_AUTH_IDENTITY_VALUE=admin \  #不配置nacos报错  配置了不生效 密码还是nacos(真离谱)
 -e NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789 \
-#-v ~/nacos/logs:/home/nacos/logs
+#-v /root/nacos/logs:/home/nacos/logs
 -d nacos/nacos-server
 ```
 
@@ -976,10 +976,10 @@ docker ps
     * 创建挂载文件
       ```shell
       # 创建目录 -p 递归创建
-      mkdir -p ~/elasticsearch/{data,plugins}
+      mkdir -p /root/elasticsearch/{data,plugins}
       #修改权限
-      chmod 777 ~/elasticsearch/data
-      chmod 777 ~/elasticsearch/plugins
+      chmod 777 /root/elasticsearch/data
+      chmod 777 /root/elasticsearch/plugins
       ```
     * 启动容器，复制生成的密码和注册令牌，首次启动 Elasticsearch 时，生成的用户密码和 Kibana 注册令牌将输出到终端，记得保存。
       ```shell
@@ -990,8 +990,8 @@ docker ps
       -p 9300:9300 
       -e "discovery.type=single-node" 
       -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      -v ~/elasticsearch/data:/usr/share/elasticsearch/data
-      -v ~/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      -v /root/elasticsearch/data:/usr/share/elasticsearch/data
+      -v /root/elasticsearch/plugins:/usr/share/elasticsearch/plugins
       -d docker.elastic.co/elasticsearch/elasticsearch:8.11.3
       ```
     * 查看容器是否正常运行
@@ -1006,10 +1006,10 @@ docker ps
     * 创建挂载文件
       ```shell
       # 创建目录 -p 递归创建
-      mkdir -p ~/kibana/{data,config}
+      mkdir -p /root/kibana/{data,config}
       #修改权限
-      chmod 777 ~/kibana/data
-      chmod 777 ~/kibana/config
+      chmod 777 /root/kibana/data
+      chmod 777 /root/kibana/config
       ```
     * 启动容器
       ```shell
@@ -1018,8 +1018,8 @@ docker ps
       --network elastic
       -p 5601:5601 
       -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      -v ~/kibana/data:/usr/share/kibana/data
-      -v ~/kibana/plugins:/usr/share/kibana/plugins
+      -v /root/kibana/data:/usr/share/kibana/data
+      -v /root/kibana/plugins:/usr/share/kibana/plugins
       -d kibana:8.6.0
       ```
     * 查看容器是否正常运行

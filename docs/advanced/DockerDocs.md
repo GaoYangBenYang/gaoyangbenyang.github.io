@@ -599,15 +599,27 @@ wsl --shutdown
 
 ```shell
 [wsl2]
-memory=8GB
-processors=8
+# 设置虚拟机的最大内存使用量为 8GB
+memory=4GB
+# 设置虚拟机的处理器核心数为 8
+processors=4
+# 设置虚拟机的交换空间大小为 2GB
+swap=2GB
+# 设置localhost转发，让Linux应用可以通过localhost访问Windows应用
+localhostForwarding=true
 [experimental]
-autoMemoryReclaim=gradual # gradual  | dropcache | disabled
+# 网络模式，使用 mirrored 模式 nat 默认nat,让Linux应用可以通过localhost访问Windows应用
 networkingMode=mirrored
+# 自动内存回收模式，逐步回收内存
+autoMemoryReclaim=gradual  # gradual | dropcache | disabled
+# 启用 DNS 隧道，优化 DNS 查询
 dnsTunneling=true
-firewall=true
-autoProxy=true
-sparseVhd=true
+# 启用防火墙功能
+firewall=false
+# 启用自动代理配置
+autoProxy=false
+# 启用稀疏 VHD 文件，节省磁盘空间
+sparseVhd=false
 ```
 
 ### 2. 配置Docker代理

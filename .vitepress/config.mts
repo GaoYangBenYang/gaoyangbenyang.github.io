@@ -16,18 +16,19 @@ export default defineConfig({
         // 导航栏
         nav: [
             {
-                text: '仓颉',
+                text: 'React',
                 items:
                     [
                         {
                             text: 'Docs',
                             items: [
                                 {
-                                    text: '仓颉语法',
-                                    link: '/docs/java/'
-                                }, {
-                                    text: '仓颉API',
-                                    link: '/docs/java/'
+                                    text: 'React Docs',
+                                    link: '/docs/react/ReactDocs'
+                                },
+                                {
+                                    text: 'TypeScript Docs',
+                                    link: '/docs/react/TypeScriptDocs'
                                 },
                             ]
                         },
@@ -101,41 +102,7 @@ export default defineConfig({
                     ]
             },
             {
-                text: 'Vue',
-                items:
-                    [
-                        {
-                            text: 'Docs',
-                            items: [
-                                {
-                                    text: 'Vue Docs',
-                                    link: '/docs/vue/VueDocs'
-                                },
-                                {
-                                    text: 'TypeScript Docs',
-                                    link: '/docs/vue/TypeScriptDocs'
-                                },
-                            ]
-                        },
-                    ]
-            },
-            {
-                text: 'Golang',
-                items:
-                    [
-                        {
-                            text: 'Docs',
-                            items: [
-                                {
-                                    text: 'Go入门指南',
-                                    link: '/docs/golang/Go入门指南'
-                                },
-                            ]
-                        },
-                    ]
-            },
-            {
-                text: '数据库',
+                text: 'Database',
                 items:
                     [
                         {
@@ -168,7 +135,7 @@ export default defineConfig({
                     ]
             },
             {
-                text: '消息队列',
+                text: 'MessageQueue',
                 items:
                     [
                         {
@@ -192,7 +159,7 @@ export default defineConfig({
                     ]
             },
             {
-                text: '进阶之路',
+                text: 'Other',
                 items:
                     [
                         {
@@ -200,64 +167,64 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Ubuntu Docs',
-                                    link: '/docs/advanced/UbuntuDocs'
+                                    link: '/docs/other/UbuntuDocs'
                                 },
                             ]
                         },
                         {
-                            text: '容器化',
+                            text: 'Containerization',
                             items: [
                                 {
                                     text: 'Docker Docs',
-                                    link: '/docs/advanced/DockerDocs'
+                                    link: '/docs/other/DockerDocs'
                                 },
                                 {
                                     text: 'Kubernetes Docs',
-                                    link: '/docs/advanced/KubernetesDocs'
+                                    link: '/docs/other/KubernetesDocs'
                                 },
                             ]
                         },
                         {
-                            text: '依赖管理',
+                            text: 'Dependency Management',
                             items: [
                                 {
                                     text: 'Nodejs Docs',
-                                    link: '/docs/advanced/NodejsDocs'
+                                    link: '/docs/other/NodejsDocs'
                                 },
                                 {
                                     text: 'Maven Docs',
-                                    link: '/docs/advanced/MavenDocs'
+                                    link: '/docs/other/MavenDocs'
                                 },
                             ]
                         },
                         {
-                            text: '版本控制',
+                            text: 'Version Control',
                             items: [
                                 {
                                     text: 'Git Docs',
-                                    link: '/docs/advanced/GitDocs'
+                                    link: '/docs/other/GitDocs'
                                 },
                             ]
                         },
                         {
-                            text: '数据结构与算法',
+                            text: 'DataStructures & Algorithms',
                             items: [
                                 {
-                                    text: '数据结构',
-                                    link: '/docs/advanced/DataStructuresDocs'
+                                    text: 'DataStructures Docs',
+                                    link: '/docs/other/DataStructuresDocs'
                                 },
                                 {
-                                    text: '算法',
-                                    link: '/docs/advanced/AlgorithmsDocs'
+                                    text: 'Algorithms Docs',
+                                    link: '/docs/other/AlgorithmsDocs'
                                 },
                             ]
                         },
                         {
-                            text: '设计模式',
+                            text: 'DesignPattern',
                             items: [
                                 {
-                                    text: '设计模式',
-                                    link: '/docs/advanced/DesignPatternDocs'
+                                    text: 'DesignPattern Docs',
+                                    link: '/docs/other/DesignPatternDocs'
                                 },
                             ]
                         },
@@ -266,7 +233,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Github Action',
-                                    link: '/docs/advanced/GithubActionDocs'
+                                    link: '/docs/other/GithubActionDocs'
                                 },
                             ]
                         },
@@ -275,33 +242,20 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'JSON Web Token v0.14.1',
-                                    link: '/docs/advanced/JWT手册v0.14.1'
+                                    link: '/docs/other/JWT手册v0.14.1'
                                 },
                                 {
                                     text: 'OpenID Connect Core 1.0',
-                                    link: '/docs/advanced/OpenIDConnectCore1.0'
+                                    link: '/docs/other/OpenIDConnectCore1.0'
                                 },
                             ]
                         },
                     ]
             },
             {
-                text: '面试题',
+                text: 'InterviewQuestion',
                 items:
                     [
-                        {
-                            text: 'Java',
-                            items: [
-                                {
-                                    text: 'Java基础',
-                                    link: '/docs/java/'
-                                },
-                                {
-                                    text: 'Java进阶',
-                                    link: '/docs/java/'
-                                },
-                            ]
-                        },
                         {
                             text: 'MySQL',
                             items: [
@@ -320,40 +274,12 @@ export default defineConfig({
                 text: 'Blogs',
                 items: [
                     {
-                        text: 'Golang中http.ListenAndServe阻塞问题分析',
-                        link: '/blogs/Golang中http.ListenAndServe阻塞问题分析'
-                    },
-                    {
-                        text: 'Golang读取配置文件处理方式',
-                        link: '/blogs/Golang读取配置文件处理方式'
-                    },
-                    {
-                        text: 'gorm中表名自动加s使用复数问题处理',
-                        link: '/blogs/gorm中表名自动加s使用复数问题处理'
-                    },
-                    {
-                        text: 'JavaSwing实践记录',
-                        link: '/blogs/JavaSwing实践记录'
+                        text: '角色访问控制模型(Role-BasedAccessControl)',
+                        link: '/blogs/角色访问控制模型(Role-BasedAccessControl)'
                     },
                     {
                         text: 'JSON Web Token(JWT)',
                         link: '/blogs/JSON Web Token(JWT)'
-                    },
-                    {
-                        text: 'SpringBoot整合Swagger3(OpenAPI)',
-                        link: '/blogs/SpringBoot整合Swagger3(OpenAPI)'
-                    },
-                    {
-                        text: 'VSCode配置Bug记录',
-                        link: '/blogs/VSCode配置Bug记录'
-                    },
-                    {
-                        text: 'WSL2的使用与Bug',
-                        link: '/blogs/WSL2的使用与Bug'
-                    },
-                    {
-                        text: '基于角色访问控制(Role-BasedAccessControl)模型',
-                        link: '/blogs/基于角色访问控制(Role-BasedAccessControl)模型'
                     },
                 ]
             }
@@ -385,7 +311,7 @@ export default defineConfig({
         //页脚
         footer: {
             message: 'Released under the Apache-2.0 license.',
-            copyright: 'Copyright © 2022 — 2024',
+            copyright: 'Copyright © 2022 — 2025',
         },
         //侧边栏文字更改(移动端)
         sidebarMenuLabel: '目录',

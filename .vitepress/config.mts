@@ -1,5 +1,4 @@
 import {defineConfig} from "vitepress";
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     lang: "zh-CN",
@@ -25,7 +24,12 @@ export default defineConfig({
                                 {
                                     text: "React Docs",
                                     link: "/docs/react/ReactDocs"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            text: "TypeScript",
+                            items: [
                                 {
                                     text: "TypeScript Docs",
                                     link: "/docs/react/TypeScriptDocs"
@@ -69,7 +73,7 @@ export default defineConfig({
                             ]
                         },
                         {
-                            text: "Dependency",
+                            text: "Maven",
                             items: [
                                 {
                                     text: "Log4j2",
@@ -139,6 +143,15 @@ export default defineConfig({
                 items:
                     [
                         {
+                            text: "RocketMQ",
+                            items: [
+                                {
+                                    text: "RocketMQ Docs",
+                                    link: "/docs/messageQueue/RocketDocs"
+                                }
+                            ]
+                        },
+                        {
                             text: "Kafka",
                             items: [
                                 {
@@ -152,7 +165,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: "RabbitMQ Docs",
-                                    link: "/docs/messageQueue/RabbitMQDocs"
+                                    link: "/docs/messageQueue/RabbitDocs"
                                 }
                             ]
                         }
@@ -256,11 +269,11 @@ export default defineConfig({
                                 {
                                     text: "MySQL",
                                     link: "/docs/other/MySQLInterviewQuestion"
-                                },
+                                }
                             ]
                         }
                     ]
-            },
+            }
         ],
         // 侧边栏
         sidebar: [
@@ -286,17 +299,14 @@ export default defineConfig({
         markdown: {
             //行号显示
             lineNumbers: true,
-
             //时间线
             config: (md) => {
                 md.use(timeline);
             },
-
             // 开启图片懒加载
             image: {
                 lazyLoading: true
             }
-
         },
         //本地搜索
         search: {

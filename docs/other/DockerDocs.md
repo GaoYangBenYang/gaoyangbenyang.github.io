@@ -3,146 +3,124 @@ layout: doc
 sidebar: false
 ---
 
-## 1. Docker简介
+# Docker简介
 
 Docker 是一种开源的应用容器引擎，它可以让开发者将应用程序和依赖打包到一个轻量级、可移植的容器中，然后在任何流行的 Linux 机器上运行，实现虚拟化。Docker
-的优点包括快速交付、响应式部署、高效的资源利用和跨平台的兼容性。本文将介绍 Docker 的基本使用和常用命令，帮助读者快速入门 Docker 的使用。
+的优点包括快速交付、响应式部署、高效的资源利用和跨平台的兼容性。本文将介绍 Docker 的基本使用和常用命令。
 
-## 安装 Docker
+## 安装 Docker (Install Docker Engine on Ubuntu)
 
-Docker 支持多种 Linux 发行版，如 CentOS、Ubuntu、Debian 等。安装 Docker 的步骤如下：
+Docker 支持多种 Linux 发行版，如 CentOS、Ubuntu、Debian 等。Ubuntu 安装 Docker 的步骤如下：
 
-- 卸载旧版本的 Docker，如果有的话，使用命令：
+- 更新Ubuntu依赖
 
-```bash
-yum remove docker \
-docker-client \
-docker-client-latest \
-docker-common \
-docker-latest \
-docker-latest-logrotate \
-docker-logrotate \
-docker-engine
+```shell
+sudo apt update       # 更新软件包索引
+sudo apt upgrade      # 更新已安装的包，不删除或安装额外包
+sudo apt full-upgrade # 允许添加、删除包以完成升级
 ```
 
-- 安装需要的软件包，使用命令：
+- 在安装 Docker Engine 之前，需要卸载任何冲突的软件包。
 
-```bash
-yum install -y yum-utils
+> 您的 Linux 发行版可能提供非官方的 Docker 软件包，这可能会发生冲突 使用 Docker 提供的官方软件包。您必须卸载这些软件包 在安装 Docker Engine
+> 正式版之前。
+
+```shell
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
 
-- 设置镜像仓库，使用命令：
+- 使用存储库安装
 
-```bash
-yum-config-manager \
---add-repo \
-https://download.docker.com/linux/centos/docker-ce.repo
+> 在新主机上首次安装 Docker Engine 之前，需要设置 Docker 存储库。之后，您可以安装和更新存储库中的 Docker。
+
+```shell
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 ```
 
-- 安装 Docker 引擎，使用命令：
+- 安装 Docker 软件包
 
-```bash
-yum install docker-ce docker-ce-cli containerd.io
+> 安装最新版本
+
+```shell
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-- 启动 Docker 服务，使用命令：
+> 安装特定版本
 
-```bash
-systemctl start docker
-```
+```shell
+# List the available versions:
+apt-cache madison docker-ce | awk '{ print $3 }'
 
-- 验证 Docker 是否安装成功，使用命令：
-
-```bash
-docker run hello-world
-```
-
-如果看到类似以下的输出，说明 Docker 已经成功安装并运行：
-
-```bash
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
+5:28.3.1-1~ubuntu.24.04~noble
+5:28.3.0-1~ubuntu.24.04~noble
 ...
 ```
 
-## Docker 卸载
-
-> 要彻底移除服务器上与 Docker 相关的所有内容，包括 Docker 相关的软件包、配置文件、容器、镜像和网络配置，你可以按照以下步骤操作。
-
-1. 停止 Docker 服务
-
-> 首先，确保 Docker 服务已停止：
+- 验证安装是否成功
 
 ```shell
-sudo systemctl stop docker
+sudo docker run hello-world
 ```
 
-2. 卸载 Docker
+## 以非 root 用户身份管理 Docker
 
-> 卸载 Docker 及其相关的软件包：
+- 创建组
 
 ```shell
-sudo apt-get purge -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo groupadd docker
 ```
 
-3. 删除 Docker 的相关数据
+- 将您的用户添加到组
 
-> 删除 Docker 的所有数据，包括容器、镜像、网络和卷：
+```shell
+sudo usermod -aG docker $USER
+```
+
+- 注销并重新登录或者激活对组的更改,以便重新评估群组成员资格
+
+```shell
+newgrp docker
+```
+
+- 验证是否可以在没有组内
+
+```shell
+docker run hello-world
+```
+
+## 卸载 Docker Engine
+
+1. 卸载 Docker Engine、CLI、containerd 和 Docker Compose 软件包:
+
+```shell
+sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+```
+
+2. 主机上的映像、容器、卷或自定义配置文件 不会自动删除。要删除所有镜像、容器和卷，请执行以下作：
 
 ```shell
 sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
 ```
 
-4. 删除 Docker 的配置文件
-   > 删除 Docker 的配置文件目录：
+3. 删除源列表和密钥环
 
 ```shell
-sudo rm -rf /etc/docker
-sudo rm -rf /etc/systemd/system/docker.service
-sudo rm -rf /etc/systemd/system/docker.socket
+sudo rm /etc/apt/sources.list.d/docker.list
+sudo rm /etc/apt/keyrings/docker.asc
 ```
-
-5. 删除 Docker 组
-
-> 如果不再需要 Docker 用户组，可以将其删除：
-
-```shell
-sudo groupdel docker
-```
-
-6. 清理未使用的依赖
-   如果 Docker 安装过程中拉取了额外的依赖包，可以通过以下命令清理未使用的依赖包：
-
-```shell
-sudo apt-get autoremove -y
-sudo apt-get autoclean
-```
-
-7. 检查和清理残留文件
-
-> 为了确保所有与 Docker 相关的内容都已被移除，可以手动检查以下目录并删除与 Docker 相关的残留文件（如果有）：
-
-> 用户主目录下的 .docker 目录：
-
-```shell
-rm -rf /root/.docker
-```
-
-> 系统日志中可能残留的 Docker 日志：
-
-```shell
-sudo rm -rf /var/log/docker*
-```
-
-8. 重启服务器（可选）
-   为了确保所有更改生效，重启服务器是一个安全的选择：
-
-```shell
-sudo reboot
-```
-
-通过以上步骤，你可以彻底移除服务器上与 Docker 相关的所有内容。如果以后需要重新安装 Docker，确保你从头开始配置镜像源和 Docker 设置。
 
 ## Docker 的基本组成
 
@@ -174,7 +152,7 @@ Docker 的常用命令可以分为以下几类：
 
 - `docker run`：创建并启动一个容器，可以指定镜像、名称、端口映射、环境变量、挂载数据卷等参数。例如：
 
-```bash
+```shell
 docker run -it --name mycontainer -p 8080:80 -e MYVAR=hello -v /data:/data myimage
 ```
 
@@ -183,7 +161,7 @@ hello，将主机的 /data 目录挂载到容器的 /data 目录。
 
 - `docker start`：启动一个已经创建的容器，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker start mycontainer
 ```
 
@@ -191,7 +169,7 @@ docker start mycontainer
 
 - `docker stop`：停止一个正在运行的容器，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker stop mycontainer
 ```
 
@@ -199,7 +177,7 @@ docker stop mycontainer
 
 - `docker restart`：重启一个容器，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker restart mycontainer
 ```
 
@@ -207,7 +185,7 @@ docker restart mycontainer
 
 - `docker kill`：强制停止一个容器，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker kill mycontainer
 ```
 
@@ -215,7 +193,7 @@ docker kill mycontainer
 
 - `docker rm`：删除一个已经停止的容器，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker rm mycontainer
 ```
 
@@ -223,7 +201,7 @@ docker rm mycontainer
 
 - `docker pause`：暂停一个容器的所有进程，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker pause mycontainer
 ```
 
@@ -231,7 +209,7 @@ docker pause mycontainer
 
 - `docker unpause`：恢复一个暂停的容器的所有进程，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker unpause mycontainer
 ```
 
@@ -239,7 +217,7 @@ docker unpause mycontainer
 
 - `docker create`：创建一个容器，但不启动它，可以指定镜像、名称、端口映射、环境变量、挂载数据卷等参数。例如：
 
-```bash
+```shell
 docker create -it --name mycontainer -p 8080:80 -e MYVAR=hello -v /data:/data myimage
 ```
 
@@ -248,17 +226,17 @@ hello，将主机的 /data 目录挂载到容器的 /data 目录。
 
 - `docker exec`：在一个运行的容器中执行一个命令，可以指定容器的 ID 或者名称。例如：
 
-```bash
-docker exec -it mycontainer bash
+```shell
+docker exec -it mycontainer shell
 ```
 
-这个命令会在名为 mycontainer 的容器中执行 bash 命令，进入交互模式。
+这个命令会在名为 mycontainer 的容器中执行 shell 命令，进入交互模式。
 
 ### 容器操作
 
 - `docker ps`：查看当前运行的容器，可以指定 -a 参数查看所有的容器，包括已经停止的。例如：
 
-```bash
+```shell
 docker ps -a
 ```
 
@@ -266,7 +244,7 @@ docker ps -a
 
 - `docker inspect`：查看一个容器的详细信息，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker inspect mycontainer
 ```
 
@@ -274,7 +252,7 @@ docker inspect mycontainer
 
 - `docker logs`：查看一个容器的日志，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker logs mycontainer
 ```
 
@@ -282,7 +260,7 @@ docker logs mycontainer
 
 - `docker top`：查看一个容器的进程信息，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker top mycontainer
 ```
 
@@ -290,7 +268,7 @@ docker top mycontainer
 
 - `docker stats`：查看一个或多个容器的资源使用情况，可以指定容器的 ID 或者名称，或者使用 -a 参数查看所有的容器。例如：
 
-```bash
+```shell
 docker stats mycontainer
 ```
 
@@ -298,7 +276,7 @@ docker stats mycontainer
 
 - `docker port`：查看一个容器的端口映射情况，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker port mycontainer
 ```
 
@@ -306,7 +284,7 @@ docker port mycontainer
 
 - `docker attach`：连接到一个正在运行的容器的标准输入、输出和错误流，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker attach mycontainer
 ```
 
@@ -316,7 +294,7 @@ docker attach mycontainer
 
 - `docker commit`：将一个容器的修改保存为一个新的镜像，可以指定容器的 ID 或者名称，以及新镜像的名称和标签。例如：
 
-```bash
+```shell
 docker commit mycontainer mynewimage:latest
 ```
 
@@ -324,7 +302,7 @@ docker commit mycontainer mynewimage:latest
 
 - `docker cp`：将一个容器的文件或目录复制到主机，或者将主机的文件或目录复制到容器，可以指定容器的 ID 或者名称，以及源和目标的路径。例如：
 
-```bash
+```shell
 docker cp mycontainer:/etc/hosts /tmp/hosts
 ```
 
@@ -332,7 +310,7 @@ docker cp mycontainer:/etc/hosts /tmp/hosts
 
 - `docker diff`：查看一个容器的文件系统的变化，可以指定容器的 ID 或者名称。例如：
 
-```bash
+```shell
 docker diff mycontainer
 ```
 
@@ -342,7 +320,7 @@ docker diff mycontainer
 
 - `docker login`：登录到一个镜像仓库，可以指定仓库的地址、用户名和密码。例如：
 
-```bash
+```shell
 docker login registry.example.com -u username -p password
 ```
 
@@ -350,7 +328,7 @@ docker login registry.example.com -u username -p password
 
 - `docker logout`：登出一个镜像仓库，可以指定仓库的地址。例如：
 
-```bash
+```shell
 docker logout registry.example.com
 ```
 
@@ -358,7 +336,7 @@ docker logout registry.example.com
 
 - `docker pull`：从一个镜像仓库拉取一个镜像，可以指定仓库的地址、镜像的名称和标签。例如：
 
-```bash
+```shell
 docker pull registry.example.com/myimage:latest
 ```
 
@@ -366,7 +344,7 @@ docker pull registry.example.com/myimage:latest
 
 - `docker push`：将一个镜像推送到一个镜像仓库，可以指定仓库的地址、镜像的名称和标签。例如：
 
-```bash
+```shell
 docker push registry.example.com/myimage:latest
 ```
 
@@ -374,7 +352,7 @@ docker push registry.example.com/myimage:latest
 
 - `docker search`：在一个镜像仓库中搜索一个镜像，可以指定仓库的地址、镜像的名称和过滤条件。例如：
 
-```bash
+```shell
 docker search registry.example.com/myimage --filter stars=3
 ```
 
@@ -384,7 +362,7 @@ docker search registry.example.com/myimage --filter stars=3
 
 - `docker images`：查看本地的镜像，可以指定镜像的名称和标签。例如：
 
-```bash
+```shell
 docker images myimage:latest
 ```
 
@@ -392,7 +370,7 @@ docker images myimage:latest
 
 - `docker rmi`：删除本地的一个或多个镜像，可以指定镜像的 ID 或者名称和标签。例如：
 
-```bash
+```shell
 docker rmi myimage:latest
 ```
 
@@ -400,7 +378,7 @@ docker rmi myimage:latest
 
 - `docker build`：根据 Dockerfile 构建一个镜像，可以指定 Dockerfile 的路径和新镜像的名称和标签。例如：
 
-```bash
+```shell
 docker build -t myimage:latest .
 ```
 
@@ -408,7 +386,7 @@ docker build -t myimage:latest .
 
 - `docker history`：查看一个镜像的历史记录，可以指定镜像的 ID 或者名称和标签。例如：
 
-```bash
+```shell
 docker history myimage:latest
 ```
 
@@ -416,7 +394,7 @@ docker history myimage:latest
 
 - `docker tag`：给一个镜像添加一个新的标签，可以指定镜像的 ID 或者名称和标签，以及新的名称和标签。例如：
 
-```bash
+```shell
 docker tag myimage:latest myimage:v1.0
 ```
 
@@ -424,7 +402,7 @@ docker tag myimage:latest myimage:v1.0
 
 - `docker save`：将一个镜像保存为一个 tar 文件，可以指定镜像的 ID 或者名称和标签，以及文件的路径。例如：
 
-```bash
+```shell
 docker save myimage:latest -o myimage.tar
 ```
 
@@ -432,7 +410,7 @@ docker save myimage:latest -o myimage.tar
 
 - `docker load`：从一个 tar 文件加载一个镜像，可以指定文件的路径。例如：
 
-```bash
+```shell
 docker load -i myimage.tar
 ```
 
@@ -440,7 +418,7 @@ docker load -i myimage.tar
 
 - `docker import`：从一个文件或 URL 导入一个镜像，可以指定文件或 URL 的路径，以及新镜像的名称和标签。例如：
 
-```bash
+```shell
 docker import http://example.com/myimage.tar myimage:latest
 ```
 
@@ -455,7 +433,7 @@ Docker 的常用命令（续）
 
 - `docker network create`：创建一个自定义的网络，可以指定网络的名称、驱动、子网等参数。例如：
 
-```bash
+```shell
 docker network create --driver bridge --subnet 172.18.0.0/16 mynetwork
 ```
 
@@ -463,7 +441,7 @@ docker network create --driver bridge --subnet 172.18.0.0/16 mynetwork
 
 - `docker network rm`：删除一个网络，可以指定网络的 ID 或者名称。例如：
 
-```bash
+```shell
 docker network rm mynetwork
 ```
 
@@ -471,7 +449,7 @@ docker network rm mynetwork
 
 - `docker network ls`：查看本地的网络，可以指定 -f 参数过滤网络。例如：
 
-```bash
+```shell
 docker network ls -f driver=bridge
 ```
 
@@ -479,7 +457,7 @@ docker network ls -f driver=bridge
 
 - `docker network inspect`：查看一个网络的详细信息，可以指定网络的 ID 或者名称。例如：
 
-```bash
+```shell
 docker network inspect mynetwork
 ```
 
@@ -487,7 +465,7 @@ docker network inspect mynetwork
 
 - `docker network connect`：将一个容器连接到一个网络，可以指定容器的 ID 或者名称，以及网络的 ID 或者名称。例如：
 
-```bash
+```shell
 docker network connect mynetwork mycontainer
 ```
 
@@ -495,7 +473,7 @@ docker network connect mynetwork mycontainer
 
 - `docker network disconnect`：将一个容器从一个网络断开，可以指定容器的 ID 或者名称，以及网络的 ID 或者名称。例如：
 
-```bash
+```shell
 docker network disconnect mynetwork mycontainer
 ```
 
@@ -505,7 +483,7 @@ docker network disconnect mynetwork mycontainer
 
 - `docker volume create`：创建一个数据卷，可以指定数据卷的名称、驱动、标签等参数。例如：
 
-```bash
+```shell
 docker volume create --name myvolume --driver local --label backup=yes
 ```
 
@@ -513,7 +491,7 @@ docker volume create --name myvolume --driver local --label backup=yes
 
 - `docker volume rm`：删除一个数据卷，可以指定数据卷的 ID 或者名称。例如：
 
-```bash
+```shell
 docker volume rm myvolume
 ```
 
@@ -521,7 +499,7 @@ docker volume rm myvolume
 
 - `docker volume ls`：查看本地的数据卷，可以指定 -f 参数过滤数据卷。例如：
 
-```bash
+```shell
 docker volume ls -f driver=local
 ```
 
@@ -529,7 +507,7 @@ docker volume ls -f driver=local
 
 - `docker volume inspect`：查看一个数据卷的详细信息，可以指定数据卷的 ID 或者名称。例如：
 
-```bash
+```shell
 docker volume inspect myvolume
 ```
 
@@ -537,13 +515,13 @@ docker volume inspect myvolume
 
 - `docker volume prune`：删除所有未使用的数据卷，可以指定 -f 参数强制删除。例如：
 
-```bash
+```shell
 docker volume prune -f
 ```
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                                          * Docker 开启远程TCP连接
+##                                                                                                                * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 
@@ -830,7 +808,7 @@ docker run \
 5. 开启web控制台
 
 ```shell
-docker exec -it rabbitmq bash
+docker exec -it rabbitmq shell
 rabbitmq-plugins enable rabbitmq_management
 ```
 
@@ -896,7 +874,7 @@ docker run --name nacos -p 8848:8848 -p 9848:9848 -e JVM_XMS=256m -e JVM_XMX=256
 4. 进入nacos容器，进入conf目录
 
 ```shell
-docker exec -it nacos bash
+docker exec -it nacos shell
 ```
 
 ```shell
@@ -1039,7 +1017,7 @@ docker ps
 
 ```shell
 # 进入容器
-docker exec -it elasticsearch /bin/bash
+docker exec -it elasticsearch /bin/shell
 # 关闭安全验证
 echo 'xpack.security.enabled: false' >> config/elasticsearch.yml
 ## 开启安全注册
@@ -1065,7 +1043,7 @@ bin/elasticsearch-create-enrollment-token --scope kibana
 
 ```shell
 # 进入kibana容器中
-docker exec -it kibana /bin/bash
+docker exec -it kibana /bin/shell
 # 执行生成验证码命令
 bin/kibana-verification-code 
 # 获得的验证码输入之前页面中
@@ -1076,7 +1054,7 @@ Your verification code is: 788 373
 
 ```shell
 # 进入elastic容器中
-docker exec -it elasticsearch /bin/bash
+docker exec -it elasticsearch /bin/shell
 # 重置密码
 bin/elasticsearch-reset-password --username elastic -i
 ```

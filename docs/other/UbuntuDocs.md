@@ -3,7 +3,10 @@ layout: doc
 sidebar: false
 ---
 
-## WSL2全局配置文件
+# Clash
+
+
+# WSL2全局配置文件
 
 ```shell
 [wsl2]
@@ -47,7 +50,7 @@ sparseVhd=false
 
 ```
 
-## MySQL
+# MySQL
 
 ### 1、安装
 
@@ -253,7 +256,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'x.x.x.x' WITH GRANT OPTION;
 ```
 
-## Redis
+# Redis
 
 ### 1、安装
 
@@ -479,7 +482,7 @@ dpkg -l | grep redis
 
 ### 2、卸载
 
-## Nacos
+# Nacos
 
 ### 1、安装
 

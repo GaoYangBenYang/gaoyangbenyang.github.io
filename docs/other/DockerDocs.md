@@ -3,12 +3,12 @@ layout: doc
 sidebar: false
 ---
 
-# Docker简介
+## Docker简介
 
 Docker 是一种开源的应用容器引擎，它可以让开发者将应用程序和依赖打包到一个轻量级、可移植的容器中，然后在任何流行的 Linux 机器上运行，实现虚拟化。Docker
 的优点包括快速交付、响应式部署、高效的资源利用和跨平台的兼容性。本文将介绍 Docker 的基本使用和常用命令。
 
-## 安装 Docker (Install Docker Engine on Ubuntu)
+### 安装 Docker (Install Docker Engine on Ubuntu)
 
 Docker 支持多种 Linux 发行版，如 CentOS、Ubuntu、Debian 等。Ubuntu 安装 Docker 的步骤如下：
 
@@ -74,7 +74,7 @@ apt-cache madison docker-ce | awk '{ print $3 }'
 sudo docker run hello-world
 ```
 
-## 以非 root 用户身份管理 Docker
+### 以非 root 用户身份管理 Docker
 
 - 创建组
 
@@ -100,7 +100,7 @@ newgrp docker
 docker run hello-world
 ```
 
-## 卸载 Docker Engine
+### 卸载 Docker Engine
 
 1. 卸载 Docker Engine、CLI、containerd 和 Docker Compose 软件包:
 
@@ -122,7 +122,7 @@ sudo rm /etc/apt/sources.list.d/docker.list
 sudo rm /etc/apt/keyrings/docker.asc
 ```
 
-## Docker 的基本组成
+### Docker 的基本组成
 
 Docker 的基本组成包括三个部分：镜像（Image）、容器（Container）和仓库（Repository）。
 
@@ -132,7 +132,7 @@ Docker 的基本组成包括三个部分：镜像（Image）、容器（Containe
 - 仓库（Repository）：Docker 仓库是一个存放镜像的地方，可以是公有的，也可以是私有的。Docker Hub
   是一个公有的仓库，任何人都可以上传和下载镜像。也可以使用阿里云、腾讯云等提供的私有仓库服务，或者自己搭建私有仓库。
 
-## Docker 的常用命令
+### Docker 的常用命令
 
 Docker 的常用命令可以分为以下几类：
 

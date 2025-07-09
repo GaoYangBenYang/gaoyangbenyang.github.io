@@ -99,6 +99,8 @@ export http_proxy=http://127.0.0.1:7890
 export https_proxy=http://127.0.0.1:7890
 # 设置 SOCKS5（可选，如果用 curl 或 git 支持 socks）
 export all_proxy=socks5h://127.0.0.1:7891
+# 忽略代理(minikube)
+export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24,192.168.39.0/24
 ```
 
 > 保存后运行：

@@ -94,6 +94,50 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
+- 使用 systemd 将 Docker 配置为在启动时启动
+
+```shell
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+```
+
+> 要停止此行为，请改用。disable
+
+```shell
+sudo systemctl disable docker.service
+sudo systemctl disable containerd.service
+```
+
+- 配置 Docker 守护进程代理
+
+1. 编辑或新建 Docker systemd 配置文件
+
+```shell
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+
+2. 在文件中添加代理配置（根据你的代理地址替换）
+
+```shell
+#[Service]
+#Environment="HTTP_PROXY=http://你的代理地址:端口/"
+#Environment="HTTPS_PROXY=http://你的代理地址:端口/"
+#Environment="NO_PROXY=localhost,127.0.0.1"
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:7890/"
+Environment="HTTPS_PROXY=http://127.0.0.1:7890/"
+Environment="NO_PROXY=localhost,127.0.0.1"
+```
+
+3. 重载 systemd 配置，重启 docker
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+
 - 验证是否可以在没有组内
 
 ```shell
@@ -521,7 +565,7 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                                                * Docker 开启远程TCP连接
+##                                                                                                                  * Docker 开启远程TCP连接
 
 ### *.1 修改docker.service配置文件
 

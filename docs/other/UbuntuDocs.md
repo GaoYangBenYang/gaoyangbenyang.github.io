@@ -3,10 +3,133 @@ layout: doc
 sidebar: false
 ---
 
-# Clash
+## Clash配置
 
+1. 在用户目录下创建 clash 文件夹,下载适合的 Clash 二进制文件，解压:
 
-# WSL2全局配置文件
+   > [下载适合的 Clash 二进制文件](https://github.com/DustinWin/proxy-tools/releases/tag/Clash-Premium)
+
+   ```shell
+   # 创建文件夹
+   mkdir ~/clash
+   # 切换工作目录
+   cd ~/clash
+   # 解压
+   tar -xzf clashpremium-release-linux-amd64.tar.gz
+   ```
+
+2. 创建 Clash 配置文件:
+
+> 在终端 cd 到 Clash 二进制文件所在的目录
+
+```shell
+wget -O config.yaml "https://i473q.no-mad-world.club/link/RiWfPJ9sqgeEX7TH?clash=3"
+```
+
+> 执行 ./CrashCore -d . 即可启动 Clash，同时启动 HTTP 代理和 Socks5 代理。
+
+3. 配置 Clash 为 systemd 服务（用户级）
+
+```shell
+# 创建文件
+sudo nano /etc/systemd/system/clash@gaoyang.service
+# clash@gaoyang.service配置文件
+[Unit]
+Description=Clash for user %i
+After=network.target
+
+[Service]
+User=%i
+ExecStart=/home/%i/clash/CrashCore -d /home/%i/clash
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=default.target
+```
+
+* Ctrl + O 保存, 回车,Ctrl + X 退出
+
+> ✅ 注意：
+
+> 请确保路径 /home/gaoyang/clash/CrashCore 是解压后的二进制文件路径。
+
+> -d 指定配置文件目录，里面需包含 config.yaml
+
+4. 启动并设置为开机自动启动（用户级）
+
+> 切换 root 授予指定用户 sudo 权限：
+
+```shell
+sudo usermod -aG sudo gaoyang
+```
+
+```shell
+# 启动 Clash
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable clash@gaoyang
+sudo systemctl start clash@gaoyang
+```
+
+5. 确认 Clash 是否运行成功
+
+```shell
+sudo systemctl status clash@gaoyang
+```
+
+6. 配置防火墙和本地代理（默认监听端口）
+
+> Clash 默认监听：
+
+> HTTP 代理端口：7890
+
+> SOCKS5 代理端口：7891
+
+> REST API 端口：9090
+
+设置代理环境变量（HTTP + SOCKS5)
+
+> 编辑你当前用户的 ~/.bashrc
+
+```shell
+# 设置 HTTP/HTTPS 代理
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+# 设置 SOCKS5（可选，如果用 curl 或 git 支持 socks）
+export all_proxy=socks5h://127.0.0.1:7891
+```
+
+> 保存后运行：
+
+```shell
+source ~/.bashrc
+```
+
+7. 配置 Web 控制面板（yacd）
+
+   > [下载yacd预编译压缩文件](https://github.com/haishanh/yacd/releases/download/v0.3.8/yacd.tar.xz)
+
+   ```shell
+   # 创建文件
+   mkdir -p ~/clash/ui
+   # 切换工作目录
+   cd ~/clash/ui
+   # 解压
+   tar -xf yacd.tar.xz
+   ```
+
+> 编辑 config.yaml 加上：
+
+```yaml
+external-ui: /home/gaoyang/clash/ui
+# 允许任意源访问
+external-controller: 0.0.0.0:9090
+secret: "xxx密码"
+```
+
+## WSL2全局配置文件
 
 ```shell
 [wsl2]

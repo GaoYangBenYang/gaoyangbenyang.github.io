@@ -35,11 +35,57 @@ Istio 支持两种数据平面模式：
 
 #### 2.1.1 创建 Kind 集群
 
+1. 创建一个名为 istio-cluster 的集群：
+
 ```shell
-kind create cluster --name istio-testing
+kind create cluster --name istio-cluster
 ```
 
 > --name 用于为集群指定一个名字。默认情况下，该集群将会名为 kind。
+
+2. 创建一个名为 istio-cluster 的集群，并使用 kind-config.yaml 文件作为配置文件：
+
+> 当 Kind 创建 Kubernetes 集群（本质上是一组 Docker 容器）时，为 集群内的 containerd（容器运行时）配置代理和镜像源
+
+创建kind-config.yaml 文件：
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+   - role: control-plane
+     extraMounts:
+        - hostPath: ./certs.d
+          containerPath: /etc/containerd/certs.d
+   - role: worker
+     extraMounts:
+        - hostPath: ./certs.d
+          containerPath: /etc/containerd/certs.d
+containerdConfigPatches:
+   - |-
+      [plugins."io.containerd.grpc.v1.cri".registry]
+        config_path = "/etc/containerd/certs.d"
+```
+
+宿主机上新建目录并放置配置文件
+```yaml
+mkdir -p certs.d/docker.io
+vim certs.d/docker.io/hosts.toml
+```
+
+内容如下：
+```yaml
+server = "https://registry-1.docker.io"
+[host."https://registry-1.docker.io"]
+  capabilities = ["pull", "resolve"]
+  [host."https://registry-1.docker.io".proxy]
+    http = "http://172.17.0.1:7890"
+    https = "http://172.17.0.1:7890"
+    no_proxy = "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/16,172.17.0.0/16,*.svc"
+```
+```shell
+kind create cluster --name istio-cluster --config=kind-config.yaml
+```
 
 #### 2.1.2 为 kind 设置操作界面
 

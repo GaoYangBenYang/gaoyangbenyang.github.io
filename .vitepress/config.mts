@@ -194,6 +194,10 @@ export default defineConfig({
                                 {
                                     text: "Kubernetes Docs",
                                     link: "/docs/other/KubernetesDocs"
+                                },
+                                {
+                                    text: "Istio Docs",
+                                    link: "/docs/other/IstioDocs"
                                 }
                             ]
                         },

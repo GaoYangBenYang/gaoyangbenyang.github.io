@@ -343,7 +343,7 @@ export default defineConfig({
         returnToTopLabel: "返回顶部",
         //大纲显示2-3级标题
         outline: {
-            level: [2, 3],
+            level: [2, 4],
             label: "目录"
         },
         //自定义上下页名

@@ -46,12 +46,12 @@ Kubernetes 命令行工具 kubectl， 让你可以对 Kubernetes 集群运行命
 
 ### 2.2 Kind
 
-### 2.2.1 概述
+#### 2.2.1 概述
 
 kind (Kubernetes In Docker) 是一个使用 Docker 容器“节点”运行本地 Kubernetes 集群的工具。
 kind 主要设计用于测试 Kubernetes 本身，但也可用于本地开发或 CI。
 
-### 2.2.2 安装
+#### 2.2.2 安装
 
 1. Linux (二进制文件)
     ```shell
@@ -81,7 +81,7 @@ kind 主要设计用于测试 Kubernetes 本身，但也可用于本地开发或
     kind --version
     ```
 
-### 2.2.3 基本命令
+#### 2.2.3 基本命令
 
 1. 创建集群
 

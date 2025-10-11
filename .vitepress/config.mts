@@ -172,6 +172,39 @@ export default defineConfig({
                     ]
             },
             {
+                text: "Containerization",
+                items:
+                    [
+                        {
+                            text: "Docker",
+                            items: [
+                                {
+                                    text: "Docker Docs",
+                                    link: "/docs/other/DockerDocs"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Kubernetes",
+                            items: [
+                                {
+                                    text: "Kubernetes Docs",
+                                    link: "/docs/other/KubernetesDocs"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Istio",
+                            items: [
+                                {
+                                    text: "Istio Docs",
+                                    link: "/docs/other/IstioDocs"
+                                }
+                            ]
+                        }
+                    ]
+            },
+            {
                 text: "Other",
                 items:
                     [
@@ -181,23 +214,6 @@ export default defineConfig({
                                 {
                                     text: "Ubuntu Docs",
                                     link: "/docs/other/UbuntuDocs"
-                                }
-                            ]
-                        },
-                        {
-                            text: "Containerization",
-                            items: [
-                                {
-                                    text: "Docker Docs",
-                                    link: "/docs/other/DockerDocs"
-                                },
-                                {
-                                    text: "Kubernetes Docs",
-                                    link: "/docs/other/KubernetesDocs"
-                                },
-                                {
-                                    text: "Istio Docs",
-                                    link: "/docs/other/IstioDocs"
                                 }
                             ]
                         },

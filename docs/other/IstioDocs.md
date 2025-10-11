@@ -84,7 +84,7 @@ server = "https://registry-1.docker.io"
     no_proxy = "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/16,172.17.0.0/16,*.svc"
 ```
 ```shell
-kind create cluster --name istio-cluster --config=kind-config.yaml
+kind create cluster --name istio-cluster --config kind-config.yaml
 ```
 
 #### 2.1.2 为 kind 设置操作界面

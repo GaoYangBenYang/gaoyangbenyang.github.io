@@ -15,15 +15,15 @@ export default defineConfig({
         // 导航栏
         nav: [
             {
-                text: "React",
+                text: "Vue",
                 items:
                     [
                         {
                             text: "Docs",
                             items: [
                                 {
-                                    text: "React Docs",
-                                    link: "/docs/react/ReactDocs"
+                                    text: "Vue Docs",
+                                    link: "/docs/vue/VueDocs"
                                 }
                             ]
                         },
@@ -32,7 +32,7 @@ export default defineConfig({
                             items: [
                                 {
                                     text: "TypeScript Docs",
-                                    link: "/docs/react/TypeScriptDocs"
+                                    link: "/docs/vue/TypeScriptDocs"
                                 }
                             ]
                         }

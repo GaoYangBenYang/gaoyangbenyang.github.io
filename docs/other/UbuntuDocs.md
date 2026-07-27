@@ -7,40 +7,46 @@ sidebar: false
 
 1. 在用户目录下创建 clash 文件夹,下载适合的 Clash 二进制文件，解压:
 
-   > [下载适合的 Clash 二进制文件](https://github.com/DustinWin/proxy-tools/releases/tag/Clash-Premium)
+```shell
+# 创建文件夹
+mkdir ~/clash
+# 切换工作目录
+cd ~/clash
+```
 
-   ```shell
-   # 创建文件夹
-   mkdir ~/clash
-   # 切换工作目录
-   cd ~/clash
-   # 解压
-   tar -xzf clashpremium-release-linux-amd64.tar.gz
-   ```
+2. 执行以下命令下载 Clash 二进制文件：
 
-2. 创建 Clash 配置文件:
+```shell
+mkdir ~/clash; cd ~/clash;
+wget "https://client.files-2.eakpfo.cn/file/ikuuu-static-release/clash-linux/clash-linux-1.0.1/clash-linux-amd64.gz" -O clash-linux-amd64.gz;
+gzip -d clash-linux-amd64.gz;
+mv clash-linux-amd64 clash;
+chmod +x clash;
+```
+
+3. 创建 Clash 配置文件:
 
 > 在终端 cd 到 Clash 二进制文件所在的目录
 
 ```shell
-wget -O config.yaml "https://i473q.no-mad-world.club/link/RiWfPJ9sqgeEX7TH?clash=3"
+wget -O config.yaml "https://zmygb.no-mad-sub.one/link/anEWYEPccmWq7QzL?clash=3"
 ```
 
-> 执行 ./CrashCore -d . 即可启动 Clash，同时启动 HTTP 代理和 Socks5 代理。
+> 执行 ./crash -d . 即可启动 Clash，同时启动 HTTP 代理和 Socks5 代理。
 
-3. 配置 Clash 为 systemd 服务（用户级）
+4. 配置 Clash 为 systemd 服务（用户级）
 
 ```shell
 # 创建文件
-sudo nano /etc/systemd/system/clash@gaoyang.service
-# clash@gaoyang.service配置文件
+sudo nano /etc/systemd/system/clash@<用户名>.service
+# clash@<用户名>.service配置文件
 [Unit]
 Description=Clash for user %i
 After=network.target
 
 [Service]
 User=%i
-ExecStart=/home/%i/clash/CrashCore -d /home/%i/clash
+ExecStart=/home/%i/clash/crash -d /home/%i/clash
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=1048576
@@ -53,33 +59,33 @@ WantedBy=default.target
 
 > ✅ 注意：
 
-> 请确保路径 /home/gaoyang/clash/CrashCore 是解压后的二进制文件路径。
+> 请确保路径 /home/<用户名>/clash/crash 是二进制文件路径。
 
 > -d 指定配置文件目录，里面需包含 config.yaml
 
-4. 启动并设置为开机自动启动（用户级）
+5. 启动并设置为开机自动启动（用户级）
 
 > 切换 root 授予指定用户 sudo 权限：
 
 ```shell
-sudo usermod -aG sudo gaoyang
+sudo usermod -aG sudo <用户名>
 ```
 
 ```shell
 # 启动 Clash
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
-sudo systemctl enable clash@gaoyang
-sudo systemctl start clash@gaoyang
+sudo systemctl enable clash@<用户名>
+sudo systemctl start clash@<用户名>
 ```
 
-5. 确认 Clash 是否运行成功
+6. 确认 Clash 是否运行成功
 
 ```shell
-sudo systemctl status clash@gaoyang
+sudo systemctl status clash@<用户名>
 ```
 
-6. 配置防火墙和本地代理（默认监听端口）
+7. 配置防火墙和本地代理（默认监听端口）
 
 > Clash 默认监听：
 
@@ -109,7 +115,7 @@ export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24
 source ~/.bashrc
 ```
 
-7. 配置 Web 控制面板（yacd）
+8. 配置 Web 控制面板（yacd）
 
    > [下载yacd预编译压缩文件](https://github.com/haishanh/yacd/releases/download/v0.3.8/yacd.tar.xz)
 
@@ -125,7 +131,7 @@ source ~/.bashrc
 > 编辑 config.yaml 加上：
 
 ```yaml
-external-ui: /home/gaoyang/clash/ui
+external-ui: /home/<用户名>/clash/ui
 # 允许任意源访问
 external-controller: 0.0.0.0:9090
 secret: "xxx密码"
@@ -175,7 +181,7 @@ sparseVhd=false
 
 ```
 
-# MySQL
+## MySQL
 
 ### 1、安装
 
@@ -381,7 +387,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'x.x.x.x' WITH GRANT OPTION;
 ```
 
-# Redis
+## Redis
 
 ### 1、安装
 
@@ -607,7 +613,7 @@ dpkg -l | grep redis
 
 ### 2、卸载
 
-# Nacos
+## Nacos
 
 ### 1、安装
 

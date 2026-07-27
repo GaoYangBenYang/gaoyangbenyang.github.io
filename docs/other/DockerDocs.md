@@ -137,7 +137,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-
 - 验证是否可以在没有组内
 
 ```shell
@@ -565,33 +564,33 @@ docker volume prune -f
 
 这个命令会删除所有未使用的数据卷，不需要确认。
 
-##                                                                                                                  * Docker 开启远程TCP连接
+##                                                                                                                            * Docker 开启远程TCP连接
 
-### *.1 修改docker.service配置文件
+### 1 修改docker.service配置文件
 
 ```shell
 sudo vim /lib/systemd/system/docker.service
 ```
 
-### *.2 修改ExecStart=xxxxxxxxx配置
+### 2 修改ExecStart=xxxxxxxxx配置
 
 > 在-H fd:// 后添加-H tcp://0.0.0.0:2375，然后保存退出0.0.0.0 是允许所有IP可访问，2375是默认端口，不是固定的，都可以按需修改
 
-### *.3 重载配置
+### 3 重载配置
 
 ```shell
 sudo systemctl daemon-reload          # 重新加载守护进程配置
 sudo systemctl restart docker			  # 重启 docker 服务
 ```
 
-### *.4 连接WSL环境下的Docker
+### 4 连接WSL环境下的Docker
 
 ```shell
 # ip addr看看wsl ip地址
 # 通过 wsl ip地址：2375进行tcp远程连接
 ```
 
-### *.5 启用 TCP 连接
+### 5 启用 TCP 连接
 
 ```shell
 sudo vim /etc/docker/daemon.json
@@ -607,7 +606,7 @@ sudo vim /etc/docker/daemon.json
 
 ```
 
-## *. WSL2环境中Docker代理配置
+## WSL2环境中Docker代理配置
 
 ### 1. WSL2.0开启本机代理
 
@@ -692,7 +691,7 @@ sudo systemctl status docker
 sudo docker pull hello-world
 ```
 
-## *. Docker镜像上传Github
+## Docker镜像上传Github
 
 1. 登录 :
 
@@ -738,14 +737,14 @@ sudo docker pull hello-world
     docker pull ghcr.io/OWNER/REPOSITORY(可不写)/IMAGE_NAME:TAG_NAME 
     ```
 
-## *. Docker 配置本地开发环境
+## Docker 开发环境配置
 
-### *.1 MySQL
+### MySQL
 
 1. 拉取官方镜像
 
 ```shell
-docker pull mysql       # 拉取最新版mysql镜像
+docker pull mysql:latest       # 拉取最新版mysql镜像
 ```
 
 2. 创建主机挂载文件
@@ -759,12 +758,14 @@ mkdir -p ~/mysql/{conf.d,logs,data}
 
 ```shell
 docker run \
-#指定端口映射，格式为：主机(宿主)端口:容器端口
--p 3306:3306 \
+# 指定容器名称
+--hostname mysql \
 #为容器指定一个名称
 --name mysql \
+#指定端口映射，格式为：主机(宿主)端口:容器端口
+-p 13306:3306 \
 #设置环境变量 root账户密码
--e MYSQL_ROOT_PASSWORD=123456 \
+-e MYSQL_ROOT_PASSWORD=root123456 \
 #将配置文件夹挂载到主机
 -v /root/mysql/conf.d:/etc/mysql/conf.d \
 #将日志文件夹挂载到主机
@@ -772,6 +773,21 @@ docker run \
 #将mysql储存文件夹挂载到主机
 -v /root/mysql/data:/var/lib/mysql \
 #后台运行容器，并返回容器ID
+-d mysql:latest
+# 容器重启时自动启动
+--restart always \
+```
+
+```shell
+docker run \
+--hostname mysql \
+--name mysql \
+-p 13306:3306 \
+-e MYSQL_ROOT_PASSWORD=root123456 \
+-v /root/mysql/conf.d:/etc/mysql/conf.d \
+-v /root/mysql/logs:/var/log/mysql \
+-v /root/mysql/data:/var/lib/mysql \
+--restart always \
 -d mysql:latest
 ```
 
@@ -781,12 +797,59 @@ docker run \
 docker ps
 ```
 
-### *.2 Redis
+## TimescaleDB
 
 1. 拉取官方镜像
 
 ```shell
-docker pull redis       # 拉取最新版redis镜像
+docker pull timescale/timescaledb:latest-pg18
+```
+
+2. 创建主机挂载文件
+
+```shell
+mkdir -p ~/timescale/{conf.d,logs,data}
+```
+
+3. 创建容器
+
+```shell
+docker run \
+--hostname timescale \
+--name timescale \
+-p 15432:5432 \
+-e POSTGRES_USER=root \
+-e POSTGRES_PASSWORD=root123456 \
+-v ~/timescale/conf.d:/etc/timescaledb/conf.d \
+-v ~/timescale/logs:/var/log/timescaledb \
+-v ~/timescale/data:/var/lib/postgresql \
+--restart always \
+-d timescale/timescaledb:latest-pg18
+```
+
+4. 检查容器是否正确运行
+
+```shell
+docker ps
+```
+
+5. 配置TimescaleDB
+
+```shell
+# 进入容器
+docker exec -it timescaledb
+# 进入数据库
+psql -U <用户名> 
+# 启用 TimescaleDB
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+```
+
+### Redis
+
+1. 拉取官方镜像
+
+```shell
+docker pull redis:latest       # 拉取最新版redis镜像
 ```
 
 2. 创建主机挂载文件
@@ -799,12 +862,33 @@ mkdir -p ~/redis/{conf,data}
 3. 创建容器
 
 ```shell
+# 启动容器
 docker run \
+# 容器名称
+--hostname redis \
+# 容器名称
 --name redis \
--p 6379:6379 \
--v /root/redis/data:/data \
--v /root/redis/conf:/etc/redis \
--d redis:latest
+# 端口映射
+-p 16379:6379 \
+# 挂载数据目录
+-v ~/redis/data:/data \
+# 挂载配置目录
+-v ~/redis/conf:/etc/redis \
+# 自动启动
+--restart always \
+# 启动redis 并且 指定密码
+-d redis:latest redis-server --requirepass root123456
+```
+
+```shell
+docker run \
+--hostname redis \
+--name redis \
+-p 16379:6379 \
+-v ~/redis/data:/data \
+-v ~/redis/conf:/etc/redis \
+--restart always \
+-d redis:latest redis-server --requirepass root123456
 ```
 
 4. 检查容器是否正确运行
@@ -813,9 +897,9 @@ docker run \
 docker ps
 ```
 
-### *.3 RabbitMQ
+### RabbitMQ
 
-1. 拉取官方镜像(包含web控制界面的)
+1. 拉取官方镜像
 
 ```shell
 docker pull rabbitmq:latest
@@ -831,38 +915,45 @@ mkdir -p ~/rabbitmq/{data,conf,log}
 3. 修改log目录权限
 
 ```shell
-sudo chmod 777 /root/rabbitmq/log
+sudo chmod 777 ~/rabbitmq/log
 ```
 
 4. 创建容器
 
 ```shell
 docker run \
+--hostname rabbitmq \
 --name rabbitmq \
 -p 5672:5672 \
 -p 15672:15672 \
--e RABBITMQ_DEFAULT_USER=admin \
--e RABBITMQ_DEFAULT_PASS=admin \
--v /root/rabbitmq/data:/var/lib/rabbitmq \
--v /root/rabbitmq/conf:/etc/rabbitmq \
--v /root/rabbitmq/log:/var/log/rabbitmq \
--d rabbitmq:3.9.29-management
+-p 61613:61613 \
+-e RABBITMQ_DEFAULT_USER=root \
+-e RABBITMQ_DEFAULT_PASS=root123456 \
+-v ~/rabbitmq/data:/var/lib/rabbitmq \
+-v ~/rabbitmq/conf:/etc/rabbitmq \
+-v ~/rabbitmq/log:/var/log/rabbitmq \
+--restart always \
+-d rabbitmq:latest
 ```
 
-5. 开启web控制台
-
-```shell
-docker exec -it rabbitmq shell
-rabbitmq-plugins enable rabbitmq_management
-```
-
-6. 检查容器是否正确运行
+5. 检查容器是否正确运行
 
 ```shell
 docker ps
 ```
 
-### *.4 Nacos
+6. 启动插件
+
+```shell
+# 进入容器
+docker exec -it rabbitmq shell
+# 启动rabbitmq_stomp插件
+rabbitmq-plugins enable rabbitmq_stomp
+# 启动rabbitmq_management插件
+rabbitmq-plugins enable rabbitmq_management
+```
+
+### Nacos
 
 1. 拉取官方镜像
 
@@ -943,7 +1034,7 @@ docker restart nacos
 docker ps
 ```
 
-### *.5 Sentinel
+### Sentinel
 
 1. 拉取官方镜像
 
@@ -965,140 +1056,4 @@ docker run \
 
 ```shell
 docker ps
-```
-
-### *.6 Elasticsearch(有问题，待处理)
-
-1. Elasticsearch简介
-
-   Elasticsearch是位于Elastic Stack核心的分布式搜索和分析引擎。
-
-   Logstash和Beats有助于收集、聚合和丰富数据，并将其存储在Elasticsearch中。
-
-   Kibana使您能够交互式地探索、可视化和共享对数据的见解，并管理和监视堆栈。
-
-   Elasticsearch是索引、搜索和分析魔术发生的地方。
-
-   Elasticsearch为所有类型的数据提供近乎实时的搜索和分析。无论您是结构化还是非结构化文本、数字数据还是地理空间数据，Elasticsearch都可以以一种支持快速搜索的方式有效地存储和索引它。您可以远远超出简单的数据检索和汇总信息，从而发现数据中的趋势和模式。随着数据和查询量的增长，Elasticsearch的分布式特性使您的部署能够无缝地随之增长。
-
-   虽然不是每个问题都是搜索问题，但Elasticsearch提供了在各种用例中处理数据的速度和灵活性:
-    * 在应用程序或网站中添加搜索框
-    * 存储和分析日志、度量和安全事件数据
-    * 使用机器学习实时自动模拟数据的行为
-    * 使用Elasticsearch作为矢量数据库来创建、存储和搜索矢量嵌入
-    * 使用Elasticsearch作为存储引擎自动化业务工作流
-    * 使用Elasticsearch作为地理信息系统(GIS)管理、整合和分析空间信息
-    * 使用Elasticsearch作为生物信息学研究工具存储和处理遗传数据
-
-   我们不断地被人们使用搜索的新奇方式所震撼。但是，无论您的用例与其中一个类似，还是您正在使用Elasticsearch来解决新问题，您在Elasticsearch中处理数据，文档和索引的方式都是相同的
-
-
-2. 单节点Elasticsearch集群安装
-    * 创建网络
-      ```shell
-      #保证Kibana容器和Elasticsearch容器在同一网络中实现互联
-      docker network create elastic
-      ```
-    * 下载官方镜像
-      ```shell
-      docker pull docker.elastic.co/elasticsearch/elasticsearch:8.11.3
-      ```
-    * 创建挂载文件
-      ```shell
-      # 创建目录 -p 递归创建
-      mkdir -p /root/elasticsearch/{data,plugins}
-      #修改权限
-      chmod 777 /root/elasticsearch/data
-      chmod 777 /root/elasticsearch/plugins
-      ```
-    * 启动容器，复制生成的密码和注册令牌，首次启动 Elasticsearch 时，生成的用户密码和 Kibana 注册令牌将输出到终端，记得保存。
-      ```shell
-      docker run 
-      --name elasticsearch 
-      --net elastic 
-      -p 9200:9200 
-      -p 9300:9300 
-      -e "discovery.type=single-node" 
-      -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      -v /root/elasticsearch/data:/usr/share/elasticsearch/data
-      -v /root/elasticsearch/plugins:/usr/share/elasticsearch/plugins
-      -d docker.elastic.co/elasticsearch/elasticsearch:8.11.3
-      ```
-    * 查看容器是否正常运行
-      ```shell
-      docker ps
-      ```
-3. Kibana(Elastic的用户界面)安装
-    * 下载官方镜像
-      ```shell
-      docker pull docker.elastic.co/kibana/kibana:8.11.3
-      ```
-    * 创建挂载文件
-      ```shell
-      # 创建目录 -p 递归创建
-      mkdir -p /root/kibana/{data,config}
-      #修改权限
-      chmod 777 /root/kibana/data
-      chmod 777 /root/kibana/config
-      ```
-    * 启动容器
-      ```shell
-      docker run
-      --name kibana 
-      --network elastic
-      -p 5601:5601 
-      -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      -v /root/kibana/data:/usr/share/kibana/data
-      -v /root/kibana/plugins:/usr/share/kibana/plugins
-      -d kibana:8.6.0
-      ```
-    * 查看容器是否正常运行
-      ```shell
-      docker ps
-      ```
-
-4. 生成登录kibana的令牌(有问题 第一次能出现 之后就报错)
-
-```shell
-# 进入容器
-docker exec -it elasticsearch /bin/shell
-# 关闭安全验证
-echo 'xpack.security.enabled: false' >> config/elasticsearch.yml
-## 开启安全注册
-echo 'xpack.security.enrollment.enabled: true' >> config/elasticsearch.yml
-## 开启transport SSL验证
-#echo 'xpack.security.transport.ssl.enabled: true' >> config/elasticsearch.yml
-#echo 'xpack.security.transport.ssl.verification_mode: certificate' >> config/elasticsearch.yml
-#echo 'xpack.security.transport.ssl.keystore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
-#echo 'xpack.security.transport.ssl.truststore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
-## 开启HTTP SSL验证
-echo 'xpack.security.http.ssl.enabled: true' >> config/elasticsearch.yml
-#echo 'xpack.security.http.ssl.keystore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
-#echo 'xpack.security.http.ssl.truststore.path: certs/elastic-certificates.p12' >> config/elasticsearch.yml
-#echo 'xpack.security.http.ssl.client_authentication: optional' >> config/elasticsearch.yml
-## 开启PKI 身份验证
-#echo 'xpack.security.authc.realms.pki.pki1.order: 1' >> config/elasticsearch.yml
-
-# 生成令牌 令牌有30分钟有效期
-bin/elasticsearch-create-enrollment-token --scope kibana
-```
-
-5.kibana验证
-
-```shell
-# 进入kibana容器中
-docker exec -it kibana /bin/shell
-# 执行生成验证码命令
-bin/kibana-verification-code 
-# 获得的验证码输入之前页面中
-Your verification code is: 788 373
-```
-
-6. 重置密码 登录elasticsearch
-
-```shell
-# 进入elastic容器中
-docker exec -it elasticsearch /bin/shell
-# 重置密码
-bin/elasticsearch-reset-password --username elastic -i
 ```

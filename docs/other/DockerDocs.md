@@ -833,7 +833,7 @@ docker run \
 docker ps
 ```
 
-5. 配置TimescaleDB
+5. 启动插件
 
 ```shell
 # 进入容器
@@ -842,6 +842,8 @@ docker exec -it timescaledb
 psql -U <用户名> 
 # 启用 TimescaleDB
 CREATE EXTENSION IF NOT EXISTS timescaledb;
+# 启动 pgvector
+CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
 ### Redis

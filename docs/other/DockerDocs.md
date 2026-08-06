@@ -839,7 +839,7 @@ docker ps
 # 进入容器
 docker exec -it timescaledb
 # 进入数据库
-psql -U <用户名> 
+psql -U <用户名> <数据库名>
 # 启用 TimescaleDB
 CREATE EXTENSION IF NOT EXISTS timescaledb;
 # 启动 pgvector

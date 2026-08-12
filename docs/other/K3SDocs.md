@@ -15,7 +15,7 @@ sidebar: false
 使用 Rancher 国内镜像安装脚本：
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -s - --docker
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -s
 ```
 
 安装完成后，可以检查 K3s 服务状态：

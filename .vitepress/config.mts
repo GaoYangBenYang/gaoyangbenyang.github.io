@@ -188,6 +188,10 @@ export default defineConfig({
                             text: "Kubernetes",
                             items: [
                                 {
+                                    text: "Headlamp Docs",
+                                    link: "/docs/other/HeadlampDocs"
+                                },
+                                {
                                     text: "Kubernetes Docs",
                                     link: "/docs/other/KubernetesDocs"
                                 },

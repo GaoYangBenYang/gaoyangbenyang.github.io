@@ -190,6 +190,10 @@ export default defineConfig({
                                 {
                                     text: "Kubernetes Docs",
                                     link: "/docs/other/KubernetesDocs"
+                                },
+                                {
+                                    text: "K3S Docs",
+                                    link: "/docs/other/K3SDocs"
                                 }
                             ]
                         },

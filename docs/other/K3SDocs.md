@@ -186,7 +186,9 @@ spec:
         - name: orca-client
           image: ghcr.io/用户名/orca-client:latest
           ports:
-            - containerPort: 5210
+            - name: http
+              containerPort: 80
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -194,12 +196,34 @@ metadata:
   name: orca-client
   namespace: default
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: orca-client
   ports:
-    - port: 5210
-      targetPort: 5210
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orca-client
+  namespace: default
+spec:
+  # 使用 K3s 默认 Traefik
+  ingressClassName: traefik
+  rules:
+    - http:
+        paths:
+          # 默认路径
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: orca-client
+                port:
+                  number: 80
 ```
 
 ### 4.2 orca-server.yaml
@@ -234,12 +258,32 @@ metadata:
   name: orca-server
   namespace: default
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: orca-server
   ports:
     - port: 5200
       targetPort: 5200
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orca-server
+  namespace: default
+spec:
+  # 使用 K3s 默认 Traefik
+  ingressClassName: traefik
+  rules:
+    - http:
+        paths:
+          # 默认路径
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: orca-server
+                port:
+                  number: 5200
 ```
 
 > 如果只是 `orca-client` 和 `orca-server` 在集群内部通信，建议使用 `ClusterIP`，而不是 `LoadBalancer`。只有需要从 Kubernetes 集群外部访问时，才需要考虑 `LoadBalancer` 或 `NodePort`。

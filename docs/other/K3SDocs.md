@@ -2,6 +2,7 @@
 layout: doc
 sidebar: false
 ---
+
 # K3s 国内环境部署与 GitHub Actions CI/CD 指南
 
 > 本文整理了一套基于 K3s + GHCR（GitHub Container Registry）+ GitHub Actions 的部署方案。
@@ -170,8 +171,8 @@ kubectl delete pod test
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orca-client
-  namespace: default
+  name: orca-client-deployment
+  namespace: orca
 spec:
   replicas: 1
   selector:
@@ -184,7 +185,7 @@ spec:
     spec:
       containers:
         - name: orca-client
-          image: ghcr.io/用户名/orca-client:latest
+          image: ghcr.io/gaoyangbenyang/orca-client:latest
           ports:
             - name: http
               containerPort: 80
@@ -193,8 +194,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: orca-client
-  namespace: default
+  name: orca-client-service
+  namespace: orca
 spec:
   type: ClusterIP
   selector:
@@ -208,8 +209,8 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: orca-client
-  namespace: default
+  name: orca-client-ingress
+  namespace: orca
 spec:
   # 使用 K3s 默认 Traefik
   ingressClassName: traefik
@@ -221,7 +222,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: orca-client
+                name: orca-client-service
                 port:
                   number: 80
 ```
@@ -234,8 +235,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orca-server
-  namespace: default
+  name: orca-server-deployment
+  namespace: orca
 spec:
   replicas: 1
   selector:
@@ -248,45 +249,158 @@ spec:
     spec:
       containers:
         - name: orca-server
-          image: ghcr.io/用户名/orca-server:latest
+          image: ghcr.io/gaoyangbenyang/orca-server:latest
           ports:
-            - containerPort: 5200
+            - name: http
+              containerPort: 5200
+              protocol: TCP
+          # 挂载文件存储
+          volumeMounts:
+            # 存储卷名称
+            - name: file-storage
+              # 存储卷路径
+              mountPath: /home/ubuntu/orca
+      # 定义文件存储卷
+      volumes:
+        - name: file-storage
+          persistentVolumeClaim:
+            claimName: orca-server-file-persistent-volume-claim
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: orca-server
-  namespace: default
+  name: orca-server-service
+  namespace: orca
 spec:
   type: ClusterIP
   selector:
     app: orca-server
   ports:
-    - port: 5200
+    - name: http
+      protocol: TCP
+      port: 5200
       targetPort: 5200
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: orca-server
-  namespace: default
+  name: orca-server-ingress
+  namespace: orca
 spec:
   # 使用 K3s 默认 Traefik
   ingressClassName: traefik
   rules:
     - http:
         paths:
-          # 默认路径
+          # api 路径
           - path: /api
             pathType: Prefix
             backend:
               service:
-                name: orca-server
+                name: orca-server-service
                 port:
                   number: 5200
+          # ws 路径
+          - path: /ws
+            pathType: Prefix
+            backend:
+              service:
+                name: orca-server-service
+                port:
+                  number: 5200
+          # druid 路径
+          - path: /druid
+            pathType: Prefix
+            backend:
+              service:
+                name: orca-server-service
+                port:
+                  number: 5200
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orca-server-file-persistent-volume-claim
+  namespace: orca
+spec:
+  # 单节点读写
+  accessModes:
+    - ReadWriteOnce
+  # 本地存储
+  storageClassName: orca-local
+  # 容量
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: orca-server-file-persistent-volume
+spec:
+  # 虚拟容量，只用于 Kubernetes 资源管理
+  capacity:
+    storage: 20Gi
+  # 单节点读写
+  accessModes:
+    - ReadWriteOnce
+  # 保留宿主机上的文件
+  persistentVolumeReclaimPolicy: Retain
+  # 使用本地存储
+  storageClassName: orca-local
+  local:
+    # 宿主机实际目录
+    path: /home/ubuntu/orca
+  # 将 PV 固定到 dev 节点
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - dev
 ```
 
-> 如果只是 `orca-client` 和 `orca-server` 在集群内部通信，建议使用 `ClusterIP`，而不是 `LoadBalancer`。只有需要从 Kubernetes 集群外部访问时，才需要考虑 `LoadBalancer` 或 `NodePort`。
+> 存储卷目录 `/home/ubuntu/orca` 需要提前创建。
+>
+> 1. 创建分片临时目录
+>
+> ```shell
+> sudo mkdir -p /home/ubuntu/orca/upload_chunks
+> ```
+>
+> 2. 创建最终文件目录
+> ```shell
+> sudo mkdir -p /home/ubuntu/orca/upload_files
+> ```
+>
+> 3. 查看目录
+> ```shell
+> ls -ld /home/ubuntu/orca/upload_chunks
+> ls -ld /home/ubuntu/orca/upload_files
+> ```
+>
+> 4. 确认 orca-server 容器运行用户
+> ```shell
+> kubectl exec -it $(kubectl get pod -l app=orca-server -o jsonpath='{.items[0].metadata.name}') -- id
+> ```
+> 
+> 5. 例如：uid=1000(app) gid=1000(app)，修改目录权限
+> 
+> ```shell
+> #将两个上传目录的所有权交给容器中的应用用户
+> sudo chown -R 1000:1000 /home/ubuntu/orca/upload_chunks
+> sudo chown -R 1000:1000 /home/ubuntu/orca/upload_files
+>
+> #确保应用用户具有读写权限
+> sudo chmod -R 755 /home/ubuntu/orca/upload_chunks
+> sudo chmod -R 755 /home/ubuntu/orca/upload_files
+> ```
+
+> 如果只是 `orca-client` 和 `orca-server` 在集群内部通信，建议使用 `ClusterIP`，而不是 `LoadBalancer`。
+>
+>只有需要从 Kubernetes 集群外部访问时，才需要考虑 `LoadBalancer` 或 `NodePort`。
 
 ---
 
@@ -392,11 +506,11 @@ kubectl delete -f ~/deployments/orca-client.yaml
 
 ## 6. Kubernetes Service 三种常见暴露方式
 
-| 类型 | 访问范围 | 典型用途 |
-|---|---|---|
-| `ClusterIP` | 仅集群内部 | 服务之间调用 |
-| `NodePort` | 集群外部，通过节点 IP + 端口访问 | 简单外部暴露 |
-| `LoadBalancer` | 集群外部 | 对外提供稳定服务入口 |
+| 类型             | 访问范围                | 典型用途       |
+|----------------|---------------------|------------|
+| `ClusterIP`    | 仅集群内部               | 服务之间调用     |
+| `NodePort`     | 集群外部，通过节点 IP + 端口访问 | 简单外部暴露     |
+| `LoadBalancer` | 集群外部                | 对外提供稳定服务入口 |
 
 ### 6.1 ClusterIP
 
@@ -495,11 +609,11 @@ Settings
 
 配置：
 
-| Secret | 说明 |
-|---|---|
-| `SSH_HOST` | K3s 服务器 IP 或域名 |
-| `SSH_USER` | SSH 登录用户名 |
-| `SSH_PRIVATE_KEY` | SSH 私钥 |
+| Secret            | 说明             |
+|-------------------|----------------|
+| `SSH_HOST`        | K3s 服务器 IP 或域名 |
+| `SSH_USER`        | SSH 登录用户名      |
+| `SSH_PRIVATE_KEY` | SSH 私钥         |
 
 ### 8.1 SSH 私钥
 
@@ -893,16 +1007,16 @@ NFS
 
 ### 核心组件
 
-| 组件 | 作用 |
-|---|---|
-| K3s | 轻量级 Kubernetes 集群 |
-| containerd | 容器运行时 |
-| GHCR | Docker 镜像仓库 |
-| Kubernetes Deployment | 管理应用 Pod |
-| Kubernetes Service | 提供服务发现和网络访问 |
-| GitHub Actions | CI/CD 自动化 |
-| SSH Action | 从 GitHub Actions 连接服务器 |
-| kubectl | Kubernetes 集群管理工具 |
+| 组件                    | 作用                     |
+|-----------------------|------------------------|
+| K3s                   | 轻量级 Kubernetes 集群      |
+| containerd            | 容器运行时                  |
+| GHCR                  | Docker 镜像仓库            |
+| Kubernetes Deployment | 管理应用 Pod               |
+| Kubernetes Service    | 提供服务发现和网络访问            |
+| GitHub Actions        | CI/CD 自动化              |
+| SSH Action            | 从 GitHub Actions 连接服务器 |
+| kubectl               | Kubernetes 集群管理工具      |
 
 ---
 
@@ -936,4 +1050,5 @@ NFS
 ⑫ rollout status 验证
 ```
 
-这套方案可以作为在单台服务器上的基础 K3s 部署方案，并可以进一步演进到多节点 K3s、Ingress、HTTPS、持久化存储、Secret 管理、监控告警以及 GitOps（例如 Argo CD）架构。
+这套方案可以作为在单台服务器上的基础 K3s 部署方案，并可以进一步演进到多节点 K3s、Ingress、HTTPS、持久化存储、Secret 管理、监控告警以及 GitOps（例如
+Argo CD）架构。

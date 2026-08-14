@@ -644,17 +644,19 @@ Settings
     script: |
       # 更新客户端镜像
       sudo kubectl set image deployment/orca-client \
-        orca-client=ghcr.io/${{ env.ACTOR_LC }}/orca-client:latest
+        orca-client=ghcr.io/${{ env.ACTOR_LC }}/orca-client:latest \
+        -n orca
 
       # 更新服务端镜像
       sudo kubectl set image deployment/orca-server \
-        orca-server=ghcr.io/${{ env.ACTOR_LC }}/orca-server:latest
+        orca-server=ghcr.io/${{ env.ACTOR_LC }}/orca-server:latest \
+        -n orca
 
       # 等待客户端滚动更新完成
-      sudo kubectl rollout status deployment/orca-client --timeout=120s
+      sudo kubectl rollout status deployment/orca-client --timeout=300s
 
       # 等待服务端滚动更新完成
-      sudo kubectl rollout status deployment/orca-server --timeout=120s
+      sudo kubectl rollout status deployment/orca-server --timeout=300s
 ```
 
 ---

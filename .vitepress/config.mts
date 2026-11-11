@@ -11,7 +11,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
         //左上角logo
-        logo: "../assets/logo.png",
+        logo: "../assets/logo.svg",
         // 导航栏
         nav: [
             {
@@ -103,6 +103,21 @@ export default defineConfig({
                                 }
                             ]
                         }
+                    ]
+            },
+            {
+                text: "Rust",
+                items:
+                    [
+                        {
+                            text: "Docs",
+                            items: [
+                                {
+                                    text: "Rust Docs",
+                                    link: "/docs/rust/RustDocs"
+                                }
+                            ]
+                        },
                     ]
             },
             {
@@ -343,7 +358,7 @@ export default defineConfig({
         //页脚
         footer: {
             message: "Released under the Apache-2.0 license.",
-            copyright: "Copyright © 2022 — 2025"
+            copyright: "Copyright © 2022 — 2026"
         },
         //侧边栏文字更改(移动端)
         sidebarMenuLabel: "目录",

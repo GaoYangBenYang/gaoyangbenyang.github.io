@@ -36,9 +36,9 @@ sidebar: false
 ## 注释
 
 > Rust 支持两种风格的注释：单行注释和文档注释。
-> 
+>
 > 单行注释以 `//` 开头。
-> 
+>
 > 文档注释以 `///` 开头，生成的文档会包含注释中的内容。
 
 ## 数据类型
@@ -51,7 +51,7 @@ sidebar: false
    > 整型是没有小数部分的数字，可以是正数、负数或零。
 
    | 长度   | 有符号   | 有符号区间                                                                              | 无符号   | 无符号区间                                       |
-   |------|-------|------------------------------------------------------------------------------------|-------|---------------------------------------------|
+                  |------|-------|------------------------------------------------------------------------------------|-------|---------------------------------------------|
    | 8    | i8    | -128 ~ 127                                                                         | u8    | 0 ~ 255                                     |
    | 16   | i16   | -32768 ~ 32767                                                                     | u16   | 0 ~ 65535                                   |
    | 32   | i32   | -2147483648 ~ 2147483647                                                           | u32   | 0 ~ 4294967295                              |
@@ -211,5 +211,133 @@ fn main() {
 }
 fn add(a: i32, b: i32) -> i32 {
     a + b
+}
+```
+
+## 控制流
+
+### 条件判断（关键字 `if`）
+
+> 在 Rust 中，条件判断使用 `if` 关键字。
+>
+> `if` 关键字后面跟着一个条件，条件为 `true` 时执行 `if` 块中的代码，否则执行 `else` 块中的代码。
+>
+
+```rust
+fn main() {
+    let number = 6;
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
+```
+
+### 循环（关键字 `loop`）
+
+> 在 Rust 中，循环使用 `loop` 关键字。
+>
+> `loop` 关键字后面跟着一个循环块，循环块中可以包含多个语句，最后一个语句的值作为返回值。
+>
+> 例如，`loop { println!("again!") }` 是一个无限循环，`println!("again!")` 的结果作为返回值。
+
+```rust
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+```
+
+1. 从循环返回值（关键字 `break`）
+
+> 在 Rust 中，可以使用 `break` 关键字从循环中返回值。
+>
+> `break` 关键字后面跟着一个可选的返回值，如果省略，则返回 `()`。
+>
+> 例如，`loop { break 42; }` 是一个循环，`break 42` 从循环中返回值 42。
+>
+> 例如，`loop { break; }` 是一个循环，`break` 从循环中返回值 `()`。
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+2. 循环标签：在多个循环之间消除歧义
+   > 在 Rust 中，可以使用循环标签来消除多个循环之间的歧义。
+   > 例如，`'outer: loop { loop { break 'outer; } }` 是一个循环，`break 'outer;` 从外层循环中返回值。
+
+### 循环（关键字 `while`）
+
+> 在 Rust 中，循环使用 `while` 关键字。
+>
+> `while` 关键字后面跟着一个条件，条件为 `true` 时执行循环块中的代码，否则执行 `else` 块中的代码。
+>
+> 例如，`while condition { println!("again!") }` 是一个循环，`condition` 为 `true` 时执行循环块中的代码，否则执行 `else` 块中的代码。
+
+```rust
+fn main() {
+    let mut number = 3;
+    while number != 0 {
+        println!("{number}!");
+        number -= 1;
+    }
+    println!("LIFTOFF!!!");
+}
+```
+
+### 循环（关键字 `for`）
+
+> 在 Rust 中，循环使用 `for` 关键字。
+>
+> `for` 关键字后面跟着一个循环块，循环块中可以包含多个语句，最后一个语句的值作为返回值。
+>
+> 例如，`for i in 0..3 { println!("again!") }` 是一个循环，`i` 从 0 到 3，`println!("again!")` 的结果作为返回值。
+
+```rust
+fn main() {
+    for i in 0..3 {
+        println!("again!");
+    }
+}
+```
+
+### 匹配（关键字 `match`）
+
+> 在 Rust 中，匹配使用 `match` 关键字。
+>
+> `match` 关键字后面跟着一个值和多个 arms，每个 arm 由一个模式和一个表达式组成。
+>
+> 例如，`match value { pattern1 => expression1, pattern2 => expression2, ... }` 是一个匹配，`value` 与 `pattern1` 匹配时执行 `expression1`，与
+`pattern2` 匹配时执行 `expression2`，依此类推。
+
+```rust
+fn main() {
+    let number = 6;
+    match number {
+        1 => println!("one"),
+        2 => println!("two"),
+        3 => println!("three"),
+        4 => println!("four"),
+        5 => println!("five"),
+        _ => println!("something else"),
+    }
 }
 ```
